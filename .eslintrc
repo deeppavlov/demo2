@@ -3,6 +3,7 @@
     "parser": "typescript-eslint-parser",
     "plugins": ["typescript"],
     "rules": {
-      "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }]
+      "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
+      "indent": [2, 2]
     }
 }

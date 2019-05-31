@@ -1,7 +1,15 @@
 {
-  "name": "idemo",
+  "name": "ipavlov-demo",
+  "description": "demo for deeppavlov models",
+  "keywords": [
+    "ipavlov",
+    "deeppavlov",
+    "ai",
+    "nlp",
+    "ml",
+    "chatbot"
+  ],
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@types/react": "^16.8.19",
     "@types/react-redux": "^7.0.9",
@@ -38,5 +46,7 @@
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0"
-  }
+  },
+  "author": "Vlad Abdulmyanov",
+  "license": "UNLICENSED"
 }
