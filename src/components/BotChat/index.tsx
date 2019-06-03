@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
+export { TEXTS } from './texts';
+
 interface OwnProps {
-    skillName: string;
-    skillDesc: string;
+    skill: {
+        title: string;
+        desc: string;
+    }
+    
 }
 
 type Props = OwnProps;
@@ -10,13 +15,13 @@ type Props = OwnProps;
 export default class BotChat extends Component<Props> {
 
     render() {
-        const { skillName, skillDesc } = this.props;
+        const { title, desc } = this.props.skill;
         return (
             <section>
-                <div>
-                    <h1>{skillName}</h1>
-                    <p>{skillDesc}</p>
-                </div>
+                <header>
+                    <h1>{title}</h1>
+                    <p>{desc}</p>
+                </header>
             </section>
         )
     }

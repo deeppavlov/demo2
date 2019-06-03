@@ -1,23 +1,34 @@
 import React from 'react';
 import './App.css';
 
+import BotChat, { TEXTS } from '../BotChat';
+
 function App() {
   return (
-    <div className="App">
+    <>
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          NLP Framework DeepPavlov for conversational AI development
+        </h1>
+        <div className="App-header-button">
+          REQUEST EXCLUSIVE DEVELOPMENT
+        </div>
       </header>
-    </div>
+      <main className="App-main">
+          <section className="App-main-header">
+            <h1>
+              NLP Framework DeepPavlov for conversational AI development
+            </h1>
+            <p>
+              Here you can test the components of our library. If you need our help with development or integration, leave a request here.
+            </p>
+            <p>
+              If you want to find out more about our lab and our services, check out our info page.
+            </p>
+          </section>
+          <BotChat skill={TEXTS.odqa.en}/>
+      </main>
+    </>
   );
 }
 
