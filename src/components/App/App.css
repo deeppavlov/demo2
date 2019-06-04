@@ -3,9 +3,11 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid #333;
-  position: absolute;
-  width: 90%;
-  left: 5%;
+  position: fixed;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 750px;
   top: 20px;
   background-color: #f2f2f2;
   padding: 10px 15px;
