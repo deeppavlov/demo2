@@ -1,0 +1,110 @@
+.container {
+
+  .title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .docker {
+    margin-top: 20px;
+    code {
+      color: dimgray;
+      background-color: #f6f8fa;
+      padding: 3px;
+    }
+    &:hover {
+      code {
+        color: darkgray;
+      }
+    }
+  }
+  .inputArea {
+    margin-top: 20px;
+    display: flex;
+
+    .inputs, .examples {
+      p {
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 0 0 0.5rem 0;
+      }
+    }
+
+    .inputs {
+      flex-grow: 2;
+      flex-shrink: 0;
+      margin-right: 20px;
+      div {
+        margin-top: 20px;
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+      input, textarea {
+        width: 100%;
+        font-size: 1rem;
+        border: 0;
+        border: 1px solid lightgray;
+        border-radius: .25rem;
+        padding: 10px 5px;
+      }
+      textarea {
+        resize: vertical;
+        height: 5.5rem;
+      }
+    }
+    .examples {
+      max-width: 30%;
+      .active {
+        color: #007bff;
+        border-color: #007bff;
+      }
+      div {
+        cursor: pointer;
+        padding: 10px 5px;;
+        border: 1px solid lightgray;
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        
+        &:hover {
+          color: #007bff;
+        }
+        &:first-of-type {
+          border-top-left-radius: .25rem;
+          border-top-right-radius: .25rem;
+        }
+        &:last-of-type {
+          border-bottom-left-radius: .25rem;
+          border-bottom-right-radius: .25rem;
+        }
+      }
+    }
+  }
+
+  .button {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    margin-top: 20px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  }
+}

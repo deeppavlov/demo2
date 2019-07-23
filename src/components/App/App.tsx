@@ -5,7 +5,8 @@ import style from './App.module.scss';
 import Nav from '../Nav';
 import header from './header.png';
 
-import { TextQA } from '../skills/en';
+import { TextQA as TextQAen, ODQA } from '../skills/en';
+import { TextQA as TextQAml, NER as NERml} from '../skills/mu';
 
 class App extends Component {
 
@@ -18,7 +19,10 @@ class App extends Component {
         </header>
         <main className={style.main}>
           <Switch>
-            <Route path="/en/textqa" exact component={TextQA}/>
+            <Route path="/en/textqa" exact component={TextQAen}/>
+            <Route path="/en/odqa" exact component={ODQA}/>
+            <Route path="/mu/textqa" exact component={TextQAml}/>
+            <Route path="/mu/ner" exact component={NERml}/>
           </Switch>
         </main>
       </BrowserRouter>

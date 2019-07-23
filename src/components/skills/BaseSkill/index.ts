@@ -4,8 +4,14 @@ export interface DispatchProps {
   updateStore: (messages: any[]) => void;
 }
 
+export interface Answer {
+  question: string;
+  answer: string[][];
+  [key: string]: string | string[][];
+}
+
 export interface StateProps {
-  answers?: any[];
+  answers?: Answer[];
 }
 
 export interface Input {
@@ -15,16 +21,17 @@ export interface Input {
 }
 
 export interface Example {
-  example: string;
+  question: string;
   // following key are equals to inputs names
   [key: string]: string;
 }
 
-export interface BaseSkillProps<Req = any, Res = any> {
+export interface BaseSkillProps<Req, Res> {
   title: string;
   desc: JSX.Element;
   docker?: string;
   inputs: Input[];
   examples: Example[];
-  api?: (request: Req) => Promise<Res>;
+  api: (request: Req) => Promise<Res>;
+  renderAnswer?: (messages: string[]) => JSX.Element;
 }

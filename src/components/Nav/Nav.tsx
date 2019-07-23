@@ -51,7 +51,7 @@ class Nav extends Component<Props, State> {
 
   langChange = (lang: 'ru' | 'en' | 'mu') => () => {
     const { history } = this.props;
-    history.push(`/${lang}`);
+    history.push(`/${lang}/${ROUTES[lang][0].link}`);
     this.setState({ lang });
   }
 
