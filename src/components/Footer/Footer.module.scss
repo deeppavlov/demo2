@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 200px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  z-index: 100;
+
+  img {
+    height: 20px;
+  }
+
+  > a {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.contactUs {
+  font-size: 20px;
+  width: 50%;
+  margin-right: auto;
+}

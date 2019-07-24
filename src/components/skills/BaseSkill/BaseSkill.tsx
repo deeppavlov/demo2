@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from 'react';
+import React, { Component, ChangeEvent, createRef } from 'react';
 import cn from 'classnames';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
@@ -17,6 +17,7 @@ interface State {
 
 class BaseSkill extends Component<Props, State> {
   lang: 'ru' | 'en' | 'mu';
+  answersRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
     super(props);
@@ -27,6 +28,7 @@ class BaseSkill extends Component<Props, State> {
     });
     this.state = initState;
     this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
+    this.answersRef = createRef();
   }
 
   isRTL = (s: string) => {
@@ -74,14 +76,45 @@ class BaseSkill extends Component<Props, State> {
     );
   }
 
-  renderAnswers = (mes: Answer, i: number) => {
+  renderAnswers = (answers: Answer[]) => {
     const { renderAnswer } = this.props;
+    if (!renderAnswer || renderAnswer === 'basic' || renderAnswer === 'textqa') {
+      return answers.map(this.renderBasic);
+    } else if (renderAnswer === 'ner') {
+      return answers.map(this.renderNer);
+    }
+  }
+
+  renderNer = (mes: Answer, i: number) => {
+
+    const { answer } = mes;
+    const classes: string[] = [];
+    // AWESOME MAGIC
+    answer[1].forEach((value: string) => {
+      if (value !== 'O') {
+        classes.push(value.replace('I-', '').replace('B-', ''));
+      } else {
+        classes.push('');
+      }
+    });
+    const toRender = answer[0].map((item: string, i: number) => {
+      if (classes[i]) {
+        return `<span class="card ${classes[i].toLowerCase()}">${item}</span>`;
+      }
+      return item;
+    }).join(' ');
+    return (
+      <div dir={this.isRTL(toRender)} className={style.ner} key={i} dangerouslySetInnerHTML={{ __html: toRender }}/>
+    );
+  }
+
+  renderBasic = (mes: Answer, i: number) => {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
     return (
-      <div dir={this.isRTL(mes.question)} key={i}>
-        <p>{renderAnswer ? renderAnswer(mes.answer[0]) : mes.answer[0]}</p>
+      <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
+        <p>{mes.answer[0]}</p>
         <p>{mes.question}</p>
         {Object.keys(rest).map((item, i) => <p key={i}>{rest[item]}</p>)}
       </div>
@@ -98,6 +131,11 @@ class BaseSkill extends Component<Props, State> {
       messages = [{ ...this.state, answer: response.data[0] }];
     }
     updateStore(messages);
+    const { top } = this.answersRef!.current!.getBoundingClientRect();
+    window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -130,15 +168,17 @@ class BaseSkill extends Component<Props, State> {
         <div className={style.inputArea}>
           <div className={style.inputs}>
             {inputs.map(this.renderInput)}
-            <button onClick={this.onAsk} className={style.button}>{this.lang === 'en' ? 'Ask' : 'Спросить'}</button>
+            <button onClick={this.onAsk} className={style.button}>{this.lang !== 'ru' ? 'Ask' : 'Спросить'}</button>
           </div>
           <div className={style.examples}>
-            <p>{this.lang === 'en' ? 'Examples' : 'Примеры'}</p>
+            <p>{this.lang !== 'ru' ? 'Examples' : 'Примеры'}</p>
             {examples.map(this.renderExamples)}
           </div>
         </div>
-
-        {answers && answers.map(this.renderAnswers)}
+        <div className={style.answers} id="answers" ref={this.answersRef}>
+          {answers &&  <p>{this.lang !== 'ru' ? 'Answers' : 'Ответы'}</p>}
+          {answers && (this.renderAnswers(answers))}
+        </div>
       </div>
     );
   }

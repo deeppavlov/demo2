@@ -46,3 +46,75 @@ a:visited {
   text-decoration: none;
   color: #007bff;
 }
+
+.card {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  cursor: help;
+  color: white;
+}
+.margin_r {
+  margin-right: 7px;
+}
+
+.person {
+  background-color: #007bff;
+}
+.norp {
+  background-color: #dc3545;
+}
+.org {
+  background-color: #17a2b8;
+}
+.loc {
+  background-color: #28a745;
+}
+.gpe {
+  background-color: #ffc107;
+}
+.date {
+  background-color: #343a40;
+}
+.money {
+  background-color: #6c757d;
+}
+.fac {
+  background-color: #6c757d;
+}
+.product {
+  background-color: #6c757d;
+}
+.event {
+  background-color: #6c757d;
+}
+.work_of_art {
+  background-color: #6c757d;
+}
+.law {
+  background-color: #6c757d;
+}
+.language {
+  background-color: #6c757d;
+}
+.time {
+  background-color: #6c757d;
+}
+.percent {
+  background-color: #6c757d;
+}
+.quantity {
+  background-color: #6c757d;
+}
+.ordinal {
+  background-color: #6c757d;
+}
+.cardinal {
+  background-color: #6c757d;
+}

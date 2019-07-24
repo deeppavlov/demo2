@@ -86,7 +86,7 @@ const config: BaseSkillProps<Req, Res> = {
   },
 };
 
-const TexqQA = skillWrapper<Req, Res>('textqaen');
+const TexqQA = skillWrapper<Req, Res>('textqamu');
 export default function () {
   return <TexqQA {...config}/>;
 }

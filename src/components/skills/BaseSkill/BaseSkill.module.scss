@@ -57,19 +57,27 @@
     .examples {
       max-width: 30%;
       .active {
-        color: #007bff;
-        border-color: #007bff;
+        background-color: lightgray;
+        font-weight: 400;
+        &:hover {
+          color: #333;
+        }
       }
       div {
         cursor: pointer;
-        padding: 10px 5px;;
+        padding: 10px 5px;
         border: 1px solid lightgray;
+        color: #333;
         white-space: nowrap;
         overflow: hidden; 
         text-overflow: ellipsis; 
-        
+        margin: 0;
+        position: relative;
+        display: block;
+        margin-bottom: -1px;
+
         &:hover {
-          color: #007bff;
+          color: lightgray;
         }
         &:first-of-type {
           border-top-left-radius: .25rem;
@@ -105,6 +113,44 @@
       color: #fff;
       background-color: #0069d9;
       border-color: #0062cc;
+    }
+  }
+
+  .answers {
+    color: #333;
+    margin-top: 40px;
+    overflow-y: scroll;
+    max-height: 450px;
+    margin-top: 15px;
+    border-radius: .25rem;
+    font-size: 18px !important;
+    margin-bottom: 100px;
+    background: linear-gradient(white,white, #efefef);
+    // title
+    >p {
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 0 0 0.5rem 0;
+    }
+    // answer
+    > div {
+      border: 1px solid lightgray;
+      border-radius: .25rem;
+      padding: 20px;
+      margin: 0 20px 20px 20px;
+      background-color: white;
+    }
+
+    > .basic {
+      p:first-of-type {
+        font-weight: 500;
+        color: darkblue;
+      }
+      p:last-of-type {
+        border-top: 1px solid lightgray;
+        margin-top: 12px;
+        padding-top: 12px;
+      }
     }
   }
 }

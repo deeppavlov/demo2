@@ -2,14 +2,16 @@
 import React from 'react';
 import skillWrapper, { BaseSkillProps } from '../BaseSkill';
 import api, { Res, StoreReq } from '../../../lib/api';
+import { renderNerClasses, ontonotesClasses } from '../utils';
 
 const config: BaseSkillProps<StoreReq, Res> = {
   title: 'Name Entity Recognition',
   desc: <p>
-    Question Answering component answers a question based on a given context (e.g, a paragraph of text),
-     where the answer to the question is a segment of the context.
-     This component allows you to answer questions based on your documentation.
-     To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html" target="_blank" rel="noopener noreferrer">documentation.</a>
+    Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as <b>person names</b>, <b>quantity expressions</b>, <b>percentage expressions</b>, <b>names of locations</b>, <b>organizations</b>, as well as expression of <b>time</b>, <b>currency</b> and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html" target="_blank" rel="noopener noreferrer">documentation.</a>
+    <br/><br/>
+    Hover over an entity to see its class description
+    <br/>
+    Classes: {renderNerClasses(ontonotesClasses)}
     </p>,
   docker: 'deeppavlov/ner_ml',
   inputs: [{
@@ -31,9 +33,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     question: 'Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu. İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi. Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.',
   }],
   api: api('https://7013.lnsigo.mipt.ru/answer'),
-  renderAnswer: (answer: string[]) => {
-    return <div>{answer.join(' ')}</div>;
-  },
+  renderAnswer: 'ner',
 };
 
 const NEW = skillWrapper<StoreReq, Res>('odqaen');

@@ -33,5 +33,5 @@ export interface BaseSkillProps<Req, Res> {
   inputs: Input[];
   examples: Example[];
   api: (request: Req) => Promise<Res>;
-  renderAnswer?: (messages: string[]) => JSX.Element;
+  renderAnswer?: 'basic' | 'ner' | 'textqa';
 }

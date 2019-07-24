@@ -3,10 +3,11 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import style from './App.module.scss';
 
 import Nav from '../Nav';
+import Footer from '../Footer';
 import header from './header.png';
 
 import { TextQA as TextQAen, ODQA } from '../skills/en';
-import { TextQA as TextQAml, NER as NERml} from '../skills/mu';
+import { TextQA as TextQAml, NER as NERml } from '../skills/mu';
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/mu/ner" exact component={NERml}/>
           </Switch>
         </main>
+        <Footer/>
       </BrowserRouter>
     );
   }
