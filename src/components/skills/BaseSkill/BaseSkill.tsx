@@ -126,14 +126,20 @@ class BaseSkill extends Component<Props, State> {
         classes.push('');
       }
     });
+    let prev = '';
     const toRender = answer[0].map((item: string, i: number) => {
-      if (classes[i]) {
+      // B = begin of token
+      console.log(answer[1][i].substring(0, 1));
+      if (answer[1][i].substring(0, 1) === 'B') {
         const color =  colors![classes[i]];
-        if (classes[i + 1] === classes[i]) {
-          return `<span class="card" style="background: ${color};">${item} </span>`;
-        } else {
-          return `<span class="card" style="background: ${color};">${item}</span> `;
-        }
+        prev = 'B';
+        return `<span class="card" style="background: ${color};">${item} `;
+      } else if (answer[1][i].substring(0, 1) === 'I') {
+        prev = 'I';
+        return `${item} `;
+      }
+      if (prev) {
+        return `</span> ${item} `;
       }
       return `${item} `;
     }).join('');

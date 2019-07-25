@@ -2,6 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121416192-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-121416192-4');
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#237afc"
+                    },
+                    "button": {
+                        "background": "#fff",
+                        "text": "#237afc"
+                    }
+                },
+                "showLink": false,
+                "position": "bottom-right",
+                "content": {
+                    "message": "This website uses cookies. By continuing to use this site, you accept our use of cookies.",
+                    "dismiss": "ACCEPT &amp; CLOSE"
+                }
+            })});
+    </script>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
