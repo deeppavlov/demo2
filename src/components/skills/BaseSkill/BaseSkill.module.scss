@@ -13,9 +13,11 @@
       background-color: #f6f8fa;
       padding: 3px;
     }
-    &:hover {
-      code {
-        color: darkgray;
+    > a {
+       &:hover {
+        code {
+          color: darkgray;
+        }
       }
     }
   }
@@ -36,7 +38,7 @@
       flex-shrink: 0;
       margin-right: 20px;
       div {
-        margin-top: 20px;
+        margin-top: 34px;
         &:first-of-type {
           margin-top: 0;
         }
@@ -47,15 +49,15 @@
         border: 0;
         border: 1px solid lightgray;
         border-radius: .25rem;
-        padding: 10px 5px;
+        padding: 12px 15px;
       }
       textarea {
         resize: vertical;
-        height: 5.5rem;
+        height: 100px;
       }
     }
     .examples {
-      max-width: 30%;
+      max-width: 35%;
       .active {
         background-color: lightgray;
         font-weight: 400;
@@ -65,7 +67,7 @@
       }
       div {
         cursor: pointer;
-        padding: 10px 5px;
+        padding: 12px 15px;
         border: 1px solid lightgray;
         color: #333;
         white-space: nowrap;

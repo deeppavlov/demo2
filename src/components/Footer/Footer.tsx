@@ -37,7 +37,7 @@ class Nav extends Component<Props, State> {
         <div className={style.contactUs}>
             <p>{
               lang !== 'ru' ? 'You can train this model on your own data, or we can do it for you, contact ' :
-              'Вы можете обучить эту модель на своих данныхб или мы можем сделать это за вас, напишите нам '
+              'Вы можете обучить эту модель на своих данных или мы можем сделать это за вас, напишите нам '
             }
             <a href="mailto:partner@ipavlov.ai">partner@ipavlov.ai</a></p>
         </div>

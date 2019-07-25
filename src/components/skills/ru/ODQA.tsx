@@ -1,0 +1,38 @@
+// tslint:disable: max-line-length
+import React from 'react';
+import skillWrapper, { BaseSkillProps } from '../BaseSkill';
+import api, { Res, StoreReq } from '../../../lib/api';
+
+const config: BaseSkillProps<StoreReq, Res> = {
+  title: 'Ответы на вопросы',
+  desc: <p>
+    Open Domain Question Answering (ODQA) - это задача поиска ответа на любой вопрос внутри коллекции документов, например, в Википедии.
+     Решение задачи идет в два шага: сначала подбираются релевантные документы, затем в тексте каждого выбирается фраза, предположительно содержащая ответ, и наиболее подходящий отображается на экране.
+     Представленный здесь скил ищет ответы в русскоязычной Википедии.
+     Бизнес решения на основе ODQA - это, например, диалоговые ассистенты, отвечающие на вопросы по корпоративным базам знаний, справочной и технической документации.
+    <br/><br/> Основы практического использования описано в нашем туториале на
+    <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65" target="_blank" rel="noopener noreferrer"> Medium </a>
+    и в <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html" target="_blank" rel="noopener noreferrer">документации.</a>
+    </p>,
+  docker: 'deeppavlov/odqa_ru',
+  inputs: [{
+    title: 'Введите вопрос',
+    type: 'text',
+    name: 'question',
+  }],
+  examples: [{
+    question: 'Как отводятся излишки тепла у млекопитающих?',
+  }, {
+    question: 'Сколько детей родилось в 2008 году у граждан Швейцарии?',
+  }, {
+    question: 'Какое государство берберов считается последним?',
+  }, {
+    question: 'Где расположен международный аэропорт Никола Тесла?',
+  }],
+  api: api('https://7012.lnsigo.mipt.ru/answer'),
+};
+
+const ODQA = skillWrapper<StoreReq, Res>('odqaru');
+export default function () {
+  return <ODQA {...config}/>;
+}

@@ -26,6 +26,11 @@ export interface Example {
   [key: string]: string;
 }
 
+interface RenderAnswer {
+  type: 'basic' | 'ner' | 'textqa' | 'ranking' | 'intent';
+  colors?: { [key: string]: string };
+}
+
 export interface BaseSkillProps<Req, Res> {
   title: string;
   desc: JSX.Element;
@@ -33,5 +38,5 @@ export interface BaseSkillProps<Req, Res> {
   inputs: Input[];
   examples: Example[];
   api: (request: Req) => Promise<Res>;
-  renderAnswer?: 'basic' | 'ner' | 'textqa';
+  renderAnswer?: RenderAnswer;
 }

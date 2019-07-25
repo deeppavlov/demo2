@@ -64,7 +64,7 @@ class BaseSkill extends Component<Props, State> {
 
   onExample =  (ex: Example) => async () => {
     await this.setState(ex);
-    this.onAsk();
+    // this.onAsk();
   }
 
   renderExamples = (ex: Example, i: number) => {
@@ -78,16 +78,45 @@ class BaseSkill extends Component<Props, State> {
 
   renderAnswers = (answers: Answer[]) => {
     const { renderAnswer } = this.props;
-    if (!renderAnswer || renderAnswer === 'basic' || renderAnswer === 'textqa') {
+    if (!renderAnswer || renderAnswer.type === 'basic' || renderAnswer.type === 'textqa') {
       return answers.map(this.renderBasic);
-    } else if (renderAnswer === 'ner') {
+    } else if (renderAnswer.type === 'ner') {
       return answers.map(this.renderNer);
+    } else if (renderAnswer.type === 'ranking') {
+      return answers.map(this.renderRanking);
+    } else if (renderAnswer.type === 'intent') {
+      return answers.map(this.renderIntent);
     }
   }
 
-  renderNer = (mes: Answer, i: number) => {
+  renderRanking = (mes: Answer, i: number) => {
+    return (
+      <div>
+        <p>{mes.question}</p>
+        <ul key={i}>
+          {mes.answer[0].map((item, i) => <li key={i}>{item}</li>)}
+        </ul>
+      </div>
+    );
+  }
 
+  renderIntent = (mes: Answer, i: number) => {
+    const { colors } = this.props.renderAnswer!;
+    return (
+      <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
+        <p>
+          <span className="card" style={{ backgroundColor: colors![mes.answer[0][0]] }}>
+            {mes.answer[0]}
+          </span>
+        </p>
+        <p>{mes.question}</p>
+      </div>
+    )
+  }
+
+  renderNer = (mes: Answer, i: number) => {
     const { answer } = mes;
+    const { colors } = this.props.renderAnswer!;
     const classes: string[] = [];
     // AWESOME MAGIC
     answer[1].forEach((value: string) => {
@@ -99,10 +128,15 @@ class BaseSkill extends Component<Props, State> {
     });
     const toRender = answer[0].map((item: string, i: number) => {
       if (classes[i]) {
-        return `<span class="card ${classes[i].toLowerCase()}">${item}</span>`;
+        const color =  colors![classes[i]];
+        if (classes[i + 1] === classes[i]) {
+          return `<span class="card" style="background: ${color};">${item} </span>`;
+        } else {
+          return `<span class="card" style="background: ${color};">${item}</span> `;
+        }
       }
-      return item;
-    }).join(' ');
+      return `${item} `;
+    }).join('');
     return (
       <div dir={this.isRTL(toRender)} className={style.ner} key={i} dangerouslySetInnerHTML={{ __html: toRender }}/>
     );
@@ -136,6 +170,7 @@ class BaseSkill extends Component<Props, State> {
       top,
       behavior: 'smooth',
     });
+    this.answersRef!.current!.scrollTop = 0;
   }
 
   render() {
@@ -176,7 +211,7 @@ class BaseSkill extends Component<Props, State> {
           </div>
         </div>
         <div className={style.answers} id="answers" ref={this.answersRef}>
-          {answers &&  <p>{this.lang !== 'ru' ? 'Answers' : 'Ответы'}</p>}
+          {answers &&  <p>{this.lang !== 'ru' ? 'Results' : 'Результаты'}</p>}
           {answers && (this.renderAnswers(answers))}
         </div>
       </div>

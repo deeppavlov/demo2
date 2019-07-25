@@ -15,14 +15,14 @@ const ROUTES = {
     { title: 'Ответы на вопросы по тексту', link: 'textqa' },
     { title: 'Ответы на вопросы', link: 'odqa' },
     { title: 'Распознование именованных сущностей', link: 'ner' },
-    { title: 'Анализ тональности', link: 'insult' },
+    { title: 'Анализ тональности', link: 'sentiment' },
   ],
   en: [
     { title: 'Text QA', link: 'textqa' },
     { title: 'ODQA', link: 'odqa' },
     { title: 'Ranking', link: 'ranking' },
     { title: 'Entity recognition', link: 'ner' },
-    { title: 'Intent classification', link: 'intent-classification' },
+    { title: 'Intent classification', link: 'intent' },
     { title: 'Insult detection', link: 'insult' },
   ],
   mu: [

@@ -33,10 +33,10 @@ const config: BaseSkillProps<StoreReq, Res> = {
     question: 'Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu. İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi. Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.',
   }],
   api: api('https://7013.lnsigo.mipt.ru/answer'),
-  renderAnswer: 'ner',
+  renderAnswer: { type: 'ner', colors: ontonotesClasses },
 };
 
-const NEW = skillWrapper<StoreReq, Res>('odqaen');
+const NER = skillWrapper<StoreReq, Res>('nermu');
 export default function () {
-  return <NEW {...config}/>;
+  return <NER {...config}/>;
 }
