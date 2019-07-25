@@ -129,7 +129,6 @@ class BaseSkill extends Component<Props, State> {
     let prev = '';
     const toRender = answer[0].map((item: string, i: number) => {
       // B = begin of token
-      console.log(answer[1][i].substring(0, 1));
       if (answer[1][i].substring(0, 1) === 'B') {
         const color =  colors![classes[i]];
         prev = 'B';
@@ -139,6 +138,7 @@ class BaseSkill extends Component<Props, State> {
         return `${item} `;
       }
       if (prev) {
+        prev = '';
         return `</span> ${item} `;
       }
       return `${item} `;
