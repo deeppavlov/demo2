@@ -31,6 +31,14 @@ class BaseSkill extends Component<Props, State> {
     this.answersRef = createRef();
   }
 
+  componentDidMount () {
+    const { title } = this.props;
+    window.gtag('event', 'view_item', {
+      event_category: 'Open page',
+      event_label: `${title} ${this.lang}`,
+    });
+  }
+
   isRTL = (s: string) => {
     const ltrChars = 'A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF' +
       '\u2C00-\uFB1C\uFDFE-\uFE6F\uFEFD-\uFFFF';
@@ -111,7 +119,7 @@ class BaseSkill extends Component<Props, State> {
         </p>
         <p>{mes.question}</p>
       </div>
-    )
+    );
   }
 
   renderNer = (mes: Answer, i: number) => {
@@ -162,7 +170,7 @@ class BaseSkill extends Component<Props, State> {
   }
 
   onAsk =  async () => {
-    const { api, updateStore } = this.props;
+    const { api, updateStore, title } = this.props;
     let messages = this.props.answers;
     const response = await api(this.state);
     if (messages) {
@@ -170,6 +178,10 @@ class BaseSkill extends Component<Props, State> {
     } else {
       messages = [{ ...this.state, answer: response.data[0] }];
     }
+    window.gtag('event', 'view_item', {
+      event_category: 'Made request',
+      event_label: `${title} ${this.lang}`,
+    });
     updateStore(messages);
     const { top } = this.answersRef!.current!.getBoundingClientRect();
     window.scrollTo({
