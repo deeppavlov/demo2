@@ -65,7 +65,8 @@
           color: #333;
         }
       }
-      div {
+      button {
+        width: 100%;
         cursor: pointer;
         padding: 12px 15px;
         border: 1px solid lightgray;
@@ -77,9 +78,13 @@
         position: relative;
         display: block;
         margin-bottom: -1px;
-
-        &:hover {
+        font-size: 1rem;
+        text-align: left;
+        &:hover, &:focus {
           color: lightgray;
+          box-shadow: none;
+          background-color: inherit;
+          border-color: inherit;
         }
         &:first-of-type {
           border-top-left-radius: .25rem;
@@ -114,7 +119,7 @@
     &:hover {
       color: #fff;
       background-color: #0069d9;
-      border-color: #0062cc;
+      border-color: #0069d9;
     }
   }
 
@@ -154,5 +159,91 @@
         padding-top: 12px;
       }
     }
+  }
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: rgba(0,0,0, 0.7);
+  z-index: 10;
+
+  .error {
+    font-size: 2rem;
+    color: white;
+    width: 50%;
+  }
+
+  .close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: 1;
+    }
+    &:before, &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 33px;
+      width: 2px;
+      background-color: white;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.ldsRing {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid #007bff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #007bff transparent transparent transparent;
+  }
+  div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

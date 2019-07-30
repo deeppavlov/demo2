@@ -8,6 +8,11 @@ type Props =  RouteComponentProps;
 
 interface State {
   lang: 'ru' | 'en' | 'mu';
+  component: {
+    ru: string;
+    en: string;
+    mu: string;
+  };
 }
 
 const ROUTES = {
@@ -36,22 +41,47 @@ class Nav extends Component<Props, State> {
     super(props);
     this.state = {
       lang: 'en',
+      component: {
+        ru: '',
+        en: '',
+        mu: '',
+      },
+    };
+  }
+
+  static getDerivedStateFromProps (props: Props, state: State) {
+    const { location: { pathname } } = props;
+    const { component } = state;
+    return {
+      lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu',
+      component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
     };
   }
 
   componentDidMount() {
     const { location: { pathname }, history } = this.props;
+    const { component } = this.state;
     if (pathname === '/') {
       history.push(`/en/${ROUTES.en[0].link}`);
-      this.setState({ lang: 'en' });
+      this.setState({ lang: 'en', component: { ...component, en:ROUTES.en[0].link } });
     } else {
-      this.setState({ lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu' });
+      this.setState({
+        lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu',
+        component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
+      });
     }
   }
 
   langChange = (lang: 'ru' | 'en' | 'mu') => () => {
+    if (this.state.lang === lang) return;
+
+    const { component } = this.state;
+    let newRoute = ROUTES[lang][0].link;
+    if (component[lang]) {
+      newRoute = component[lang];
+    }
     const { history } = this.props;
-    history.push(`/${lang}/${ROUTES[lang][0].link}`);
+    history.push(`/${lang}/${newRoute}`);
     this.setState({ lang });
   }
 

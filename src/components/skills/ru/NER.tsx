@@ -6,7 +6,7 @@ import { renderNerClasses, ruNerStyles } from '../utils';
 
 const config: BaseSkillProps<StoreReq, Res> = {
   title: 'Распознавание именованных сущностей',
-  desc: <p>
+  desc: <div>
     NER (Named Entity Recognition) - компонент для распознавания именованных сущностей.
      Задача заключается в классификации токенов текста по известным категориям - тэгам: имена людей, количество, локации, организации, время и дата, цена и валюта, и т.п.
     <br/><br/>
@@ -16,7 +16,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     <br/><br/> NER - существенная часть любой диалоговой системы, которая необходима для извлечения машиной информации из текста.
     <br/>
     Сущности: {renderNerClasses(ruNerStyles)}
-    </p>,
+    </div>,
   docker: 'deeppavlov/ner_ru',
   inputs: [{
     title: 'Введите текст',

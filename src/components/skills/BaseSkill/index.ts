@@ -2,6 +2,8 @@ export { default } from './BaseSkill';
 
 export interface DispatchProps {
   updateStore: (messages: any[]) => void;
+  dispatchLoading: () => void;
+  safeComponentState: (state: any) => void;
 }
 
 export interface Answer {
@@ -11,7 +13,9 @@ export interface Answer {
 }
 
 export interface StateProps {
+  loading?: boolean;
   answers?: Answer[];
+  componentState?: any;
 }
 
 export interface Input {
@@ -28,7 +32,7 @@ export interface Example {
 
 interface RenderAnswer {
   type: 'basic' | 'ner' | 'textqa' | 'ranking' | 'intent';
-  colors?: { [key: string]: string };
+  colors?: { [key: string]: {color: string} };
 }
 
 export interface BaseSkillProps<Req, Res> {

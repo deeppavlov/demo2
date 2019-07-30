@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { State as Store, updatestore } from '../../../lib/store';
+import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
 
 import style from './BaseSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -11,6 +11,7 @@ import style from './BaseSkill.module.scss';
 import { BaseSkillProps, DispatchProps, StateProps, Example, Input, Answer } from './';
 type Props<Req = any, Res = any> = BaseSkillProps<Req, Res> & DispatchProps & StateProps & RouteComponentProps;
 interface State {
+  error: any;
   question: string;
   [key:string]: string;
 }
@@ -21,11 +22,15 @@ class BaseSkill extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { inputs, examples, location: { pathname } } = props;
-    const initState: any = {};
-    inputs.forEach((input: Input) => {
-      initState[`${input.name}`] = examples[0][input.name];
-    });
+    const { inputs, examples, location: { pathname }, componentState } = props;
+    let initState: any = {};
+    if (componentState) {
+      initState = componentState;
+    } else {
+      inputs.forEach((input: Input) => {
+        initState[`${input.name}`] = examples[0][input.name];
+      });
+    }
     this.state = initState;
     this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
     this.answersRef = createRef();
@@ -37,6 +42,11 @@ class BaseSkill extends Component<Props, State> {
       event_category: 'Open page',
       event_label: `${title} ${this.lang}`,
     });
+  }
+
+  componentWillUnmount () {
+    const { safeComponentState } = this.props;
+    safeComponentState(this.state);
   }
 
   isRTL = (s: string) => {
@@ -78,9 +88,10 @@ class BaseSkill extends Component<Props, State> {
   renderExamples = (ex: Example, i: number) => {
     const { question } = this.state;
     return (
-      <div className={cn(question === ex.question && style.active)} onClick={this.onExample(ex)} key={i} >
+      <button
+        type='button' className={cn(question === ex.question && style.active)} onClick={this.onExample(ex)} key={i} >
         {ex.question}
-      </div>
+      </button>
     );
   }
 
@@ -113,7 +124,7 @@ class BaseSkill extends Component<Props, State> {
     return (
       <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>
-          <span className="card" style={{ backgroundColor: colors![mes.answer[0][0]] }}>
+          <span className="card" style={{ backgroundColor: colors![mes.answer[0][0]].color! }}>
             {mes.answer[0]}
           </span>
         </p>
@@ -138,9 +149,11 @@ class BaseSkill extends Component<Props, State> {
     const toRender = answer[0].map((item: string, i: number) => {
       // B = begin of token
       if (answer[1][i].substring(0, 1) === 'B') {
-        const color =  colors![classes[i]];
+        let toreturn = '';
+        if (prev === 'B') { toreturn = '</span>'; }
+        const color =  colors![classes[i]].color;
         prev = 'B';
-        return `<span class="card" style="background: ${color};">${item} `;
+        return `${toreturn}<span class="card" style="background: ${color};">${item} `;
       } else if (answer[1][i].substring(0, 1) === 'I') {
         prev = 'I';
         return `${item} `;
@@ -170,9 +183,14 @@ class BaseSkill extends Component<Props, State> {
   }
 
   onAsk =  async () => {
-    const { api, updateStore, title } = this.props;
+    const { api, updateStore, title, dispatchLoading } = this.props;
+    dispatchLoading();
     let messages = this.props.answers;
-    const response = await api(this.state);
+    const response = await api(this.state).catch((error) => {
+      dispatchLoading();
+      console.error(error);
+      this.setState({ error: true });
+    });
     if (messages) {
       messages.splice(0, 0, { ...this.state, answer: response.data[0] });
     } else {
@@ -191,10 +209,25 @@ class BaseSkill extends Component<Props, State> {
     this.answersRef!.current!.scrollTop = 0;
   }
 
+  onErrorClose = () => this.setState({ error: false });
+
   render() {
-    const { title, desc, answers, docker, inputs, examples } = this.props;
+    const { title, desc, answers, docker, inputs, examples, loading } = this.props;
+    const { error } = this.state;
     return (
       <div className={style.container}>
+        {loading && <div className={style.modal}>
+          <div className={style.ldsRing}><div/><div/><div/><div/></div>
+        </div>}
+        {error && <div className={style.modal} onClick={this.onErrorClose}>
+          <div className={style.close}/>
+          <div className={style.error}>
+            {this.lang !== 'ru' ?
+              'Sorry, some error appears. Please, try again later.' :
+              'Извините, произошла ошибка. Пожалуйста, попробуйте позднее.'
+            }
+          </div>
+        </div>}
         <p className={style.title}>{title}</p>
         {desc && <div>{desc}</div>}
         {docker && (
@@ -219,10 +252,12 @@ class BaseSkill extends Component<Props, State> {
           </div>
         )}
         <div className={style.inputArea}>
-          <div className={style.inputs}>
+          <form className={style.inputs} onSubmit={this.onAsk}>
             {inputs.map(this.renderInput)}
-            <button onClick={this.onAsk} className={style.button}>{this.lang !== 'ru' ? 'Ask' : 'Спросить'}</button>
-          </div>
+            <button type="button" onClick={this.onAsk} className={style.button}>
+              {this.lang !== 'ru' ? 'Ask' : 'Спросить'}
+            </button>
+          </form>
           <div className={style.examples}>
             <p>{this.lang !== 'ru' ? 'Examples' : 'Примеры'}</p>
             {examples.map(this.renderExamples)}
@@ -239,8 +274,16 @@ class BaseSkill extends Component<Props, State> {
 
 function withConnect<Req, Res>(stateKey: string) {
   return connect<StateProps, DispatchProps, BaseSkillProps<Req, Res>>(
-    (state: Store) => ({ answers: state[stateKey] }),
-    (dispatch: Dispatch) => ({ updateStore: (messages: any[]) => dispatch(updatestore(stateKey, messages)) }),
+    (state: Store) => ({
+      answers: state[stateKey],
+      loading: state.loading,
+      componentState: state[`${stateKey}Component`],
+    }),
+    (dispatch: Dispatch) => ({
+      updateStore: (messages: any[]) => dispatch(updatestore(stateKey, messages)),
+      dispatchLoading: () => dispatch(RequestLoading()),
+      safeComponentState: (state: State) => dispatch(SCI(`${stateKey}Component`, state)),
+    }),
   )(withRouter(BaseSkill));
 }
 
