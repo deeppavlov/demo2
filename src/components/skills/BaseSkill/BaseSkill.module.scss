@@ -59,7 +59,7 @@
     .examples {
       max-width: 35%;
       .active {
-        background-color: lightgray;
+        background-color: lightgray !important;
         font-weight: 400;
         &:hover {
           color: #333;
@@ -83,8 +83,8 @@
         &:hover, &:focus {
           color: lightgray;
           box-shadow: none;
-          background-color: inherit;
-          border-color: inherit;
+          background-color: white;
+          border-color: none;
         }
         &:first-of-type {
           border-top-left-radius: .25rem;
@@ -208,36 +208,38 @@
       transform: rotate(-45deg);
     }
   }
+  
+  .ldsRing {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+
+    div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 51px;
+      height: 51px;
+      margin: 6px;
+      border: 6px solid #007bff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #007bff transparent transparent transparent;
+    }
+    div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
 }
 
-.ldsRing {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
 
-  div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 51px;
-    height: 51px;
-    margin: 6px;
-    border: 6px solid #007bff;
-    border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #007bff transparent transparent transparent;
-  }
-  div:nth-child(1) {
-    animation-delay: -0.45s;
-  }
-  div:nth-child(2) {
-    animation-delay: -0.3s;
-  }
-  div:nth-child(3) {
-    animation-delay: -0.15s;
-  }
-}
 
 @keyframes lds-ring {
   0% {
@@ -245,5 +247,49 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen 
+and (max-width: 450px) {
+  .container {
+    padding: 0 10px;
+
+    .title {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    .docker {
+      code {
+        font-size: 14px;
+      }
+    }
+
+    .inputArea {
+      flex-flow: column-reverse;
+
+      .examples {
+        max-width: 100%;
+        width: 100%;
+
+        button {
+          background-color: white;
+        }
+      }
+
+      .inputs {
+        margin-top: 20px;
+        margin-right: 0;
+        div {
+          margin-top: 0px;
+        }
+      }
+    }
+    .answers {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
   }
 }
