@@ -89,7 +89,7 @@ class BaseSkill extends Component<Props, State> {
     const { question } = this.state;
     return (
       <button
-        type='button' className={cn(question === ex.question && style.active)} onClick={this.onExample(ex)} key={i} >
+        type="button" className={cn(question === ex.question && style.active)} onClick={this.onExample(ex)} key={i} >
         {ex.question}
       </button>
     );

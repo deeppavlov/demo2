@@ -50,26 +50,17 @@ class Nav extends Component<Props, State> {
   }
 
   static getDerivedStateFromProps (props: Props, state: State) {
-    const { location: { pathname } } = props;
+    const { location: { pathname }, history } = props;
     const { component } = state;
+    if (pathname === '/' || pathname === '') {
+      console.log('hello');
+      history.push(`/en/${ROUTES.en[0].link}`);
+      return { lang: 'en', component: { ...component, en:ROUTES.en[0].link } };
+    }
     return {
       lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu',
       component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
     };
-  }
-
-  componentDidMount() {
-    const { location: { pathname }, history } = this.props;
-    const { component } = this.state;
-    if (pathname === '/') {
-      history.push(`/en/${ROUTES.en[0].link}`);
-      this.setState({ lang: 'en', component: { ...component, en:ROUTES.en[0].link } });
-    } else {
-      this.setState({
-        lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu',
-        component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
-      });
-    }
   }
 
   langChange = (lang: 'ru' | 'en' | 'mu') => () => {

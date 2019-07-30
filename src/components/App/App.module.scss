@@ -8,3 +8,12 @@
     height: 82px;
   }
 }
+
+@media only screen 
+and (max-width: 450px) {
+  .header {
+    > img {
+      height: 50px;
+    }
+  }
+}

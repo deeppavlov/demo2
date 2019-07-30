@@ -91,3 +91,10 @@ a:visited {
   margin-right: 7px;
 }
 
+@media only screen 
+and (max-width: 450px) {
+  #root {
+    width: 100%;
+    min-width: 100%;
+  }
+}
