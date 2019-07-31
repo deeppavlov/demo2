@@ -1,9 +1,11 @@
-import React, { Component, ChangeEvent, createRef } from 'react';
+import React, { Component, ChangeEvent, createRef, SyntheticEvent } from 'react';
 import cn from 'classnames';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
+import { NerClass } from '../utils';
+
 
 import style from './BaseSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -15,8 +17,6 @@ interface State {
   question: string;
   [key:string]: string;
 }
-
-const DELAY = 500;
 
 class BaseSkill extends Component<Props, State> {
   lang: 'ru' | 'en' | 'mu';
@@ -156,27 +156,32 @@ class BaseSkill extends Component<Props, State> {
         classes.push('');
       }
     });
-    let prev = '';
-    const toRender = answer[0].map((item: string, i: number) => {
-      // B = begin of token
+
+    const spans: string[] = [];
+    const reducedColors: {color: string, text?: string}[] = [];
+    let spansIndex = 0;
+
+    answer[0].forEach((item: string, i: number) => {
       if (answer[1][i].substring(0, 1) === 'B') {
-        let toreturn = '';
-        if (prev === 'B') { toreturn = '</span>'; }
-        const color =  colors![classes[i]].color;
-        prev = 'B';
-        return `${toreturn}<span class="card" style="background: ${color};">${item} `;
+        spans[spansIndex] = `${item} `;
+        reducedColors[spansIndex] =  colors![classes[i]];
       } else if (answer[1][i].substring(0, 1) === 'I') {
-        prev = 'I';
-        return `${item} `;
+        spans[spansIndex] += `${item} `;
+      } else {
+        spansIndex++;
+        spans[spansIndex] = item;
       }
-      if (prev) {
-        prev = '';
-        return `</span> ${item} `;
-      }
-      return `${item} `;
-    }).join('');
+    });
     return (
-      <div dir={this.isRTL(toRender)} className={style.ner} key={i} dangerouslySetInnerHTML={{ __html: toRender }}/>
+      <div dir={this.isRTL(answer[0].join(''))} className={style.ner} key={i}>
+        {spans.map((item, i) => {
+          if (reducedColors[i]) {
+            return <NerClass key={i} color={reducedColors[i].color} label={item} text={reducedColors[i].text}/>;
+          }
+          return `${item} `;
+        },
+      )}
+      </div>
     );
   }
 
@@ -195,14 +200,10 @@ class BaseSkill extends Component<Props, State> {
 
   onAsk =  async () => {
     const { api, updateStore, title, dispatchLoading } = this.props;
-    const timeout = { id : setTimeout(dispatchLoading, DELAY), time: Date.now() + DELAY };
+    dispatchLoading();
     let messages = this.props.answers;
     const response = await api(this.state).catch((error) => {
-      if (timeout.time > Date.now()) {
-        clearTimeout(timeout.id);
-      } else {
-        dispatchLoading();
-      }
+      dispatchLoading();
       console.error(error);
       this.setState({ error: true });
     });
@@ -215,11 +216,7 @@ class BaseSkill extends Component<Props, State> {
       event_category: 'Made request',
       event_label: `${title} ${this.lang}`,
     });
-    if (timeout.time > Date.now()) {
-      clearTimeout(timeout.id);
-    } else {
-      dispatchLoading();
-    }
+    setTimeout(dispatchLoading, 200);
     updateStore(messages);
     const { top } = this.answersRef!.current!.getBoundingClientRect();
     window.scrollTo({
@@ -227,6 +224,11 @@ class BaseSkill extends Component<Props, State> {
       behavior: 'smooth',
     });
     this.answersRef!.current!.scrollTop = 0;
+  }
+
+  onFormSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    this.onAsk();
   }
 
   onErrorClose = () => this.setState({ error: false });
@@ -272,7 +274,7 @@ class BaseSkill extends Component<Props, State> {
           </div>
         )}
         <div className={style.inputArea}>
-          <form className={style.inputs} onSubmit={this.onAsk}>
+          <form className={style.inputs} onSubmit={this.onFormSubmit}>
             {inputs.map(this.renderInput)}
             <button type="button" onClick={this.onAsk} className={style.button}>
               {this.lang !== 'ru' ? 'Ask' : 'Спросить'}

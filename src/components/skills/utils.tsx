@@ -64,7 +64,7 @@ interface NerClassState {
   clicked: boolean;
   leftTooltip: string;
 }
-class NerClass extends Component<NerClassProps, NerClassState> {
+export class NerClass extends Component<NerClassProps, NerClassState> {
   ref: React.RefObject<HTMLSpanElement>;
   tooltipRef: React.RefObject<HTMLDivElement>;
 
@@ -81,7 +81,7 @@ class NerClass extends Component<NerClassProps, NerClassState> {
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
     if (this.tooltipRef.current) {
-      if (this.tooltipRef.current.getClientRects()[0].left < 0) {
+      if (this.tooltipRef.current.getClientRects()[0].left < 140) {
         this.setState({ leftTooltip: 'leftTooltip' });
       }
     }
@@ -102,7 +102,7 @@ class NerClass extends Component<NerClassProps, NerClassState> {
     return (
       <span
         className="card margin_r"
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: color, cursor: text ? 'help' : 'inherit' }}
         onClick={() => this.setState({ clicked: !clicked })}
         ref={this.ref}
       >

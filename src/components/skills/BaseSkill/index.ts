@@ -32,7 +32,7 @@ export interface Example {
 
 interface RenderAnswer {
   type: 'basic' | 'ner' | 'textqa' | 'ranking' | 'intent';
-  colors?: { [key: string]: {color: string} };
+  colors?: { [key: string]: {color: string, text?: string} };
 }
 
 export interface BaseSkillProps<Req, Res> {
