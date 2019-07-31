@@ -245,7 +245,7 @@ class BaseSkill extends Component<Props, State> {
           <div className={style.close}/>
           <div className={style.error}>
             {this.lang !== 'ru' ?
-              'Sorry, some error appears. Please, try again later.' :
+              'Sorry, an error occurred. Please, try again later.' :
               'Извините, произошла ошибка. Пожалуйста, попробуйте позднее.'
             }
           </div>
