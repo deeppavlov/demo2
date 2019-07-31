@@ -68,6 +68,7 @@ class BaseSkill extends Component<Props, State> {
           placeholder={input.title}
           value={this.state[`${input.name}`]}
           onChange={(e: ChangeEvent<HTMLInputElement>) => this.setState({ [`${input.name}`]: e.target.value })}
+          onKeyPress={this.onCntrlEnterPress}
         />
       )}
       {input.type === 'textarea' && (
@@ -206,6 +207,11 @@ class BaseSkill extends Component<Props, State> {
   }
 
   onAsk =  async () => {
+    if (document.activeElement) {
+      const elem = document.activeElement as HTMLElement;
+      elem.blur();
+    }
+
     const state = { ...this.state };
     delete state.error;
     let checker = true;
@@ -214,9 +220,10 @@ class BaseSkill extends Component<Props, State> {
       alert(this.lang !== 'ru' ? 'Fill all fields.' : 'Заполните все поля.');
       return;
     }
-    const { api, updateStore, title, dispatchLoading } = this.props;
+
+    const { api, updateStore, title, dispatchLoading, answers } = this.props;
     dispatchLoading();
-    let messages = this.props.answers;
+    let messages = answers;
     const response = await api(this.state).catch((error) => {
       dispatchLoading();
       console.error(error);
@@ -227,12 +234,15 @@ class BaseSkill extends Component<Props, State> {
     } else {
       messages = [{ ...this.state, answer: response.data[0] }];
     }
+
     window.gtag('event', 'view_item', {
       event_category: 'Made request',
       event_label: `${title} ${this.lang}`,
     });
     setTimeout(dispatchLoading, 200);
+
     updateStore(messages);
+
     const { top } = this.answersRef!.current!.getBoundingClientRect();
     window.scrollTo({
       top,
