@@ -10,7 +10,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      The ODQA task combines two challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles).
      This component can be used to answer questions based on the company knowledge base.
      This demo uses entire Wikipedia as a knowledge-base.
-     To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html" target="_blank" rel="noopener noreferrer" >documentation </a>
+     To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html" target="_blank" rel="noopener noreferrer" >documentation </a>
      and check out our <a target="_blank" rel="noopener noreferrer" href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.
     </p>,
   docker: 'deeppavlov/odqa_en',

@@ -1,11 +1,10 @@
-import React, { Component, ChangeEvent, createRef, SyntheticEvent } from 'react';
+import React, { Component, ChangeEvent, createRef, SyntheticEvent, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
 import { NerClass } from '../utils';
-
 
 import style from './BaseSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -77,10 +76,18 @@ class BaseSkill extends Component<Props, State> {
           placeholder={input.title}
           value={this.state[`${input.name}`]}
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => this.setState({ [`${input.name}`]: e.target.value })}
+          onKeyPress={this.onCntrlEnterPress}
         />
       )}
     </div>
   )
+
+  onCntrlEnterPress = (e: KeyboardEvent) => {
+    e.persist();
+    if (e.key === 'Enter' && e.ctrlKey) {
+      this.onAsk();
+    }
+  }
 
   onExample =  (ex: Example) => async () => {
     await this.setState(ex);
@@ -193,12 +200,20 @@ class BaseSkill extends Component<Props, State> {
       <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>{mes.answer[0]}</p>
         <p>{mes.question}</p>
-        {Object.keys(rest).map((item, i) => <p key={i}>{rest[item]}</p>)}
+        {Object.values(rest).map((item, i) => <p key={i}>{item}</p>)}
       </div>
     );
   }
 
   onAsk =  async () => {
+    const state = { ...this.state };
+    delete state.error;
+    let checker = true;
+    Object.values(state).forEach((item) => { checker = checker && Boolean(item); });
+    if (!checker) {
+      alert(this.lang !== 'ru' ? 'Fill all fields.' : 'Заполните все поля.');
+      return;
+    }
     const { api, updateStore, title, dispatchLoading } = this.props;
     dispatchLoading();
     let messages = this.props.answers;

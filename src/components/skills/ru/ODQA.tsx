@@ -12,7 +12,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      Бизнес решения на основе ODQA - это, например, диалоговые ассистенты, отвечающие на вопросы по корпоративным базам знаний, справочной и технической документации.
     <br/><br/> Основы практического использования описано в нашем туториале на
     <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65" target="_blank" rel="noopener noreferrer"> Medium </a>
-    и в <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html" target="_blank" rel="noopener noreferrer">документации.</a>
+    и в <a href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html" target="_blank" rel="noopener noreferrer">документации.</a>
     </p>,
   docker: 'deeppavlov/odqa_ru',
   inputs: [{

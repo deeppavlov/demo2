@@ -10,7 +10,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе.
      Подробнее смотрите в нашем туториале на
      <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61" target="_blank" rel="noopener noreferrer"> Medium </a>
-     и в <a target="_blank" rel="noopener noreferrer" href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>
+     и в <a target="_blank" rel="noopener noreferrer" href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">документации.</a>
     </p>,
   inputs: [{
     title: 'Введите текст',

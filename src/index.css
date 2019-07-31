@@ -33,6 +33,10 @@ h1 {
   line-height: 1.5em;
 }
 
+textarea {
+  font-family: inherit;
+}
+
 button:focus {
   outline: none;
   box-shadow: 0 0 30px -5px #0069d9;

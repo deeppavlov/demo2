@@ -14,7 +14,7 @@ const config: BaseSkillProps<Req, Res> = {
   title: 'Ответы на вопросы по тексту',
   desc: <p>
     Ответы на вопросы по тексту (Text QA) — это задача поиска ответов на вопросы в известном контексте (например, в параграфе из Википедии). С помощью этого функционала можно искать ответы на вопросы по документации. Больше информации о модели и ее применении читайте в 
-    <a href="http://docs.deeppavlov.ai/en/master/components/squad.html" target="_blank" rel="noopener noreferrer"> документации</a>.
+    <a href="http://docs.deeppavlov.ai/en/master/features/models/squad.html" target="_blank" rel="noopener noreferrer"> документации</a>.
     </p>,
   docker: 'deeppavlov/squad_ru',
   inputs: [{

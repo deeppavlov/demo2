@@ -12,7 +12,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     <br/><br/>
      Здесь представлена модель, обученная на Collection 3 датасете для русского языка.
      Во вкладке Multi-lang вы найдете мультиязычную модель для 104 языков, обученную на датасете Ontonotes.
-     Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/components/ner.html" target="_blank" rel="noopener noreferrer">документации.</a>
+     Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html" target="_blank" rel="noopener noreferrer">документации.</a>
     <br/><br/> NER - существенная часть любой диалоговой системы, которая необходима для извлечения машиной информации из текста.
     <br/>
     Сущности: {renderNerClasses(ruNerStyles)}
