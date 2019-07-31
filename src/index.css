@@ -64,14 +64,29 @@ a:visited {
   position: relative; 
   display: inline-block;
 }
+.card:hover>.tooltip {
+  opacity: 1;
+}
+.activeTooltip {
+  opacity: 1 !important;
+}
+
+.leftTooltip {
+  left: 0 !important;
+}
+.leftTooltip > .tooltipInner {
+  float: left;   
+}
+
 .tooltip {
   position: absolute;
-  display: block;
   top: 100%;
   right: 0;
   width: 200px;
   user-select: none;
   pointer-events: none;
+  opacity: 0;
+  z-index: 15;
 }
 .tooltipInner {
   margin-top: 5px;
@@ -85,7 +100,6 @@ a:visited {
   padding: 5px 10px;
   display: block;
   float: right;
-  z-index: 10;
 }
 .margin_r {
   margin-right: 7px;
@@ -96,5 +110,8 @@ and (max-width: 450px) {
   #root {
     width: 100%;
     min-width: 100%;
+  }
+  .card:hover>.tooltip {
+    opacity: 0;
   }
 }

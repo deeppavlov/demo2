@@ -16,6 +16,8 @@ interface State {
   [key:string]: string;
 }
 
+const DELAY = 500;
+
 class BaseSkill extends Component<Props, State> {
   lang: 'ru' | 'en' | 'mu';
   answersRef: React.RefObject<HTMLDivElement>;
@@ -87,9 +89,18 @@ class BaseSkill extends Component<Props, State> {
 
   renderExamples = (ex: Example, i: number) => {
     const { question } = this.state;
+    let checker = question === ex.question;
+    const rest = { ...this.state };
+    delete rest.question;
+    delete rest.error;
+    if (Object.keys(rest).length > 0) {
+      Object.keys(rest).forEach((key) => {
+        checker = checker && rest[key] === ex[key];
+      });
+    }
     return (
       <button
-        type="button" className={cn(question === ex.question && style.active)} onClick={this.onExample(ex)} key={i} >
+        type="button" className={cn(checker && style.active)} onClick={this.onExample(ex)} key={i} >
         {ex.question}
       </button>
     );
@@ -110,7 +121,7 @@ class BaseSkill extends Component<Props, State> {
 
   renderRanking = (mes: Answer, i: number) => {
     return (
-      <div>
+      <div key={i}>
         <p>{mes.question}</p>
         <ul key={i}>
           {mes.answer[0].map((item, i) => <li key={i}>{item}</li>)}
@@ -184,10 +195,14 @@ class BaseSkill extends Component<Props, State> {
 
   onAsk =  async () => {
     const { api, updateStore, title, dispatchLoading } = this.props;
-    dispatchLoading();
+    const timeout = { id : setTimeout(dispatchLoading, DELAY), time: Date.now() + DELAY };
     let messages = this.props.answers;
     const response = await api(this.state).catch((error) => {
-      dispatchLoading();
+      if (timeout.time > Date.now()) {
+        clearTimeout(timeout.id);
+      } else {
+        dispatchLoading();
+      }
       console.error(error);
       this.setState({ error: true });
     });
@@ -200,6 +215,11 @@ class BaseSkill extends Component<Props, State> {
       event_category: 'Made request',
       event_label: `${title} ${this.lang}`,
     });
+    if (timeout.time > Date.now()) {
+      clearTimeout(timeout.id);
+    } else {
+      dispatchLoading();
+    }
     updateStore(messages);
     const { top } = this.answersRef!.current!.getBoundingClientRect();
     window.scrollTo({

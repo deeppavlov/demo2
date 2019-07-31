@@ -34,7 +34,7 @@ const { updatestore, loading, safecomponentinputs }: Actions = createActions({
 const reducer = handleActions({
   UPDATESTORE: (state: State, action: Action<UpdateAction>) => {
     const { prop, messages } = action.payload;
-    return { ...state, [prop]: [...messages], loading: !state.loading };
+    return { ...state, [prop]: [...messages] };
   },
   LOADING: (state: State) => {
     return { ...state, loading: !state.loading };

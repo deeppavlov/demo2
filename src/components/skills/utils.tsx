@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react';
+import cn from 'classnames';
 
 const colors = {
   red: '#dc3545',
@@ -41,9 +42,9 @@ const ontonotesClasses = {
   LAW: { color: colors.grey, text: 'Named documents made into laws.' },
   LANGUAGE: { color: colors.grey, text: 'Any named language.' },
   TIME: { color: colors.grey, text: 'Times smaller than a day.' },
-  PERCENT: { color: colors.grey, text: 'Percentage, including &quot;%&quot;.' },
+  PERCENT: { color: colors.grey, text: 'Percentage, including "%".' },
   QUANTITY: { color: colors.grey, text: 'Measurements, as of weight or distance.' },
-  ORDINAL: { color: colors.grey, text: '&quot;first&quot;, &quot;second&quot;, etc.' },
+  ORDINAL: { color: colors.grey, text: '"first", "second", etc.' },
   CARDINAL: { color: colors.grey, text: 'Numerals that do not fall under another type.' },
 };
 
@@ -61,20 +62,29 @@ interface NerClassProps {
 }
 interface NerClassState {
   clicked: boolean;
+  leftTooltip: string;
 }
 class NerClass extends Component<NerClassProps, NerClassState> {
   ref: React.RefObject<HTMLSpanElement>;
+  tooltipRef: React.RefObject<HTMLDivElement>;
 
   constructor (props: NerClassProps) {
     super(props);
     this.ref = createRef();
+    this.tooltipRef = createRef();
     this.state = {
       clicked: false,
+      leftTooltip: '',
     };
   }
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
+    if (this.tooltipRef.current) {
+      if (this.tooltipRef.current.getClientRects()[0].left < 0) {
+        this.setState({ leftTooltip: 'leftTooltip' });
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -85,9 +95,10 @@ class NerClass extends Component<NerClassProps, NerClassState> {
       this.setState({ clicked: false });
     }
   }
+
   render () {
     const { label, color, text } = this.props;
-    const { clicked } = this.state;
+    const { clicked, leftTooltip } = this.state;
     return (
       <span
         className="card margin_r"
@@ -96,8 +107,11 @@ class NerClass extends Component<NerClassProps, NerClassState> {
         ref={this.ref}
       >
         {`${label}`}
-        {(clicked && text) && (
-          <div className="tooltip">
+        {(text) && (
+          <div
+            className={cn('tooltip', leftTooltip, clicked ? 'activeTooltip' : '')}
+            ref={this.tooltipRef}
+          >
             <div className="tooltipInner" style={{ backgroundColor: color }}>{text}</div>
           </div>
         )}
