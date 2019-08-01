@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import style from './App.module.scss';
 
 import Nav from '../Nav';
@@ -14,7 +14,7 @@ class App extends Component {
 
   render () {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <header className={style.header}>
           <img src={header} alt="DeepPavlov Demo"/>
           <Nav/>
@@ -36,7 +36,7 @@ class App extends Component {
           </Switch>
         </main>
         <Footer/>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
