@@ -30,8 +30,8 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "sudo gh-pages -d build --git git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
