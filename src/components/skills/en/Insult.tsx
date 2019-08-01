@@ -17,8 +17,6 @@ const config: BaseSkillProps<StoreReq, Res> = {
     name: 'question',
   }],
   examples: [{
-    question: 'Your family tree must be a cactus because everybody on it is a prick',
-  }, {
     question: 'Shit happens',
   }, {
     question: 'You\'re just too fat, man',

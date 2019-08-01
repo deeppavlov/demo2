@@ -310,10 +310,10 @@ class BaseSkill extends Component<Props, State> {
             {examples.map(this.renderExamples)}
           </div>
         </div>
-        <div className={style.answers} id="answers" ref={this.answersRef}>
-          {answers &&  <p>{this.lang !== 'ru' ? 'Results' : 'Результаты'}</p>}
-          {answers && (this.renderAnswers(answers))}
-        </div>
+        {answers && <div className={style.answers} id="answers" ref={this.answersRef}>
+          <p>{this.lang !== 'ru' ? 'Results' : 'Результаты'}</p>
+          {(this.renderAnswers(answers))}
+        </div>}
       </div>
     );
   }
