@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "edb91f395fdf74cbf160f417136ac92f",
+    "revision": "ddb0c44bd369aefee53132138f21e976",
     "url": "/deepmipt/demo2/index.html"
   },
   {
-    "revision": "166bfeb269daf79f86ce",
+    "revision": "02c0a6f1c96d8b2b9f13",
     "url": "/deepmipt/demo2/static/css/main.47acca2f.chunk.css"
   },
   {
-    "revision": "d6bc594c5c143bdc4b80",
-    "url": "/deepmipt/demo2/static/js/2.8e7e29cf.chunk.js"
+    "revision": "74685b5a0dafd93f214a",
+    "url": "/deepmipt/demo2/static/js/2.11e53639.chunk.js"
   },
   {
-    "revision": "166bfeb269daf79f86ce",
-    "url": "/deepmipt/demo2/static/js/main.66700a02.chunk.js"
+    "revision": "02c0a6f1c96d8b2b9f13",
+    "url": "/deepmipt/demo2/static/js/main.ea7535ac.chunk.js"
   },
   {
     "revision": "72678fa7bba9bcf30932",
