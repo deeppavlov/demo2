@@ -197,9 +197,13 @@ class BaseSkill extends Component<Props, State> {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
+    let answer: any = mes.answer[0];
+    if (typeof answer === 'string' && !answer) {
+      answer = this.lang !== 'ru' ? 'I don\'t know' : 'Я не знаю';
+    }
     return (
       <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
-        <p>{mes.answer[0]}</p>
+        <p>{answer}</p>
         <p>{mes.question}</p>
         {Object.values(rest).map((item, i) => <p key={i}>{item}</p>)}
       </div>

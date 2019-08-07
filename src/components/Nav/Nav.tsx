@@ -53,7 +53,6 @@ class Nav extends Component<Props, State> {
     const { location: { pathname }, history } = props;
     const { component } = state;
     if (pathname === '/' || pathname === '') {
-      console.log(pathname);
       history.push(`/en/${ROUTES.en[0].link}`);
       return { lang: 'en', component: { ...component, en:ROUTES.en[0].link } };
     }
