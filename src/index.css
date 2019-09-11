@@ -55,7 +55,7 @@ a:visited {
 }
 
 .card {
-  padding: .25em .4em;
+  padding: .4em .4em;
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
@@ -69,6 +69,12 @@ a:visited {
 }
 .card:hover>.tooltip {
   opacity: 1;
+}
+.innerTip {
+  border: 1px solid white;
+  padding: 2px 5px;
+  font-size: 10px;
+  margin-left: 5px;
 }
 .activeTooltip {
   opacity: 1 !important;

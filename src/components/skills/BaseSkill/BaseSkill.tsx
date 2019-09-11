@@ -154,7 +154,15 @@ class BaseSkill extends Component<Props, State> {
 
   renderNer = (mes: Answer, i: number) => {
     const { answer } = mes;
-    const { colors } = this.props.renderAnswer!;
+    const colors: {
+      [key: string]: {
+        color: string;
+        text?: string;
+        tip?: string;
+      };
+    } = this.props.renderAnswer!.colors!;
+
+    Object.keys(colors!).forEach(key => colors[key].tip = key);
     const classes: string[] = [];
     // AWESOME MAGIC
     answer[1].forEach((value: string) => {
@@ -166,7 +174,7 @@ class BaseSkill extends Component<Props, State> {
     });
 
     const spans: string[] = [];
-    const reducedColors: {color: string, text?: string}[] = [];
+    const reducedColors: {color: string, text?: string, tip?: string}[] = [];
     let spansIndex = 0;
 
     answer[0].forEach((item: string, i: number) => {
@@ -184,7 +192,12 @@ class BaseSkill extends Component<Props, State> {
       <div dir={this.isRTL(answer[0].join(''))} className={style.ner} key={i}>
         {spans.map((item, i) => {
           if (reducedColors[i]) {
-            return <NerClass key={i} color={reducedColors[i].color} label={item} text={reducedColors[i].text}/>;
+            return <NerClass key={i}
+              color={reducedColors[i].color}
+              label={item}
+              text={reducedColors[i].text}
+              tip={reducedColors[i].tip}
+            />;
           }
           return `${item} `;
         },
@@ -234,6 +247,7 @@ class BaseSkill extends Component<Props, State> {
       this.setState({ error: true });
     });
     if (messages) {
+      console.log(messages)
       messages.splice(0, 0, { ...this.state, answer: response.data[0] });
     } else {
       messages = [{ ...this.state, answer: response.data[0] }];
