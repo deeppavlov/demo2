@@ -18,9 +18,13 @@ const config: BaseSkillProps<StoreReq, Res> = {
     name: 'question',
   }],
   examples: [{
-    question: 'Мне нравится этот телевизор.',
+    question: 'Мне фильм показался скучным и затянутым.',
   }, {
-    question: 'Это плохое ТВ шоу.',
+    question: 'Капец классный чувак.',
+  }, {
+    question: 'Херовая прическа.',
+  }, {
+    question: 'Охеренная прическа.',
   }],
   api: api('https://7015.lnsigo.mipt.ru/answer'),
 };
