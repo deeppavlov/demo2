@@ -247,7 +247,6 @@ class BaseSkill extends Component<Props, State> {
       this.setState({ error: true });
     });
     if (messages) {
-      console.log(messages)
       messages.splice(0, 0, { ...this.state, answer: response.data[0] });
     } else {
       messages = [{ ...this.state, answer: response.data[0] }];
