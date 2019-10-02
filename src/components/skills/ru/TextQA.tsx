@@ -49,6 +49,7 @@ const config: BaseSkillProps<Req, Res> = {
     };
     return await axios.post('https://7005.lnsigo.mipt.ru/answer', req);
   },
+  renderAnswer: { type: 'textqa' },
 };
 
 const TexqQA = skillWrapper<Req, Res>('textqaru');

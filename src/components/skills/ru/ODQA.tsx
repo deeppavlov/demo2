@@ -30,6 +30,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     question: 'Где расположен международный аэропорт Никола Тесла?',
   }],
   api: api('https://7012.lnsigo.mipt.ru/answer'),
+  renderAnswer: { type: 'textqa' },
 };
 
 const ODQA = skillWrapper<StoreReq, Res>('odqaru');

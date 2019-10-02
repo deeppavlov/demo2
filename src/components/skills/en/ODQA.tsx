@@ -29,6 +29,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     question: 'Who is the Greek god of War?',
   }],
   api: api('https://7011.lnsigo.mipt.ru/answer'),
+  renderAnswer: { type: 'textqa' },
 };
 
 const ODQA = skillWrapper<StoreReq, Res>('odqaen');

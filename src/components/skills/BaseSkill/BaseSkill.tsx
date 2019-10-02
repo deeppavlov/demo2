@@ -116,7 +116,7 @@ class BaseSkill extends Component<Props, State> {
 
   renderAnswers = (answers: Answer[]) => {
     const { renderAnswer } = this.props;
-    if (!renderAnswer || renderAnswer.type === 'basic' || renderAnswer.type === 'textqa') {
+    if (!renderAnswer || renderAnswer.type === 'basic') {
       return answers.map(this.renderBasic);
     } else if (renderAnswer.type === 'ner') {
       return answers.map(this.renderNer);
@@ -124,6 +124,8 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderRanking);
     } else if (renderAnswer.type === 'intent') {
       return answers.map(this.renderIntent);
+    } else if (renderAnswer.type === 'textqa') {
+      return answers.map(this.renderQA);
     }
   }
 
@@ -220,6 +222,36 @@ class BaseSkill extends Component<Props, State> {
         <p>{mes.question}</p>
         {Object.values(rest).map((item, i) => <p key={i}>{item}</p>)}
       </div>
+    );
+  }
+
+  renderQA = (mes: Answer, i: number) => {
+    const rest = { ...mes };
+    delete rest.answer;
+    delete rest.question;
+    let answer: any = mes.answer[0];
+    if (typeof answer === 'string' && !answer) {
+      answer = this.lang !== 'ru' ? 'I don\'t know' : 'Я не знаю';
+    }
+    if (rest.text) {
+      const array = (rest.text as string).split(answer);
+      return (
+        <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
+          <p>{this.lang !== 'ru' ? 'A: ' : 'O: ' }{answer}</p>
+          <p>{this.lang !== 'ru' ? 'Q: ' : 'В: ' }{mes.question}</p>
+          <p>{array[0]} <NerClass key={i}
+              color={'#007bff'}
+              label={answer}
+              tip={'A'}
+            /> {array[1]}</p>
+        </div>
+      );
+    }
+    return (
+      <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
+          <p>{this.lang !== 'ru' ? 'A: ' : 'O: ' }{answer}</p>
+          <p>{this.lang !== 'ru' ? 'Q: ' : 'В: ' }{mes.question}</p>
+        </div>
     );
   }
 

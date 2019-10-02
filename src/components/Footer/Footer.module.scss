@@ -3,8 +3,8 @@
   flex-flow: column;
   justify-content: space-between;
   align-items: flex-end;
-  height: 200px;
-  margin-top: 40px;
+  //height: 200px;
+  margin-top: 70px;
   margin-bottom: 20px;
   z-index: 100;
 
@@ -26,14 +26,31 @@
   margin-right: auto;
 }
 
+.saas {
+  margin-right: auto;
+  font-size: 20px;
+  width: 60%;
+  display: none;
+  p {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
 @media only screen 
 and (max-width: 768px) {
   .footer {
     padding: 0 10px;
     margin-top: 20px;
   }
-  .contactUs {
+  .contactUs, .saas {
     font-size: 1rem;
     width: 90%;
+  }
+  .saas {
+    p {
+      font-size: 1.5rem;
+    }
   }
 }

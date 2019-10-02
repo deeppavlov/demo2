@@ -7,6 +7,18 @@
   > img {
     height: 82px;
   }
+  .title {
+    color: black;
+    font-size: 55px;
+    line-height: 1em;
+    margin: 0;
+    .blue {
+      color: #007bff;
+    }
+    .yellow {
+      color: #fbe300;
+    }
+  }
 }
 
 @media only screen 
@@ -15,5 +27,9 @@ and (max-width: 450px) {
     > img {
       height: 50px;
     }
+    .title {
+      font-size: 38px;
+    }
   }
+  
 }

@@ -4,7 +4,7 @@ import style from './App.module.scss';
 
 import Nav from '../Nav';
 import Footer from '../Footer';
-import header from './header.png';
+//import header from './header.png';
 
 import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
 import { TextQA as TextQAen, ODQA, Ranking, NER, Intent, Insult } from '../skills/en';
@@ -16,7 +16,10 @@ class App extends Component {
     return (
       <HashRouter>
         <header className={style.header}>
-          <img src={header} alt="DeepPavlov Demo"/>
+          <p className={style.title}>
+            Demo <span className={style.blue}>DeepPavlov</span>.<span className={style.yellow}>ai</span>
+          </p>
+          {/*<img src={header} alt="DeepPavlov Demo"/>*/}
           <Nav/>
         </header>
         <main className={style.main}>

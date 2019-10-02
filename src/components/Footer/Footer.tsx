@@ -36,10 +36,31 @@ class Nav extends Component<Props, State> {
       <footer className={style.footer}>
         <div className={style.contactUs}>
             <p>{
-              lang !== 'ru' ? 'You can train this model on your own data, or we can do it for you, contact ' :
+              lang !== 'ru' ? 'Also, you can train this model on your own data, or we can do it for you, contact ' :
               'Вы можете обучить эту модель на своих данных или мы можем сделать это за вас, напишите нам '
             }
             <a href="mailto:partner@ipavlov.ai">partner@ipavlov.ai</a></p>
+        </div>
+        <div className={style.saas}>
+          <p>SaaS</p>
+          <div>
+            {
+              lang !== 'ru' ? <>
+                If you are an advanced user and our demo don't meet
+                  your specific needs, you can try our free alpfa version
+                  <a href="http://2276.lnsigo.mipt.ru/" target="_blank" rel="noopener noreferrer">
+                    {' SaaS platform '}
+                  </a>
+                  on your data.
+              </> :
+              <>
+                Если вы продвинутый пользователь и наше демо не удовлетворяет вашим потребностям,
+                  вы можете попробовать нашу бесплатную альфа версию
+                  <a href="http://2276.lnsigo.mipt.ru/" target="_blank" rel="noopener noreferrer">
+                    {' SaaS платформы '}
+                  </a> на ваших данных.</>
+            }
+          </div>
         </div>
         <a href="https://github.com/deepmipt">
             <img src={img} alt="powered by DeepPavlov"/>
