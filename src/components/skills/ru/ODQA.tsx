@@ -29,7 +29,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Где расположен международный аэропорт Никола Тесла?',
   }],
-  api: api('https://7012.lnsigo.mipt.ru/answer'),
+  api: api('https://7012.lnsigo.mipt.ru/model'),
   renderAnswer: { type: 'textqa' },
 };
 

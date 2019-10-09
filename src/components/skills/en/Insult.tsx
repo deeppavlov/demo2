@@ -29,7 +29,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Your house is so dirty you have to wipe your feet before you go outside',
   }],
-  api: api('https://7006.lnsigo.mipt.ru/answer'),
+  api: api('https://7006.lnsigo.mipt.ru/model'),
 };
 
 const Insult = skillWrapper<StoreReq, Res>('insulten');

@@ -59,10 +59,10 @@ const config: BaseSkillProps<Req, Res> = {
   }],
   api: async (stateReq: Req) => {
     const req = {
-      text1: [stateReq.text],
-      text2: [stateReq.question],
+      context_raw: [stateReq.text],
+      question_raw: [stateReq.question],
     };
-    return await axios.post('https://7008.lnsigo.mipt.ru/answer', req);
+    return await axios.post('https://7008.lnsigo.mipt.ru/model', req);
   },
   renderAnswer: { type: 'textqa' },
 };

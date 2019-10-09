@@ -30,7 +30,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "',
   }],
-  api: api('https://7010.lnsigo.mipt.ru/answer'),
+  api: api('https://7010.lnsigo.mipt.ru/model'),
   renderAnswer: { type: 'ner', colors: ontonotesClasses },
 };
 
