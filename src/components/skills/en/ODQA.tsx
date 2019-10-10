@@ -1,9 +1,14 @@
 // tslint:disable: max-line-length
+import axios from 'axios';
 import React from 'react';
 import skillWrapper, { BaseSkillProps } from '../BaseSkill';
-import api, { Res, StoreReq } from '../../../lib/api';
+import { Res } from '../../../lib/api';
 
-const config: BaseSkillProps<StoreReq, Res> = {
+interface Req {
+  question: string;
+}
+
+const config: BaseSkillProps<Req, Res> = {
   title: 'ODQA',
   desc: <p>
     Open Domain Question Answering (ODQA) answers any question based on the document collection covering a wide range of topics.
@@ -28,11 +33,16 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Who is the Greek god of War?',
   }],
-  api: api('https://7011.lnsigo.mipt.ru/model'),
+  api: async (stateReq: Req) => {
+    const req = {
+      question_raw: [stateReq.question],
+    };
+    return await axios.post('https://7011.lnsigo.mipt.ru/model', req);
+  },
   renderAnswer: { type: 'textqa' },
 };
 
-const ODQA = skillWrapper<StoreReq, Res>('odqaen');
+const ODQA = skillWrapper<Req, Res>('odqaen');
 export default function () {
   return <ODQA {...config}/>;
 }

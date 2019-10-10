@@ -145,7 +145,7 @@ class BaseSkill extends Component<Props, State> {
     return (
       <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>
-          <span className="card" style={{ backgroundColor: colors![mes.answer[0][0]].color! }}>
+          <span className="card" style={{ backgroundColor: colors![mes.answer[0].toString()].color! }}>
             {mes.answer[0]}
           </span>
         </p>
