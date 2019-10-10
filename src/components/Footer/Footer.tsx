@@ -34,6 +34,16 @@ class Nav extends Component<Props, State> {
     return (
       <footer className={style.footer}>
         <div className={style.saas}>
+          <p>Docker</p>
+          <a
+          href="http://docs.deeppavlov.ai/en/master/intro/quick_start.html#docker-images"
+          rel="noopener noreferrer"
+          target="_blank"
+          >
+            DeepPavlov Docker images reference
+          </a>
+        </div>
+        <div className={style.saas}>
           <p>Try Pre-Trained Models on Your Data in Cloud NLP Platform (Free & Unlimited Alpha Version)</p>
           <div>
             You can try our pre-trained models on your data via SaaS NLP platform.
