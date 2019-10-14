@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: flex-end;
   //height: 200px;
-  margin-top: 40px;
+  margin-top: 80px;
   padding-top: 40px;
   margin-bottom: 20px;
   z-index: 100;
@@ -16,6 +16,7 @@
   }
 
   > a {
+    margin-top: 80px;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -26,10 +27,10 @@
 .saas {
   margin-right: auto;
   font-size: 16px;
-  width: 80%;
+  width: 70%;
   margin-bottom: 20px;
   p {
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 500;
     margin: 0;
   }
