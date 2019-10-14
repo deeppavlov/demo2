@@ -4,7 +4,7 @@ import style from './App.module.scss';
 
 import Nav from '../Nav';
 import Footer from '../Footer';
-//import header from './header.png';
+// mport header from './header.png';
 
 import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
 import { TextQA as TextQAen, ODQA, Ranking, NER, Intent, Insult } from '../skills/en';
