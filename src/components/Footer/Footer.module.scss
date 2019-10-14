@@ -30,8 +30,8 @@
   width: 70%;
   margin-bottom: 20px;
   p {
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 400;
     margin: 0;
   }
 }
@@ -39,16 +39,11 @@
 @media only screen 
 and (max-width: 768px) {
   .footer {
-    padding: 0 10px;
-    margin-top: 20px;
+    padding: 30px 10px 0;
+    margin-top: 40px;
   }
   .contactUs, .saas {
     font-size: 1rem;
     width: 90%;
-  }
-  .saas {
-    p {
-      font-size: 1.5rem;
-    }
   }
 }
