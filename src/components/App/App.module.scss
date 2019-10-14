@@ -25,11 +25,18 @@
 @media only screen 
 and (max-width: 450px) {
   .header {
-    > img {
-      height: 50px;
-    }
     .title {
       font-size: 38px;
+    }
+  }
+  
+}
+
+@media only screen 
+and (max-width: 320px) {
+  .header {
+    .title {
+      font-size: 30px;
     }
   }
   
