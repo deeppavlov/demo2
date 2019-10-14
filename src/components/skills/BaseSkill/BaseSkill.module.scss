@@ -104,8 +104,8 @@
 
   .button {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #0069b4;
+    border-color: #0069b4;
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -227,10 +227,10 @@
       width: 51px;
       height: 51px;
       margin: 6px;
-      border: 6px solid #007bff;
+      border: 6px solid #0069b4;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: #007bff transparent transparent transparent;
+      border-color: #0069b4 transparent transparent transparent;
     }
     div:nth-child(1) {
       animation-delay: -0.45s;

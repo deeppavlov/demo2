@@ -46,13 +46,13 @@ button:focus {
 }
 
 a {
-  color: #007bff;
+  color: #0069b4;
   text-decoration: none;
 }
 
 a:visited {
   text-decoration: none;
-  color: #007bff;
+  color: #0069b4;
 }
 
 .card {

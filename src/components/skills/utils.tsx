@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 const colors = {
   red: '#dc3545',
-  blue: '#007bff',
+  blue: '#0069b4',
   cyan: '#17a2b8',
   green: '#28a745',
   yellow: '#ffc107',

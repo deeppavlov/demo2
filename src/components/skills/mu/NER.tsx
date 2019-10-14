@@ -8,7 +8,10 @@ const config: BaseSkillProps<StoreReq, Res> = {
   title: 'Name Entity Recognition',
   desc: <div>
     Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as <b>person names</b>, <b>quantity expressions</b>, <b>percentage expressions</b>, <b>names of locations</b>, <b>organizations</b>, as well as expression of <b>time</b>, <b>currency</b> and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html" target="_blank" rel="noopener noreferrer">documentation.</a>
-    <br/><br/>
+    <br/>
+    Number of defined classes depends on the language.
+    <br/>
+    <br/>
     Click on an entity to see its class description
     <br/>
     Classes: {renderNerClasses(ontonotesClasses)}

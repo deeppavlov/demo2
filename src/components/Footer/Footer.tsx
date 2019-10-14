@@ -33,7 +33,7 @@ class Nav extends Component<Props, State> {
   render () {
     return (
       <footer className={style.footer}>
-        <div className={style.saas}>
+        {false && <div className={style.saas}>
           <p>Docker</p>
           <a
           href="http://docs.deeppavlov.ai/en/master/intro/quick_start.html#docker-images"
@@ -42,7 +42,7 @@ class Nav extends Component<Props, State> {
           >
             DeepPavlov Docker images reference
           </a>
-        </div>
+        </div>}
         <div className={style.saas}>
           <p>Try Pre-Trained Models on Your Data in Cloud NLP Platform (Free & Unlimited Alpha Version)</p>
           <div>
