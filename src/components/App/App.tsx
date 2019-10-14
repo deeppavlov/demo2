@@ -17,7 +17,7 @@ class App extends Component {
       <HashRouter>
         <header className={style.header}>
           <p className={style.title}>
-            Demo <span className={style.blue}>DeepPavlov</span>.<span className={style.yellow}>ai</span>
+            Demo<span className={style.blue}>DeepPavlov</span>.<span className={style.yellow}>ai</span>
           </p>
           {/*<img src={header} alt="DeepPavlov Demo"/>*/}
           <Nav/>
