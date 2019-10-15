@@ -346,7 +346,7 @@ class BaseSkill extends Component<Props, State> {
               </code>
             </a>
             <div>
-              {this.lang !== 'ru' ? 'More on ' : 'Больше на '}
+              {this.lang !== 'ru' ? 'More at ' : 'Больше на '}
               <a href="https://hub.docker.com/r/deeppavlov " target="_blank" rel="noopener noreferrer">
                 Docker Hub
               </a>
