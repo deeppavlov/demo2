@@ -7,7 +7,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   title: 'Ranking',
   desc: <p>
     The ranking component solves the tasks of ranking and paraphrases identification based on siamese neural networks with integrated semantic similarity measure.
-     The component retrieves the semantically closest response from a set of predefined responses. <a href="https://deeppavlov.readthedocs.io/en/master/features/models/neural_ranking.html" target="_blank" rel="noopener noreferrer">Learn more.</a><br/>
+     The component retrieves the semantically closest response from a set of predefined responses. To learn more on implementation check out our <a href="https://deeppavlov.readthedocs.io/en/master/features/models/neural_ranking.html" target="_blank" rel="noopener noreferrer">documentation.</a><br/>
      This demo was trained on the <a href="https://github.com/shuzi/insuranceQA" target="_blank" rel="noopener noreferrer">InsuranceQA V1</a> dataset.
     </p>,
   docker: 'deeppavlov/ranking_en',
