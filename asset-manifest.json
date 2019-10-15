@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.87451c29.chunk.css",
-    "main.js": "/static/js/main.a366b04d.chunk.js",
-    "main.js.map": "/static/js/main.a366b04d.chunk.js.map",
+    "main.js": "/static/js/main.15af3126.chunk.js",
+    "main.js.map": "/static/js/main.15af3126.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
     "static/js/2.78ec63f9.chunk.js": "/static/js/2.78ec63f9.chunk.js",
     "static/js/2.78ec63f9.chunk.js.map": "/static/js/2.78ec63f9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2e439a3b1e29f696e3b692a603fd3bd2.js": "/precache-manifest.2e439a3b1e29f696e3b692a603fd3bd2.js",
+    "precache-manifest.9899cf93ebda3abb6cd1a670ebcaa045.js": "/precache-manifest.9899cf93ebda3abb6cd1a670ebcaa045.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.87451c29.chunk.css.map": "/static/css/main.87451c29.chunk.css.map",
     "static/media/DeepPavlov.png": "/static/media/DeepPavlov.13c4e31c.png"
