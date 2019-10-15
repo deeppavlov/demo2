@@ -345,6 +345,12 @@ class BaseSkill extends Component<Props, State> {
                 docker pull {docker}
               </code>
             </a>
+            <div>
+              {this.lang !== 'ru' ? 'More on ' : 'Больше на '}
+              <a href="https://hub.docker.com/r/deeppavlov " target="_blank" rel="noopener noreferrer">
+                Docker Hub
+              </a>
+            </div>
           </div>
         )}
         <div className={style.inputArea}>
