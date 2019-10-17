@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.87451c29.chunk.css",
+    "main.css": "/static/css/main.8058d250.chunk.css",
     "main.js": "/static/js/main.15af3126.chunk.js",
     "main.js.map": "/static/js/main.15af3126.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
@@ -8,9 +8,9 @@
     "static/js/2.78ec63f9.chunk.js": "/static/js/2.78ec63f9.chunk.js",
     "static/js/2.78ec63f9.chunk.js.map": "/static/js/2.78ec63f9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.9899cf93ebda3abb6cd1a670ebcaa045.js": "/precache-manifest.9899cf93ebda3abb6cd1a670ebcaa045.js",
+    "precache-manifest.4e501027190f11e9fe98dfea45f53f9c.js": "/precache-manifest.4e501027190f11e9fe98dfea45f53f9c.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.87451c29.chunk.css.map": "/static/css/main.87451c29.chunk.css.map",
+    "static/css/main.8058d250.chunk.css.map": "/static/css/main.8058d250.chunk.css.map",
     "static/media/DeepPavlov.png": "/static/media/DeepPavlov.13c4e31c.png"
   }
 }
