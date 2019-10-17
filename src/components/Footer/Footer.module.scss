@@ -5,7 +5,7 @@
   align-items: flex-end;
   //height: 200px;
   margin-top: 80px;
-  padding-top: 40px;
+  padding-top: 20px;
   margin-bottom: 20px;
   z-index: 100;
 
@@ -37,6 +37,13 @@
   > div {
     margin-top: 10px;
   }
+  &:first-child {
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+
 }
 
 @media only screen 
