@@ -9,7 +9,7 @@ import Footer from '../Footer';
 import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
 import { TextQA as TextQAen, ODQA, Ranking, NER, Intent, Insult } from '../skills/en';
 import { TextQA as TextQAml, NER as NERml } from '../skills/mu';
-import { TextQA as TextQAzh } from '/home/fedor/projects/demo_deeppavlov/demo2/src/components/skills/zh';
+import { TextQA as TextQAzh } from '../skills/zh';
 
 
 class App extends Component {
