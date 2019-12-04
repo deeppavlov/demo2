@@ -28,6 +28,7 @@ const ROUTES = {
     { title: 'ODQA', link: 'odqa' },
     { title: 'Ranking', link: 'ranking' },
     { title: 'Entity recognition', link: 'ner' },
+    { title: 'Chat', link: 'chat' },
     { title: 'Intent classification', link: 'intent' },
     { title: 'Insult detection', link: 'insult' },
   ],
