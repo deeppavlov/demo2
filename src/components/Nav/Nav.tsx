@@ -7,11 +7,12 @@ import style from './Nav.module.scss';
 type Props =  RouteComponentProps;
 
 interface State {
-  lang: 'ru' | 'en' | 'mu';
+  lang: 'ru' | 'en' | 'mu' | 'zh';
   component: {
     ru: string;
     en: string;
     mu: string;
+    zh: string;
   };
 }
 
@@ -34,6 +35,10 @@ const ROUTES = {
     { title: 'Text QA', link: 'textqa' },
     { title: 'Entity recognition', link: 'ner' },
   ],
+  zh: [
+    { title: 'Text QA', link: 'textqa' },
+  ],
+
 };
 
 class Nav extends Component<Props, State> {
@@ -45,6 +50,7 @@ class Nav extends Component<Props, State> {
         ru: '',
         en: '',
         mu: '',
+        zh: '',
       },
     };
   }
@@ -57,12 +63,12 @@ class Nav extends Component<Props, State> {
       return { lang: 'en', component: { ...component, en:ROUTES.en[0].link } };
     }
     return {
-      lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu',
+      lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu' | 'zh',
       component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
     };
   }
 
-  langChange = (lang: 'ru' | 'en' | 'mu') => () => {
+  langChange = (lang: 'ru' | 'en' | 'mu' | 'zh' ) => () => {
     if (this.state.lang === lang) return;
 
     const { component } = this.state;
@@ -75,7 +81,7 @@ class Nav extends Component<Props, State> {
     this.setState({ lang });
   }
 
-  renderNavLinks = (lang: 'ru' | 'en' | 'mu') => {
+  renderNavLinks = (lang: 'ru' | 'en' | 'mu' | 'zh' ) => {
     const links = ROUTES[lang];
     return links.map((item, index: number) => {
       return (
@@ -99,6 +105,7 @@ class Nav extends Component<Props, State> {
         <div className={style.langSelector}>
           <div className={cn(lang === 'ru' && style.active)} onClick={this.langChange('ru')}>Ru</div>
           <div className={cn(lang === 'en' && style.active)} onClick={this.langChange('en')}>En</div>
+          <div className={cn(lang === 'zh' && style.active)} onClick={this.langChange('zh')}>Zh</div>
           <div className={cn(lang === 'mu' && style.active)} onClick={this.langChange('mu')}>Multi-Lang</div>
         </div>
       </nav>
