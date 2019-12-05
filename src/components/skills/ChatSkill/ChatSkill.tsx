@@ -1,10 +1,8 @@
 import React, { Component, ChangeEvent, createRef, SyntheticEvent, KeyboardEvent } from 'react';
-import cn from 'classnames';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
-import { NerClass } from '../utils';
 
 import style from './ChatSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -27,6 +25,9 @@ class BaseSkill extends Component<Props, State> {
     let initState: any = {};
     if (componentState) {
       initState = componentState;
+    }
+    else {
+      initState['message'] = '';
     }
     this.state = initState;
     this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
@@ -63,6 +64,7 @@ class BaseSkill extends Component<Props, State> {
   }
 
   renderAnswers = (answers: Answer[]) => {
+    console.dir(answers);
     return answers.map(this.renderBasic);
   }
 
@@ -70,10 +72,7 @@ class BaseSkill extends Component<Props, State> {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
-    let answer: any = mes.answer[0];
-    if (typeof answer === 'string' && !answer) {
-      answer = this.lang !== 'ru' ? 'I don\'t know' : 'Я не знаю';
-    }
+    let answer: any = mes.answer;
     return (
       <div className={style.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>{answer}</p>
@@ -101,15 +100,15 @@ class BaseSkill extends Component<Props, State> {
     const { messageApi, updateStore, title, dispatchLoading, answers } = this.props;
     dispatchLoading();
     let messages = answers;
-    const response = await messageApi('').catch((error) => {
+    const response = await messageApi(this.state['message']).catch((error) => {
       dispatchLoading();
       console.error(error);
       this.setState({ error: true });
     });
     if (messages) {
-      messages.splice(0, 0, { ...this.state, answer: response.data[0] });
+      messages.splice(0, 0, { ...this.state, answer: response.data.response });
     } else {
-      messages = [{ ...this.state, answer: response.data[0] }];
+      messages = [{ ...this.state, answer: response.data.response }];
     }
 
     window.gtag('event', 'view_item', {
@@ -175,15 +174,19 @@ class BaseSkill extends Component<Props, State> {
         </div>
         <div className={style.inputArea}>
           <form className={style.inputs} onSubmit={this.onFormSubmit}>
-            {inputs.map(this.renderInput)}
+            {/* {inputs.map(this.renderInput)} */}
+            <div>
+              <input
+                placeholder={this.lang !== 'ru' ? 'Write a message...' : 'Написать сообщение...'}
+                value={this.state['message']}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => this.setState({ ['message']: e.target.value })}
+                onKeyPress={this.onCntrlEnterPress}
+              />
+              </div>
             <button type="button" onClick={this.onAsk} className={style.button}>
               {this.lang !== 'ru' ? 'Ask' : 'Спросить'}
             </button>
           </form>
-          {examples && <div className={style.examples}>
-            <p>{this.lang !== 'ru' ? 'Examples' : 'Примеры'}</p>
-            {examples.map(this.renderExamples)}
-          </div>}
         </div>
         {answers && <div className={style.answers} id="answers" ref={this.answersRef}>
           <p>{this.lang !== 'ru' ? 'Results' : 'Результаты'}</p>
@@ -194,8 +197,8 @@ class BaseSkill extends Component<Props, State> {
   }
 }
 
-function withConnect<Req, Res>(stateKey: string) {
-  return connect<StateProps, DispatchProps, ChatSkillProps<Req, Res>>(
+function withConnect(stateKey: string) {
+  return connect<StateProps, DispatchProps>(
     (state: Store) => ({
       answers: state[stateKey],
       loading: state.loading,
