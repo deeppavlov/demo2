@@ -55,149 +55,103 @@
         -ms-flex-align: stretch;
         align-items: stretch;
         width: 100%;
-      }
       
-      .inputGroup > .formControl,
-      .inputGroup > .customSelect,
-      .inputGroup > .customFile {
-        position: relative;
-        -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        width: 1%;
-        margin-bottom: 0;
-      }
+        > .formControl,
+        > .customSelect,
+        > .customFile {
+          position: relative;
+          -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+          width: 1%;
+          margin-bottom: 0;
+        }
 
-      .inputGroup .btn {
-        margin-top: 0;
-      }
-      
-      .inputGroup > .formControl:focus,
-      .inputGroup > .customSelect:focus,
-      .inputGroup > .customFile:focus {
-        z-index: 3;
-      }
-      
-      .inputGroup > .formControl + .formControl,
-      .inputGroup > .formControl + .customSelect,
-      .inputGroup > .formControl + .customFile,
-      .inputGroup > .customSelect + .formControl,
-      .inputGroup > .customSelect + .customSelect,
-      .inputGroup > .customSelect + .customFile,
-      .inputGroup > .customFile + .formControl,
-      .inputGroup > .customFile + .customSelect,
-      .inputGroup > .customFile + .customFile {
-        margin-left: -1px;
-      }
-      
-      .inputGroup > .formControl:not(:last-child),
-      .inputGroup > .customSelect:not(:last-child) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      
-      .inputGroup > .formControl:not(:first-child),
-      .inputGroup > .customSelect:not(:first-child) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-      
-      .inputGroup > .customFile {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-      
-      .inputGroup > .customFile:not(:last-child) .customFileLabel,
-      .inputGroup > .customFile:not(:last-child) .customFileLabel::before {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      
-      .inputGroup > .customFile:not(:first-child) .customFileLabel,
-      .inputGroup > .customFile:not(:first-child) .customFileLabel::before {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-      
-      .inputGroupPrepend,
-      .inputGroupAppend {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-      
-      .inputGroupPrepend .btn,
-      .inputGroupAppend .btn {
-        position: relative;
-        z-index: 2;
-      }
-      
-      .inputGroupPrepend .btn + .btn,
-      .inputGroupPrepend .btn + .inputGroupText,
-      .inputGroupPrepend .inputGroupText + .inputGroupText,
-      .inputGroupPrepend .inputGroupText + .btn,
-      .inputGroupAppend .btn + .btn,
-      .inputGroupAppend .btn + .inputGroupText,
-      .inputGroupAppend .inputGroupText + .inputGroupText,
-      .inputGroupAppend .inputGroupText + .btn {
-        margin-left: -1px;
-      }
-      
-      .inputGroupPrepend {
-        margin-right: -1px;
-      }
-      
-      .inputGroupAppend {
-        margin-left: -1px;
-      }
-      
-      .inputGroupText {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        padding: 0.375rem 0.75rem;
-        margin-bottom: 0;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #495057;
-        text-align: center;
-        white-space: nowrap;
-        background-color: #e9ecef;
-        border: 1px solid #ced4da;
-        border-radius: 0.25rem;
-      }
-      
-      .inputGroupText input[type="radio"],
-      .inputGroupText input[type="checkbox"] {
-        margin-top: 0;
-      }
-      
-      .inputGroup > .inputGroupPrepend > .btn,
-      .inputGroup > .inputGroupPrepend > .inputGroupText,
-      .inputGroup > .inputGroupAppend:not(:last-child) > .btn,
-      .inputGroup > .inputGroupAppend:not(:last-child) > .inputGroupText,
-      .inputGroup > .inputGroupAppend:last-child > .btn:not(:last-child):not(.dropdownToggle),
-      .inputGroup > .inputGroupAppend:last-child > .inputGroupText:not(:last-child) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      
-      .inputGroup > .inputGroupAppend > .btn,
-      .inputGroup > .inputGroupAppend > .inputGroupText,
-      .inputGroup > .inputGroupPrepend:not(:first-child) > .btn,
-      .inputGroup > .inputGroupPrepend:not(:first-child) > .inputGroupText,
-      .inputGroup > .inputGroupPrepend:first-child > .btn:not(:first-child),
-      .inputGroup > .inputGroupPrepend:first-child > .inputGroupText:not(:first-child) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        .button {
+          margin-top: 0;
+        }
+        
+        > .formControl:focus,
+        > .customSelect:focus,
+        > .customFile:focus {
+          z-index: 3;
+        }
+        
+        > .formControl + .formControl,
+        > .formControl + .customSelect,
+        > .formControl + .customFile,
+        > .customSelect + .formControl,
+        > .customSelect + .customSelect,
+        > .customSelect + .customFile,
+        > .customFile + .formControl,
+        > .customFile + .customSelect,
+        > .customFile + .customFile {
+          margin-left: -1px;
+        }
+        
+        > .formControl:not(:last-child),
+        > .customSelect:not(:last-child) {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        
+        > .formControl:not(:first-child),
+        > .customSelect:not(:first-child) {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        
+        .inputGroupPrepend,
+        .inputGroupAppend {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+        
+        .inputGroupPrepend .button,
+        .inputGroupAppend .button {
+          position: relative;
+          z-index: 2;
+        }
+        
+        .inputGroupPrepend .button + .button,
+        .inputGroupPrepend .button + .inputGroupText,
+        .inputGroupPrepend .inputGroupText + .inputGroupText,
+        .inputGroupPrepend .inputGroupText + .button,
+        .inputGroupAppend .button + .button,
+        .inputGroupAppend .button + .inputGroupText,
+        .inputGroupAppend .inputGroupText + .inputGroupText,
+        .inputGroupAppend .inputGroupText + .button {
+          margin-left: -1px;
+        }
+        
+        .inputGroupPrepend {
+          margin-right: -1px;
+        }
+        
+        .inputGroupAppend {
+          margin-left: -1px;
+        }
+        
+        > .inputGroupPrepend > .button,
+        > .inputGroupPrepend > .inputGroupText,
+        > .inputGroupAppend:not(:last-child) > .button,
+        > .inputGroupAppend:not(:last-child) > .inputGroupText,
+        > .inputGroupAppend:last-child > .button:not(:last-child):not(.dropdownToggle),
+        > .inputGroupAppend:last-child > .inputGroupText:not(:last-child) {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        
+        > .inputGroupAppend > .button,
+        > .inputGroupAppend > .inputGroupText,
+        > .inputGroupPrepend:not(:first-child) > .button,
+        > .inputGroupPrepend:not(:first-child) > .inputGroupText,
+        > .inputGroupPrepend:first-child > .button:not(:first-child),
+        > .inputGroupPrepend:first-child > .inputGroupText:not(:first-child) {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
       }
 
       input, textarea {

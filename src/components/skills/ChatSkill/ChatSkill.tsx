@@ -15,9 +15,10 @@ interface State {
   [key:string]: string;
 }
 
-class BaseSkill extends Component<Props, State> {
+class ChatSkill extends Component<Props, State> {
   lang: 'ru' | 'en' | 'mu';
   answersRef: React.RefObject<HTMLDivElement>;
+  inputRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
     super(props);
@@ -32,6 +33,7 @@ class BaseSkill extends Component<Props, State> {
     this.state = initState;
     this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
     this.answersRef = createRef();
+    this.inputRef = createRef();
   }
 
   componentDidMount () {
@@ -40,6 +42,9 @@ class BaseSkill extends Component<Props, State> {
       event_category: 'Open page',
       event_label: `${title} ${this.lang}`,
     });
+
+    this.scrollMessages('auto');
+    this.scrollToInput();
   }
 
   componentWillUnmount () {
@@ -82,6 +87,38 @@ class BaseSkill extends Component<Props, State> {
     ];
   }
 
+  scrollMessages = (behavior: 'smooth' | 'auto' = 'smooth') => {
+    const answersDiv = this.answersRef!.current;
+    if (answersDiv) {
+      answersDiv.scrollTo({
+        top: answersDiv.scrollHeight,
+        behavior
+      })
+    }
+  }
+
+  scrollToInput = () => {
+    const inputDiv = this.inputRef!.current!;
+    const { top, bottom } = inputDiv.getBoundingClientRect();
+    if (top < 0 || bottom > window.innerHeight){
+      const offset = Math.max(0, window.pageYOffset + bottom - window.innerHeight)
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth',
+      });
+      function scrollListener(){
+        if (window.pageYOffset === offset) {
+          window.removeEventListener('scroll', scrollListener);
+          inputDiv.getElementsByTagName('input')[0].focus();
+        }
+      }
+      window.addEventListener('scroll', scrollListener)
+    }
+    else{
+      inputDiv.getElementsByTagName('input')[0].focus();
+    }
+  }
+
   onAsk =  async () => {
     if (document.activeElement) {
       const elem = document.activeElement as HTMLElement;
@@ -107,14 +144,15 @@ class BaseSkill extends Component<Props, State> {
       this.setState({ error: true });
     });
 
-    let answer: string = response.data.response;
-    const commentIndex = answer.indexOf('#+#');
-    if (commentIndex > -1) {
-      answer = answer.substring(0, commentIndex);
+    let answer: string | undefined = response.data.response;
+    if (answer){
+      const commentIndex = answer.indexOf('#+#');
+      if (commentIndex > -1) {
+        answer = answer.substring(0, commentIndex);
+      }
+      answer = answer.trim()
+      messages.push({ question: question, answer: answer });
     }
-    answer = answer.trim()
-
-    messages.push({ question: question, answer: answer });
 
     window.gtag('event', 'view_item', {
       event_category: 'Made request',
@@ -124,12 +162,22 @@ class BaseSkill extends Component<Props, State> {
 
     updateStore(messages);
 
-    const { top } = this.answersRef!.current!.getBoundingClientRect();
-    window.scrollTo({
-      top,
-      behavior: 'smooth',
+    this.scrollMessages();
+
+    this.scrollToInput();
+    this.setState({ 'message': '' });
+  }
+
+  reset = async () => {
+    const {resetApi, updateStore, dispatchLoading} = this.props;
+    dispatchLoading();
+    await resetApi().catch((error) => {
+      dispatchLoading();
+      console.error(error);
+      this.setState({ error: true });
     });
-    this.answersRef!.current!.scrollTop = 0;
+    setTimeout(dispatchLoading, 200);
+    updateStore([]);
   }
 
   onFormSubmit = (e: SyntheticEvent) => {
@@ -158,12 +206,12 @@ class BaseSkill extends Component<Props, State> {
         </div>}
         <p className={style.title}>{title}</p>
         {desc && <div>{desc}</div>}
-        {answers && <div className={style.answers} id="answers" ref={this.answersRef}>
+        {answers && answers.length>0 && <div className={style.answers} id="answers" ref={this.answersRef}>
           {(this.renderAnswers(answers))}
         </div>}
         <div className={style.inputArea}>
           <form className={style.inputs} onSubmit={this.onFormSubmit}>
-            <div className={style.inputGroup}>
+            <div className={style.inputGroup} ref={this.inputRef}>
               <input
                 placeholder={this.lang !== 'ru' ? 'Write a message...' : 'Написать сообщение...'}
                 value={this.state['message']}
@@ -172,11 +220,14 @@ class BaseSkill extends Component<Props, State> {
                 className={style.formControl}
               />
               <div className={style.inputGroupAppend}>
-                <button type="button" onClick={this.onAsk} className={`${style.button} ${style.btn}`}>
-                  {this.lang !== 'ru' ? 'Ask' : 'Спросить'}
+                <button type="button" onClick={this.onAsk} className={style.button}>
+                  {this.lang !== 'ru' ? 'Send' : 'Отправить'}
                 </button>
               </div>
             </div>
+            <button type="button" onClick={this.reset} className={style.button}>
+              {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
+            </button>
           </form>
         </div>
       </div>
@@ -196,7 +247,7 @@ function withConnect(stateKey: string) {
       dispatchLoading: () => dispatch(RequestLoading()),
       safeComponentState: (state: State) => dispatch(SCI(`${stateKey}Component`, state)),
     }),
-  )(withRouter(BaseSkill));
+  )(withRouter(ChatSkill));
 }
 
 export default withConnect;
