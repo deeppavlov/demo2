@@ -8,8 +8,7 @@ export interface DispatchProps {
 
 export interface Answer {
   question: string;
-  answer: string[][];
-  [key: string]: string | string[][];
+  answer: string;
 }
 
 export interface StateProps {

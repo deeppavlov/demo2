@@ -36,13 +36,170 @@
     .inputs {
       flex-grow: 2;
       flex-shrink: 0;
-      margin-right: 20px;
+      // margin-right: 20px;
       div {
         margin-top: 34px;
         &:first-of-type {
           margin-top: 0;
         }
       }
+
+      .inputGroup {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        width: 100%;
+      }
+      
+      .inputGroup > .formControl,
+      .inputGroup > .customSelect,
+      .inputGroup > .customFile {
+        position: relative;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+      }
+
+      .inputGroup .btn {
+        margin-top: 0;
+      }
+      
+      .inputGroup > .formControl:focus,
+      .inputGroup > .customSelect:focus,
+      .inputGroup > .customFile:focus {
+        z-index: 3;
+      }
+      
+      .inputGroup > .formControl + .formControl,
+      .inputGroup > .formControl + .customSelect,
+      .inputGroup > .formControl + .customFile,
+      .inputGroup > .customSelect + .formControl,
+      .inputGroup > .customSelect + .customSelect,
+      .inputGroup > .customSelect + .customFile,
+      .inputGroup > .customFile + .formControl,
+      .inputGroup > .customFile + .customSelect,
+      .inputGroup > .customFile + .customFile {
+        margin-left: -1px;
+      }
+      
+      .inputGroup > .formControl:not(:last-child),
+      .inputGroup > .customSelect:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .inputGroup > .formControl:not(:first-child),
+      .inputGroup > .customSelect:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      .inputGroup > .customFile {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+      
+      .inputGroup > .customFile:not(:last-child) .customFileLabel,
+      .inputGroup > .customFile:not(:last-child) .customFileLabel::before {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .inputGroup > .customFile:not(:first-child) .customFileLabel,
+      .inputGroup > .customFile:not(:first-child) .customFileLabel::before {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      .inputGroupPrepend,
+      .inputGroupAppend {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+      
+      .inputGroupPrepend .btn,
+      .inputGroupAppend .btn {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .inputGroupPrepend .btn + .btn,
+      .inputGroupPrepend .btn + .inputGroupText,
+      .inputGroupPrepend .inputGroupText + .inputGroupText,
+      .inputGroupPrepend .inputGroupText + .btn,
+      .inputGroupAppend .btn + .btn,
+      .inputGroupAppend .btn + .inputGroupText,
+      .inputGroupAppend .inputGroupText + .inputGroupText,
+      .inputGroupAppend .inputGroupText + .btn {
+        margin-left: -1px;
+      }
+      
+      .inputGroupPrepend {
+        margin-right: -1px;
+      }
+      
+      .inputGroupAppend {
+        margin-left: -1px;
+      }
+      
+      .inputGroupText {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0.375rem 0.75rem;
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #e9ecef;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+      }
+      
+      .inputGroupText input[type="radio"],
+      .inputGroupText input[type="checkbox"] {
+        margin-top: 0;
+      }
+      
+      .inputGroup > .inputGroupPrepend > .btn,
+      .inputGroup > .inputGroupPrepend > .inputGroupText,
+      .inputGroup > .inputGroupAppend:not(:last-child) > .btn,
+      .inputGroup > .inputGroupAppend:not(:last-child) > .inputGroupText,
+      .inputGroup > .inputGroupAppend:last-child > .btn:not(:last-child):not(.dropdownToggle),
+      .inputGroup > .inputGroupAppend:last-child > .inputGroupText:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .inputGroup > .inputGroupAppend > .btn,
+      .inputGroup > .inputGroupAppend > .inputGroupText,
+      .inputGroup > .inputGroupPrepend:not(:first-child) > .btn,
+      .inputGroup > .inputGroupPrepend:not(:first-child) > .inputGroupText,
+      .inputGroup > .inputGroupPrepend:first-child > .btn:not(:first-child),
+      .inputGroup > .inputGroupPrepend:first-child > .inputGroupText:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
       input, textarea {
         width: 100%;
         font-size: 1rem;
@@ -129,14 +286,16 @@
 
   .answers {
     color: #333;
-    margin-top: 40px;
     overflow-y: scroll;
+    overflow-x: hidden;
     max-height: 450px;
     margin-top: 15px;
     border-radius: .25rem;
     font-size: 18px !important;
-    margin-bottom: 100px;
-    background: linear-gradient(white,white, #efefef);
+    margin-bottom: 15px;
+    // background: linear-gradient(white,white, #efefef);
+    background: #efefef;
+    padding-top: .2rem;
     // title
     >p {
       font-size: 2rem;
@@ -145,24 +304,55 @@
     }
     // answer
     > div {
-      border: 1px solid lightgray;
-      border-radius: .25rem;
-      padding: 20px;
-      margin: 0 20px 20px 20px;
-      background-color: white;
+      // border: 1px solid lightgray;
+      padding: 0 1rem;
+      margin: 0 1.5rem .3rem 1.5rem;
       line-height: 2rem;
+      width: fit-content;
     }
-
-    > .basic {
-      p:first-of-type {
-        font-weight: 400;
-        color: darkblue;
-      }
-      p:last-of-type {
-        border-top: 1px solid lightgray;
-        margin-top: 12px;
-        padding-top: 12px;
-      }
+    .user{
+      clear:both;
+      float: right;
+      border-radius: 1.5rem 1.5rem 0 1.5rem;
+      color: #0069B4;
+      background-color: #FFD839;
+      position: relative;
+    }
+    .user:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border: .8rem solid transparent;
+      border-left-color: #FFD839;
+      border-right: 0;
+      border-bottom: 0;
+      margin-top: -.4rem;
+      margin-right: -.8rem;
+    }
+    .bot{
+      clear:both;
+      float: left;
+      border-radius: 1.5rem 1.5rem 1.5rem 0;
+      color: #FFD839;
+      background-color: #0069B4;
+      position: relative;
+    }
+    .bot:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border: .8rem solid transparent;
+      border-right-color: #0069B4;
+      border-left: 0;
+      border-bottom: 0;
+      margin-top: -.4rem;
+      margin-left: -.8rem;
     }
   }
 }

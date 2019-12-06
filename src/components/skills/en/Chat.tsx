@@ -5,8 +5,8 @@ import uuidv4 from 'uuid/v4';
 import skillWrapper, { ChatSkillProps } from '../ChatSkill';
 import { Res } from '../../../lib/api';
 
-// const apiUrl = 'http://Docker-st-External-1918W05RU8XQW-178993125.us-east-1.elb.amazonaws.com:4242';
-const apiUrl = 'http://localhost:3001';
+const apiUrl = 'http://Docker-st-External-1918W05RU8XQW-178993125.us-east-1.elb.amazonaws.com:4242';
+// const apiUrl = 'http://localhost:3001';
 const uid: string = uuidv4();
 
 async function chatApi(text: string): Promise<Res> {
@@ -21,8 +21,9 @@ async function chatApi(text: string): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'Some chat',
-  desc: <div style={{ marginTop: '1em' }}>Chat with a bot</div>,
+  title: 'DREAM Socialbot',
+  desc: <div style={{ marginTop: '1em' }}>A virtual character able to provide entertainment with useful and funny facts,
+   as well as, engage its partner into a deeper discussion on topics of interest in a natural way.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start')
 };
