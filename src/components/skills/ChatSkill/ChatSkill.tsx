@@ -130,7 +130,7 @@ class ChatSkill extends Component<Props, State> {
 
     const { messageApi, updateStore, title, dispatchLoading, answers } = this.props;
     const question = this.state['message'];
-    if (question.length == 0) {
+    if (question.length === 0) {
       return;
     }
     if (document.activeElement) {
@@ -229,7 +229,7 @@ class ChatSkill extends Component<Props, State> {
                 className={style.formControl}
               />
               <div className={style.inputGroupAppend}>
-                <button type="button" onClick={this.onAsk} className={style.button} disabled={this.state.message.length==0}>
+                <button type="button" onClick={this.onAsk} className={style.button}>
                   {this.lang !== 'ru' ? 'Send' : 'Отправить'}
                 </button>
               </div>
