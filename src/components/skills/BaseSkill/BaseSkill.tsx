@@ -292,9 +292,10 @@ class BaseSkill extends Component<Props, State> {
 
     updateStore(messages);
 
-    const { top } = this.answersRef!.current!.getBoundingClientRect();
+    const { bottom } = this.answersRef!.current!.getBoundingClientRect();
+    const offset = Math.max(0, window.pageYOffset + bottom - window.innerHeight)
     window.scrollTo({
-      top,
+      top: offset,
       behavior: 'smooth',
     });
     this.answersRef!.current!.scrollTop = 0;
