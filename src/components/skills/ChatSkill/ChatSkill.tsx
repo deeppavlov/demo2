@@ -11,8 +11,8 @@ import { ChatSkillProps, DispatchProps, StateProps, Answer } from '.';
 type Props<Res = any> = ChatSkillProps<Res> & DispatchProps & StateProps & RouteComponentProps;
 interface State {
   error: any;
-  question: string;
-  [key:string]: string;
+  message: string;
+  agreed: boolean;
 }
 
 class ChatSkill extends Component<Props, State> {
@@ -29,6 +29,7 @@ class ChatSkill extends Component<Props, State> {
     }
     else {
       initState['message'] = '';
+      initState['agreed'] = false;
     }
     this.state = initState;
     this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
@@ -99,6 +100,9 @@ class ChatSkill extends Component<Props, State> {
 
   scrollToInput = () => {
     const inputDiv = this.inputRef!.current!;
+    if (inputDiv == null) {
+      return;
+    }
     const { top, bottom } = inputDiv.getBoundingClientRect();
     if (top < 0 || bottom > window.innerHeight){
       const offset = Math.max(0, window.pageYOffset + bottom - window.innerHeight)
@@ -120,31 +124,31 @@ class ChatSkill extends Component<Props, State> {
   }
 
   onAsk =  async () => {
+
+    const state = { ...this.state };
+    delete state.error;
+
+    const { messageApi, updateStore, title, dispatchLoading, answers } = this.props;
+    const question = this.state['message'];
+    if (question.length == 0) {
+      return;
+    }
     if (document.activeElement) {
       const elem = document.activeElement as HTMLElement;
       elem.blur();
     }
-
-    const state = { ...this.state };
-    delete state.error;
-    let checker = true;
-    Object.values(state).forEach((item) => { checker = checker && Boolean(item); });
-    if (!checker) {
-      alert(this.lang !== 'ru' ? 'Fill all fields.' : 'Заполните все поля.');
-      return;
-    }
-
-    const { messageApi, updateStore, title, dispatchLoading, answers } = this.props;
     dispatchLoading();
     let messages = answers || [];
-    const question = this.state['message'];
     const response = await messageApi(question).catch((error) => {
       dispatchLoading();
       console.error(error);
       this.setState({ error: true });
     });
+    if (!response) {
+      return;
+    }
 
-    let answer: string | undefined = response.data.response;
+    let answer: string = response.data.response;
     if (answer){
       const commentIndex = answer.indexOf('#+#');
       if (commentIndex > -1) {
@@ -180,6 +184,10 @@ class ChatSkill extends Component<Props, State> {
     updateStore([]);
   }
 
+  agree = () => {
+    this.setState({ agreed: true })
+  }
+
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     this.onAsk();
@@ -189,7 +197,7 @@ class ChatSkill extends Component<Props, State> {
 
   render() {
     const { title, desc, answers, loading } = this.props;
-    const { error } = this.state;
+    const { agreed, error } = this.state;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>
@@ -206,10 +214,11 @@ class ChatSkill extends Component<Props, State> {
         </div>}
         <p className={style.title}>{title}</p>
         {desc && <div>{desc}</div>}
-        {answers && answers.length>0 && <div className={style.answers} id="answers" ref={this.answersRef}>
+        
+        {agreed && answers && answers.length>0 && <div className={style.answers} id="answers" ref={this.answersRef}>
           {(this.renderAnswers(answers))}
         </div>}
-        <div className={style.inputArea}>
+        {agreed && <div className={style.inputArea}>
           <form className={style.inputs} onSubmit={this.onFormSubmit}>
             <div className={style.inputGroup} ref={this.inputRef}>
               <input
@@ -220,7 +229,7 @@ class ChatSkill extends Component<Props, State> {
                 className={style.formControl}
               />
               <div className={style.inputGroupAppend}>
-                <button type="button" onClick={this.onAsk} className={style.button}>
+                <button type="button" onClick={this.onAsk} className={style.button} disabled={this.state.message.length==0}>
                   {this.lang !== 'ru' ? 'Send' : 'Отправить'}
                 </button>
               </div>
@@ -229,7 +238,17 @@ class ChatSkill extends Component<Props, State> {
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
             </button>
           </form>
-        </div>
+        </div>}
+        {!agreed && <div className={style.disclaimer}>
+          <h1>Disclaimer of responsibility</h1>
+          <p>Bot responses are generated automatically. MIPT (TIN 5008006211) shall bear no responsibility for accuracy, relevance, correctness of the information received by the User through the chat bot.</p>
+<p>MIPT (TIN 5008006211) shall bear no responsibility for the information received by the User through the chatbot, including if this information hurts the user's feelings related to ethics and standards of living. Information received by the User through the bot does not appeal for any actions, including ethnic and religious hatred, does not promote anything, including non-traditional sexual orientation, violence, drug use, alcohol and smoking, it’s not intended to offend anyone’s feelings on religious, gender, political or any other grounds, including insulting government officials and state symbols of any country.</p>
+<p>MIPT (TIN  5008006211) shall bear no responsibility for the information received by the User through the bot, including, but not limited, if this information violates the rights of the third parties to intellectual property and equivalent means of identification, the right to information constituting a trade secret, the rights of minors, contains negative and critical statements regarding religion, politics, racial, ethnic, gender, personal qualities and abilities, sexual orientation and appearance of the third  parties, contains insults to specific individuals or organizations, violates generally accepted moral standards and ethical norms, promotes hatred and / or discrimination.</p>
+<p>By using the bot, you explicitly give permission for your anonymized conversation data to be released publicly in any sources and by any ways.</p>
+<p>MIPT (TIN 5008006211) has the right to store conversation data without compliance special requirements.</p>
+<p>If you consider this unacceptable, we kindly ask you not to use the bot. By using the chat bot, you explicitly give your permission to receive any information; all claims and complaints on bot functioning shall not be considered by MIPT (TIN 5008006211).</p>
+            <button type="button" onClick={this.agree} className={style.button}>Agree</button>
+        </div>}
       </div>
     );
   }

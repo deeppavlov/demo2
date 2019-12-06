@@ -6,6 +6,18 @@
     margin: 0.5rem 0;
   }
 
+  .disclaimer {
+    border: 1px solid black;
+    padding: 1rem;
+    h1 {
+      text-align: center;
+    }
+    p {
+      text-indent: 1rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+
   .docker {
     margin-top: 20px;
     code {
