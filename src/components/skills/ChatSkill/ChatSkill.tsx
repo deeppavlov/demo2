@@ -116,7 +116,7 @@ class ChatSkill extends Component<Props, State> {
           inputDiv.getElementsByTagName('input')[0].focus();
         }
       }
-      window.addEventListener('scroll', scrollListener)
+      window.addEventListener('scroll', scrollListener);
     }
     else{
       inputDiv.getElementsByTagName('input')[0].focus();
@@ -185,7 +185,7 @@ class ChatSkill extends Component<Props, State> {
   }
 
   agree = () => {
-    this.setState({ agreed: true })
+    this.setState({ agreed: true }, this.scrollToInput);
   }
 
   onFormSubmit = (e: SyntheticEvent) => {
