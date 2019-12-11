@@ -3,11 +3,12 @@ import cn from 'classnames';
 import { withRouter, RouteComponentProps, NavLink } from 'react-router-dom';
 
 import style from './Nav.module.scss';
+import { Language } from 'components/skills/utils';
 
 type Props =  RouteComponentProps;
 
 interface State {
-  lang: 'ru' | 'en' | 'mu' | 'zh';
+  lang: Language;
   component: {
     ru: string;
     en: string;
@@ -64,12 +65,12 @@ class Nav extends Component<Props, State> {
       return { lang: 'en', component: { ...component, en:ROUTES.en[0].link } };
     }
     return {
-      lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu' | 'zh',
+      lang: pathname.split('/')[1] as Language,
       component: { ...component, [pathname.split('/')[1]]: pathname.split('/')[2] },
     };
   }
 
-  langChange = (lang: 'ru' | 'en' | 'mu' | 'zh' ) => () => {
+  langChange = (lang: Language ) => () => {
     if (this.state.lang === lang) return;
 
     const { component } = this.state;
@@ -82,7 +83,7 @@ class Nav extends Component<Props, State> {
     this.setState({ lang });
   }
 
-  renderNavLinks = (lang: 'ru' | 'en' | 'mu' | 'zh' ) => {
+  renderNavLinks = (lang: Language ) => {
     const links = ROUTES[lang];
     return links.map((item, index: number) => {
       return (

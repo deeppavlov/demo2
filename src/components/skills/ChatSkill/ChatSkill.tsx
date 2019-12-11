@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
+import {Language} from '../utils'
 
 import style from './ChatSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -16,7 +17,7 @@ interface State {
 }
 
 class ChatSkill extends Component<Props, State> {
-  lang: 'ru' | 'en' | 'mu';
+  lang: Language;
   answersRef: React.RefObject<HTMLDivElement>;
   inputRef: React.RefObject<HTMLDivElement>;
 
@@ -32,7 +33,7 @@ class ChatSkill extends Component<Props, State> {
       initState['agreed'] = false;
     }
     this.state = initState;
-    this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
+    this.lang = pathname.split('/')[1] as Language;
     this.answersRef = createRef();
     this.inputRef = createRef();
   }

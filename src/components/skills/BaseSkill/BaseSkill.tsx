@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { State as Store, updatestore, loading as RequestLoading, SCI } from '../../../lib/store';
-import { NerClass } from '../utils';
+import { NerClass, Language } from '../utils';
 
 import style from './BaseSkill.module.scss';
 // Moved interfaces into index file because of --isolatedModules
@@ -18,7 +18,7 @@ interface State {
 }
 
 class BaseSkill extends Component<Props, State> {
-  lang: 'ru' | 'en' | 'mu';
+  lang: Language;
   answersRef: React.RefObject<HTMLDivElement>;
 
   constructor(props: Props) {
@@ -33,7 +33,7 @@ class BaseSkill extends Component<Props, State> {
       });
     }
     this.state = initState;
-    this.lang = pathname.split('/')[1] as 'ru' | 'en' | 'mu';
+    this.lang = pathname.split('/')[1] as Language;
     this.answersRef = createRef();
   }
 
