@@ -3,11 +3,12 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import style from './Footer.module.scss';
 import img from './DeepPavlov.png';
+import { Language } from 'components/skills/utils';
 
 type Props =  RouteComponentProps;
 
 interface State {
-  lang: 'ru' | 'en' | 'mu';
+  lang: Language;
 }
 
 class Nav extends Component<Props, State> {
@@ -22,12 +23,12 @@ class Nav extends Component<Props, State> {
     if (pathname === '/') {
       this.setState({ lang: 'en' });
     } else {
-      this.setState({ lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu' });
+      this.setState({ lang: pathname.split('/')[1] as Language });
     }
   }
   static getDerivedStateFromProps(props: Props) {
     const { location: { pathname } } = props;
-    return { lang: pathname.split('/')[1] as 'ru' | 'en' | 'mu' };
+    return { lang: pathname.split('/')[1] as Language };
   }
 
   render () {

@@ -67,6 +67,8 @@ const renderNerClasses = (classes: {[key: string]: {color: string; text?: string
 };
 export { renderNerClasses, ontonotesClasses, ruNerStyles, intentsClasses };
 
+export type Language = 'ru' | 'en' | 'mu' | 'zh';
+
 interface NerClassProps {
   label: string;
   color: string;
