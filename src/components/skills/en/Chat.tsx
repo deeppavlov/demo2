@@ -5,7 +5,7 @@ import uuidv4 from 'uuid/v4';
 import skillWrapper, { ChatSkillProps } from '../ChatSkill';
 import { Res } from '../../../lib/api';
 
-const apiUrl = 'https://7056.lnsigo.mipt.ru/';
+const apiUrl = 'https://7018.lnsigo.mipt.ru/';
 const uid: string = uuidv4();
 
 async function chatApi(text: string): Promise<Res> {
