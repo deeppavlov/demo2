@@ -31,7 +31,7 @@ const ROUTES = {
     { title: 'Entity recognition', link: 'ner' },
     { title: 'Intent classification', link: 'intent' },
     { title: 'Insult detection', link: 'insult' },
-    { title: 'Chatbot', link: 'chat' },
+    // { title: 'Chatbot', link: 'chat' },
   ],
   mu: [
     { title: 'Text QA', link: 'textqa' },
