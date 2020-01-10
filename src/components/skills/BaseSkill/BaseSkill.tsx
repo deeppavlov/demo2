@@ -191,7 +191,6 @@ class BaseSkill extends Component<Props, State> {
         spans[spansIndex] = item;
       }
     });
-    console.dir(spans);
     return (
       <div dir={this.isRTL(answer[0].join(''))} className={style.ner} key={i}>
         {spans.map((item, i) => {
