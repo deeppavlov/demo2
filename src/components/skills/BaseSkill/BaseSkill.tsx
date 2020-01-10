@@ -181,6 +181,7 @@ class BaseSkill extends Component<Props, State> {
 
     answer[0].forEach((item: string, i: number) => {
       if (answer[1][i].substring(0, 1) === 'B') {
+        spansIndex++;
         spans[spansIndex] = `${item} `;
         reducedColors[spansIndex] =  colors![classes[i]];
       } else if (answer[1][i].substring(0, 1) === 'I') {
@@ -190,6 +191,7 @@ class BaseSkill extends Component<Props, State> {
         spans[spansIndex] = item;
       }
     });
+    console.dir(spans);
     return (
       <div dir={this.isRTL(answer[0].join(''))} className={style.ner} key={i}>
         {spans.map((item, i) => {
