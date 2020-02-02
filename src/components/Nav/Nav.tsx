@@ -21,7 +21,7 @@ const ROUTES = {
   ru: [
     { title: 'Ответы на вопросы по тексту', link: 'textqa' },
     { title: 'Ответы на вопросы', link: 'odqa' },
-    { title: 'Распознование именованных сущностей', link: 'ner' },
+    { title: 'Распознавание именованных сущностей', link: 'ner' },
     { title: 'Анализ тональности', link: 'sentiment' },
   ],
   en: [
