@@ -19,8 +19,8 @@ interface State {
 
 const ROUTES = {
   ru: [
-    { title: 'Ответы на вопросы по тексту', link: 'textqa' },
-    { title: 'Ответы на вопросы', link: 'odqa' },
+    { title: 'Ответы на вопросы по тексту', link: 'textqa' },
+    { title: 'Ответы на вопросы по Википедии', link: 'odqa' },
     { title: 'Распознавание именованных сущностей', link: 'ner' },
     { title: 'Анализ тональности', link: 'sentiment' },
   ],
