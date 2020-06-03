@@ -45,6 +45,24 @@
       }
     }
 
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+
+      span {
+        display: inline-block;
+        position: relative;
+        // width: 1.1em;
+        color: gold;
+        font-size: 2em;
+        &:hover::before, &:hover ~ span::before {
+          content: "✭";
+          position: absolute;
+        }
+      }
+    }
+
     .inputs {
       flex-grow: 2;
       flex-shrink: 0;

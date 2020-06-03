@@ -14,6 +14,7 @@ interface State {
   error: any;
   message: string;
   agreed: boolean;
+  rating: number;
 }
 
 class ChatSkill extends Component<Props, State> {
@@ -31,6 +32,7 @@ class ChatSkill extends Component<Props, State> {
     else {
       initState['message'] = '';
       initState['agreed'] = false;
+      initState['rating'] = 0;
     }
     this.state = initState;
     this.lang = pathname.split('/')[1] as Language;
@@ -87,6 +89,16 @@ class ChatSkill extends Component<Props, State> {
         <p>{answer}</p>
       </div>
     ];
+  }
+
+  renderScore = (rating: number) => {
+    return [4, 3, 2, 1].map((i: number) => {
+    return <span onClick={() => this.setRating(i)}>{(i <= rating)?'★':'☆'}</span>
+    })
+  }
+
+  setRating = (rating: number) => {
+    this.setState({ rating })
   }
 
   scrollMessages = (behavior: 'smooth' | 'auto' = 'smooth') => {
@@ -198,7 +210,7 @@ class ChatSkill extends Component<Props, State> {
 
   render() {
     const { title, desc, answers, loading } = this.props;
-    const { agreed, error } = this.state;
+    const { agreed, error, rating } = this.state;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>
@@ -235,6 +247,8 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
+            <div className={style.rating}>{this.renderScore(rating)}</div>
+
             <button type="button" onClick={this.reset} className={style.button}>
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
             </button>
