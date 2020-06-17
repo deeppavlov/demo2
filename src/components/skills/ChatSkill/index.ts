@@ -9,6 +9,8 @@ export interface DispatchProps {
 export interface Answer {
   question: string;
   answer: string;
+  utt_id: string;
+  rating: number;
 }
 
 export interface StateProps {
@@ -22,4 +24,6 @@ export interface ChatSkillProps<Res> {
   desc: JSX.Element;
   messageApi: (text: string) => Promise<Res>;
   resetApi: () => Promise<Res>;
+  dialogRating: (dialog_id: string, rating: number) => Promise<Res>;
+  utteranceRating: (utterance_id: string, rating: number) => Promise<Res>;
 }

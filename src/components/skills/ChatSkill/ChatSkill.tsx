@@ -15,6 +15,7 @@ interface State {
   message: string;
   agreed: boolean;
   rating: number;
+  dialog_id: null | string
 }
 
 class ChatSkill extends Component<Props, State> {
@@ -33,6 +34,7 @@ class ChatSkill extends Component<Props, State> {
       initState['message'] = '';
       initState['agreed'] = false;
       initState['rating'] = 0;
+      initState['dialog_id'] = null;
     }
     this.state = initState;
     this.lang = pathname.split('/')[1] as Language;
@@ -87,18 +89,56 @@ class ChatSkill extends Component<Props, State> {
       </div>,
       <div className={style.bot} dir={this.isRTL(mes.question)} key={`answer${i}`}>
         <p>{answer}</p>
+      </div>,
+      <div className={style.reaction} key={`reaction${i}`}>
+        {mes.rating === 0 &&
+         <div>
+           <button onClick={() => this.setUttRating(i, 1)}>&#x1f44d;</button>
+           <button onClick={() => this.setUttRating(i, 2)}>&#x1f44e;</button>
+         </div>
+        }
+        {mes.rating === 1 && <span>&#x1f44d;</span>}
+        {mes.rating === 2 && <span>&#x1f44e;</span>}
       </div>
     ];
   }
 
-  renderScore = (rating: number) => {
-    return [4, 3, 2, 1].map((i: number) => {
-    return <span onClick={() => this.setRating(i)}>{(i <= rating)?'★':'☆'}</span>
-    })
+  setUttRating = async (i: number, rating: number) => {
+    const { updateStore, answers, utteranceRating, dispatchLoading } = this.props;
+    let messages = answers || [];
+    dispatchLoading()
+
+    await utteranceRating(messages[i].utt_id, rating).then(() => {
+      messages[i].rating = rating;
+      updateStore(messages);
+    }).catch((error) => {
+      console.error(error);
+      this.setState({ error: true });
+    });
+
+    setTimeout(dispatchLoading, 200);
   }
 
-  setRating = (rating: number) => {
-    this.setState({ rating })
+  renderScore = (rating: number) => {
+    let spans = [];
+    for (let i = 5; i > 0; i--){
+      spans.push(<span key={i} onClick={() => {if (i !== rating) this.setRating(i)}}>{(i <= rating)?'★':'☆'}</span>)
+    }
+    return spans;
+  }
+
+  setRating = async (rating: number) => {
+    const { dialogRating, dispatchLoading } = this.props;
+    dispatchLoading()
+    if (this.state.dialog_id !== null){
+      await dialogRating(this.state.dialog_id, rating).then(() => {
+        this.setState({ rating });
+      }).catch((error) => {
+        console.error(error);
+        this.setState({ error: true });
+      });
+    }
+    setTimeout(dispatchLoading, 200);
   }
 
   scrollMessages = (behavior: 'smooth' | 'auto' = 'smooth') => {
@@ -153,29 +193,34 @@ class ChatSkill extends Component<Props, State> {
     dispatchLoading();
     let messages = answers || [];
     const response = await messageApi(question).catch((error) => {
-      dispatchLoading();
+      // dispatchLoading();
       console.error(error);
       this.setState({ error: true });
     });
+    setTimeout(dispatchLoading, 200);
     if (!response) {
       return;
     }
 
-    let answer: string = response.data.response;
+    let { response: answer, dialog_id, utt_id } = response.data;
+    if (dialog_id !== state.dialog_id){
+      // A new dialog started
+      updateStore([]);
+      this.setState({ rating: 0, dialog_id });
+    }
     if (answer){
       const commentIndex = answer.indexOf('#+#');
       if (commentIndex > -1) {
         answer = answer.substring(0, commentIndex);
       }
       answer = answer.trim()
-      messages.push({ question: question, answer: answer });
+      messages.push({ question, answer, utt_id, rating: 0 });
     }
 
     window.gtag('event', 'view_item', {
       event_category: 'Made request',
       event_label: `${title} ${this.lang}`,
     });
-    setTimeout(dispatchLoading, 200);
 
     updateStore(messages);
 
@@ -195,6 +240,7 @@ class ChatSkill extends Component<Props, State> {
     });
     setTimeout(dispatchLoading, 200);
     updateStore([]);
+    this.setState({ rating: 0, dialog_id: null});
   }
 
   agree = () => {
@@ -210,7 +256,7 @@ class ChatSkill extends Component<Props, State> {
 
   render() {
     const { title, desc, answers, loading } = this.props;
-    const { agreed, error, rating } = this.state;
+    const { agreed, error, rating, dialog_id } = this.state;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>
@@ -247,7 +293,7 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
-            <div className={style.rating}>{this.renderScore(rating)}</div>
+            {dialog_id && <div className={style.rating}>{this.renderScore(rating)}</div>}
 
             <button type="button" onClick={this.reset} className={style.button}>
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
