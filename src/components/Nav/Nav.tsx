@@ -25,7 +25,7 @@ const ROUTES = {
     { title: 'Анализ тональности', link: 'sentiment' },
   ],
   en: [
-    { title: 'Chatbot', link: 'chat' },
+    { title: 'Socialbot', link: 'chat' },
     { title: 'Text QA', link: 'textqa' },
     { title: 'ODQA', link: 'odqa' },
     { title: 'Ranking', link: 'ranking' },
