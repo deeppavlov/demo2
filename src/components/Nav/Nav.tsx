@@ -25,13 +25,13 @@ const ROUTES = {
     { title: 'Анализ тональности', link: 'sentiment' },
   ],
   en: [
+    { title: 'Chatbot', link: 'chat' },
     { title: 'Text QA', link: 'textqa' },
     { title: 'ODQA', link: 'odqa' },
     { title: 'Ranking', link: 'ranking' },
     { title: 'Entity recognition', link: 'ner' },
     { title: 'Intent classification', link: 'intent' },
     { title: 'Insult detection', link: 'insult' },
-    { title: 'Chatbot', link: 'chat' },
   ],
   mu: [
     { title: 'Text QA', link: 'textqa' },
