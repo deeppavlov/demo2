@@ -5,7 +5,8 @@ import uuidv4 from 'uuid/v4';
 import skillWrapper, { ChatSkillProps } from '../ChatSkill';
 import { Res } from '../../../lib/api';
 
-const apiUrl = 'https://7019.lnsigo.mipt.ru/';
+const apiUrl = 'http://10.11.1.41:4242/'
+// const apiUrl = 'https://7019.lnsigo.mipt.ru/';
 const uid: string = uuidv4();
 
 async function chatApi(text: string): Promise<Res> {
@@ -44,9 +45,10 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'DREAM Socialbot',
-  desc: <div style={{ marginTop: '1em' }}>A virtual character able to provide entertainment with useful and funny facts,
-   as well as, engage its partner into a deeper discussion on topics of interest in a natural way.</div>,
+  title: 'Experimental Socialbot',
+  desc: <div style={{ marginTop: '1em' }}>This is a demo of our Assistant Platform that enables developers to blend goal-oriented and open domain skills inside a single AI assistant. This demo implements a virtual character capable of supporting conversation on a variety of topics in a natural way. 
+
+  It will learn over the time, and will be capable for deeper and more thoughtful conversations with you over the coming months. Each conversation with it will be used to further improve its capabilities. There are many new things that we are eager to teach it, and we can't wait to share all of them with you!</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,
