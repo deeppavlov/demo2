@@ -46,9 +46,7 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 
 const config: ChatSkillProps<Res> = {
   title: 'Experimental Socialbot',
-  desc: <div style={{ marginTop: '1em' }}>This is a demo of our Assistant Platform that enables developers to blend goal-oriented and open domain skills inside a single AI assistant. This demo implements a virtual character capable of supporting conversation on a variety of topics in a natural way. 
-
-  It will learn over the time, and will be capable for deeper and more thoughtful conversations with you over the coming months. Each conversation with it will be used to further improve its capabilities. There are many new things that we are eager to teach it, and we can't wait to share all of them with you!</div>,
+  desc: <div style={{ marginTop: '1em' }}>Assistant Platform Demo. It  shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,
