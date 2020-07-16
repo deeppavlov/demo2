@@ -46,7 +46,7 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 
 const config: ChatSkillProps<Res> = {
   title: 'Experimental Socialbot',
-  desc: <div style={{ marginTop: '1em' }}>Assistant Platform Demo. It  shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time.</div>,
+  desc: <div style={{ marginTop: '1em' }}>Welcome to Assistant Platform Demo! It shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time. You can also <a href="https://t.me/ipavlov_study_bot">chat in Telegram</a>.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,
