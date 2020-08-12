@@ -89,7 +89,14 @@ class ChatSkill extends Component<Props, State> {
       </div>,
       <div className={style.bot} dir={this.isRTL(mes.question)} key={`answer${i}`}>
         <p>{answer}</p>
-      </div>,
+      </div>
+    ];
+  }
+
+  /*
+
+  moved from renderBasic
+  ,
       <div className={style.reaction} key={`reaction${i}`}>
         {mes.rating === 0 &&
          <div>
@@ -100,8 +107,8 @@ class ChatSkill extends Component<Props, State> {
         {mes.rating === 1 && <span>&#x1f44d;</span>}
         {mes.rating === 2 && <span>&#x1f44e;</span>}
       </div>
-    ];
-  }
+
+  */ 
 
   setUttRating = async (i: number, rating: number) => {
     const { updateStore, answers, utteranceRating, dispatchLoading } = this.props;
