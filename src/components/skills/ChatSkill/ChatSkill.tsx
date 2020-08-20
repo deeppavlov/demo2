@@ -82,7 +82,14 @@ class ChatSkill extends Component<Props, State> {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
+    const text = mes.answer;
     let answer: any = mes.answer;
+    var idx;
+    if (text.includes("#+#"))
+    {
+      idx = (text.indexOf("#") - 1);
+      answer = text.slice(0, idx);
+    }
     return [
       <div className={style.user} dir={this.isRTL(mes.question)} key={`question${i}`}>
         <p>{mes.question}</p>
