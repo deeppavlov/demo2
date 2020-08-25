@@ -343,6 +343,8 @@ class BaseSkill extends Component<Props, State> {
               deeppavlov at NGC
             </code>
           </a>
+          </div>
+          <div className={style.docker}>
           <a
           href="https://hub.docker.com/r/deeppavlov"
           rel="noopener noreferrer"
