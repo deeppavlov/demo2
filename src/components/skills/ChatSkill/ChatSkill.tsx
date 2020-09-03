@@ -14,6 +14,8 @@ interface State {
   error: any;
   message: string;
   agreed: boolean;
+  rating: number;
+  dialog_id: null | string
 }
 
 class ChatSkill extends Component<Props, State> {
@@ -31,6 +33,8 @@ class ChatSkill extends Component<Props, State> {
     else {
       initState['message'] = '';
       initState['agreed'] = false;
+      initState['rating'] = 0;
+      initState['dialog_id'] = null;
     }
     this.state = initState;
     this.lang = pathname.split('/')[1] as Language;
@@ -78,7 +82,24 @@ class ChatSkill extends Component<Props, State> {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
+    const text = mes.answer;
     let answer: any = mes.answer;
+    var idx;
+    var temp_dlg;
+    if (text.includes("#+#"))
+    {
+      idx = (text.indexOf("#") - 1);
+      answer = text.slice(0, idx);
+    }
+    var dialog_id;
+    if (text.includes("Oh, and remember this dialog's id: "))
+    {
+      temp_dlg = (text.indexOf("Oh, and remember this dialog's id: ") -1)
+      answer = text.slice(0, temp_dlg)
+      temp_dlg = temp_dlg + 36
+      dialog_id = text.slice(temp_dlg)
+      console.log("dialog id: " + dialog_id)
+    }
     return [
       <div className={style.user} dir={this.isRTL(mes.question)} key={`question${i}`}>
         <p>{mes.question}</p>
@@ -87,6 +108,61 @@ class ChatSkill extends Component<Props, State> {
         <p>{answer}</p>
       </div>
     ];
+  }
+
+  /*
+
+  moved from renderBasic
+  ,
+      <div className={style.reaction} key={`reaction${i}`}>
+        {mes.rating === 0 &&
+         <div>
+           <button onClick={() => this.setUttRating(i, 1)}>&#x1f44d;</button>
+           <button onClick={() => this.setUttRating(i, 2)}>&#x1f44e;</button>
+         </div>
+        }
+        {mes.rating === 1 && <span>&#x1f44d;</span>}
+        {mes.rating === 2 && <span>&#x1f44e;</span>}
+      </div>
+
+  */ 
+
+  setUttRating = async (i: number, rating: number) => {
+    const { updateStore, answers, utteranceRating, dispatchLoading } = this.props;
+    let messages = answers || [];
+    dispatchLoading()
+
+    await utteranceRating(messages[i].utt_id, rating).then(() => {
+      messages[i].rating = rating;
+      updateStore(messages);
+    }).catch((error) => {
+      console.error(error);
+      this.setState({ error: true });
+    });
+
+    setTimeout(dispatchLoading, 200);
+  }
+
+  renderScore = (rating: number) => {
+    let spans = [];
+    for (let i = 5; i > 0; i--){
+      spans.push(<span key={i} onClick={() => {if (i !== rating) this.setRating(i)}}>{(i <= rating)?'★':'☆'}</span>)
+    }
+    return spans;
+  }
+
+  setRating = async (rating: number) => {
+    const { dialogRating, dispatchLoading } = this.props;
+    dispatchLoading()
+    if (this.state.dialog_id !== null){
+      await dialogRating(this.state.dialog_id, rating).then(() => {
+        this.setState({ rating });
+      }).catch((error) => {
+        console.error(error);
+        this.setState({ error: true });
+      });
+    }
+    setTimeout(dispatchLoading, 200);
   }
 
   scrollMessages = (behavior: 'smooth' | 'auto' = 'smooth') => {
@@ -141,29 +217,34 @@ class ChatSkill extends Component<Props, State> {
     dispatchLoading();
     let messages = answers || [];
     const response = await messageApi(question).catch((error) => {
-      dispatchLoading();
+      // dispatchLoading();
       console.error(error);
       this.setState({ error: true });
     });
+    setTimeout(dispatchLoading, 200);
     if (!response) {
       return;
     }
 
-    let answer: string = response.data.response;
+    let { response: answer, dialog_id, utt_id } = response.data;
+    if (dialog_id !== state.dialog_id){
+      // A new dialog started
+      updateStore([]);
+      this.setState({ rating: 0, dialog_id });
+    }
     if (answer){
       const commentIndex = answer.indexOf('#+#');
       if (commentIndex > -1) {
         answer = answer.substring(0, commentIndex);
       }
       answer = answer.trim()
-      messages.push({ question: question, answer: answer });
+      messages.push({ question, answer, utt_id, rating: 0 });
     }
 
     window.gtag('event', 'view_item', {
       event_category: 'Made request',
       event_label: `${title} ${this.lang}`,
     });
-    setTimeout(dispatchLoading, 200);
 
     updateStore(messages);
 
@@ -183,6 +264,7 @@ class ChatSkill extends Component<Props, State> {
     });
     setTimeout(dispatchLoading, 200);
     updateStore([]);
+    this.setState({ rating: 0, dialog_id: null});
   }
 
   agree = () => {
@@ -198,7 +280,7 @@ class ChatSkill extends Component<Props, State> {
 
   render() {
     const { title, desc, answers, loading } = this.props;
-    const { agreed, error } = this.state;
+    const { agreed, error, rating, dialog_id } = this.state;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>
@@ -235,18 +317,21 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
+            {dialog_id && <div className={style.rating}>{this.renderScore(rating)}</div>}
+
             <button type="button" onClick={this.reset} className={style.button}>
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
             </button>
           </form>
         </div>}
         {!agreed && <div className={style.disclaimer}>
+          <p></p>
           <h1>Disclaimer of responsibility</h1>
-          <p>Bot responses are generated automatically. MIPT (TIN 5008006211) shall bear no responsibility for accuracy, relevance, correctness of the information received by the User through the chat bot.</p>
-<p>MIPT (TIN 5008006211) shall bear no responsibility for the information received by the User through the chatbot, including if this information hurts the user's feelings related to ethics and standards of living. Information received by the User through the bot does not appeal for any actions, including ethnic and religious hatred, does not promote anything, including non-traditional sexual orientation, violence, drug use, alcohol and smoking, it’s not intended to offend anyone’s feelings on religious, gender, political or any other grounds, including insulting government officials and state symbols of any country.</p>
-<p>MIPT (TIN  5008006211) shall bear no responsibility for the information received by the User through the bot, including, but not limited, if this information violates the rights of the third parties to intellectual property and equivalent means of identification, the right to information constituting a trade secret, the rights of minors, contains negative and critical statements regarding religion, politics, racial, ethnic, gender, personal qualities and abilities, sexual orientation and appearance of the third  parties, contains insults to specific individuals or organizations, violates generally accepted moral standards and ethical norms, promotes hatred and / or discrimination.</p>
-<p>By using the bot, you explicitly give permission for your anonymized conversation data to be released publicly in any sources and by any ways.</p>
-<p>MIPT (TIN 5008006211) has the right to store conversation data without compliance special requirements.</p>
+          <p>Bot responses are generated automatically. MIPT (TIN 5008006211) shall bear no responsibility for accuracy, relevance, and correctness of the information received by the User through the chat bot.</p>
+<p>MIPT (TIN 5008006211) shall bear no responsibility for the information received by the User through the chatbot, including if this information hurts the user's feelings related to ethics and standards of living. Information received by the User through the bot does not appeal for any actions, including ethnic and religious hatred; does not promote anything, including non-traditional sexual orientation, violence, drug use, alcohol and smoking; it’s not intended to offend anyone’s feelings on religious, gender, political or any other grounds, including insulting government officials and state symbols of any country.</p>
+<p>MIPT (TIN 5008006211) shall bear no responsibility for the information received by the User through the bot, including, but not limited to, if this information violates the rights of the third parties to intellectual property and equivalent means of identification; the right to information constituting a trade secret; the rights of minors; contains negative and critical statements regarding religion, politics, racial, ethnic, gender, personal qualities and abilities, sexual orientation and appearance of the third parties; contains insults to specific individuals or organizations; violates generally accepted moral standards and ethical norms, promotes hatred and / or discrimination.</p>
+<p>By using the bot, you explicitly give permission for your conversation data to be released publicly in any sources and by any ways.</p>
+<p>MIPT (TIN 5008006211) has the right to store conversation data without compliance to special requirements.</p>
 <p>If you consider this unacceptable, we kindly ask you not to use the bot. By using the chat bot, you explicitly give your permission to receive any information; all claims and complaints on bot functioning shall not be considered by MIPT (TIN 5008006211).</p>
             <button type="button" onClick={this.agree} className={style.button}>Agree</button>
         </div>}

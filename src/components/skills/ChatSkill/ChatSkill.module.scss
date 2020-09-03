@@ -45,6 +45,24 @@
       }
     }
 
+    .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+
+      span {
+        display: inline-block;
+        position: relative;
+        // width: 1.1em;
+        color: gold;
+        font-size: 2em;
+        &:hover::before, &:hover ~ span::before {
+          content: "✭";
+          position: absolute;
+        }
+      }
+    }
+
     .inputs {
       flex-grow: 2;
       flex-shrink: 0;
@@ -318,6 +336,17 @@
         border-bottom: 0;
         margin-top: -.4rem;
         margin-left: -.8rem;
+      }
+    }
+    .reaction{
+      clear: both;
+      position: relative;
+      top: -1.3rem;
+      margin-bottom: -1.3rem;
+      font-size: 1.1rem;
+
+      button{
+        font-size: 1rem;
       }
     }
   }
