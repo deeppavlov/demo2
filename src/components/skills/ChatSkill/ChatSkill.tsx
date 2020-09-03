@@ -317,6 +317,8 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
+            {dialog_id && <div className={style.ratingDialogTitle}>Rate Dialog</div>}
+
             {dialog_id && <div className={style.rating}>{this.renderScore(rating)}</div>}
 
             <button type="button" onClick={this.reset} className={style.button}>
