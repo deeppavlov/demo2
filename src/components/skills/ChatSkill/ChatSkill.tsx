@@ -91,14 +91,11 @@ class ChatSkill extends Component<Props, State> {
       idx = (text.indexOf("#") - 1);
       answer = text.slice(0, idx);
     }
-    var dialog_id;
     if (text.includes("Oh, and remember this dialog's id: "))
     {
       temp_dlg = (text.indexOf("Oh, and remember this dialog's id: ") -1)
       answer = text.slice(0, temp_dlg)
       temp_dlg = temp_dlg + 36
-      dialog_id = text.slice(temp_dlg)
-      console.log("dialog id: " + dialog_id)
     }
     return [
       <div className={style.user} dir={this.isRTL(mes.question)} key={`question${i}`}>
