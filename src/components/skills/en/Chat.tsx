@@ -45,7 +45,7 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'DeepPavlov DREAM AI Assistant',
+  title: 'DeepPavlov Dream AI Assistant',
   desc: <div style={{ marginTop: '1em' }}>Welcome to DeepPavlov Dream AI Assistant demo! It shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
