@@ -65,6 +65,12 @@
 
     .ratingDialogTitle {
       text-align: center;
+      text-indent: 1rem;
+      font-size: 1rem;
+
+      .override {
+      margin-top: 0px !important;
+      }
     }
 
     .inputs {

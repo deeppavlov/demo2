@@ -91,14 +91,11 @@ class ChatSkill extends Component<Props, State> {
       idx = (text.indexOf("#") - 1);
       answer = text.slice(0, idx);
     }
-    var dialog_id;
     if (text.includes("Oh, and remember this dialog's id: "))
     {
       temp_dlg = (text.indexOf("Oh, and remember this dialog's id: ") -1)
       answer = text.slice(0, temp_dlg)
       temp_dlg = temp_dlg + 36
-      dialog_id = text.slice(temp_dlg)
-      console.log("dialog id: " + dialog_id)
     }
     return [
       <div className={style.user} dir={this.isRTL(mes.question)} key={`question${i}`}>
@@ -317,9 +314,12 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
-            {dialog_id && <div className={style.ratingDialogTitle}>Rate Dialog</div>}
-
-            {dialog_id && <div className={style.rating}>{this.renderScore(rating)}</div>}
+            {dialog_id && <div>
+              <div className={style.ratingDialogTitle}>Rate Your Dialog:</div>
+              <div className={style.rating}>{this.renderScore(rating)}</div>
+              <div className={style.ratingDialogTitle}>Dialog Id: {dialog_id}</div>
+              <div className={style.ratingDialogTitle}><a href="https://deeppavlov.ai/feedbackdream/">Share Your Feedback With Us!</a></div>
+              </div>}
 
             <button type="button" onClick={this.reset} className={style.button}>
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
@@ -327,7 +327,6 @@ class ChatSkill extends Component<Props, State> {
           </form>
         </div>}
         {!agreed && <div className={style.disclaimer}>
-          <p></p>
           <h1>Disclaimer of responsibility</h1>
           <p>Bot responses are generated automatically. MIPT (TIN 5008006211) shall bear no responsibility for accuracy, relevance, and correctness of the information received by the User through the chat bot.</p>
 <p>MIPT (TIN 5008006211) shall bear no responsibility for the information received by the User through the chatbot, including if this information hurts the user's feelings related to ethics and standards of living. Information received by the User through the bot does not appeal for any actions, including ethnic and religious hatred; does not promote anything, including non-traditional sexual orientation, violence, drug use, alcohol and smoking; it’s not intended to offend anyone’s feelings on religious, gender, political or any other grounds, including insulting government officials and state symbols of any country.</p>
