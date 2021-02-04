@@ -5,7 +5,8 @@ import uuidv4 from 'uuid/v4';
 import skillWrapper, { ChatSkillProps } from '../ChatSkill';
 import { Res } from '../../../lib/api';
 
-const apiUrl = 'https://7019.lnsigo.mipt.ru/';
+const apiUrl = 'http://10.11.1.41:4242/'
+// const apiUrl = 'https://7019.lnsigo.mipt.ru/';
 const uid: string = uuidv4();
 
 async function chatApi(text: string): Promise<Res> {
@@ -44,9 +45,8 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'DREAM Socialbot',
-  desc: <div style={{ marginTop: '1em' }}>A virtual character able to provide entertainment with useful and funny facts,
-   as well as, engage its partner into a deeper discussion on topics of interest in a natural way.</div>,
+  title: 'DeepPavlov Dream AI Assistant',
+  desc: <div style={{ marginTop: '1em' }}>Welcome to DeepPavlov Dream AI Assistant demo! It shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,

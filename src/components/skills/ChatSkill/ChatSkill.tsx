@@ -82,14 +82,35 @@ class ChatSkill extends Component<Props, State> {
     const rest = { ...mes };
     delete rest.answer;
     delete rest.question;
+    const text = mes.answer;
     let answer: any = mes.answer;
+    var idx;
+    var temp_dlg;
+    if (text.includes("#+#"))
+    {
+      idx = (text.indexOf("#") - 1);
+      answer = text.slice(0, idx);
+    }
+    if (text.includes("Oh, and remember this dialog's id: "))
+    {
+      temp_dlg = (text.indexOf("Oh, and remember this dialog's id: ") -1)
+      answer = text.slice(0, temp_dlg)
+      temp_dlg = temp_dlg + 36
+    }
     return [
       <div className={style.user} dir={this.isRTL(mes.question)} key={`question${i}`}>
         <p>{mes.question}</p>
       </div>,
       <div className={style.bot} dir={this.isRTL(mes.question)} key={`answer${i}`}>
         <p>{answer}</p>
-      </div>,
+      </div>
+    ];
+  }
+
+  /*
+
+  moved from renderBasic
+  ,
       <div className={style.reaction} key={`reaction${i}`}>
         {mes.rating === 0 &&
          <div>
@@ -100,8 +121,8 @@ class ChatSkill extends Component<Props, State> {
         {mes.rating === 1 && <span>&#x1f44d;</span>}
         {mes.rating === 2 && <span>&#x1f44e;</span>}
       </div>
-    ];
-  }
+
+  */ 
 
   setUttRating = async (i: number, rating: number) => {
     const { updateStore, answers, utteranceRating, dispatchLoading } = this.props;
@@ -293,7 +314,12 @@ class ChatSkill extends Component<Props, State> {
                 </button>
               </div>
             </div>
-            {dialog_id && <div className={style.rating}>{this.renderScore(rating)}</div>}
+            {dialog_id && <div>
+              <div className={style.ratingDialogTitle}>Rate Your Dialog:</div>
+              <div className={style.rating}>{this.renderScore(rating)}</div>
+              <div className={style.ratingDialogTitle}>Dialog Id: {dialog_id}</div>
+              <div className={style.ratingDialogTitle}><a href="https://deeppavlov.ai/feedbackdream/">Share Your Feedback With Us!</a></div>
+              </div>}
 
             <button type="button" onClick={this.reset} className={style.button}>
               {this.lang !== 'ru' ? 'Start new dialog' : 'Начать новый диалог'}
