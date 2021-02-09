@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.a0d2956e.chunk.css",
-    "main.js": "/static/js/main.05fff12c.chunk.js",
-    "main.js.map": "/static/js/main.05fff12c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.495e93e6.js",
-    "runtime-main.js.map": "/static/js/runtime-main.495e93e6.js.map",
-    "static/js/2.5452ea74.chunk.js": "/static/js/2.5452ea74.chunk.js",
-    "static/js/2.5452ea74.chunk.js.map": "/static/js/2.5452ea74.chunk.js.map",
+    "main.css": "/static/css/main.418c7e47.chunk.css",
+    "main.js": "/static/js/main.ccf8faab.chunk.js",
+    "main.js.map": "/static/js/main.ccf8faab.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5ba2b674.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5ba2b674.js.map",
+    "static/js/2.fd0b3858.chunk.js": "/static/js/2.fd0b3858.chunk.js",
+    "static/js/2.fd0b3858.chunk.js.map": "/static/js/2.fd0b3858.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b20506ff62f64c1abaeaebc0c7c32660.js": "/precache-manifest.b20506ff62f64c1abaeaebc0c7c32660.js",
+    "precache-manifest.891186f73ba9cc0cb5da5a183ec9c1de.js": "/precache-manifest.891186f73ba9cc0cb5da5a183ec9c1de.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.a0d2956e.chunk.css.map": "/static/css/main.a0d2956e.chunk.css.map",
-    "static/js/2.5452ea74.chunk.js.LICENSE.txt": "/static/js/2.5452ea74.chunk.js.LICENSE.txt",
+    "static/css/main.418c7e47.chunk.css.map": "/static/css/main.418c7e47.chunk.css.map",
+    "static/js/2.fd0b3858.chunk.js.LICENSE.txt": "/static/js/2.fd0b3858.chunk.js.LICENSE.txt",
     "static/media/DeepPavlov.png": "/static/media/DeepPavlov.13c4e31c.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.495e93e6.js",
-    "static/js/2.5452ea74.chunk.js",
-    "static/css/main.a0d2956e.chunk.css",
-    "static/js/main.05fff12c.chunk.js"
+    "static/js/runtime-main.5ba2b674.js",
+    "static/js/2.fd0b3858.chunk.js",
+    "static/css/main.418c7e47.chunk.css",
+    "static/js/main.ccf8faab.chunk.js"
   ]
 }
