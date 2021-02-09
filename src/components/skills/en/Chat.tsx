@@ -45,8 +45,8 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'DeepPavlov Dream AI Assistant',
-  desc: <div style={{ marginTop: '1em' }}>Welcome to DeepPavlov Dream AI Assistant demo! It shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</div>,
+  title: 'DeepPavlov Deepy - Demo Moonbase AI Assistant',
+  desc: <div style={{ marginTop: '1em' }}>Welcome to Deepy demo! It is a running version of our Open-Source Multiskill AI Assistant that you can clone from <a href="https://github.com/deepmipt/deepy/" />. It shows how to blend simple and Go-Bot-based goal-oriented and chit-chat skills inside a single AI assistant. It was born from earlier DeepPavlov Dream AI Assistant Demo. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,
