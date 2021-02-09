@@ -31,7 +31,7 @@ const ROUTES = {
     { title: 'Ranking', link: 'ranking' },
     { title: 'Intent classification', link: 'intent' },
     { title: 'Insult detection', link: 'insult' },
-    { title: 'Socialbot', link: 'chat' },
+    { title: 'Deepy', link: 'chat' },
   ],
   mu: [
     { title: 'Text QA', link: 'textqa' },
