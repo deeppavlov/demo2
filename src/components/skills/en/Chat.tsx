@@ -45,8 +45,9 @@ async function utteranceRating(utt_id: string, rating: number): Promise<Res> {
 }
 
 const config: ChatSkillProps<Res> = {
-  title: 'DeepPavlov Deepy - Demo Moonbase AI Assistant',
-  desc: <div style={{ marginTop: '1em' }}>Welcome to Deepy demo! It is a running version of our Open-Source Multiskill AI Assistant that you can clone from <a href="https://github.com/deepmipt/deepy/">Deepy GitHub Repository</a>. It shows how to blend simple and Go-Bot-based goal-oriented and chit-chat skills inside a single AI assistant. It was born from earlier DeepPavlov Dream AI Assistant Demo. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</div>,
+  title: 'DeepPavlov Dream Multiskill AI Assistant',
+  desc: <div style={{ marginTop: '1em' }}><p>Welcome to DeepPavlov Dream demo! It is a running version of our Open-Source Multiskill AI Assistant that you can clone from <a href="https://github.com/deepmipt/dream/">Dream GitHub Repository</a>. It shows how to blend goal-oriented and open domain skills inside a single AI assistant. It's under development and will learn new things over the time. You can also <a href="https://t.me/deeppavlov_dream_ai_bot">chat in Telegram</a>, and leave feedback in Telegram <a href="https://t.me/joinchat/CroEYRm2Oi12sC4EYxGUDQ">group</a> and via <a href="https://deeppavlov.ai/feedbackdream">feedback form</a>.</p>
+<p><strong>NOTE:</strong> <strong>Please avoid sharing anything sensitive</strong> such as your address, phone number, family member's names, car information, passwords, driver license numbers, insurance policy numbers, loan numbers, credit/debit card numbers, PIN numbers, banking information etc. All of your conversational data may be published on <a href="https://www.deeppavlov.ai">deeppavlov.ai</a> and/or <a href="https://www.github.com/deepmipt">github.com/deepmipt</a> websites for non-commercial purposes of collecting open-domain Conversational AI datasets.</p></div>,
   messageApi: chatApi,
   resetApi: async () => await chatApi('/start'),
   dialogRating,
