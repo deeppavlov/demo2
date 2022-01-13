@@ -278,6 +278,7 @@ class ChatSkill extends Component<Props, State> {
   render() {
     const { title, desc, answers, loading } = this.props;
     const { agreed, error, rating, dialog_id } = this.state;
+    let alink = 'https://7022.lnsigo.mipt.ru/conversation/' + dialog_id;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>
@@ -317,7 +318,9 @@ class ChatSkill extends Component<Props, State> {
             {dialog_id && <div>
               <div className={style.ratingDialogTitle}>Rate Your Dialog:</div>
               <div className={style.rating}>{this.renderScore(rating)}</div>
-              <div className={style.ratingDialogTitle}>Dialog Id: {dialog_id}</div>
+              <div className={style.ratingDialogTitle}>Dialog Id: {dialog_id}.<br></br>
+              You can share the dialog via this <a href={alink}>link</a>.<br></br>
+              Dialog will become available two hours after the last message is received.</div>
               <div className={style.ratingDialogTitle}><a href="https://deeppavlov.ai/feedbackdream/">Share Your Feedback With Us!</a></div>
               </div>}
 
