@@ -25,7 +25,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Appeal of insurance denial?',
   }],
-  api: api('https://7009.lnsigo.mipt.ru/model'),
+  api: api('https://7009.deeppavlov.ai/model'),
   renderAnswer: { type: 'ranking' },
 };
 

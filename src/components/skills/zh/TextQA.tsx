@@ -52,7 +52,7 @@ const config: BaseSkillProps<Req, Res> = {
       context_raw: [stateReq.text],
       question_raw: [stateReq.question],
     };
-    return await axios.post('https://7017.lnsigo.mipt.ru/model', req);
+    return await axios.post('https://7017.deeppavlov.ai/model', req);
   },
   renderAnswer: { type: 'textqa' },
 };

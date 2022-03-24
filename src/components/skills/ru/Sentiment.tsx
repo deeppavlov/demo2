@@ -26,7 +26,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Охеренная прическа.',
   }],
-  api: api('https://7015.lnsigo.mipt.ru/model'),
+  api: api('https://7015.deeppavlov.ai/model'),
 };
 
 const Sentiment = skillWrapper<StoreReq, Res>('sentimentru');

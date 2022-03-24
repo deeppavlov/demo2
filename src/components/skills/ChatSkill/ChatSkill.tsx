@@ -278,7 +278,7 @@ class ChatSkill extends Component<Props, State> {
   render() {
     const { title, desc, answers, loading } = this.props;
     const { agreed, error, rating, dialog_id } = this.state;
-    let alink = 'https://7022.lnsigo.mipt.ru/conversation/' + dialog_id;
+    let alink = 'https://7022.deeppavlov.ai/conversation/' + dialog_id;
     return (
       <div className={style.container}>
         {loading && <div className={style.modal}>

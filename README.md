@@ -1,4 +1,4 @@
-Demo site for iPavlov.
+Demo site for DeepPavlov.
 
 At first, make
 ### `yarn install`
@@ -24,3 +24,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### `yarn deploy`
+
+Deploys frontend.

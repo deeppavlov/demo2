@@ -39,7 +39,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'Tell me what movies are showing at 7am at the closest movie house',
   }],
-  api: api('https://7007.lnsigo.mipt.ru/model'),
+  api: api('https://7007.deeppavlov.ai/model'),
   renderAnswer: { type: 'intent', colors: intentsClasses },
 };
 
