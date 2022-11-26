@@ -5,6 +5,10 @@
   align-items: center;
   padding-top: 30px;
   > img {
+    max-width: 100%;
+    min-width: 100%;
+    display: block;
+    padding: 5px;
     height: 82px;
   }
   .title {

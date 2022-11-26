@@ -5,6 +5,7 @@ import style from './App.module.scss';
 import Nav from '../Nav';
 import Footer from '../Footer';
 // mport header from './header.png';
+import miptLogoBlue from './mipt-logo-blue.svg';
 
 import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
 import { TextQA as TextQAen, ODQA, Ranking, NER, Intent, Insult, Chat } from '../skills/en';
@@ -24,6 +25,7 @@ class App extends Component {
           <iframe title="stars" src="https://ghbtns.com/github-btn.html?user=deepmipt&repo=DeepPavlov&type=star&count=true&size=large"
            frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
           {/*<img src={header} alt="DeepPavlov Demo"/>*/}
+          <img src={miptLogoBlue} alt="MIPT"/>
           <Nav/>
         </header>
         <main className={style.main}>
