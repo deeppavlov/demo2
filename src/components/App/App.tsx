@@ -7,7 +7,7 @@ import Footer from '../Footer';
 // mport header from './header.png';
 import miptLogoBlue from './mipt-logo-blue.svg';
 
-import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
+import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment, SuperGlueTerra, SuperGlueDanetQA } from '../skills/ru';
 import { TextQA as TextQAen, ODQA, Ranking, NER, Intent, Insult, Chat } from '../skills/en';
 import { TextQA as TextQAml, NER as NERml } from '../skills/mu';
 import { TextQA as TextQAzh } from '../skills/zh';
@@ -34,6 +34,8 @@ class App extends Component {
             <Route path="/ru/odqa" exact component={ODQAru}/>
             <Route path="/ru/ner" exact component={NERru}/>
             <Route path="/ru/sentiment" exact component={Sentiment}/>
+            <Route path="/ru/superglueterra" exact component={SuperGlueTerra}/>
+            <Route path="/ru/supergluedanetqa" exact component={SuperGlueDanetQA}/>
             <Route path="/en/textqa" exact component={TextQAen}/>
             <Route path="/en/odqa" exact component={ODQA}/>
             <Route path="/en/ranking" exact component={Ranking}/>
