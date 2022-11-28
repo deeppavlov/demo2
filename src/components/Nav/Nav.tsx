@@ -34,6 +34,9 @@ const ROUTES = {
     { title: "Intent classification", link: "intent" },
     { title: "Insult detection", link: "insult" },
     { title: "Dream", link: "chat" },
+    { title: "RTE", link: "supergluerte" },
+    { title: "NLI", link: "supergluenli" },
+    { title: "BoolQ", link: "superglueboolq" },
   ],
   mu: [
     { title: "Text QA", link: "textqa" },

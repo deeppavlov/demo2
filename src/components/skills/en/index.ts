@@ -5,3 +5,6 @@ export { default as Intent } from './Intent';
 export { default as NER } from './NER';
 export { default as Chat } from './Chat';
 export { default as Ranking } from './Ranking';
+export { default as SuperGlueBoolq } from './SuperGlueBoolq';
+export { default as SuperGlueRte } from './SuperGlueRte';
+export { default as SuperGlueNli } from './SuperGlueNli';
