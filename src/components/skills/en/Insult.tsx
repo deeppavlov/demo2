@@ -8,7 +8,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   desc: <p>
     Insult detection predicts whether a comment posted during a public discussion is considered insulting to one of the participants.
      This component is the defense against spam and abuse in your business.
-     To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html"
+     To learn more on implementation read our <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html"
                                                  target="_blank" rel="noopener noreferrer">documentation.</a>
     </p>,
   docker: 'deeppavlov/insults_en',

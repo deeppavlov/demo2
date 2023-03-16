@@ -13,7 +13,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others.
      This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support.
      To learn more on implementation read our
-     <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html" target="_blank" rel="noopener noreferrer"> documentation </a>
+     <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html" target="_blank" rel="noopener noreferrer"> documentation </a>
      and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61" target="_blank" rel="noopener noreferrer">tutorial.</a>
      <br/><br/>
     Classes: {renderNerClasses(intentsClasses)}
