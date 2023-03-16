@@ -44,9 +44,9 @@ class Nav extends Component<Props, State> {
             DeepPavlov Docker images reference
           </a>
         </div>}
-        <a href="https://github.com/deepmipt">
+        <a href="https://github.com/deeppavlov">
             <img src={img} alt="powered by DeepPavlov"/>
-            © deepmipt on GitHub
+            © DeepPavlov on GitHub
         </a>
       </footer>
     );
