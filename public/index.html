@@ -3,49 +3,83 @@
   <head>
     <meta charset="utf-8" />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144993911-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-144993911-1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-144993911-1');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-144993911-1");
     </script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
       ym(54404161, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
       });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/54404161" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/54404161"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
     <!-- /Yandex.Metrika counter -->
 
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css"
+    />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
     <script>
-        window.addEventListener("load", function(){
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#237afc"
-                    },
-                    "button": {
-                        "background": "#fff",
-                        "text": "#237afc"
-                    }
-                },
-                "showLink": false,
-                "position": "bottom-right",
-                "content": {
-                    "message": "This website uses cookies. By continuing to use this site, you accept our use of cookies.",
-                    "dismiss": "ACCEPT &amp; CLOSE"
-                }
-            })});
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#237afc",
+            },
+            button: {
+              background: "#fff",
+              text: "#237afc",
+            },
+          },
+          showLink: false,
+          position: "bottom-right",
+          content: {
+            message:
+              "This website uses cookies. By continuing to use this site, you accept our use of cookies.",
+            dismiss: "ACCEPT &amp; CLOSE",
+          },
+        });
+      });
     </script>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,10 +91,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Demo DeepPavlov.ai</title>
     <style>
-      @font-face {
-        font-family: "Consolas";
-        src: url("%PUBLIC_URL%/Consolas.ttf");
-      }
+      @import url("https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Poppins&display=swap");
     </style>
   </head>
   <body>

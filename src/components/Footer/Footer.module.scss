@@ -2,14 +2,57 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  align-items: flex-end;
-  //height: 200px;
   margin-top: 80px;
   padding-top: 20px;
-  margin-bottom: 20px;
   z-index: 100;
 
-  border-top: 1px solid lightgray;
+  .gradientContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 121px;
+
+    background: linear-gradient(
+      90deg,
+      #4158d0 5.47%,
+      #c850c0 62.3%,
+      #ffcc70 100%
+    );
+    .subscribe {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      p {
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+      }
+      input {
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 140%;
+          color: #fff;
+          opacity: 0.7;
+        }
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+        background: #18181b;
+        border-radius: 12px;
+        width: 380px;
+        padding: 16px 24px;
+      }
+    }
+  }
 
   img {
     height: 20px;
@@ -21,6 +64,62 @@
     flex-flow: column;
     justify-content: center;
     align-items: flex-end;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 116px;
+    width: 100%;
+    .social {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      .socialMediaText {
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+      }
+      .links {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        a {
+          cursor: pointer;
+        }
+        img {
+          height: 32px;
+          width: 32px;
+        }
+      }
+    }
+  }
+  .deepMiptContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    // height: 109px;
+    padding-top: 37px;
+    padding-bottom: 56px;
+    .link {
+      font-family: "Montserrat";
+      color: #000;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 160%;
+    }
+    .privatePolicy {
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 120%;
+      color: #434343;
+    }
   }
 }
 
@@ -39,13 +138,13 @@
   }
 }
 
-@media only screen 
-and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .footer {
     padding: 30px 10px 0;
     margin-top: 40px;
   }
-  .contactUs, .saas {
+  .contactUs,
+  .saas {
     font-size: 1rem;
     width: 100%;
   }

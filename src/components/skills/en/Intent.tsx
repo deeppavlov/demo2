@@ -2,6 +2,7 @@
 import React from 'react';
 import skillWrapper, { BaseSkillProps } from '../BaseSkill';
 import api, { Res, StoreReq } from '../../../lib/api';
+
 import { renderNerClasses, intentsClasses } from '../utils';
 
 const config: BaseSkillProps<StoreReq, Res> = {
