@@ -26,6 +26,7 @@ const ROUTES = {
   ],
   en: [
     { title: 'Entity recognition', link: 'ner' },
+    { title: 'Sentiment', link: 'sentiment' },
     { title: 'Text QA', link: 'textqa' },
     { title: 'ODQA', link: 'odqa' },
     { title: 'Ranking', link: 'ranking' },
