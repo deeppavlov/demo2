@@ -5,3 +5,4 @@ export { default as Intent } from './Intent';
 export { default as NER } from './NER';
 export { default as Chat } from './Chat';
 export { default as Ranking } from './Ranking';
+export { default as Sentimenten } from './Sentimenten';

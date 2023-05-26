@@ -24,8 +24,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   }, {
     question: 'the action is stilted',
   }],
-  api: api('https://7023.deeppavlov.ai/model'),
-  renderAnswer: { type: 'sentiment' },
+  api: api('https://7024.deeppavlov.ai/model'),
 };
 
 const Sentimenten = skillWrapper<StoreReq, Res>('sentimenten');
