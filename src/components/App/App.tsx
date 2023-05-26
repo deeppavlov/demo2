@@ -7,7 +7,7 @@ import Footer from '../Footer';
 // mport header from './header.png';
 
 import { TextQA as TextQAru, ODQA as ODQAru, NER as NERru, Sentiment } from '../skills/ru';
-import { TextQA as TextQAen, ODQA, Ranking, NER, Sentiment, Intent, Insult, Chat } from '../skills/en';
+import { TextQA as TextQAen, ODQA, Ranking, NER, Sentimenten, Intent, Insult, Chat } from '../skills/en';
 import { TextQA as TextQAml, NER as NERml } from '../skills/mu';
 import { TextQA as TextQAzh } from '../skills/zh';
 
@@ -36,7 +36,7 @@ class App extends Component {
             <Route path="/en/odqa" exact component={ODQA}/>
             <Route path="/en/ranking" exact component={Ranking}/>
             <Route path="/en/ner" exact component={NER}/>
-            <Route path="/en/sentiment" exact component={Sentiment}/>
+            <Route path="/en/sentiment" exact component={Sentimenten}/>
             <Route path="/en/chat" exact component={Chat}/>
             <Route path="/en/intent" exact component={Intent}/>
             <Route path="/en/insult" exact component={Insult}/>
