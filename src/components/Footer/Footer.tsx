@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom'
 
 import style from './Footer.module.scss'
 
-import FB from './fb.svg'
+
 import TW from './tw.svg'
 import IN from './in.svg'
 
@@ -60,23 +60,29 @@ class Nav extends Component<Props, State> {
 										<img src={IN} alt='LinkedIn' />
 									</a>
 
-									<a href='http://localhost:3000/#/en/ner'>
+									{/* <a href='http://localhost:3000/#/en/ner'>
 										<img src={FB} alt='Facebook' />
-									</a>
+									</a> */}
 								</div>
 							</div>
 						</div>
+						{/* <div className={style.deepMiptContainer}>
+							<a className={style.link} href='https://github.com/deepmipt'>
+								© deepmipt on GitHub
+							</a>
+							<p className={style.privatePolicy}>Private Policy</p>
+						</div> */}
 					</div>
 				</div>
 
-				<div className={style.gradientContainer}>
+				{/* <div className={style.gradientContainer}>
 					<div className={'limiter'}>
 						<div className={style.subscribe}>
 							<p>Subscribe for our news, stay updated with us!</p>
 							<input type='text' placeholder='Write your e-mail' />
 						</div>
 					</div>
-				</div>
+				</div> */}
 				{false && (
 					<div className={style.saas}>
 						<p>Docker</p>
@@ -88,14 +94,6 @@ class Nav extends Component<Props, State> {
 						</a>
 					</div>
 				)}
-				<div className='limiter'>
-					<div className={style.deepMiptContainer}>
-						<a className={style.link} href='https://github.com/deepmipt'>
-							© deepmipt on GitHub
-						</a>
-						<p className={style.privatePolicy}>Private Policy</p>
-					</div>
-				</div>
 			</footer>
 		)
 	}

@@ -14,7 +14,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     <br/>
     Click on an entity to see its class description
     <br/>
-    Classes: {renderNerClasses(ontonotesClasses)}
+    {/* Classes: {renderNerClasses(ontonotesClasses)} */}
     </div>,
   docker: 'deeppavlov/ner_ml',
   inputs: [{

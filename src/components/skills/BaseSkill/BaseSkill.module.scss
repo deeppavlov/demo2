@@ -21,25 +21,65 @@
 	}
 	.title {
 		font-weight: 600;
-		font-size: 48px;
+		font-size: 24px;
 		line-height: 110%;
 		letter-spacing: -0.02em;
 		color: rgba(0, 0, 0, 0.9);
+	}
+	.classes {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		max-width: 325px;
+		margin: 0;
+		// margin-top: 0px;
+		// white-space: nowrap;
+		// background-color: red;
+	}
+	.annotation {
+		display: flex;
+		border-radius: 4px;
+		justify-content: start;
+		align-items: center;
+		width: fit-content;
+		padding: 4px 8px;
+		gap: 6px;
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 0.8rem;
+		line-height: 160%;
+		.click {
+			padding: 2px 4px;
+			background-color: #7000ff;
+			color: #fff;
+			border-radius: 2px;
+			font-weight: 600;
+		}
+		background-color: rgba(112, 0, 255, 0.1);
+		color: #7000ff;
 	}
 
 	.inputArea {
 		margin-top: 20px;
 		display: flex;
 
+		.title {
+			margin: 0 0 1rem 0;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 110%;
+			letter-spacing: -0.02em;
+		}
 		.inputs,
 		.examples {
+			flex: 50%;
 			p {
 				margin: 0 0 0.5rem 0;
 				font-weight: 600;
 				font-size: 24px;
 				line-height: 110%;
 				letter-spacing: -0.02em;
-				color: #3300ff;
 			}
 		}
 
@@ -48,7 +88,7 @@
 			flex-shrink: 0;
 			margin-right: 20px;
 			div {
-				margin-top: 34px;
+				margin-top: 16px;
 				&:first-of-type {
 					margin-top: 0;
 				}
@@ -78,12 +118,25 @@
 			flex-direction: row;
 			width: 100%;
 			gap: 30px;
-			align-items: center;
+			align-items: start;
 			.question {
+				margin: 0;
 				div {
 					display: flex;
 					flex-direction: column;
 					gap: 16px;
+					.title {
+						font-weight: 600;
+						font-size: 20px;
+						line-height: 160%;
+						color: #3300ff;
+					}
+					p {
+						font-weight: 400;
+						font-size: 20px;
+						line-height: 160%;
+						color: rgba(0, 0, 0, 0.9);
+					}
 				}
 				width: 100%;
 				display: flex;
@@ -92,23 +145,26 @@
 					align-self: flex-end;
 				}
 			}
+			.answers {
+				p {
+					font-weight: 600 !important;
+					font-size: 20px;
+					line-height: 160%;
+					color: #3300ff !important;
+				}
+				div {
+					display: block;
+				}
+			}
 		}
 		.examples {
 			display: inline-block;
-			// max-width: 35%;
+
 			ul {
 				padding: 0;
 				margin: 0;
-				// background-color: red;
-				text-align: center;
 				display: inline-block;
 				list-style-position: inside;
-				li {
-					max-width: 400px;
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-				}
 			}
 			.active {
 				color: rgba(0, 0, 0, 0.9);
@@ -120,19 +176,20 @@
 				}
 			}
 			li {
-				&::marker {
-					font-size: 2em;
-					color: #e6e8f0;
-				}
+				max-width: 400px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 				font-weight: 600;
 				font-size: 16px;
-				line-height: 24px;
+				line-height: 150%;
 				color: rgba(0, 0, 0, 0.5);
 				padding: 12px 15px;
-				padding-left: 0px;
-				position: relative;
-				margin-bottom: -1px;
-				text-align: left;
+
+				&::marker {
+					font-size: 150%;
+					color: #e6e8f0;
+				}
 				&:hover,
 				&:focus {
 					color: rgba(0, 0, 0, 0.9);
@@ -145,6 +202,9 @@
 	}
 
 	.button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		color: #fff;
 		text-align: center;
 		white-space: nowrap;
@@ -166,16 +226,19 @@
 
 	.answers {
 		color: #333;
-		margin-top: 40px;
-		overflow-y: scroll;
-		max-height: 450px;
-		margin-top: 15px;
+
 		border-radius: 0.25rem;
 		font-size: 18px !important;
-		margin-bottom: 100px;
-
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		position: relative;
 		// title
 		> p {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			background-color: #fff;
 			font-weight: 600;
 			font-size: 24px;
 			line-height: 110%;
@@ -183,6 +246,7 @@
 			color: #3300ff;
 		}
 		// answer
+
 		> div {
 			font-weight: 400;
 			font-size: 20px;
@@ -197,8 +261,11 @@
 		}
 
 		> .basic {
+			p {
+			}
 			p:first-of-type {
 				font-weight: 400;
+				color: rgba(0, 0, 0, 0.9);
 				color: darkblue;
 			}
 			p:last-of-type {
@@ -317,8 +384,6 @@
 			flex-flow: column-reverse;
 
 			.examples {
-				// max-width: 100%;
-				// width: 100%;
 				display: flex;
 				flex-direction: column;
 				gap: 16px;

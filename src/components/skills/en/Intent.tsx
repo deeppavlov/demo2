@@ -17,7 +17,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html" target="_blank" rel="noopener noreferrer"> documentation </a>
      and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61" target="_blank" rel="noopener noreferrer">tutorial.</a>
      <br/><br/>
-    Classes: {renderNerClasses(intentsClasses)}
+    {/* Classes: {renderNerClasses(intentsClasses)} */}
     </p>,
   docker: 'deeppavlov/intents_en',
   inputs: [{

@@ -80,7 +80,7 @@ class App extends Component {
 								<Route path='/en/odqa' exact component={ODQA} />
 								<Route path='/en/ranking' exact component={Ranking} />
 								<Route path='/en/ner' exact component={NER} />
-								<Route path='/en/chat' exact component={Chat} />
+								{/* <Route path='/en/chat' exact component={Chat} /> */}
 								<Route path='/en/intent' exact component={Intent} />
 								<Route path='/en/insult' exact component={Insult} />
 								<Route path='/mu/textqa' exact component={TextQAml} />

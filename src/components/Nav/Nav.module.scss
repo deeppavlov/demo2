@@ -32,6 +32,7 @@
 	font-size: 16px;
 	flex-shrink: 0;
 	align-self: flex-start;
+
 	div {
 		border: 1px solid #d4d3d7;
 		box-shadow: 0px 4px 0px #d4d3d7;
@@ -44,8 +45,13 @@
 		cursor: pointer;
 		flex-shrink: 0;
 		color: rgba(0, 0, 0, 0.7);
-		&:hover{
-					box-shadow: 0px 4px 0px #8D96B5;
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 160%;
+		&:hover {
+			box-shadow: 0px 4px 0px #8d96b5;
 		}
 	}
 
@@ -67,8 +73,9 @@
 
 .navLinks {
 	display: flex;
-	align-items: center;
 	width: 100%;
+	align-items: center;
+	justify-content: space-between;
 	text-size-adjust: 100%;
 	list-style-image: none;
 	list-style: none;
@@ -76,19 +83,13 @@
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 24px;
-	// white-space: nowrap;
 	margin: 0;
-
-	li {
-		display: list-item;
-		flex-basis: auto;
-		flex-shrink: 1;
-		margin: 0 12px;
-		&:first-of-type {
-			margin-left: 0;
-		}
+	&.multiLangFlex {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
 	}
-
 	.navLink {
 		color: #190080;
 		display: flex;
@@ -99,7 +100,9 @@
 		max-height: 84px;
 		text-align: center;
 		border-radius: 12px;
+		padding-bottom: 12px;
 		&:not(.activeLink) {
+			padding: 12px 24px 24px;
 			.linkContainer:hover {
 				background: -webkit-linear-gradient(
 					45deg,
@@ -113,7 +116,7 @@
 		}
 	}
 	.activeLink {
-		padding-bottom: 12px;
+		// padding-bottom: 24px;
 		& .linkContainer {
 			border-radius: 12px;
 		}

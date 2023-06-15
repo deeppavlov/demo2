@@ -19,7 +19,7 @@ interface State {
 	}
 }
 
-const ROUTES = {
+export const ROUTES = {
 	ru: [
 		{ title: 'Ответы на вопросы по тексту', link: 'textqa' },
 		{ title: 'Ответы на вопросы по Википедии', link: 'odqa' },
@@ -33,7 +33,7 @@ const ROUTES = {
 		{ title: 'Ranking', link: 'ranking' },
 		{ title: 'Intent classification', link: 'intent' },
 		{ title: 'Insult detection', link: 'insult' },
-		{ title: 'Dream', link: 'chat' },
+		// { title: 'Dream', link: 'chat' },
 	],
 	mu: [
 		{ title: 'Text QA', link: 'textqa' },
@@ -77,7 +77,7 @@ class Nav extends Component<Props, State> {
 
 	langChange = (lang: Language) => () => {
 		if (this.state.lang === lang) return
-
+		
 		const { component } = this.state
 		let newRoute = ROUTES[lang][0].link
 		if (component[lang]) {
@@ -139,7 +139,7 @@ class Nav extends Component<Props, State> {
 					</div>
 				</div>
 				<nav className={style.nav}>
-					<ul className={style.navLinks}>{this.renderNavLinks(lang)}</ul>
+					<ul className={cn(style.navLinks, lang==='mu'&&style.multiLangFlex)}>{this.renderNavLinks(lang)}</ul>
 				</nav>
 			</>
 		)

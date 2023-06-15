@@ -15,7 +15,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
      Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html" target="_blank" rel="noopener noreferrer">документации.</a>
     <br/><br/> NER - существенная часть любой диалоговой системы, которая необходима для извлечения машиной информации из текста.
     <br/>
-    Сущности: {renderNerClasses(ruNerStyles)}
+    {/* Сущности: {renderNerClasses(ruNerStyles)} */}
     </div>,
   docker: 'deeppavlov/ner_ru',
   inputs: [{
