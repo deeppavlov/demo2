@@ -31,10 +31,10 @@ const Footer: FC<FooterProps> = ({ location }) => {
             <div className={s.social}>
               <p className={s.socialMediaText}>{socialMediaText}</p>
               <div className={s.links}>
-                <a href={``}>
+                <a href={`/`}>
                   <img src={TW} alt="Twitter" />
                 </a>
-                <a href={``}>
+                <a href={`/`}>
                   <img src={IN} alt="LinkedIn" />
                 </a>
               </div>

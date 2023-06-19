@@ -100,7 +100,7 @@ const renderNerClasses = (
 }
 export { renderNerClasses, ontonotesClasses, ruNerStyles, intentsClasses }
 
-export type Language = "ru" | "en" | "mu" | "zh"
+export type Language = "ru" | "en" | "mu"
 
 interface NerClassProps {
   label: string

@@ -1,7 +1,7 @@
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "../BaseSkill"
 import api, { Res, StoreReq } from "../../../lib/api"
-import { renderNerClasses, ruNerStyles } from "../utils"
+import { ruNerStyles } from "../utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 
 const config: BaseSkillProps<StoreReq, Res> = {

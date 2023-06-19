@@ -1,4 +1,8 @@
-export const ROUTES = {
+import { Language } from "components/skills/utils"
+type RouteConfig = { title: string; link: string }
+type Routes = Record<Language, RouteConfig[]>
+
+export const ROUTES: Routes = {
   ru: [
     { title: "Ответы на вопросы по тексту", link: "textqa" },
     { title: "Ответы на вопросы по Википедии", link: "odqa" },

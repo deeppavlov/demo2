@@ -75,7 +75,6 @@ class BaseSkill extends Component<Props, State> {
       event_category: "Open page",
       event_label: `${title} ${this.lang}`,
     })
-    console.log("", this.tooltipRef?.current?.getClientRects()[0].left)
   }
 
   componentWillUnmount() {
@@ -146,12 +145,11 @@ class BaseSkill extends Component<Props, State> {
     }
 
     return (
-      <span style={{ position: "relative" }}>
+      <span key={i} style={{ position: "relative" }}>
         <li
           // type="button"
           className={cn(checker && s.active, "tooltipLi")}
           onClick={this.onExample(ex)}
-          key={i}
         >
           <span className={cn("tooltipEx")}>{ex.question}</span>
           {ex.question}

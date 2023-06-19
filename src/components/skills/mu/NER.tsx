@@ -1,4 +1,3 @@
-// tslint:disable: max-line-length
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "../BaseSkill"
 import api, { Res, StoreReq } from "../../../lib/api"

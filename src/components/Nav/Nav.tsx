@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from "react"
 import cn from "classnames"
 import { withRouter, RouteComponentProps, NavLink } from "react-router-dom"
-import s from "./Nav.module.scss"
 import { Language } from "components/skills/utils"
 import { ROUTES } from "router/Routes"
+import s from "./Nav.module.scss"
 
 interface Props extends RouteComponentProps {}
 
@@ -47,7 +47,7 @@ const Nav: FC<Props> = ({ location, history }) => {
   const langChange = (newLang: Language) => {
     if (newLang === lang) return
 
-    let newRoute = ROUTES[newLang][0].link
+    let newRoute: any = ROUTES[newLang][0].link
     if (component[newLang]) {
       newRoute = component[newLang]
     }
