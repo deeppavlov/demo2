@@ -412,15 +412,14 @@ class ChatSkill extends Component<Props, State> {
           <div className={style.disclaimer}>
             <h1>Disclaimer of responsibility</h1>
             <p>
-              Bot responses are generated automatically. MIPT (TIN 5008006211)
-              shall bear no responsibility for accuracy, relevance, and
-              correctness of the information received by the User through the
-              chat bot.
+              Bot responses are generated automatically. DeepPavlov shall bear
+              no responsibility for accuracy, relevance, and correctness of the
+              information received by the User through the chat bot.
             </p>
             <p>
-              MIPT (TIN 5008006211) shall bear no responsibility for the
-              information received by the User through the chatbot, including if
-              this information hurts the user's feelings related to ethics and
+              DeepPavlov shall bear no responsibility for the information
+              received by the User through the chatbot, including if this
+              information hurts the user's feelings related to ethics and
               standards of living. Information received by the User through the
               bot does not appeal for any actions, including ethnic and
               religious hatred; does not promote anything, including
@@ -431,18 +430,17 @@ class ChatSkill extends Component<Props, State> {
               country.
             </p>
             <p>
-              MIPT (TIN 5008006211) shall bear no responsibility for the
-              information received by the User through the bot, including, but
-              not limited to, if this information violates the rights of the
-              third parties to intellectual property and equivalent means of
-              identification; the right to information constituting a trade
-              secret; the rights of minors; contains negative and critical
-              statements regarding religion, politics, racial, ethnic, gender,
-              personal qualities and abilities, sexual orientation and
-              appearance of the third parties; contains insults to specific
-              individuals or organizations; violates generally accepted moral
-              standards and ethical norms, promotes hatred and / or
-              discrimination.
+              DeepPavlov shall bear no responsibility for the information
+              received by the User through the bot, including, but not limited
+              to, if this information violates the rights of the third parties
+              to intellectual property and equivalent means of identification;
+              the right to information constituting a trade secret; the rights
+              of minors; contains negative and critical statements regarding
+              religion, politics, racial, ethnic, gender, personal qualities and
+              abilities, sexual orientation and appearance of the third parties;
+              contains insults to specific individuals or organizations;
+              violates generally accepted moral standards and ethical norms,
+              promotes hatred and / or discrimination.
             </p>
             <p>
               By using the bot, you explicitly give permission for your
@@ -451,17 +449,15 @@ class ChatSkill extends Component<Props, State> {
             </p>
             <p>
               <strong>
-                MIPT (TIN 5008006211) has the right to store and publicly share
-                your conversation data without compliance to special
-                requirements.
+                DeepPavlov has the right to store and publicly share your
+                conversation data without compliance to special requirements.
               </strong>
             </p>
             <p>
               If you consider this unacceptable, we kindly ask you not to use
               the bot. By using the chat bot, you explicitly give your
               permission to receive any information; all claims and complaints
-              on bot functioning shall not be considered by MIPT (TIN
-              5008006211).
+              on bot functioning shall not be considered by DeepPavlov.
             </p>
             <button type="button" onClick={this.agree} className={style.button}>
               Agree

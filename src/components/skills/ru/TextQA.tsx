@@ -16,7 +16,7 @@ const config: BaseSkillProps<Req, Res> = {
       вопросы в известном контексте (например, в параграфе из Википедии). С
       помощью этого функционала можно искать ответы на вопросы по документации.
       Больше информации о модели и ее применении читайте в
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/squad.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/SQuAD.html">
         {" "}
         документации
       </CustomLink>

@@ -19,7 +19,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       various business problems such as ticketing and booking services, renting
       and scheduling, accepting orders, consulting and customer support. To
       learn more on implementation read our
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         {" "}
         documentation{" "}
       </CustomLink>

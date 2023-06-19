@@ -12,7 +12,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       discussion is considered insulting to one of the participants. This
       component is the defense against spam and abuse in your business. To learn
       more on implementation read our{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation.
       </CustomLink>
     </p>

@@ -17,7 +17,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       for 104 languages. NER can be used as a knowledge extractor when you are
       interested in a piece of certain information in your text. To learn more
       on implementation read our{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/NER">
         documentation.
       </CustomLink>
       <br />

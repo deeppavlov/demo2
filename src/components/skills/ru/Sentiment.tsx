@@ -17,7 +17,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
         Medium{" "}
       </CustomLink>
       и в{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         документации.
       </CustomLink>
     </p>

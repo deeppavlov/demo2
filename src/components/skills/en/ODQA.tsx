@@ -19,7 +19,7 @@ const config: BaseSkillProps<Req, Res> = {
       answer span from those articles). This component can be used to answer
       questions based on the company knowledge base. This demo uses entire
       Wikipedia as a knowledge-base. To learn more on implementation read our{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/odqa.html">
         documentation{" "}
       </CustomLink>
       and check out our{" "}

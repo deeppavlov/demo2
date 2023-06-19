@@ -27,7 +27,7 @@ const config: BaseSkillProps<Req, Res> = {
         Medium{" "}
       </CustomLink>
       и в{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/odqa.html">
         документации.
       </CustomLink>
     </p>

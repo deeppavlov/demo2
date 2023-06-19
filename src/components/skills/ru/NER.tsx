@@ -18,7 +18,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       языка. Во вкладке Multi-lang вы найдете мультиязычную модель для 104
       языков, обученную на датасете Ontonotes. Наши модели распознают до 19
       сущностей. Больше о моделях и их использовании читайте в{" "}
-      <CustomLink href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">
+      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/NER.html">
         документации.
       </CustomLink>
       <br />
