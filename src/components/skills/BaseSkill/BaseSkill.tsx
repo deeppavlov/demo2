@@ -362,10 +362,26 @@ class BaseSkill extends Component<Props, State> {
 
     updateStore(messages)
 
-    const { bottom } = this.answersRef!.current!.getBoundingClientRect()
-    const offset = Math.max(0, window.pageYOffset + bottom - window.innerHeight)
+    // const { bottom } = this.answersRef!.current!.getBoundingClientRect()
+    // const offset = Math.max(0, window.scrollY + bottom - window.innerHeight)
+    // window.scrollTo({
+    //   top: offset,
+    //   behavior: "smooth",
+    // })
+    const elem: React.RefObject<HTMLDivElement> = this.answersRef
+    function getCoords(elem: React.RefObject<HTMLDivElement>) {
+      let box = elem?.current?.getBoundingClientRect()!
+      return {
+        top: Math.round(box.top + window.scrollY),
+        right: Math.round(box.right + window.scrollX),
+        bottom: Math.round(box.bottom + window.scrollY),
+        left: Math.round(box.left + window.scrollX),
+      }
+    }
+    const coords = getCoords(elem)
+
     window.scrollTo({
-      top: offset,
+      top: coords.top / 2,
       behavior: "smooth",
     })
     this.answersRef!.current!.scrollTop = 0
