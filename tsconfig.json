@@ -12,13 +12,8 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
     "pretty": false,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -27,7 +22,5 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": [
-    "./src"
-  ]
+  "include": ["./src"]
 }

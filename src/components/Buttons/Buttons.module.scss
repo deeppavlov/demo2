@@ -1,68 +1,82 @@
-/** @format */
-
 .buttons {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 16px;
-	button {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 8px;
-		border: 1px solid #d4d3d7;
-		border-radius: 12px;
-		padding: 0.8em 1.7em;
-		background: #ffffff;
-		&:hover {
-			border-color: #8d96b5;
-		}
-		p {
-			padding: 0px;
-			margin: 0px;
-			font-family: 'Montserrat';
-			font-weight: 600;
-			font-size: 16px;
-			line-height: 160%;
-			color: rgba(0, 0, 0, 0.7);
-		}
-	}
-	.github {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		position: relative;
-		align-items: center;
-		width: 135px;
-		height: 48px;
-		gap: 8px;
-		border-radius: 12px;
-		background: #18181b;
-		border: 0;
-		&:hover {
-			border: 1px solid #fff;
-		}
-		&::before {
-			content: '';
-			width: 151px;
-			height: 60px;
-			position: absolute;
-			background: linear-gradient(
-				90deg,
-				#afd5fb 5.47%,
-				#d9acf7 36.98%,
-				#fa94e8 68.49%,
-				#fcb5bb 100%
-			);
-			filter: blur(7.5px);
-			z-index: -1;
-		}
-		img {
-			width: 22px;
-			height: 22px;
-		}
-		p {
-			color: #fff;
-		}
-	}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #d4d3d7;
+    border-radius: 12px;
+    padding: 0.8em 1.7em;
+    background: #ffffff;
+    &:hover {
+      border-color: #8d96b5;
+    }
+    p {
+      padding: 0px;
+      margin: 0px;
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  .github {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 135px;
+    height: 48px;
+    gap: 8px;
+    border-radius: 12px;
+    background: #18181b;
+    border: 0;
+        img {
+      width: 22px;
+      height: 22px;
+    }
+    p {
+      color: #fff;
+    }
+    &:hover {
+      border: 1px solid #fff;
+    }
+    &::before {
+      content: "";
+      width: 151px;
+      height: 60px;
+      position: absolute;
+      background: linear-gradient(
+        90deg,
+        #afd5fb 5.47%,
+        #d9acf7 36.98%,
+        #fa94e8 68.49%,
+        #fcb5bb 100%
+      );
+      filter: blur(7.5px);
+      z-index: -1;
+    }
+
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .buttons {
+    button {
+      p {
+        display: none;
+      }
+    }
+    .github {
+      width: 87px;
+      &::before {
+        width: 96px;
+      }
+    }
+  }
 }

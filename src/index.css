@@ -1,153 +1,195 @@
-/** @format */
-
-body {
-	margin: 0;
-	font-family: 'Montserrat', -apple-system, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	display: flex;
-	justify-content: center;
-	font-size: 16px;
-}
-
-#root {
-	position: relative;
-	max-width: 100vw;
-	width: 100%;
-}
-.limiter {
-	max-width: 1140px;
-	margin: 0 auto;
-	min-width: 750px;
-	width: 100%;
-	position: relative;
-}
-.accentColor {
-	position: relative;
-	background-color: #fafafa;
-	z-index: 0;
-}
-.sticky {
-	position: sticky;
-	top: 0;
-	z-index: 1;
-}
-.border {
-	border-bottom: 4px solid #0093e9;
-	border-image: linear-gradient(
-		to right top,
-		#4158d0,
-		#c850c0,
-		#ffcc70,
-		#fddaaa,
-		#efa366,
-		#4158d0
-	);
-	border-image-slice: 1;
-}
-h1 {
-	font-weight: 700;
-	font-style: normal;
-	font-size: 28px;
-	letter-spacing: normal;
-	color: #333333;
+:root {
+  --accent-color: #fafafa;
+  --primary-color: #0093e9;
+  --gradient-colors: #4158d0, #c850c0, #ffcc70, #fddaaa, #efa366, #4158d0;
 }
 
 * {
-	box-sizing: border-box;
-	line-height: 1.5em;
+  box-sizing: border-box;
+  line-height: 1.5em;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+h1 {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 28px;
+  letter-spacing: normal;
+  color: #333333;
 }
 
 textarea {
-	font-family: inherit;
+  font-family: inherit;
 }
 
 button {
-	cursor: pointer;
-	outline: none;
+  cursor: pointer;
+  outline: none;
 }
 
 a {
-	color: rgba(0, 0, 0, 0.9);
-	text-decoration: none;
-	cursor: pointer;
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited {
-	text-decoration: none;
-	color: #0069b4;
+  text-decoration: none;
+  color: #0069b4;
+}
+#root {
+  position: relative;
+  max-width: 100vw;
+  width: 100%;
+}
+
+.limiter {
+  max-width: 1140px;
+  margin: 0 auto;
+  min-width: 750px;
+  width: 100%;
+  position: relative;
+}
+
+.accentColor {
+  position: relative;
+  background-color: var(--accent-color);
+  z-index: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.border {
+  border-bottom: 4px solid var(--primary-color);
+  border-image: linear-gradient(to right top, var(--gradient-colors));
+  border-image-slice: 1;
 }
 
 .card {
-	padding: 0.4em 0.4em;
-	font-size: 75%;
-	font-weight: 700;
-	line-height: 1;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: baseline;
-	border-radius: 0.25rem;
-	color: white;
-	position: relative;
-	display: inline-block;
+  padding: 0.4em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  color: white;
+  position: relative;
+  display: inline-block;
 }
 .card:hover > .tooltip {
-	opacity: 1;
+  opacity: 1;
 }
+
+.tooltipLi:hover > .tooltipEx {
+  transition: opacity 0.7s;
+  opacity: 1 !important;
+}
+.tooltipEx {
+  position: absolute;
+  top: 50px;
+  right: -50px;
+  padding: 12px;
+  width: 400px !important;
+  white-space: wrap;
+  font-size: 14px;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 15;
+  background-color: #fafafa;
+  border: 1px solid #d4d3d7;
+  border-radius: 8px;
+  margin-right: 24px;
+}
+
 .innerTip {
-	border: 1px solid white;
-	padding: 2px 5px;
-	font-size: 10px;
-	margin-left: 5px;
+  border: 1px solid white;
+  padding: 2px 5px;
+  font-size: 10px;
+  margin-left: 5px;
 }
+
 .activeTooltip {
-	opacity: 1 !important;
+  opacity: 1 !important;
 }
 
 .leftTooltip {
-	left: 0 !important;
+  left: 0 !important;
 }
+
 .leftTooltip > .tooltipInner {
-	float: left;
+  float: left;
 }
 
 .tooltip {
-	position: absolute;
-	top: 100%;
-	right: 0;
-	width: 200px;
-	user-select: none;
-	pointer-events: none;
-	opacity: 0;
-	z-index: 15;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 15;
 }
+
 .tooltipInner {
-	margin-top: 5px;
-	border-radius: 0.25rem;
-	max-width: 200px;
-	white-space: normal;
-	color: white;
-	font-size: 11px;
-	font-weight: 400;
-	line-height: 14px;
-	padding: 5px 10px;
-	display: block;
-	float: right;
+  margin-top: 5px;
+  border-radius: 0.25rem;
+  max-width: 200px;
+  white-space: normal;
+  color: white;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  padding: 5px 10px;
+  display: block;
+  float: right;
 }
+
 .margin_r {
-	margin-right: 7px;
+  margin-right: 7px;
 }
 
 @media only screen and (max-width: 768px) {
-	#root {
-		width: 100%;
-		min-width: 100%;
-		overflow-x: hidden;
-	}
-	.card:hover > .tooltip {
-		opacity: 0;
-	}
-	body {
-		padding: 0;
-	}
+  #root {
+    width: 100%;
+    min-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .limiter {
+    min-width: 320px;
+  }
+
+  .card:hover > .tooltip {
+    opacity: 0;
+  }
+
+  body {
+    padding: 0;
+  }
+  .tooltipEx {
+    top: 100px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .limiter {
+    padding: 0px 32px;
+  }
 }

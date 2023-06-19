@@ -1,4 +1,7 @@
-/** @format */
+:root {
+  --primary-color: #3300ff;
+  --secondary-color: #ffcc00;
+}
 
 .top {
   display: flex;
@@ -10,97 +13,121 @@
   position: sticky;
   top: 0;
   left: 0;
-  background-color: #fafafa;
+  background-color: var(--accent-color);
   z-index: 1;
-  .subtitle {
-    font-family: 'Montserrat';
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 170%;
-    color: rgba(0, 0, 0, 0.7);
+}
+
+.top .subtitle {
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 170%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 86px;
+}
+
+.header .middle .left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header .middle .left .check {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header .middle .right {
+  position: absolute;
+  top: 63px;
+  right: 50px;
+}
+
+.header .middle .right img {
+  width: 23.5rem;
+  height: auto;
+  z-index: -1;
+}
+
+.header .title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 72px;
+  line-height: 110%;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: black;
+}
+
+.header .title a {
+  font-family: "Poppins";
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.header .title .blue {
+  color: #3300ff;
+}
+
+.header .title .yellow {
+  color: var(--secondary-color);
+}
+
+@media only screen and (max-width: 1024px) {
+  .header .middle .right img {
+    width: 18rem;
   }
 }
-.header {
-	.middle {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
-		margin-top: 86px;
-		.left {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-			.check {
-				font-weight: 400;
-				font-size: 20px;
-				line-height: 160%;
-				color: rgba(0, 0, 0, 0.7);
-			}
-		}
-		.right {
-			position: absolute;
-			top: 63px;
-			right: 50px;
-			img {
-				width: 26.5rem;
-				height: auto;
-				z-index: -1;
-			}
-		}
-	}
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	> img {
-		height: 82px;
-	}
-	.title {
-		display: flex;
-		flex-direction: column;
-		margin: 0;
-		font-family: 'Montserrat';
-		font-size: 72px;
-		line-height: 110%;
-		font-weight: 600;
-		letter-spacing: -0.02em;
-		color: black;
-		div {
-			margin: 0;
-			padding: 0;
-		}
-		a {
-			font-family: 'Poppins';
-			color: rgba(0, 0, 0, 0.9);
-			font-weight: 400;
-			font-size: 16px;
-			line-height: 150%;
-		}
-		.blue {
-			color: #3300ff;
-		}
-		.yellow {
-			color: #ffcc00;
-		}
-	}
+
+@media only screen and (max-width: 768px) {
+  .top {
+    flex-direction: column;
+  }
+
+  .header {
+    padding-bottom: 16px;
+  }
+
+  .header .middle .right img {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-	.header {
-		.title {
-			font-size: 38px;
-		}
-	}
+  .header .title {
+    font-size: 38px;
+  }
+
+  .header .middle .right img {
+    width: 12.5rem;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-	.header {
-		.title {
-			font-size: 30px;
-		}
-	}
+  .header .title {
+    font-size: 30px;
+  }
 }

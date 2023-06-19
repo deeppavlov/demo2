@@ -1,414 +1,431 @@
-/** @format */
-
 .container {
-	div {
-		font-size: 20px;
-		font-weight: 400;
-		line-height: 160%;
-		a {
-			text-decoration: underline;
-			color: rgba(0, 0, 0, 0.7);
-		}
-		p {
-			font-size: 20px;
-			font-weight: 400;
-			line-height: 160%;
-			a {
-				text-decoration: underline;
-				color: rgba(0, 0, 0, 0.7);
-			}
-		}
-	}
-	.title {
-		font-weight: 600;
-		font-size: 24px;
-		line-height: 110%;
-		letter-spacing: -0.02em;
-		color: rgba(0, 0, 0, 0.9);
-	}
-	.classes {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 6px;
-		max-width: 325px;
-		margin: 0;
-		// margin-top: 0px;
-		// white-space: nowrap;
-		// background-color: red;
-	}
-	.annotation {
-		display: flex;
-		border-radius: 4px;
-		justify-content: start;
-		align-items: center;
-		width: fit-content;
-		padding: 4px 8px;
-		gap: 6px;
-		font-family: 'Montserrat';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 0.8rem;
-		line-height: 160%;
-		.click {
-			padding: 2px 4px;
-			background-color: #7000ff;
-			color: #fff;
-			border-radius: 2px;
-			font-weight: 600;
-		}
-		background-color: rgba(112, 0, 255, 0.1);
-		color: #7000ff;
-	}
+  div {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 160%;
+    a {
+      text-decoration: underline;
+      color: rgba(0, 0, 0, 0.7);
+    }
+    p {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 160%;
+      a {
+        text-decoration: underline;
+        color: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .classes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 325px;
+    margin: 0;
+  }
+  .annotation {
+    display: flex;
+    border-radius: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+    padding: 8px;
+    gap: 6px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 160%;
+    .click {
+      padding: 2px 4px;
+      background-color: #7000ff;
+      color: #fff;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    background-color: rgba(112, 0, 255, 0.1);
+    color: #7000ff;
+  }
+  .inputArea {
+    margin-top: 20px;
+    display: flex;
 
-	.inputArea {
-		margin-top: 20px;
-		display: flex;
+    .title {
+      margin: 0 0 1rem 0;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+    }
+    .inputs,
+    .examples {
+      flex: 50%;
+      p {
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: -0.02em;
+      }
+    }
 
-		.title {
-			margin: 0 0 1rem 0;
-			font-weight: 600;
-			font-size: 24px;
-			line-height: 110%;
-			letter-spacing: -0.02em;
-		}
-		.inputs,
-		.examples {
-			flex: 50%;
-			p {
-				margin: 0 0 0.5rem 0;
-				font-weight: 600;
-				font-size: 24px;
-				line-height: 110%;
-				letter-spacing: -0.02em;
-			}
-		}
+    .inputs {
+      flex-grow: 2;
+      flex-shrink: 0;
+      margin-right: 20px;
+      div {
+        margin-top: 16px;
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+      input,
+      textarea {
+        width: 100%;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 160%;
+        color: rgba(0, 0, 0, 0.9);
+        border: 0;
+        padding: 16px 24px;
+        gap: 10px;
+        background: #f9fafc;
+        border: 1px solid rgba(25, 0, 128, 0.08);
+        border-radius: 12px;
+      }
+      textarea {
+        resize: vertical;
+        height: 233px;
+        width: 100%;
+      }
+    }
+    .examplesQuestion {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 30px;
+      align-items: flex-start;
+      .question {
+        margin: 0;
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          .title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 160%;
+            color: #3300ff;
+          }
+          p {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 160%;
+            color: rgba(0, 0, 0, 0.9);
+          }
+        }
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        button {
+          align-self: flex-end;
+        }
+      }
+      .answers {
+        p {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 160%;
+          color: #3300ff;
+        }
+        div {
+          display: block;
+        }
+      }
+    }
+    .examples {
+      display: inline-block;
 
-		.inputs {
-			flex-grow: 2;
-			flex-shrink: 0;
-			margin-right: 20px;
-			div {
-				margin-top: 16px;
-				&:first-of-type {
-					margin-top: 0;
-				}
-			}
-			input,
-			textarea {
-				width: 100%;
-				font-weight: 400;
-				font-size: 20px;
-				line-height: 160%;
-				color: rgba(0, 0, 0, 0.9);
-				border: 0;
-				padding: 16px 24px;
-				gap: 10px;
-				background: #f9fafc;
-				border: 1px solid rgba(25, 0, 128, 0.08);
-				border-radius: 12px;
-			}
-			textarea {
-				resize: vertical;
-				height: 233px;
-				width: 100%;
-			}
-		}
-		.examplesQuestion {
-			display: flex;
-			flex-direction: row;
-			width: 100%;
-			gap: 30px;
-			align-items: start;
-			.question {
-				margin: 0;
-				div {
-					display: flex;
-					flex-direction: column;
-					gap: 16px;
-					.title {
-						font-weight: 600;
-						font-size: 20px;
-						line-height: 160%;
-						color: #3300ff;
-					}
-					p {
-						font-weight: 400;
-						font-size: 20px;
-						line-height: 160%;
-						color: rgba(0, 0, 0, 0.9);
-					}
-				}
-				width: 100%;
-				display: flex;
-				flex-direction: column;
-				button {
-					align-self: flex-end;
-				}
-			}
-			.answers {
-				p {
-					font-weight: 600 !important;
-					font-size: 20px;
-					line-height: 160%;
-					color: #3300ff !important;
-				}
-				div {
-					display: block;
-				}
-			}
-		}
-		.examples {
-			display: inline-block;
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-position: inside;
+      }
 
-			ul {
-				padding: 0;
-				margin: 0;
-				display: inline-block;
-				list-style-position: inside;
-			}
-			.active {
-				color: rgba(0, 0, 0, 0.9);
-				&::marker {
-					color: #ffcc70;
-				}
-				&:hover {
-					color: rgba(0, 0, 0, 0.9);
-				}
-			}
-			li {
-				max-width: 400px;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				font-weight: 600;
-				font-size: 16px;
-				line-height: 150%;
-				color: rgba(0, 0, 0, 0.5);
-				padding: 12px 15px;
+      .active {
+        color: rgba(0, 0, 0, 0.9);
+        &::marker {
+          color: #ffcc70;
+        }
+        &:hover {
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+      li {
+        width: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        color: rgba(0, 0, 0, 0.5);
+        padding: 12px 15px;
+        padding-left: 0;
+        &::marker {
+          font-size: 100%;
+          color: #e6e8f0;
+        }
+        &:hover,
+        &:focus {
+          color: rgba(0, 0, 0, 0.9);
+        }
+        &:hover {
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    margin-top: 20px;
+    padding: 7px 13px;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    width: 118px;
+    height: 38px;
+    background: #3300ff;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .answers {
+    color: #333;
+    border-radius: 0.25rem;
+    font-size: 18px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    // title
+    > p {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: #fff;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+      color: #3300ff;
+    }
+    // answer
 
-				&::marker {
-					font-size: 150%;
-					color: #e6e8f0;
-				}
-				&:hover,
-				&:focus {
-					color: rgba(0, 0, 0, 0.9);
-				}
-				&:hover {
-					color: rgba(0, 0, 0, 0.9);
-				}
-			}
-		}
-	}
+    > div {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.9);
+      border: 0;
+      padding: 16px 24px;
+      gap: 10px;
+      background: #f9fafc;
+      border: 1px solid rgba(25, 0, 128, 0.08);
+      border-radius: 12px;
+    }
 
-	.button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: #fff;
-		text-align: center;
-		white-space: nowrap;
-		vertical-align: middle;
-		user-select: none;
-		margin-top: 20px;
-		padding: 7px 13px;
-		gap: 10px;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 24px;
-		width: 118px;
-		height: 38px;
-		background: #3300ff;
-		border-radius: 12px;
-		border: 1px solid transparent;
-		cursor: pointer;
-	}
-
-	.answers {
-		color: #333;
-
-		border-radius: 0.25rem;
-		font-size: 18px !important;
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
-		position: relative;
-		// title
-		> p {
-			position: sticky;
-			top: 0;
-			z-index: 10;
-			background-color: #fff;
-			font-weight: 600;
-			font-size: 24px;
-			line-height: 110%;
-			letter-spacing: -0.02em;
-			color: #3300ff;
-		}
-		// answer
-
-		> div {
-			font-weight: 400;
-			font-size: 20px;
-			line-height: 160%;
-			color: rgba(0, 0, 0, 0.9);
-			border: 0;
-			padding: 16px 24px;
-			gap: 10px;
-			background: #f9fafc;
-			border: 1px solid rgba(25, 0, 128, 0.08);
-			border-radius: 12px;
-		}
-
-		> .basic {
-			p {
-			}
-			p:first-of-type {
-				font-weight: 400;
-				color: rgba(0, 0, 0, 0.9);
-				color: darkblue;
-			}
-			p:last-of-type {
-				border-top: 1px solid lightgray;
-				margin-top: 12px;
-				padding-top: 12px;
-			}
-		}
-	}
+    > .basic {
+      p:first-of-type {
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.9);
+        color: darkblue !important;
+      }
+      p:last-of-type {
+        border-top: 1px solid lightgray;
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+    }
+  }
 }
-
 .modal {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	background: rgba(0, 0, 0, 0.7);
-	z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 
-	.error {
-		font-size: 2rem;
-		color: white;
-		width: 50%;
-	}
+  .error {
+    font-size: 2rem;
+    color: white;
+    width: 50%;
+  }
 
-	.close {
-		position: absolute;
-		right: 40px;
-		top: 40px;
-		width: 40px;
-		height: 40px;
-		opacity: 0.7;
-		cursor: pointer;
+  .close {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+    cursor: pointer;
 
-		&:hover {
-			opacity: 1;
-		}
-		&:before,
-		&:after {
-			position: absolute;
-			left: 15px;
-			content: ' ';
-			height: 40px;
-			width: 3px;
-			background-color: white;
-		}
-		&:before {
-			transform: rotate(45deg);
-		}
-		&:after {
-			transform: rotate(-45deg);
-		}
-	}
+    &:hover {
+      opacity: 1;
+    }
+    &:before,
+    &:after {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 40px;
+      width: 3px;
+      background-color: white;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
 
-	.ldsRing {
-		display: inline-block;
-		position: relative;
-		width: 64px;
-		height: 64px;
+  .ldsRing {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
 
-		div {
-			box-sizing: border-box;
-			display: block;
-			position: absolute;
-			width: 51px;
-			height: 51px;
-			margin: 6px;
-			border: 6px solid #0069b4;
-			border-radius: 50%;
-			animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-			border-color: #0069b4 transparent transparent transparent;
-		}
-		div:nth-child(1) {
-			animation-delay: -0.45s;
-		}
-		div:nth-child(2) {
-			animation-delay: -0.3s;
-		}
-		div:nth-child(3) {
-			animation-delay: -0.15s;
-		}
-	}
+    div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 51px;
+      height: 51px;
+      margin: 6px;
+      border: 6px solid #0069b4;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #0069b4 transparent transparent transparent;
+    }
+    div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
 }
 
 @keyframes lds-ring {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .container {
+    .classes {
+      max-width: 100%;
+    }
+    .annotation {
+      width: 100%;
+    }
+    .inputArea {
+      .examplesQuestion {
+        flex-direction: column;
+        .examples {
+          ul {
+            li {
+              width: 100%;
+              white-space: wrap;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-	.container {
-		padding: 0 10px;
+  .container {
+    padding: 0 10px;
+    .classes {
+      max-width: 100%;
+    }
+    .annotation {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .title {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2rem;
+    }
 
-		.title {
-			font-weight: 700;
-			font-size: 2rem;
-			line-height: 2rem;
-		}
+    .docker {
+      code {
+        font-size: 14px;
+      }
+    }
 
-		.docker {
-			code {
-				font-size: 14px;
-			}
-		}
+    .inputArea {
+      flex-flow: column-reverse;
 
-		.inputArea {
-			flex-flow: column-reverse;
+      .examples {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        button {
+          background-color: white;
+        }
+      }
 
-			.examples {
-				display: flex;
-				flex-direction: column;
-				gap: 16px;
-				button {
-					background-color: white;
-				}
-			}
+      .inputs {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        margin-right: 0;
+        div {
+          margin-top: 0px;
+        }
+      }
+    }
+    .answers {
+      margin-top: 20px;
+      margin-bottom: 0;
 
-			.inputs {
-				display: flex;
-				flex-direction: row;
-				margin-top: 20px;
-				margin-right: 0;
-				div {
-					margin-top: 0px;
-				}
-			}
-		}
-		.answers {
-			margin-top: 20px;
-			margin-bottom: 0;
-
-			> div {
-				margin: 0 0 20px 0;
-			}
-		}
-	}
+      > div {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
 }

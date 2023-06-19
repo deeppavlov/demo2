@@ -1,164 +1,172 @@
-/** @format */
-
 .container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin-top: 64px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 64px;
 }
 
 .annotation {
-	align-self: flex-start;
-	font-family: 'Inter';
-	font-weight: 400;
-	font-size: 10px;
-	line-height: 160%;
-	color: rgba(0, 0, 0, 0.7);
+  align-self: flex-start;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+  color: rgba(0, 0, 0, 0.7);
 }
 .nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	margin-top: 74px;
-	position: sticky;
-	top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 74px;
+  position: sticky;
+  top: 0;
 }
 
 .langSelector {
-	display: flex;
-	color: white;
-	font-size: 16px;
-	flex-shrink: 0;
-	align-self: flex-start;
+  display: flex;
+  color: white;
+  font-size: 16px;
+  flex-shrink: 0;
+  align-self: flex-start;
 
-	div {
-		border: 1px solid #d4d3d7;
-		box-shadow: 0px 4px 0px #d4d3d7;
-		padding: 12px 24px;
-		height: 38px;
-		background-color: #fff;
-		text-align: center;
-		display: flex;
-		align-items: center;
-		cursor: pointer;
-		flex-shrink: 0;
-		color: rgba(0, 0, 0, 0.7);
-		font-family: 'Montserrat';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 14px;
-		line-height: 160%;
-		&:hover {
-			box-shadow: 0px 4px 0px #8d96b5;
-		}
-	}
+  div {
+    border: 1px solid #d4d3d7;
+    box-shadow: 0px 4px 0px #d4d3d7;
+    padding: 12px 24px;
+    height: 38px;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 160%;
+    &:hover {
+      box-shadow: 0px 4px 0px #8d96b5;
+    }
+  }
 
-	div:first-of-type {
-		border-top-left-radius: 12px;
-		border-bottom-left-radius: 12px;
-	}
+  div:first-of-type {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
 
-	div:last-of-type {
-		border-top-right-radius: 12px;
-		border-bottom-right-radius: 12px;
-	}
+  div:last-of-type {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
 
-	.active {
-		border: 1px solid #3300ff;
-		box-shadow: 0px 4px 0px #1f35ff;
-	}
+  .active {
+    border: 1px solid #3300ff;
+    box-shadow: 0px 4px 0px #1f35ff;
+  }
 }
 
 .navLinks {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	justify-content: space-between;
-	text-size-adjust: 100%;
-	list-style-image: none;
-	list-style: none;
-	padding: 0;
-	font-weight: 600;
-	font-size: 18px;
-	line-height: 24px;
-	margin: 0;
-	&.multiLangFlex {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: start;
-	}
-	.navLink {
-		color: #190080;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 42px;
-		height: 100%;
-		max-height: 84px;
-		text-align: center;
-		border-radius: 12px;
-		padding-bottom: 12px;
-		&:not(.activeLink) {
-			padding: 12px 24px 24px;
-			.linkContainer:hover {
-				background: -webkit-linear-gradient(
-					45deg,
-					#2c2aa6 3.85%,
-					#c850c0 61.44%,
-					#ffcc70 100%
-				);
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-		}
-	}
-	.activeLink {
-		// padding-bottom: 24px;
-		& .linkContainer {
-			border-radius: 12px;
-		}
-		.linkContainer {
-			color: white;
-			padding: 12px 24px;
-			background: linear-gradient(
-				90deg,
-				#4158d0 5.47%,
-				#c850c0 62.3%,
-				#ffcc70 100%
-			);
-		}
-	}
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  text-size-adjust: 100%;
+  list-style-image: none;
+  list-style: none;
+  padding: 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  &.multiLangFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .navLink {
+    color: #190080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 42px;
+    height: 100%;
+    max-height: 84px;
+    text-align: center;
+    border-radius: 12px;
+    padding-bottom: 12px;
+    &:not(.activeLink) {
+      padding: 12px 24px 24px;
+      .linkContainer:hover {
+        background: -webkit-linear-gradient(
+          45deg,
+          #2c2aa6 3.85%,
+          #c850c0 61.44%,
+          #ffcc70 100%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+  .activeLink {
+    & .linkContainer {
+      border-radius: 12px;
+    }
+    .linkContainer {
+      color: white;
+      padding: 12px 24px;
+      background: linear-gradient(
+        90deg,
+        #4158d0 5.47%,
+        #c850c0 62.3%,
+        #ffcc70 100%
+      );
+    }
+  }
 }
 
+@media only screen and (max-width: 1024px) {
+  .nav {
+    .linkContainer {
+      font-size: 14px;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
-	.nav {
-		flex-flow: column;
-		background: #eee;
-		border-top: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
-		padding: 15px;
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-		flex-flow: column-reverse;
-	}
-	.langSelector {
-		width: 100%;
-		margin-left: 0;
+  .nav {
+    flex-flow: column;
+    background: #eee;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    flex-flow: column-reverse;
+    border-radius: 12px;
+    .linkContainer {
+      width: 100%;
+    }
+  }
+  .langSelector {
+    width: 100%;
+    margin-left: 0;
 
-		> div {
-			flex-grow: 1;
-			justify-content: center;
-		}
-	}
-	.navLinks {
-		flex-flow: column;
+    > div {
+      flex-grow: 1;
+      justify-content: center;
+    }
+  }
+  .navLinks {
+    flex-flow: column;
 
-		li {
-			max-width: 100%;
-			width: 100%;
-			margin: 0;
-		}
-	}
+    li {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+    }
+  }
 }
