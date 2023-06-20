@@ -30,6 +30,7 @@ import {
   intentsClasses,
   ontonotesClasses,
   ruNerStyles,
+  insultClasses,
 } from "../utils"
 import s from "./BaseSkill.module.scss"
 
@@ -160,6 +161,7 @@ class BaseSkill extends Component<Props, State> {
 
   renderAnswers = (answers: Answer[]) => {
     const { renderAnswer } = this.props
+
     if (!renderAnswer || renderAnswer.type === "basic") {
       return answers.map(this.renderBasic)
     } else if (renderAnswer.type === "ner") {
@@ -170,6 +172,8 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderIntent)
     } else if (renderAnswer.type === "textqa") {
       return answers.map(this.renderQA)
+    } else if (renderAnswer.type === "insult") {
+      return answers.map(this.renderInsult)
     }
   }
 
@@ -198,6 +202,27 @@ class BaseSkill extends Component<Props, State> {
             }}
           >
             {mes.answer[0]}
+          </span>
+        </p>
+        <p>{mes.question}</p>
+      </div>
+    )
+  }
+
+  renderInsult = (mes: Answer, i: number) => {
+    const { colors } = this.props.renderAnswer!
+    const answer = mes.answer[0].toString()
+
+    return (
+      <div className={s.basic} key={i}>
+        <p>
+          <span
+            className="card"
+            style={{
+              backgroundColor: colors![answer].color!,
+            }}
+          >
+            {answer}
           </span>
         </p>
         <p>{mes.question}</p>
@@ -266,6 +291,7 @@ class BaseSkill extends Component<Props, State> {
     const rest = { ...mes }
     delete rest.answer
     delete rest.question
+
     let answer: any = mes.answer[0]
     if (typeof answer === "string" && !answer) {
       answer = this.lang !== "ru" ? "I don't know" : "Я не знаю"
@@ -472,13 +498,16 @@ class BaseSkill extends Component<Props, State> {
                   {pathName === "/en/intent" && (
                     <>
                       <div className={s.title}>Classes</div>
-                      <span className={s.annotation}>
-                        <span className={s.click}>Click</span>
-                        on an <b>entity</b>
-                        to see its class description
-                      </span>
                       <div className={s.classes}>
                         {renderNerClasses(intentsClasses, disableTip)}
+                      </div>
+                    </>
+                  )}
+                  {pathName === "/en/insult" && (
+                    <>
+                      <div className={s.title}>Classes</div>
+                      <div className={s.classes}>
+                        {renderNerClasses(insultClasses, disableTip)}
                       </div>
                     </>
                   )}

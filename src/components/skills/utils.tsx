@@ -41,6 +41,10 @@ const intentsClasses = {
   SearchScreeningEvent: { color: colors.dark },
 }
 
+const insultClasses = {
+  "Insult": { color: colors.red },
+  "Not Insult": { color: colors.green },
+}
 const ontonotesClasses = {
   PERSON: { color: colors.blue, text: "People, including fictional." },
   NORP: {
@@ -98,7 +102,13 @@ const renderNerClasses = (
     )
   )
 }
-export { renderNerClasses, ontonotesClasses, ruNerStyles, intentsClasses }
+export {
+  renderNerClasses,
+  ontonotesClasses,
+  ruNerStyles,
+  intentsClasses,
+  insultClasses,
+}
 
 export type Language = "ru" | "en" | "mu"
 

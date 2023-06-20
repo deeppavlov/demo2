@@ -29,8 +29,8 @@ export const App = () => {
                       <span className={style.blue}>DeepPavlov</span>
                     </a>
                     <span>
-                      <span>Demo.</span>
-                      <span className={style.yellow}>ai</span>
+                      <span>DeepPavlov</span>
+                      {/* <span className={style.yellow}>ai</span> */}
                     </span>
                   </p>
                   <span className={style.check}>

@@ -3,6 +3,7 @@ import React from "react"
 import skillWrapper, { BaseSkillProps } from "../BaseSkill"
 import api, { Res, StoreReq } from "../../../lib/api"
 import { CustomLink } from "components/CustomLink/CustomLink"
+import { insultClasses } from "../utils"
 
 const config: BaseSkillProps<StoreReq, Res> = {
   title: "Insult detection",
@@ -47,6 +48,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
   ],
   api: api("https://7006.deeppavlov.ai/model"),
+  renderAnswer: { type: "insult", colors: insultClasses },
 }
 
 const Insult = skillWrapper<StoreReq, Res>("insulten")

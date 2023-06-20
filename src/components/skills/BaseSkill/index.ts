@@ -1,46 +1,46 @@
-export { default } from './BaseSkill';
+export { default } from "./BaseSkill"
 
 export interface DispatchProps {
-  updateStore: (messages: any[]) => void;
-  dispatchLoading: () => void;
-  safeComponentState: (state: any) => void;
+  updateStore: (messages: any[]) => void
+  dispatchLoading: () => void
+  safeComponentState: (state: any) => void
 }
 
 export interface Answer {
-  question: string;
-  answer: string[][];
-  [key: string]: string | string[][];
+  question: string
+  answer: string[][] 
+  [key: string]: string | string[][]
 }
 
 export interface StateProps {
-  loading?: boolean;
-  answers?: Answer[];
-  componentState?: any;
+  loading?: boolean
+  answers?: Answer[]
+  componentState?: any
 }
 
 export interface Input {
-  title: string;
-  type: 'text' | 'textarea';
-  name: string;
+  title: string
+  type: "text" | "textarea"
+  name: string
 }
 
 export interface Example {
-  question: string;
+  question: string
   // following key are equals to inputs names
-  [key: string]: string;
+  [key: string]: string
 }
 
 interface RenderAnswer {
-  type: 'basic' | 'ner' | 'textqa' | 'ranking' | 'intent';
-  colors?: { [key: string]: {color: string, text?: string} };
+  type: "basic" | "ner" | "textqa" | "ranking" | "intent" | "insult"
+  colors?: { [key: string]: { color: string; text?: string } }
 }
 
 export interface BaseSkillProps<Req, Res> {
-  title: string;
-  desc: JSX.Element;
-  docker?: string;
-  inputs: Input[];
-  examples: Example[];
-  api: (request: Req) => Promise<Res>;
-  renderAnswer?: RenderAnswer;
+  title: string
+  desc: JSX.Element
+  docker?: string
+  inputs: Input[]
+  examples: Example[]
+  api: (request: Req) => Promise<Res>
+  renderAnswer?: RenderAnswer
 }
