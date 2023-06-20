@@ -429,9 +429,9 @@ class BaseSkill extends Component<Props, State> {
               <div className={s.examples}>
                 <p>{this.lang !== "ru" ? "Examples" : "Примеры"}</p>
                 <ul>{examples.map(this.renderExamples)}</ul>
-                <div className={s.classesList} style={{ marginTop: "58px" }}>
+                <div className={s.classesList}>
                   {pathName === "/ru/ner" && (
-                    <div>
+                    <>
                       <div className={s.title}>Classes</div>
                       <span className={s.annotation}>
                         <span className={s.click}>Click</span>
@@ -441,10 +441,10 @@ class BaseSkill extends Component<Props, State> {
                       <div className={s.classes}>
                         {renderNerClasses(ruNerStyles, disableTip)}
                       </div>
-                    </div>
+                    </>
                   )}
                   {pathName === "/en/ner" && (
-                    <div>
+                    <>
                       <div className={s.title}>Classes</div>
                       <span className={s.annotation}>
                         <span className={s.click}>Click</span>
@@ -454,10 +454,10 @@ class BaseSkill extends Component<Props, State> {
                       <div className={s.classes}>
                         {renderNerClasses(ontonotesClasses, disableTip)}
                       </div>
-                    </div>
+                    </>
                   )}
                   {pathName === "/mu/ner" && (
-                    <div>
+                    <>
                       <div className={s.title}>Classes</div>
                       <span className={s.annotation}>
                         <span className={s.click}>Click</span>
@@ -467,10 +467,10 @@ class BaseSkill extends Component<Props, State> {
                       <div className={s.classes}>
                         {renderNerClasses(ontonotesClasses, disableTip)}
                       </div>
-                    </div>
+                    </>
                   )}
                   {pathName === "/en/intent" && (
-                    <div>
+                    <>
                       <div className={s.title}>Classes</div>
                       <span className={s.annotation}>
                         <span className={s.click}>Click</span>
@@ -480,7 +480,7 @@ class BaseSkill extends Component<Props, State> {
                       <div className={s.classes}>
                         {renderNerClasses(intentsClasses, disableTip)}
                       </div>
-                    </div>
+                    </>
                   )}
                 </div>
               </div>
