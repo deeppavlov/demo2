@@ -2,6 +2,7 @@ import React from "react"
 import skillWrapper, { BaseSkillProps } from "../BaseSkill"
 import api, { Res, StoreReq } from "../../../lib/api"
 import { CustomLink } from "components/CustomLink/CustomLink"
+import { sentimentClasses } from "../utils"
 
 const config: BaseSkillProps<StoreReq, Res> = {
   title: "Анализ тональности",
@@ -44,6 +45,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
   ],
   api: api("https://7015.deeppavlov.ai/model"),
+  renderAnswer: { type: "sentiment", colors: sentimentClasses },
 }
 
 const Sentiment = skillWrapper<StoreReq, Res>("sentimentru")

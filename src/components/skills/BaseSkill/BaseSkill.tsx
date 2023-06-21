@@ -31,6 +31,7 @@ import {
   ontonotesClasses,
   ruNerStyles,
   insultClasses,
+  sentimentClasses,
 } from "../utils"
 import s from "./BaseSkill.module.scss"
 
@@ -161,7 +162,7 @@ class BaseSkill extends Component<Props, State> {
 
   renderAnswers = (answers: Answer[]) => {
     const { renderAnswer } = this.props
-
+    // console.log('answers = ', answers)
     if (!renderAnswer || renderAnswer.type === "basic") {
       return answers.map(this.renderBasic)
     } else if (renderAnswer.type === "ner") {
@@ -174,7 +175,30 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderQA)
     } else if (renderAnswer.type === "insult") {
       return answers.map(this.renderInsult)
+    } else if (renderAnswer.type === "sentiment") {
+      return answers.map(this.renderSentiment)
     }
+  }
+
+  renderSentiment = (mes: Answer, i: number) => {
+    const { colors } = this.props.renderAnswer!
+    const answer = mes.answer[0].toString()
+
+    return (
+      <div className={s.basic} key={i}>
+        <p>
+          <span
+            className="card"
+            style={{
+              backgroundColor: colors![answer].color!,
+            }}
+          >
+            {answer}
+          </span>
+        </p>
+        <p>{mes.question}</p>
+      </div>
+    )
   }
 
   renderRanking = (mes: Answer, i: number) => {
@@ -388,12 +412,6 @@ class BaseSkill extends Component<Props, State> {
 
     updateStore(messages)
 
-    // const { bottom } = this.answersRef!.current!.getBoundingClientRect()
-    // const offset = Math.max(0, window.scrollY + bottom - window.innerHeight)
-    // window.scrollTo({
-    //   top: offset,
-    //   behavior: "smooth",
-    // })
     const elem: React.RefObject<HTMLDivElement> = this.answersRef
     function getCoords(elem: React.RefObject<HTMLDivElement>) {
       let box = elem?.current?.getBoundingClientRect()!
@@ -508,6 +526,14 @@ class BaseSkill extends Component<Props, State> {
                       <div className={s.title}>Classes</div>
                       <div className={s.classes}>
                         {renderNerClasses(insultClasses, disableTip)}
+                      </div>
+                    </>
+                  )}
+                  {pathName === "/ru/sentiment" && (
+                    <>
+                      <div className={s.title}>Classes</div>
+                      <div className={s.classes}>
+                        {renderNerClasses(sentimentClasses, disableTip)}
                       </div>
                     </>
                   )}

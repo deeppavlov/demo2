@@ -42,8 +42,12 @@ const intentsClasses = {
 }
 
 const insultClasses = {
-  "Insult": { color: colors.red },
+  Insult: { color: colors.red },
   "Not Insult": { color: colors.green },
+}
+const sentimentClasses = {
+  negative: { color: colors.cobaltblue },
+  positive: { color: colors.bottlegreen },
 }
 const ontonotesClasses = {
   PERSON: { color: colors.blue, text: "People, including fictional." },
@@ -108,6 +112,7 @@ export {
   ruNerStyles,
   intentsClasses,
   insultClasses,
+  sentimentClasses,
 }
 
 export type Language = "ru" | "en" | "mu"

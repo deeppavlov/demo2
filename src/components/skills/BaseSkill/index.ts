@@ -8,7 +8,7 @@ export interface DispatchProps {
 
 export interface Answer {
   question: string
-  answer: string[][] 
+  answer: string[][]
   [key: string]: string | string[][]
 }
 
@@ -31,7 +31,14 @@ export interface Example {
 }
 
 interface RenderAnswer {
-  type: "basic" | "ner" | "textqa" | "ranking" | "intent" | "insult"
+  type:
+    | "basic"
+    | "ner"
+    | "textqa"
+    | "ranking"
+    | "intent"
+    | "insult"
+    | "sentiment"
   colors?: { [key: string]: { color: string; text?: string } }
 }
 
