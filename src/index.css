@@ -68,10 +68,13 @@ a:visited {
 
 .sticky {
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 1;
 }
 
+.stickyShadow {
+  box-shadow: 0px 0px 10px 0px #d4d3d7;
+}
 .border {
   border-bottom: 4px solid var(--primary-color);
   border-image: linear-gradient(to right top, var(--gradient-colors));

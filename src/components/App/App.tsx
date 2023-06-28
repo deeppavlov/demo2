@@ -6,11 +6,14 @@ import { Buttons } from "components/Buttons/Buttons"
 import { Router } from "router/Router"
 import Pavlov from "../../assets/pavlov.svg"
 import style from "./App.module.scss"
+import { useScrollShadow } from "hooks/useScrollShadow"
 
 export const App = () => {
+  const { ref } = useScrollShadow()
+
   return (
     <>
-      <div className="accentColor sticky ">
+      <div ref={ref} className="accentColor sticky">
         <div className="limiter">
           <div className={style.top}>
             <p className={style.subtitle}>demo.deeppavlov.ai</p>
@@ -30,11 +33,10 @@ export const App = () => {
                     </a>
                     <span>
                       <span>DeepPavlov</span>
-                      {/* <span className={style.yellow}>ai</span> */}
                     </span>
                   </p>
                   <span className={style.check}>
-                    Check and try our products demo with us.
+                    Check and try our product's demo with us.
                     <br /> Stay tuned
                   </span>
                 </div>

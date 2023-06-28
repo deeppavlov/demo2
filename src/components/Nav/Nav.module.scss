@@ -33,7 +33,6 @@
 
   div {
     border: 1px solid #d4d3d7;
-    box-shadow: 0px 4px 0px #d4d3d7;
     padding: 12px 24px;
     height: 38px;
     background-color: #fff;
@@ -48,8 +47,18 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 160%;
-    &:hover {
+    &:not(.active) {
+      box-shadow: 0px 4px 0px #d4d3d7;
+    }
+    &:not(.active):hover {
       box-shadow: 0px 4px 0px #8d96b5;
+      border-bottom: #8d96b5;
+    }
+    &.active {
+      height: 42px;
+      background-color: rgba(31, 53, 255, 0.1);
+      color: #3300ff;
+      border: 1px solid #3300ff;
     }
   }
 
@@ -61,11 +70,6 @@
   div:last-of-type {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-  }
-
-  .active {
-    border: 1px solid #3300ff;
-    box-shadow: 0px 4px 0px #1f35ff;
   }
 }
 

@@ -1,4 +1,5 @@
 import { Language } from "components/skills/utils"
+
 type RouteConfig = { title: string; link: string }
 type Routes = Record<Language, RouteConfig[]>
 
