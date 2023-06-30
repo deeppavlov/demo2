@@ -1,13 +1,19 @@
-import React from "react"
+import React, { FC } from "react"
 import Github from "../../assets/github.svg"
 import nvidia from "../../assets/nvidia.svg"
 import docker from "../../assets/docker.svg"
 import { CustomLink } from "components/CustomLink/CustomLink"
+import classNames from "classnames/bind"
 import s from "./Buttons.module.scss"
 
-export const Buttons = () => {
+interface ButtonsProps {
+  reverse?: boolean
+}
+export const Buttons: FC<ButtonsProps> = (props) => {
+  const { reverse } = props
+  const cn = classNames.bind(s)
   return (
-    <div className={s.buttons}>
+    <div className={cn("buttons", reverse && "reverse")}>
       <CustomLink href="https://github.com/deeppavlov/DeepPavlov">
         <button className={s.github}>
           <img src={Github} alt="Github" />

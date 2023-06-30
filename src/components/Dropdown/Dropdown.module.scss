@@ -1,0 +1,18 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .options {
+    position: absolute;
+    //hardcoded
+    top: 62px;
+    left: 12px;
+    //hardcoded
+    .option {
+      cursor: pointer;
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+}

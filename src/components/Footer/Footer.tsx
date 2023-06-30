@@ -5,6 +5,7 @@ import IN from "../../assets/in.svg"
 import { Language } from "components/skills/utils"
 import { Buttons } from "components/Buttons/Buttons"
 import s from "./Footer.module.scss"
+import { Limiter } from "components/Limiter/Limiter"
 
 interface FooterProps extends RouteComponentProps {}
 
@@ -25,7 +26,7 @@ const Footer: FC<FooterProps> = ({ location }) => {
   return (
     <footer className={s.footer}>
       <div className="accentColor">
-        <div className={"limiter"}>
+        <Limiter>
           <div className={s.container}>
             <Buttons />
             <div className={s.social}>
@@ -40,7 +41,7 @@ const Footer: FC<FooterProps> = ({ location }) => {
               </div>
             </div>
           </div>
-        </div>
+        </Limiter>
       </div>
     </footer>
   )

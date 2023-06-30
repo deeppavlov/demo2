@@ -1,8 +1,9 @@
 import React, { FC, useState, useEffect } from "react"
-import cn from "classnames"
 import { withRouter, RouteComponentProps, NavLink } from "react-router-dom"
 import { Language } from "components/skills/utils"
 import { ROUTES } from "router/Routes"
+import { routesBtns, routesForDemo } from "constants/constants"
+import { Carousel } from "components/Carousel/Carousel"
 import s from "./Nav.module.scss"
 
 interface Props extends RouteComponentProps {}
@@ -55,61 +56,14 @@ const Nav: FC<Props> = ({ location, history }) => {
     setLang(newLang)
   }
 
-  const renderNavLinks = (lang: Language) => {
-    const links = ROUTES[lang]
-    return links.map((item, index: number) => {
-      return (
-        <li key={index}>
-          <NavLink
-            key={index}
-            to={`/${lang}/${item.link}`}
-            exact
-            activeClassName={s.activeLink}
-            className={s.navLink}
-          >
-            <div className={s.linkContainer}>{item.title}</div>
-          </NavLink>
-        </li>
-      )
-    })
-  }
-
-  const isEn = lang === Lang.en
-  const isRu = lang === Lang.ru
-  const isMu = lang === Lang.mu
+  const links = ROUTES[lang]
+  console.log("links = ", links)
+  console.log("routesForBtns = ", routesForDemo)
 
   return (
-    <>
-      <div className={s.container}>
-        <span className={s.annotation}>Choose language for your model</span>
-        <div className={s.langSelector}>
-          <div
-            className={cn(isRu && s.active)}
-            onClick={() => langChange(Lang.ru)}
-          >
-            Ru
-          </div>
-          <div
-            className={cn(isEn && s.active)}
-            onClick={() => langChange(Lang.en)}
-          >
-            En
-          </div>
-
-          <div
-            className={cn(isMu && s.active)}
-            onClick={() => langChange(Lang.mu)}
-          >
-            Multi-Lang
-          </div>
-        </div>
-      </div>
-      <nav className={s.nav}>
-        <ul className={cn(s.navLinks, isMu && s.multiLangFlex)}>
-          {renderNavLinks(lang)}
-        </ul>
-      </nav>
-    </>
+    <nav className={s.nav}>
+      <Carousel buttons={routesBtns} amount={4}></Carousel>
+    </nav>
   )
 }
 

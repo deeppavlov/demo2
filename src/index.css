@@ -52,14 +52,6 @@ a:visited {
   width: 100%;
 }
 
-.limiter {
-  max-width: 1140px;
-  margin: 0 auto;
-  min-width: 750px;
-  width: 100%;
-  position: relative;
-}
-
 .accentColor {
   position: relative;
   background-color: var(--accent-color);
@@ -174,10 +166,6 @@ a:visited {
     overflow-x: hidden;
   }
 
-  .limiter {
-    min-width: 320px;
-  }
-
   .card:hover > .tooltip {
     opacity: 0;
   }
@@ -185,13 +173,7 @@ a:visited {
   body {
     padding: 0;
   }
-  /* .tooltipEx {
-    top: 50px;
-  } */
 }
 
 @media only screen and (max-width: 1280px) {
-  .limiter {
-    padding: 0px 32px;
-  }
 }

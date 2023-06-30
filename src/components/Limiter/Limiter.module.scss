@@ -1,0 +1,18 @@
+.limiter {
+  max-width: 1140px;
+  margin: 0 auto;
+  min-width: 750px;
+  width: 100%;
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .limiter {
+    min-width: 320px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .limiter {
+    padding: 0px 32px;
+  }
+}

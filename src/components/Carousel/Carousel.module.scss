@@ -1,0 +1,93 @@
+.carousel {
+  display: flex;
+  position: relative;
+  gap: 16px;
+  width: 800px;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  .btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 50px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: rgba(25, 0, 128, 1);
+    border: none;
+    background: none;
+    cursor: pointer;
+    &:not(.active):hover {
+      background: -webkit-linear-gradient(
+        45deg,
+        #2c2aa6 3.85%,
+        #c850c0 61.44%,
+        #ffcc70 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    &.active {
+      color: rgba(255, 255, 255, 1);
+      background: linear-gradient(
+        90deg,
+        #4158d0 0%,
+        #c850c0 60.12%,
+        #ffcc70 100%
+      );
+      transition: background 0.3s ease;
+      img {
+        transform: rotate(180deg);
+        transition: ease 0.2s;
+      }
+    }
+    img {
+      transition: ease 0.2s;
+      transform: rotate(0deg);
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .prev,
+  .next {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid #d4d3d7;
+    background: #fff;
+    box-shadow: 0px 4px 0px 0px #d4d3d7;
+
+    img {
+      stroke: rgba(0, 0, 0, 0.9);
+      width: 24px;
+      height: 24px;
+      &:active,
+      &:hover {
+        stroke: #30f;
+        fill: red;
+      }
+    }
+
+    &:hover,
+    &:active {
+      color: #30f;
+      border-color: #30f;
+    }
+    &:active {
+      transition: 200ms;
+      top: 4px;
+      box-shadow: none;
+    }
+  }
+
+  .prev {
+    left: -64px;
+  }
+  .next {
+    right: -64px;
+  }
+}

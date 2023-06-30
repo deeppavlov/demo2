@@ -1,0 +1,106 @@
+:root {
+  --primary-color: #3300ff;
+  --secondary-color: #ffcc00;
+}
+
+.header {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 86px;
+}
+
+.header .middle .left {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  width: 100%;
+}
+
+.header .middle .left .check {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header .middle .right {
+  position: absolute;
+  top: 63px;
+  right: 50px;
+}
+
+.header .middle .right img {
+  width: 23.5rem;
+  height: auto;
+  z-index: -1;
+}
+
+.header .title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 72px;
+  line-height: 110%;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: black;
+}
+
+.header .title a {
+  font-family: "Poppins";
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.header .title .blue {
+  color: #3300ff;
+}
+
+.header .title .yellow {
+  color: var(--secondary-color);
+}
+
+@media only screen and (max-width: 1024px) {
+  .header .middle .right img {
+    width: 17rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding-bottom: 16px;
+  }
+
+  .header .middle .right img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .header .title {
+    font-size: 38px;
+  }
+
+  .header .middle .right img {
+    width: 12.5rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .header .title {
+    font-size: 30px;
+  }
+}
