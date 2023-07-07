@@ -1,0 +1,17 @@
+@mixin gradientText {
+  background: -webkit-linear-gradient(
+    45deg,
+    #2c2aa6 3.85%,
+    #c850c0 61.44%,
+    #ffcc70 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+@mixin gradientBackground {
+  background: linear-gradient(90deg, #4158d0 0%, #c850c0 60.12%, #ffcc70 100%);
+}

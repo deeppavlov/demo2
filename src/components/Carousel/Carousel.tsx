@@ -1,78 +1,94 @@
-import React, { FC, useState } from "react"
-import Prev from "../../assets/prev.svg"
-import Next from "../../assets/next.svg"
-import Down from "../../assets/down.svg"
-import { Dropdown } from "../Dropdown/Dropdown"
+import React, { FC, useRef, useState } from "react"
+import { useLocation } from "react-router"
 import classNames from "classnames/bind"
+import { routesForDemo } from "router"
+import { ReactComponent as DownArrow } from "assets/icons/down.svg"
+import { ReactComponent as PrevArrow } from "assets/icons/prev.svg"
+import { ReactComponent as NextArrow } from "assets/icons/next.svg"
+import { Dropdown } from "components"
+import { useHandleClickOutside } from "hooks"
+import { findParentKey } from "utils"
+import { RouteConfig } from "router/Routes"
 import s from "./Carousel.module.scss"
-
 interface CarouselProps {
-  buttons: string[] //FIX
+  routes: [string, RouteConfig[]][]
   amount: number
 }
 
-export const Carousel: FC<CarouselProps> = ({ buttons, amount }) => {
+export const Carousel: FC<CarouselProps> = (props) => {
+  const { routes, amount } = props
+  const cn = classNames.bind(s)
+
+  const contentRef = useRef<HTMLDivElement>(null)
+
   const [startIndex, setStartIndex] = useState<number>(0)
   const [active, setActive] = useState<number | null>(null)
 
-  const handleClick = (index: number) => {
-    console.log("index = ", index)
-  }
+  const location = useLocation()
+  const currentRoute = location.pathname.split("/")[2]
+  const activeRouteBtn = findParentKey(routesForDemo, currentRoute)
+
+  // const handleClick = () => {}
 
   const handlePrevClick = () => {
     setActive(null)
-    setStartIndex((current) =>
-      current < 1 ? buttons?.length - 1 : current - 1
-    )
+    setStartIndex((current) => (current < 1 ? routes?.length - 1 : current - 1))
   }
 
   const handleNextClick = () => {
     setActive(null)
     setStartIndex((current) =>
-      current === buttons?.length - 1 ? 0 : current + 1
+      current === routes?.length - 1 ? 0 : current + 1
     )
   }
 
   const getArray = (start: number, amount: number) => {
-    const cycle = start > buttons?.length - amount
-    const rest = buttons.length - start
-    const sliced = buttons.slice(start, start + amount)
+    const cycle = start > routes?.length - amount
+    const rest = routes.length - start
+    const sliced = routes.slice(start, start + amount)
 
-    return !cycle ? sliced : sliced.concat(buttons.slice(0, amount - rest))
+    return !cycle ? sliced : sliced.concat(routes.slice(0, amount - rest))
   }
 
-  const buttonsToShow = () => getArray(startIndex, amount)
+  const routesToShow = () => getArray(startIndex, amount)
 
-  const cn = classNames.bind(s)
+  useHandleClickOutside(contentRef, () => setActive(null))
+
   return (
     <div className={s.carousel}>
-      {buttonsToShow()?.map((button, index) => (
-        <Dropdown
-          key={button + index}
-          options={[button, index.toString()]}
-          onSelect={(option: string) => {
-            console.log("option = ", option)
-            setActive(null)
-          }}
-        >
-          <button
-            className={cn("btn", active === index && "active")}
-            key={index}
-            onClick={() => {
-              setActive((prev) => (prev === index ? null : index))
-              handleClick(index)
-            }}
-          >
-            {button}
-            <img src={Down} />
-          </button>
-        </Dropdown>
-      ))}
       <button className={s.prev} onClick={handlePrevClick}>
-        <img src={Prev} />
+        <PrevArrow />
       </button>
+      <div className={s.content} ref={contentRef}>
+        {routesToShow()?.map((button, i) => {
+          return (
+            <Dropdown
+              key={button[0] + i}
+              options={button[1]}
+              onSelect={() => setActive(null)}
+            >
+              <button
+                className={cn(
+                  "btn",
+                  active === i && "active",
+                  activeRouteBtn === button[0] && "currentRoute",
+                  !button[1].length && "disabled"
+                )}
+                key={i}
+                onClick={() =>
+                  button[1].length &&
+                  setActive((prev) => (prev === i ? null : i))
+                }
+              >
+                {button[0]}
+                <DownArrow />
+              </button>
+            </Dropdown>
+          )
+        })}
+      </div>
       <button className={s.next} onClick={handleNextClick}>
-        <img src={Next} />
+        <NextArrow />
       </button>
     </div>
   )

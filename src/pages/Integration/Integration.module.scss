@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  .integrationTitle {
+    font-size: 24px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 0;
+  }
+  .btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .copyBtn {
+      height: 48px;
+      width: 140px;
+      display: flex;
+      padding: 3px 12px;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      border-radius: 12px;
+      border: 1px solid #8d96b5;
+      background: #fff;
+      font-size: 14px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.9);
+      &.active {
+        color: #33f;
+        border-color: #33f;
+        svg {
+          stroke: #33f;
+        }
+      }
+      &:hover,
+      :active {
+        color: #33f;
+        border-color: #33f;
+        svg {
+          stroke: #33f;
+        }
+      }
+      svg {
+        stroke: rgba(0, 0, 0, 0.9);
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

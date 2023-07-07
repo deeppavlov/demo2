@@ -1,11 +1,7 @@
 import React from "react"
 import { HashRouter } from "react-router-dom"
-import { Header } from "components/Header/Header"
-import { Top } from "components/Top/Top"
-import { Limiter } from "components/Limiter/Limiter"
-import Nav from "../Nav"
-import Footer from "../Footer"
-import { Router } from "router/Router"
+import { Router } from "router"
+import { Header, Top, Limiter, Footer, Nav } from "components"
 
 export const App = () => (
   <>
@@ -14,7 +10,9 @@ export const App = () => (
       <Top>
         <Nav />
       </Top>
-      <Limiter>{/* <Router /> */}</Limiter>
+      <Limiter>
+        <Router />
+      </Limiter>
       <Footer />
     </HashRouter>
   </>

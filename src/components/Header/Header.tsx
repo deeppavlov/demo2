@@ -1,7 +1,6 @@
 import React, { FC } from "react"
-import { useScrollShadow } from "hooks/useScrollShadow"
-import { Buttons } from "components/Buttons/Buttons"
-import { Limiter } from "components/Limiter/Limiter"
+import { useScrollShadow } from "hooks"
+import { Buttons, Limiter } from "components"
 import s from "./Header.module.scss"
 
 interface HeaderProps {}

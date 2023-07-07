@@ -1,38 +1,38 @@
-import {
-  TextQA as TextQAru,
-  ODQA as ODQAru,
-  NER as NERru,
-  Sentiment,
-} from "../components/skills/ru"
-import {
-  TextQA as TextQAen,
-  ODQA,
-  Ranking,
-  NER,
-  Intent,
-  Insult,
-} from "../components/skills/en"
-import { TextQA as TextQAml, NER as NERml } from "../components/skills/mu"
-import { TextQA as TextQAzh } from "../components/skills/zh"
-import { Switch, Route } from "react-router-dom"
 import React from "react"
 
-export const Router = () => {
-  return (
-    <Switch>
-      <Route path="/ru/textqa" exact component={TextQAru} />
-      <Route path="/ru/odqa" exact component={ODQAru} />
-      <Route path="/ru/ner" exact component={NERru} />
-      <Route path="/ru/sentiment" exact component={Sentiment} />
-      <Route path="/en/textqa" exact component={TextQAen} />
-      <Route path="/en/odqa" exact component={ODQA} />
-      <Route path="/en/ranking" exact component={Ranking} />
-      <Route path="/en/ner" exact component={NER} />
-      <Route path="/en/intent" exact component={Intent} />
-      <Route path="/en/insult" exact component={Insult} />
-      <Route path="/mu/textqa" exact component={TextQAml} />
-      <Route path="/mu/ner" exact component={NERml} />
-      <Route path="/zh/textqa" exact component={TextQAzh} />
-    </Switch>
-  )
-}
+import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
+import Emotion from "pages/TextClassification/Emotion"
+import Sentiment from "pages/TextClassification/Sentiment"
+import Toxic from "pages/TextClassification/Toxic"
+import EntityLinking from "pages/TokenClassification/EntityLinking"
+
+import Intent from "pages/TextClassification/Intent"
+import NER from "pages/TokenClassification/NER"
+import ODQA from "pages/OpenDomainQA/ODQA"
+
+import Topic from "pages/TextClassification/Topic"
+
+import { Switch, Route } from "react-router-dom"
+import { Links } from "./Routes"
+
+// prettier-ignore
+export const Router = () => (
+  <Switch>
+    <Route path={`/:tab/${Links.textIntent}`} exact component={Intent} /> {/**/}
+    <Route path={`/:tab/${Links.textEmotion}`} exact component={Emotion} />
+    <Route path={`/:tab/${Links.textTopic}`} exact component={Topic} /> 
+    <Route path={`/:tab/${Links.textToxic}`} exact component={Toxic} /> 
+    <Route path={`/:tab/${Links.textSentiment}`} exact component={Sentiment} />
+    {/* <Route path={`/:tab/${Links.textFewShot}`} exact component={TextFewShot} /> */}
+    
+    <Route path={`/:tab/${Links.tokenNer}`} exact component={NER} />  {/**/}
+    <Route path={`/:tab/${Links.tokenEntityLinking}`} exact component={EntityLinking} />
+    {/* <Route path={`/:tab/${Links.tokenPartOfSpeech}`} exact component={PartOfSpeech} /> */}
+    {/* <Route path={`/:tab/${Links.tokenFewShot}`} exact component={TokenFewShot} /> */}
+    
+    <Route path={`/:tab/${Links.knowledgeQA}`} exact component={KnowledgeBaseQA}/>
+    {/* <Route path={`/:tab/${Links.readingComprehesion}`} exact component={ReadingComprehension} /> */}
+    
+    <Route path={`/:tab/${Links.odqa}`} exact component={ODQA} /> {/**/}
+  </Switch>
+)

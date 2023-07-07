@@ -1,12 +1,23 @@
+@import "styles/mixins.scss";
+
 .carousel {
   display: flex;
   position: relative;
-  gap: 16px;
-  width: 800px;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
   .btn {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     width: fit-content;
@@ -17,42 +28,34 @@
     border: none;
     background: none;
     cursor: pointer;
-    &:not(.active):hover {
-      background: -webkit-linear-gradient(
-        45deg,
-        #2c2aa6 3.85%,
-        #c850c0 61.44%,
-        #ffcc70 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    &.active {
-      color: rgba(255, 255, 255, 1);
-      background: linear-gradient(
-        90deg,
-        #4158d0 0%,
-        #c850c0 60.12%,
-        #ffcc70 100%
-      );
-      transition: background 0.3s ease;
-      img {
-        transform: rotate(180deg);
-        transition: ease 0.2s;
-      }
-    }
-    img {
+    svg {
       transition: ease 0.2s;
       transform: rotate(0deg);
       width: 24px;
       height: 24px;
     }
+    &.currentRoute:not(.active) {
+      @include gradientText;
+    }
+    &.active {
+      color: rgba(255, 255, 255, 1);
+      transition: background 0.3s ease;
+      @include gradientBackground;
+      svg {
+        transform: rotate(180deg);
+        transition: ease 0.2s;
+      }
+    }
+    &.disabled {
+      @include disabled;
+    }
+    &:not(.active, .disabled):hover {
+      @include gradientText;
+    }
   }
 
   .prev,
   .next {
-    position: absolute;
-    top: 0;
     width: 50px;
     height: 50px;
     padding: 12px;
@@ -61,14 +64,13 @@
     background: #fff;
     box-shadow: 0px 4px 0px 0px #d4d3d7;
 
-    img {
+    svg {
       stroke: rgba(0, 0, 0, 0.9);
       width: 24px;
       height: 24px;
       &:active,
       &:hover {
         stroke: #30f;
-        fill: red;
       }
     }
 
@@ -76,18 +78,12 @@
     &:active {
       color: #30f;
       border-color: #30f;
+      box-shadow: 0px 4px 0px 0px #30f;
     }
     &:active {
       transition: 200ms;
       top: 4px;
       box-shadow: none;
     }
-  }
-
-  .prev {
-    left: -64px;
-  }
-  .next {
-    right: -64px;
   }
 }

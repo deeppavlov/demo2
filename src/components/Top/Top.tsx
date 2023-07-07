@@ -1,7 +1,7 @@
 import React, { FC } from "react"
-import Pavlov from "../../assets/pavlov.svg"
+import Pavlov from "assets/images/pavlov.svg"
+import { Limiter } from "components"
 import s from "./Top.module.scss"
-import { Limiter } from "components/Limiter/Limiter"
 
 interface TopProps {}
 

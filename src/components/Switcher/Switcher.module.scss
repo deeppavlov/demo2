@@ -1,0 +1,50 @@
+.switcher {
+  display: flex;
+  flex-direction: row;
+  .switch {
+    padding: 12px;
+    gap: 4px;
+    border: 1px solid #8d96b5;
+    background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    color: rgba(0, 0, 0, 0.7);
+    &.left {
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      border-right: none;
+    }
+    &.middle {
+      &.leftActive {
+        border-left: 1px solid #3300ff;
+      }
+      &.rightActive {
+        border-right: 1px solid #3300ff;
+      }
+    }
+    &.right {
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+      border-left: none;
+    }
+
+    svg {
+      stroke: rgba(0, 0, 0, 0.7);
+      width: 24px;
+      height: 24px;
+    }
+    &:hover,
+    &:focus-visible,
+    &.active {
+      svg {
+        stroke: #3300ff;
+      }
+      border-color: #3300ff;
+      color: #3300ff;
+    }
+  }
+}

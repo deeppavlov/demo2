@@ -4,8 +4,8 @@
   font-size: 16px;
   flex-shrink: 0;
   align-self: flex-start;
-
-  div {
+  background-color: #fff;
+  .btn {
     border: 1px solid #d4d3d7;
     padding: 12px 24px;
     height: 38px;
@@ -30,19 +30,18 @@
     }
     &.active {
       height: 42px;
-
       background-color: rgba(31, 53, 255, 0.1);
       color: #3300ff;
       border: 1px solid #3300ff;
     }
   }
 
-  div:first-of-type {
+  .btn:first-of-type {
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
   }
 
-  div:last-of-type {
+  .btn:last-of-type {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
   }

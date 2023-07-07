@@ -1,28 +1,12 @@
-import React, { FC, useState, useEffect } from "react"
-import { withRouter, RouteComponentProps } from "react-router-dom"
-import TW from "../../assets/tw.svg"
-import IN from "../../assets/in.svg"
-import { Language } from "components/skills/utils"
-import { Buttons } from "components/Buttons/Buttons"
+import React, { FC } from "react"
+import TW from "assets/icons/tw.svg"
+import IN from "assets/icons/in.svg"
+import { Buttons, CustomLink, Limiter } from "components"
 import s from "./Footer.module.scss"
-import { Limiter } from "components/Limiter/Limiter"
 
-interface FooterProps extends RouteComponentProps {}
+interface FooterProps {}
 
-const Footer: FC<FooterProps> = ({ location }) => {
-  const [lang, setLang] = useState<Language>("en")
-
-  const socialMediaText =
-    lang === "ru" ? "Мы в социальных сетях" : "We are in social media"
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setLang("en")
-    } else {
-      setLang(location.pathname.split("/")[1] as Language)
-    }
-  }, [location])
-
+export const Footer: FC<FooterProps> = () => {
   return (
     <footer className={s.footer}>
       <div className="accentColor">
@@ -30,14 +14,14 @@ const Footer: FC<FooterProps> = ({ location }) => {
           <div className={s.container}>
             <Buttons />
             <div className={s.social}>
-              <p className={s.socialMediaText}>{socialMediaText}</p>
+              <p className={s.socialMediaText}>We are in social media</p>
               <div className={s.links}>
-                <a href={`/`}>
+                <CustomLink href={`/`}>
                   <img src={TW} alt="Twitter" />
-                </a>
-                <a href={`/`}>
+                </CustomLink>
+                <CustomLink href={`/`}>
                   <img src={IN} alt="LinkedIn" />
-                </a>
+                </CustomLink>
               </div>
             </div>
           </div>
@@ -46,5 +30,3 @@ const Footer: FC<FooterProps> = ({ location }) => {
     </footer>
   )
 }
-
-export default withRouter(Footer)
