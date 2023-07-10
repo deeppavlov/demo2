@@ -19,8 +19,10 @@
   line-height: 170%;
   color: rgba(0, 0, 0, 0.7);
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 620px) {
   .top {
     flex-direction: column;
+    justify-content: flex-start;
+    height: 110px;
   }
 }

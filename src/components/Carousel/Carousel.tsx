@@ -28,8 +28,6 @@ export const Carousel: FC<CarouselProps> = (props) => {
   const currentRoute = location.pathname.split("/")[2]
   const activeRouteBtn = findParentKey(routesForDemo, currentRoute)
 
-  // const handleClick = () => {}
-
   const handlePrevClick = () => {
     setActive(null)
     setStartIndex((current) => (current < 1 ? routes?.length - 1 : current - 1))

@@ -43,15 +43,19 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "Gill & Duffus Ltd. , a British cocoa - trading house , estimated that the 1989 - 90 world cocoa surplus would be 231,000 tons , down from 314,000 tons for the previous year .",
+        "Poznań liegt auf halbem Weg zwischen Warschau und Berlin – diese Städte waren wichtig für den Dirigenten und Komponisten Ignatz Waghalter, einen der Mitbegründer der Deutschen Oper in Berlin-Charlottenburg. Das Orchester der Philharmonie Poznań widmet sich jetzt bereits zum zweiten Mal der Musik dieses aus Deutschland vertriebenen Komponisten. Waghalter stammte aus einer jüdischen Warschauer Familie.",
     },
     {
       question:
-        "Amtech , which also provides technical temporary employment services to aerospace , defense , computer and high - tech companies in the Southwest and Baltimore - Washington areas , said its final audited results are due in late November .",
+        "Así ha calificado en un comunicado Jay Timmons, el consejero delegado de la Asociación de Manufacturas de EEUU, la amenaza de Donald Trump de empezar el 10 de junio a imponer aranceles del 5% a la importación de bienes mexicanos e irlos subiendo hasta el mes de octubre, cuando alcanzarían el 25%. En total, el 80% de las exportaciones mexicanas van a Estados Unidos. Según Gregory Daco, economista jefe de la consultora Oxford Economics, unos aranceles del 25% rebañarían al menos siete décimas de crecimiento de EEUU en 2020, hasta dejarlo en un minúsculo 1%. Para México las consecuencias podrían ser devastadoras, y el país quedaría sepultado en una recesión.",
     },
     {
       question:
-        'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "',
+        'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).',
+    },
+    {
+      question:
+        "Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu. İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi. Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.",
     },
   ],
   api: api("https://7010.deeppavlov.ai/model"),

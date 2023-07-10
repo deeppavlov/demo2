@@ -42,27 +42,28 @@ const config: BaseSkillProps<StoreReq, Res> = {
   ],
   examples: [
     {
-      question: "Show me the forecast for my upcoming weekend",
+      question: "Turn on some dance music to lift our mood",
     },
     {
-      question: "Find me the I, Robot television show",
+      question: "En que día cae nochevieja este año?",
     },
     {
-      question:
-        "Can I get some Russian cuisine at a restaurant with Shari and I?",
+      question: "Dernière nouveauté de la journée internationale de la femme",
     },
     {
-      question: "Add Diamonds to my roadtrip playlist",
+      question: "Kannst du für die nächste stunde rock musik abspielen?",
     },
     {
-      question: "Play the last track from Beyoncé off Spotify",
+      question: "Puoi inviare l' email al nuovo id",
     },
     {
-      question: "Give 6 stars to Of Mice and Men",
+      question: "把卧室灯改成绿色",
     },
     {
-      question:
-        "Tell me what movies are showing at 7am at the closest movie house",
+      question: "Какая будет погода в следующие выходные?",
+    },
+    {
+      question: "Olly eve teslimat yapıyorlar mı?",
     },
   ],
   api: api("https://7007.deeppavlov.ai/model"),

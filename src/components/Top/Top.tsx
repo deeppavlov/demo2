@@ -17,9 +17,7 @@ export const Top: FC<TopProps> = (props) => {
                 <a href="https://deeppavlov.ai">
                   <span className={s.blue}>DeepPavlov</span>
                 </a>
-                <span>
-                  <span>DeepPavlov</span>
-                </span>
+                <span>DeepPavlov</span>
               </p>
               <span className={s.check}>
                 Check and try our product's demo with us.
@@ -27,7 +25,7 @@ export const Top: FC<TopProps> = (props) => {
               </span>
             </div>
             <div className={s.right}>
-              <img src={Pavlov} alt="" />
+              <img src={Pavlov} alt="DeepPavlov Logo" />
             </div>
           </div>
           {children}

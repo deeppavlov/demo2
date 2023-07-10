@@ -22,7 +22,7 @@
 .header .middle .left {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 48px;
   width: 100%;
 }
 
@@ -79,11 +79,18 @@
   }
 }
 
+@media only screen and (max-width: 800px) {
+  .header .title {
+    font-size: 64px;
+  }
+}
 @media only screen and (max-width: 768px) {
   .header {
     padding-bottom: 16px;
   }
-
+  .header .middle .left {
+    gap: 32px;
+  }
   .header .middle .right img {
     display: none;
   }
@@ -93,7 +100,9 @@
   .header .title {
     font-size: 38px;
   }
-
+  .header .middle .left .check {
+    font-size: 16px;
+  }
   .header .middle .right img {
     width: 12.5rem;
   }

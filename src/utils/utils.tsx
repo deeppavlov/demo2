@@ -49,6 +49,7 @@ const insultClasses = {
 const sentimentClasses = {
   negative: { color: colors.cobaltblue },
   positive: { color: colors.bottlegreen },
+  neutral: { color: colors.cyan },
 }
 const ontonotesClasses = {
   PERSON: { color: colors.blue, text: "People, including fictional." },
@@ -126,43 +127,89 @@ const emotionClasses = {
   Surprise: { color: colors.coolblack },
   Fear: { color: colors.cyan },
 }
-const newNer = `Artist: Artist_name
-Audiobook: Audiobook_name
-Business: Business_name, Business_type
-Color: Color_type
-Currency: Currency_name
-Date: Date
-Definition: Definition_word
-Device: Device_type
-Email: Email_address, Email_folder
-Event: Event_name
-Food: Food_type, Meal_type
-Game: Game_name
-House: House_place
-Joke: Joke_type
-List: List_name
-Media: Media_type
-Music: Music_genre
-Order: Order_type
-Person: Person
-Place: Place_name
-Relation: Relation
-Time: Time, Timeofday, Time_zone
-Transport: Transport_agency, Transport_type
-Weather: Weather_descriptor`
+const newNer = {
+  Artist: { color: colors.blue },
+  Audiobook: { color: colors.bottlegreen },
+  Business: { color: colors.cobaltblue },
+  Color: { color: colors.coolblack },
+  Currency: { color: colors.cyan },
+  Date: { color: colors.dark },
+  Definition: { color: colors.darktangerine },
+  Device: { color: colors.deepkoamaru },
+  Email: { color: colors.green },
+  Event: { color: colors.grey },
+  Food: { color: colors.neoncarrot },
+  Game: { color: colors.olivedrab },
+  House: { color: colors.prune },
+  Joke: { color: colors.quenblue },
+  List: { color: colors.red },
+  Media: { color: colors.smokyblack },
+  Music: { color: colors.vividred },
+  Order: { color: colors.yellow },
+  Person: { color: colors.blue },
+  Place: { color: colors.bottlegreen },
+  Relation: { color: colors.cobaltblue },
+  Time: { color: colors.coolblack },
+  Transport: { color: colors.cyan },
+  Weather: { color: colors.dark },
+}
+// `Artist: Artist_name
+// Audiobook: Audiobook_name
+// Business: Business_name, Business_type
+// Color: Color_type
+// Currency: Currency_name
+// Date: Date
+// Definition: Definition_word
+// Device: Device_type
+// Email: Email_address, Email_folder
+// Event: Event_name
+// Food: Food_type, Meal_type
+// Game: Game_name
+// House: House_place
+// Joke: Joke_type
+// List: List_name
+// Media: Media_type
+// Music: Music_genre
+// Order: Order_type
+// Person: Person
+// Place: Place_name
+// Relation: Relation
+// Time: Time, Timeofday, Time_zone
+// Transport: Transport_agency, Transport_type
+// Weather: Weather_descriptor`
+const newIntent = {
+  Alarm: { color: colors.blue },
+  Audio: { color: colors.bottlegreen },
+  Calendar: { color: colors.cobaltblue },
+  Cooking: { color: colors.coolblack },
+  Datetime: { color: colors.cyan },
+  Emai: { color: colors.dark },
+  General: { color: colors.darktangerine },
+  IoT: { color: colors.deepkoamaru },
+  Lists: { color: colors.green },
+  Music: { color: colors.grey },
+  News: { color: colors.neoncarrot },
+  Play: { color: colors.olivedrab },
+  QA: { color: colors.prune },
+  Recommendation: { color: colors.quenblue },
+  Social: { color: colors.red },
+  Takeaway: { color: colors.smokyblack },
+  Transport: { color: colors.vividred },
+  Weather: { color: colors.yellow },
+}
+export type Classes = { [key: string]: { color: string; text?: string } }
 
-const renderNerClasses = (
-  classes: {
-    [key: string]: { color: string; text?: string }
-  },
-  disableTip: boolean
-) => {
-  return Object.entries(classes).map(
-    ([key, value]: [string, { color: string; text?: string }], i: number) => (
-      <NerClass label={key} {...value} key={i} disableTip={disableTip} />
+const renderNerClasses = (classes: Classes, disableTip: boolean) => {
+  return (
+    classes &&
+    Object.entries(classes).map(
+      ([key, value]: [string, { color: string; text?: string }], i: number) => (
+        <NerClass label={key} {...value} key={i} disableTip={disableTip} />
+      )
     )
   )
 }
+
 export {
   renderNerClasses,
   ontonotesClasses,
@@ -173,6 +220,7 @@ export {
   topicClasses,
   emotionClasses,
   newNer,
+  newIntent,
 }
 export type Language = "ru" | "en" | "mu"
 interface NerClassProps {

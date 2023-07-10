@@ -24,36 +24,6 @@
     letter-spacing: -0.02em;
     color: rgba(0, 0, 0, 0.9);
   }
-  .classes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    max-width: 325px;
-    margin: 0;
-  }
-  .annotation {
-    display: flex;
-    border-radius: 4px;
-    justify-content: flex-start;
-    align-items: center;
-    width: fit-content;
-    padding: 8px;
-    gap: 6px;
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.8rem;
-    line-height: 160%;
-    .click {
-      padding: 2px 4px;
-      background-color: #7000ff;
-      color: #fff;
-      border-radius: 2px;
-      font-weight: 600;
-    }
-    background-color: rgba(112, 0, 255, 0.1);
-    color: #7000ff;
-  }
   .inputArea {
     margin-top: 20px;
     display: flex;
@@ -82,12 +52,6 @@
       flex-shrink: 0;
       margin-right: 20px;
       width: 100%;
-      div {
-        margin-top: 16px;
-        &:first-of-type {
-          margin-top: 0;
-        }
-      }
       input,
       textarea {
         width: 100%;
@@ -141,8 +105,6 @@
         }
       }
       .answers {
-        // max-height: 400px;
-        // overflow-y: scroll;
         p {
           font-weight: 600;
           font-size: 20px;
@@ -157,9 +119,6 @@
     .examples {
       display: inline-block;
       max-width: 100%;
-      .classesList {
-        margin-top: 58px !important;
-      }
       ul {
         padding: 0;
         margin: 0;
@@ -272,92 +231,7 @@
     }
   }
 }
-.modal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
 
-  .error {
-    font-size: 2rem;
-    color: white;
-    width: 50%;
-  }
-
-  .close {
-    position: absolute;
-    right: 40px;
-    top: 40px;
-    width: 40px;
-    height: 40px;
-    opacity: 0.7;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-    &:before,
-    &:after {
-      position: absolute;
-      left: 15px;
-      content: " ";
-      height: 40px;
-      width: 3px;
-      background-color: white;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
-    }
-  }
-
-  .ldsRing {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-
-    div {
-      box-sizing: border-box;
-      display: block;
-      position: absolute;
-      width: 51px;
-      height: 51px;
-      margin: 6px;
-      border: 6px solid #0069b4;
-      border-radius: 50%;
-      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: #0069b4 transparent transparent transparent;
-    }
-    div:nth-child(1) {
-      animation-delay: -0.45s;
-    }
-    div:nth-child(2) {
-      animation-delay: -0.3s;
-    }
-    div:nth-child(3) {
-      animation-delay: -0.15s;
-    }
-  }
-}
-
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @media only screen and (max-width: 1024px) {
   .container {
     .classes {

@@ -40,16 +40,19 @@ const config: BaseSkillProps<Req, Res> = {
   ],
   examples: [
     {
-      question: "What does computational linguistics study?",
-    },
-    {
       question: "When did the first moon landing happen?",
     },
     {
-      question: "Where did guinea pigs originate?",
+      question: "Who was the first president of France?",
     },
     {
-      question: "Who is the Greek god of War?",
+      question: "What is the type of climate in Miami?",
+    },
+    {
+      question: "What is the smallest country in the world?",
+    },
+    {
+      question: "What is the name of the third planet from the Sun?",
     },
   ],
   api: async (stateReq: Req) => {

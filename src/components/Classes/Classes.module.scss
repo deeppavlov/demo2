@@ -1,0 +1,55 @@
+.classesList {
+  margin-top: 58px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .classes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-width: 400px;
+    margin: 0;
+  }
+  .annotation {
+    display: flex;
+    border-radius: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+    padding: 8px;
+    gap: 6px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 160%;
+    background-color: rgba(112, 0, 255, 0.1);
+    color: #7000ff;
+    .click {
+      padding: 2px 4px;
+      background-color: #7000ff;
+      color: #fff;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .classesList {
+    .classes {
+      max-width: 100%;
+    }
+    .annotation {
+      width: 100%;
+    }
+  }
+}
+

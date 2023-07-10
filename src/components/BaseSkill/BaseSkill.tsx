@@ -23,20 +23,13 @@ import {
   Input,
   Answer,
 } from "."
-import {
-  NerClass,
-  Language,
-  renderNerClasses,
-  intentsClasses,
-  ontonotesClasses,
-  // ruNerStyles,
-  // insultClasses,
-  // sentimentClasses,
-} from "utils/utils"
+import { NerClass, Language } from "utils/utils"
 import { Integration } from "pages"
 import { Tabs } from "types"
+import { Classes } from "components/Classes/Classes"
+import { Loader } from "components/Loader/Loader"
+import { ErrorHandler } from "components/ErrorHandler/ErrorHandler"
 import s from "./BaseSkill.module.scss"
-import { Links } from "router/Routes"
 
 type Props<Req = any, Res = any> = BaseSkillProps<Req, Res> &
   DispatchProps &
@@ -347,11 +340,11 @@ class BaseSkill extends Component<Props, State> {
       return (
         <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
           <p className={s.bAnswer}>
-            {this.lang !== "ru" ? "Answer: " : "Oтвет: "}
+            {"Answer: "}
             {answer}
           </p>
           <p className={s.question}>
-            {this.lang !== "ru" ? "Question: " : "Вопрос: "}
+            {"Question: "}
             {mes.question}
           </p>
           <p>
@@ -365,11 +358,11 @@ class BaseSkill extends Component<Props, State> {
     return (
       <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>
-          {this.lang !== "ru" ? "Answer: " : "Ответ: "}
+          {"Answer: "}
           {answer}
         </p>
         <p>
-          {this.lang !== "ru" ? "Question: " : "Вопрос: "}
+          {"Question: "}
           {mes.question}
         </p>
       </div>
@@ -444,99 +437,60 @@ class BaseSkill extends Component<Props, State> {
   render() {
     const { title, desc, answers, inputs, examples, loading, snippets } =
       this.props
+
     const { error } = this.state
+
     const disableTip = true
+
     const pathName = this.props.location.pathname
     const subTab = pathName.split("/")[1]
+
     const isExamples = subTab === Tabs.EXAMPLES
     const isIntegration = subTab === Tabs.INTEGRATION
 
     return (
       <div className={s.container}>
-        {loading && (
-          <div className={s.modal}>
-            <div className={s.ldsRing}>
-              <div />
-              <div />
-              <div />
-              <div />
-            </div>
-          </div>
-        )}
-        {error && (
-          <div className={s.modal} onClick={this.onErrorClose}>
-            <div className={s.close} />
-            <div className={s.error}>
-              {this.lang !== "ru"
-                ? "Sorry, an error occurred. Please, try again later."
-                : "Извините, произошла ошибка. Пожалуйста, попробуйте позднее."}
-            </div>
-          </div>
-        )}
+        <Loader loading={loading} />
+        <ErrorHandler error={error} onErrorClose={this.onErrorClose} />
         <p className={s.title}>{title}</p>
         {desc && <div>{desc}</div>}
         {isIntegration && <Integration scripts={snippets} />}
-
         {isExamples && (
-          <>
-            <div className={s.inputArea}>
-              <form className={s.inputs} onSubmit={this.onFormSubmit}>
-                <div className={s.examplesQuestion}>
-                  <div className={s.examples}>
-                    <p>{this.lang !== "ru" ? "Examples" : "Примеры"}</p>
-                    <ul>{examples.map(this.renderExamples)}</ul>
-                    <div className={s.classesList}>
-                      {pathName === `/${Tabs.EXAMPLES}/${Links.tokenNer}` && (
-                        <>
-                          <div className={s.title}>Classes</div>
-                          <span className={s.annotation}>
-                            <span className={s.click}>Click</span>
-                            on an <b>entity</b>
-                            to see its class description
-                          </span>
-                          <div className={s.classes}>
-                            {renderNerClasses(ontonotesClasses, disableTip)}
-                          </div>
-                        </>
-                      )}
-                      {pathName === `/${Tabs.EXAMPLES}/${Links.textIntent}` && (
-                        <>
-                          <div className={s.title}>Classes</div>
-                          <div className={s.classes}>
-                            {renderNerClasses(intentsClasses, disableTip)}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                  <div className={s.question}>
-                    {inputs.map(this.renderInput)}
-                    <button
-                      type="button"
-                      onClick={this.onAsk}
-                      className={s.button}
-                    >
-                      {this.lang !== "ru" ? "Ask" : "Спросить"}
-                    </button>
-                    <div>
-                      {answers && (
-                        <div
-                          className={s.answers}
-                          id="answers"
-                          ref={this.answersRef}
-                        >
-                          <p style={{ color: "#3300ff", fontWeight: 600 }}>
-                            {this.lang !== "ru" ? "Result" : "Результат"}
-                          </p>
-                          {this.renderAnswers(answers)}
-                        </div>
-                      )}
-                    </div>
+          <div className={s.inputArea}>
+            <form className={s.inputs} onSubmit={this.onFormSubmit}>
+              <div className={s.examplesQuestion}>
+                <div className={s.examples}>
+                  <p>Examples</p>
+                  <ul>{examples.map(this.renderExamples)}</ul>
+                  <Classes disableTip={disableTip} />
+                </div>
+                <div className={s.question}>
+                  {inputs.map(this.renderInput)}
+                  <button
+                    type="button"
+                    onClick={this.onAsk}
+                    className={s.button}
+                  >
+                    Ask
+                  </button>
+                  <div>
+                    {answers && (
+                      <div
+                        className={s.answers}
+                        id="answers"
+                        ref={this.answersRef}
+                      >
+                        <p style={{ color: "#3300ff", fontWeight: 600 }}>
+                          Result
+                        </p>
+                        {this.renderAnswers(answers)}
+                      </div>
+                    )}
                   </div>
                 </div>
-              </form>
-            </div>
-          </>
+              </div>
+            </form>
+          </div>
         )}
       </div>
     )

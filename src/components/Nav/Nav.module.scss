@@ -5,20 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  // margin-top: 74px;
+  margin-top: 24px;
   position: sticky;
   padding: 24px 0px;
-}
-
-@media only screen and (max-width: 768px) {
-  .nav {
-    flex-flow: column;
-    background: #eee;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    flex-flow: column-reverse;
-    border-radius: 12px;
-  }
 }

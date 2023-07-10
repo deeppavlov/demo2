@@ -169,11 +169,4 @@ a:visited {
   .card:hover > .tooltip {
     opacity: 0;
   }
-
-  body {
-    padding: 0;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
 }
