@@ -203,7 +203,7 @@ class BaseSkill extends Component<Props, State> {
   renderSentiment = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString().toUpperCase()
-    console.log("mes = ", mes)
+
     return (
       <div className={s.basic} key={i}>
         <p>
@@ -236,12 +236,7 @@ class BaseSkill extends Component<Props, State> {
 
   renderIntent = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
-    // console.log("colors = ", colors)
-    // console.log(
-    //   "mes.answer[0].toString()]?.color! = ",
-    //   mes.answer[0].toString().split("_")[0].toUpperCase()
-    // )
-    console.log("mes.answer[0] = ", mes.answer[0])
+
     return (
       <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
         <p>
@@ -282,7 +277,6 @@ class BaseSkill extends Component<Props, State> {
     )
   }
   renderTopic = (mes: Answer, i: number) => {
-    console.log('mes = ', mes)
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString()
 
@@ -305,7 +299,6 @@ class BaseSkill extends Component<Props, State> {
   renderNer = (mes: Answer, i: number) => {
     const { answer } = mes
 
-    // console.log("answer = ", answer[1])
     const colors: {
       [key: string]: {
         color: string
@@ -313,7 +306,6 @@ class BaseSkill extends Component<Props, State> {
         tip?: string
       }
     } = this.props.renderAnswer!.colors!
-    // console.log("colors = ", colors)
 
     Object.keys(colors!).forEach((key) => (colors[key].tip = key))
     const classes: string[] = []
@@ -325,11 +317,11 @@ class BaseSkill extends Component<Props, State> {
         classes.push("")
       }
     })
-    // console.log("classes = ", classes)
+
     const spans: string[] = []
     const reducedColors: { color: string; text?: string; tip?: string }[] = []
     let spansIndex = 0
-    // console.log("classes = ", classes)
+
     answer[0].forEach((item: string, i: number) => {
       if (answer[1][i].substring(0, 1) === "B") {
         spansIndex++
@@ -343,13 +335,10 @@ class BaseSkill extends Component<Props, State> {
         spans[spansIndex] = item
       }
     })
-    // console.log('answer = ', answer[0].join(""))
-    // console.log('spans = ', spans)
-    // console.log("reducedColors = ", reducedColors)
+
     return (
       <div dir={this.isRTL(answer[0].join(""))} className={s.ner} key={i}>
         {spans.map((item, i) => {
-          // console.log('reducedColors[i] = ', reducedColors[i])
           if (reducedColors[i]) {
             return (
               <NerClass
