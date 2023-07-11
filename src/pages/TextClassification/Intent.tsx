@@ -1,7 +1,7 @@
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "../../components/BaseSkill"
 import api, { Res, StoreReq } from "../../lib/api"
-import { intentsClasses } from "../../utils/utils"
+import { newIntent } from "../../utils/utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 
@@ -66,8 +66,8 @@ const config: BaseSkillProps<StoreReq, Res> = {
       question: "Olly eve teslimat yapıyorlar mı?",
     },
   ],
-  api: api("https://7007.deeppavlov.ai/model"),
-  renderAnswer: { type: "intent", colors: intentsClasses },
+  api: api("https://7033.deeppavlov.ai/model"),
+  renderAnswer: { type: "intent", colors: newIntent },
   snippets: scripts.textClassification.intentClassification,
 }
 

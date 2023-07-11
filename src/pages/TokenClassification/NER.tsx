@@ -1,7 +1,7 @@
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "../../components/BaseSkill"
 import api, { Res, StoreReq } from "../../lib/api"
-import { ontonotesClasses } from "../../utils/utils"
+import { newNer, ontonotesClasses } from "../../utils/utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 const config: BaseSkillProps<StoreReq, Res> = {
@@ -58,11 +58,11 @@ const config: BaseSkillProps<StoreReq, Res> = {
         "Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu. İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi. Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.",
     },
   ],
-  api: api("https://7010.deeppavlov.ai/model"),
-  renderAnswer: { type: "ner", colors: ontonotesClasses },
+  api: api("https://7036.deeppavlov.ai/model"),
+  renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
-
+ 
 const NER = skillWrapper<StoreReq, Res>("neren")
 export default function () {
   return <NER {...config} />

@@ -53,7 +53,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       question: "Какой запах не любят кошки?",
     },
   ],
-  api: api("https://7007.deeppavlov.ai/model"),
+  api: api("https://7035.deeppavlov.ai/model"),
   renderAnswer: { type: "topic", colors: topicClasses },
   snippets: scripts.textClassification.topicClassification,
 }

@@ -55,9 +55,9 @@ const config: BaseSkillProps<Req, Res> = {
   ],
   api: async (stateReq: Req) => {
     const req = {
-      question_raw: [stateReq.question],
+      x: [stateReq.question],
     }
-    return await axios.post("https://7011.deeppavlov.ai/model", req)
+    return await axios.post("https://7031.deeppavlov.ai/model", req)
   },
   renderAnswer: { type: "emotion", colors: emotionClasses },
   snippets: scripts.textClassification.emotionClassification,

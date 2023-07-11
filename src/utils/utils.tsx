@@ -21,35 +21,25 @@ const colors = {
   vividred: "#fd151b", // QUANTITY #FF70AE
   cobaltblue: "#004BA8", // ORDINAL #4125D0
   smokyblack: "#235789", // CARDINAL #3A86FF
-}
-
-const ruNerStyles = {
-  ORG: { color: colors.red, text: "Companies, agencies, institutions, etc." },
-  LOC: {
-    color: colors.yellow,
-    text: "Non-GPE locations, mountain ranges, bodies of water.",
-  },
-  PER: { color: colors.green, text: "People, including fictional." },
-}
-
-const intentsClasses = {
-  AddToPlaylist: { color: colors.blue },
-  BookRestaurant: { color: colors.grey },
-  GetWeather: { color: colors.green },
-  PlayMusic: { color: colors.red },
-  RateBook: { color: colors.yellow },
-  SearchCreativeWork: { color: colors.cyan },
-  SearchScreeningEvent: { color: colors.dark },
+  lightseagreen: "#20C997",
+  slateblue: "#6F42C1",
+  deeppink: "#E83E8C",
+  blueviolet: "#6610F2",
+  dodgerblue: "#007BFF",
+  darkorange: "#FD7E14",
+  darkslategray: "#385F71",
+  burlywood: "#D7B377",
+  dimgray: "#8F754F",
 }
 
 const insultClasses = {
-  Insult: { color: colors.red },
-  "Not Insult": { color: colors.green },
+  INSULT: { color: colors.red },
+  NOT_INSULT: { color: colors.green },
 }
 const sentimentClasses = {
-  negative: { color: colors.cobaltblue },
-  positive: { color: colors.bottlegreen },
-  neutral: { color: colors.cyan },
+  NEGATIVE: { color: colors.cobaltblue },
+  POSITIVE: { color: colors.bottlegreen },
+  NEUTRAL: { color: colors.cyan },
 }
 const ontonotesClasses = {
   PERSON: { color: colors.blue, text: "People, including fictional." },
@@ -115,87 +105,68 @@ const topicClasses = {
   Music: { color: colors.smokyblack },
   PersonalTransport: { color: colors.yellow },
   Religion: { color: colors.vividred },
-  Space: { color: colors.blue },
-  Sports: { color: colors.blue },
-  Travel: { color: colors.blue },
-  Videogames: { color: colors.blue },
+  Space: { color: colors.lightseagreen },
+  Sports: { color: colors.slateblue },
+  Travel: { color: colors.deeppink },
+  Videogames: { color: colors.blueviolet },
 }
 const emotionClasses = {
-  Joy: { color: colors.blue },
-  Sadness: { color: colors.bottlegreen },
-  Anger: { color: colors.cobaltblue },
-  Surprise: { color: colors.coolblack },
-  Fear: { color: colors.cyan },
+  JOY: { color: colors.blue },
+  SADNESS: { color: colors.bottlegreen },
+  ANGER: { color: colors.cobaltblue },
+  SURPRISE: { color: colors.coolblack },
+  FEAR: { color: colors.cyan },
 }
 const newNer = {
-  Artist: { color: colors.blue },
-  Audiobook: { color: colors.bottlegreen },
-  Business: { color: colors.cobaltblue },
-  Color: { color: colors.coolblack },
-  Currency: { color: colors.cyan },
-  Date: { color: colors.dark },
-  Definition: { color: colors.darktangerine },
-  Device: { color: colors.deepkoamaru },
-  Email: { color: colors.green },
-  Event: { color: colors.grey },
-  Food: { color: colors.neoncarrot },
-  Game: { color: colors.olivedrab },
-  House: { color: colors.prune },
-  Joke: { color: colors.quenblue },
-  List: { color: colors.red },
-  Media: { color: colors.smokyblack },
-  Music: { color: colors.vividred },
-  Order: { color: colors.yellow },
-  Person: { color: colors.blue },
-  Place: { color: colors.bottlegreen },
-  Relation: { color: colors.cobaltblue },
-  Time: { color: colors.coolblack },
-  Transport: { color: colors.cyan },
-  Weather: { color: colors.dark },
+  ARTIST_NAME: { color: colors.blue },
+  AUDIOBOOK_NAME: { color: colors.bottlegreen },
+  BUSINESS_NAME: { color: colors.cobaltblue },
+  COLOR_TYPE: { color: colors.coolblack },
+  CURRENCY_NAME: { color: colors.cyan },
+  DATE: { color: colors.dark },
+  DEFINITION_WORD: { color: colors.darktangerine },
+  DEVICE_TYPE: { color: colors.deepkoamaru },
+  EMAIL_ADDRESS: { color: colors.green },
+  EMAIL_FOLDER: { color: colors.slateblue },
+  EVENT_NAME: { color: colors.grey },
+  FOOD_TYPE: { color: colors.neoncarrot },
+  MEAL_TYPE: { color: colors.dodgerblue },
+  GAME_NAME: { color: colors.olivedrab },
+  HOUSE_PLACE: { color: colors.prune },
+  JOKE_TYPE: { color: colors.quenblue },
+  LIST_NAME: { color: colors.red },
+  MEDIA_TYPE: { color: colors.smokyblack },
+  MUSIC_GENRE: { color: colors.vividred },
+  ORDER_TYPE: { color: colors.yellow },
+  PERSON: { color: colors.lightseagreen },
+  PLACE_NAME: { color: colors.slateblue },
+  RELATION: { color: colors.deeppink },
+  TIME: { color: colors.blueviolet },
+  TIMEOFDAY: { color: colors.dodgerblue },
+  TIME_ZONE: { color: colors.darkorange },
+  TRANSPORT_AGENCY: { color: colors.dimgray },
+  TRANSPORT_TYPE: { color: colors.darkslategray },
+  WEATHER_DESCRIPTOR: { color: colors.burlywood },
 }
-// `Artist: Artist_name
-// Audiobook: Audiobook_name
-// Business: Business_name, Business_type
-// Color: Color_type
-// Currency: Currency_name
-// Date: Date
-// Definition: Definition_word
-// Device: Device_type
-// Email: Email_address, Email_folder
-// Event: Event_name
-// Food: Food_type, Meal_type
-// Game: Game_name
-// House: House_place
-// Joke: Joke_type
-// List: List_name
-// Media: Media_type
-// Music: Music_genre
-// Order: Order_type
-// Person: Person
-// Place: Place_name
-// Relation: Relation
-// Time: Time, Timeofday, Time_zone
-// Transport: Transport_agency, Transport_type
-// Weather: Weather_descriptor`
 const newIntent = {
-  Alarm: { color: colors.blue },
-  Audio: { color: colors.bottlegreen },
-  Calendar: { color: colors.cobaltblue },
-  Cooking: { color: colors.coolblack },
-  Datetime: { color: colors.cyan },
-  Emai: { color: colors.dark },
-  General: { color: colors.darktangerine },
-  IoT: { color: colors.deepkoamaru },
-  Lists: { color: colors.green },
-  Music: { color: colors.grey },
-  News: { color: colors.neoncarrot },
-  Play: { color: colors.olivedrab },
+  ALARM: { color: colors.blue },
+  AUDIO: { color: colors.bottlegreen },
+  CALENDAR: { color: colors.cobaltblue },
+  COOKING: { color: colors.coolblack },
+  DATETIME: { color: colors.cyan },
+  EMAIL: { color: colors.dark },
+  GENERAL: { color: colors.darktangerine },
+  IOT: { color: colors.deepkoamaru },
+  LISTS: { color: colors.green },
+  MUSIC: { color: colors.grey },
+  NEWS: { color: colors.neoncarrot },
+  PLAY: { color: colors.olivedrab },
   QA: { color: colors.prune },
-  Recommendation: { color: colors.quenblue },
-  Social: { color: colors.red },
-  Takeaway: { color: colors.smokyblack },
-  Transport: { color: colors.vividred },
-  Weather: { color: colors.yellow },
+  RECOMMENDATION: { color: colors.quenblue },
+  SOCIAL: { color: colors.red },
+  TAKEAWAY: { color: colors.smokyblack },
+  TRANSPORT: { color: colors.vividred },
+  WEATHER: { color: colors.yellow },
 }
 export type Classes = { [key: string]: { color: string; text?: string } }
 
@@ -213,8 +184,6 @@ const renderNerClasses = (classes: Classes, disableTip: boolean) => {
 export {
   renderNerClasses,
   ontonotesClasses,
-  ruNerStyles,
-  intentsClasses,
   insultClasses,
   sentimentClasses,
   topicClasses,
@@ -269,6 +238,7 @@ export class NerClass extends Component<NerClassProps, NerClassState> {
   render() {
     const { label, color, text, tip, disableTip } = this.props
     const { clicked, leftTooltip } = this.state
+    // console.log("label,color,text,tip = ", label, color, text, tip)
     return (
       <span
         className="card margin_r"
