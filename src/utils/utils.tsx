@@ -302,7 +302,7 @@ export class NerClass extends Component<NerClassProps, NerClassState> {
         className="card margin_r"
         style={{
           backgroundColor: color,
-          cursor: text ? "help" : "inherit",
+          cursor: text ? "help" : "default",
           display: hidden ? "none" : "inlineblock",
         }}
         onClick={() => this.setState({ clicked: !clicked })}

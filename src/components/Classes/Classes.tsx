@@ -38,7 +38,8 @@ export const Classes: FC<ClassesProps> = (props) => {
     [Links.textEmotion]: emotionClasses,
   }
 
-  const hideAnnotation = Object.values(classes[type]!).some((cls) => cls.text)
+  const hideAnnotation =
+    classes[type] && Object.values(classes[type]!).some((cls) => cls.text)
 
   return (
     <div className={s.classesList}>

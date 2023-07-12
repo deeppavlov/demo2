@@ -8,7 +8,7 @@ import s from "./Dropdown.module.scss"
 
 interface DropdownProps {
   options: RouteConfig[]
-  onSelect: (option: string) => void
+  onSelect: () => void
 }
 
 export const Dropdown: FC<DropdownProps> = (props) => {
@@ -24,16 +24,12 @@ export const Dropdown: FC<DropdownProps> = (props) => {
   const activeTab = location.pathname.split("/")[1]
   const activeRoute = location.pathname.split("/")[2]
 
-  const handleToggle = (): void => {
-    setIsOpen(!isOpen)
-  }
+  const handleToggle = () => setIsOpen(!isOpen)
 
-  const handleSelect = (option: { link: string }): void => {
-    onSelect(option.link)
+  useHandleClickOutside(dropdownRef, () => {
+    onSelect()
     setIsOpen(false)
-  }
-
-  useHandleClickOutside(dropdownRef, () => setIsOpen(false)) //maybe use callback ref for list of dropdowns
+  }) //maybe use callback ref for list of dropdowns
 
   return (
     <div onClick={handleToggle} className={s.dropdown} ref={dropdownRef}>
@@ -42,7 +38,6 @@ export const Dropdown: FC<DropdownProps> = (props) => {
         <ul className={s.options}>
           {options.map((option, i) => {
             const isEmpty = option.component === null
-
             return (
               <NavLink
                 key={i}
@@ -60,7 +55,6 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                     isEmpty && "disabled"
                   )}
                   key={option?.link + i}
-                  onClick={() => !isEmpty && handleSelect(option)}
                 >
                   {option?.title}
                 </li>

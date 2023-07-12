@@ -58,28 +58,29 @@ export const Carousel: FC<CarouselProps> = (props) => {
         <PrevArrow />
       </button>
       <div className={s.content} ref={contentRef}>
-        {routesToShow()?.map((button, i) => {
-          const title = button[0] as Titles
+        {routesToShow()?.map((route, i) => {
+          const topRoute = route[0] as Titles
+          const subRoutes = route[1]
           return (
             <Dropdown
-              key={button[0] + i}
-              options={button[1]}
+              key={topRoute + i}
+              options={subRoutes}
               onSelect={() => setActive(null)}
             >
               <button
                 className={cn(
                   "btn",
                   active === i && "active",
-                  activeRouteBtn === button[0] && "currentRoute",
-                  !button[1].length && "disabled"
+                  activeRouteBtn === topRoute && "currentRoute",
+                  !subRoutes.length && "disabled"
                 )}
                 key={i}
-                onClick={() =>
-                  button[1].length &&
-                  setActive((prev) => (prev === i ? null : i))
-                }
+                onClick={() => {
+                  subRoutes.length &&
+                    setActive((prev) => (prev === i ? null : i))
+                }}
               >
-                {DisplayTitles[title]}
+                {DisplayTitles[topRoute]}
                 <DownArrow />
               </button>
             </Dropdown>
