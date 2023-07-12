@@ -31,8 +31,6 @@ export const Classes: FC<ClassesProps> = (props) => {
   const type = pathName.split("/")[2] as Links
 
   const isNer = pathName === `/${Tabs.EXAMPLES}/${Links.tokenNer}`
-  const isIntent = pathName === `/${Tabs.EXAMPLES}/${Links.textIntent}`
-  const isTopic = pathName === `/${Tabs.EXAMPLES}/${Links.textTopic}`
 
   const classes: tclasses = {
     [Links.tokenNer]: newNer,

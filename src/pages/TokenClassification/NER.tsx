@@ -1,7 +1,7 @@
 import React from "react"
-import skillWrapper, { BaseSkillProps } from "../../components/BaseSkill"
-import api, { Res, StoreReq } from "../../lib/api"
-import { newNer, ontonotesClasses } from "../../utils/utils"
+import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
+import api, { Res, StoreReq } from "lib/api"
+import { newNer } from "utils/utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 const config: BaseSkillProps<StoreReq, Res> = {
@@ -62,7 +62,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
- 
+
 const NER = skillWrapper<StoreReq, Res>("neren")
 export default function () {
   return <NER {...config} />
