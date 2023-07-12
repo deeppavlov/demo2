@@ -25,7 +25,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   inputs: [
     {
       title: "Enter text",
-      type: "text",
+      type: "textarea",
       name: "question",
     },
   ],

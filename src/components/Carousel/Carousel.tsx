@@ -8,7 +8,7 @@ import { ReactComponent as NextArrow } from "assets/icons/next.svg"
 import { Dropdown } from "components"
 import { useHandleClickOutside } from "hooks"
 import { findParentKey } from "utils"
-import { RouteConfig } from "router/Routes"
+import { DisplayTitles, RouteConfig, Titles } from "router/Routes"
 import s from "./Carousel.module.scss"
 interface CarouselProps {
   routes: [string, RouteConfig[]][]
@@ -59,6 +59,7 @@ export const Carousel: FC<CarouselProps> = (props) => {
       </button>
       <div className={s.content} ref={contentRef}>
         {routesToShow()?.map((button, i) => {
+          const title = button[0] as Titles
           return (
             <Dropdown
               key={button[0] + i}
@@ -78,7 +79,7 @@ export const Carousel: FC<CarouselProps> = (props) => {
                   setActive((prev) => (prev === i ? null : i))
                 }
               >
-                {button[0]}
+                {DisplayTitles[title]}
                 <DownArrow />
               </button>
             </Dropdown>

@@ -5,7 +5,7 @@ export const useHandleClickOutside = <T extends HTMLElement>(
   callback: () => void
 ) => {
   const handleClick = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
+    if (ref.current && !ref.current.contains(event?.target as Node)) {
       callback()
     }
   }

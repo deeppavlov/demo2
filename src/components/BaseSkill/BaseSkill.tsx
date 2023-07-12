@@ -26,9 +26,7 @@ import {
 import { NerClass, Language } from "utils/utils"
 import { Integration } from "pages"
 import { Tabs } from "types"
-import { Classes } from "components/Classes/Classes"
-import { Loader } from "components/Loader/Loader"
-import { ErrorHandler } from "components/ErrorHandler/ErrorHandler"
+import { Loader, ErrorHandler, Classes } from "components"
 import s from "./BaseSkill.module.scss"
 
 type Props<Req = any, Res = any> = BaseSkillProps<Req, Res> &
@@ -199,7 +197,6 @@ class BaseSkill extends Component<Props, State> {
       </div>
     )
   }
-
   renderSentiment = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString().toUpperCase()
@@ -220,7 +217,6 @@ class BaseSkill extends Component<Props, State> {
       </div>
     )
   }
-
   renderRanking = (mes: Answer, i: number) => {
     return (
       <div key={i}>
@@ -233,7 +229,6 @@ class BaseSkill extends Component<Props, State> {
       </div>
     )
   }
-
   renderIntent = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
 
@@ -255,7 +250,6 @@ class BaseSkill extends Component<Props, State> {
       </div>
     )
   }
-
   renderInsult = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString().toUpperCase()
@@ -279,7 +273,6 @@ class BaseSkill extends Component<Props, State> {
   renderTopic = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString()
-
     return (
       <div className={s.basic} key={i}>
         <p>
@@ -306,15 +299,15 @@ class BaseSkill extends Component<Props, State> {
         tip?: string
       }
     } = this.props.renderAnswer!.colors!
-
     Object.keys(colors!).forEach((key) => (colors[key].tip = key))
+
     const classes: string[] = []
     // AWESOME MAGIC
     answer[1].forEach((value: string) => {
       if (value !== "O") {
         classes.push(value.replace("I-", "").replace("B-", ""))
       } else {
-        classes.push("")
+        classes.push(` `)
       }
     })
 
@@ -325,17 +318,16 @@ class BaseSkill extends Component<Props, State> {
     answer[0].forEach((item: string, i: number) => {
       if (answer[1][i].substring(0, 1) === "B") {
         spansIndex++
-        spans[spansIndex] = `${item} `
+        spans[spansIndex] = `${item}`
         reducedColors[spansIndex] = colors![classes[i]]
       } else if (answer[1][i].substring(0, 1) === "I") {
-        spans[spansIndex] += `${item} `
+        spans[spansIndex] += ` ${item}`
         reducedColors[spansIndex] = colors![classes[i]] // new
       } else {
         spansIndex++
         spans[spansIndex] = item
       }
     })
-
     return (
       <div dir={this.isRTL(answer[0].join(""))} className={s.ner} key={i}>
         {spans.map((item, i) => {
@@ -355,7 +347,6 @@ class BaseSkill extends Component<Props, State> {
       </div>
     )
   }
-
   renderBasic = (mes: Answer, i: number) => {
     const rest = { ...mes }
     delete rest.answer
@@ -505,7 +496,7 @@ class BaseSkill extends Component<Props, State> {
         <ErrorHandler error={error} onErrorClose={this.onErrorClose} />
         <p className={s.title}>{title}</p>
         {desc && <div>{desc}</div>}
-        {isIntegration && <Integration scripts={snippets} />}
+        {isIntegration && <Integration snippets={snippets} />}
         {isExamples && (
           <div className={s.inputArea}>
             <form className={s.inputs} onSubmit={this.onFormSubmit}>

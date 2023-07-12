@@ -4,7 +4,6 @@ import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
 import { Res } from "lib/api"
 import { scripts } from "assets/scripts"
 
-
 interface Req {
   question: string
 }
@@ -30,7 +29,7 @@ const config: BaseSkillProps<Req, Res> = {
   inputs: [
     {
       title: "Question",
-      type: "text",
+      type: "textarea",
       name: "question",
     },
   ],

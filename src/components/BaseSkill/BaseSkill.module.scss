@@ -42,7 +42,7 @@
         margin: 0 0 0.5rem 0;
         font-weight: 600;
         font-size: 24px;
-        line-height: 110%;
+        line-height: 160%;
         letter-spacing: -0.02em;
       }
     }
@@ -52,6 +52,7 @@
       flex-shrink: 0;
       margin-right: 20px;
       width: 100%;
+
       input,
       textarea {
         width: 100%;
@@ -86,7 +87,7 @@
           gap: 16px;
           .title {
             font-weight: 600;
-            font-size: 20px;
+            font-size: 24px;
             line-height: 160%;
             color: #3300ff;
           }
@@ -105,9 +106,10 @@
         }
       }
       .answers {
+        margin-top: 32px;
         p {
           font-weight: 600;
-          font-size: 20px;
+          font-size: 24px !important;
           line-height: 160%;
           color: #3300ff;
         }
@@ -146,6 +148,8 @@
         color: rgba(0, 0, 0, 0.5);
         padding: 12px 15px;
         padding-left: 0;
+        cursor: pointer;
+
         &::marker {
           font-size: 100%;
           color: #e6e8f0;
@@ -190,12 +194,8 @@
     flex-direction: column;
     gap: 16px;
     position: relative;
-    // title
+
     > p {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background-color: #fff;
       font-weight: 600;
       font-size: 24px;
       line-height: 110%;

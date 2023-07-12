@@ -1,4 +1,7 @@
-import { App } from './App/App';
+import { Classes } from "./Classes/Classes"
+import { ErrorHandler } from ".//ErrorHandler/ErrorHandler"
+import { Loader } from "./Loader/Loader"
+import { App } from "./App/App"
 import { Nav } from "./Nav/Nav"
 import { Buttons } from "./Buttons/Buttons"
 import { Carousel } from "./Carousel/Carousel"
@@ -23,5 +26,8 @@ export {
   Selector,
   Switcher,
   Top,
-  App
+  App,
+  Loader,
+  ErrorHandler,
+  Classes,
 }

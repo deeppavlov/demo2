@@ -6,7 +6,6 @@ import EntityLinking from "pages/TokenClassification/EntityLinking"
 import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 import Intent from "pages/TextClassification/Intent"
 import NER from "pages/TokenClassification/NER"
-
 // import { TextFewShot } from "pages/TextClassification/TextFewShot"
 // import { PartOfSpeech } from "pages/TokenClassification/PartOfSpeech"
 // import { TokenFewShot } from "pages/TokenClassification/TokenFewShot"
@@ -33,7 +32,7 @@ export enum Links {
   odqa = "odqa",
 }
 
-enum Titles {
+export enum Titles {
   textClass = "TextClassification",
   tokenClass = "TokenClassification",
   qa = "QuestionAnswering",
@@ -41,11 +40,18 @@ enum Titles {
   glue = "GLUE",
   superGlue = "SuperGLUE",
 }
-
+export const DisplayTitles:Record<Titles, string> = {
+  [Titles.textClass]: "Text Classification",
+  [Titles.tokenClass]: "Token Classification",
+  [Titles.qa]: "Question Answering",
+  [Titles.odqa]: "Open-Domain QA",
+  [Titles.glue]: "GLUE",
+  [Titles.superGlue]: "SuperGLUE",
+}
 export const routesForDemo: Routes = {
   [Titles.textClass]: [
     {
-      title: "Intent Classification",
+      title: "Intent",
       link: Links.textIntent,
       component: Intent,
     },

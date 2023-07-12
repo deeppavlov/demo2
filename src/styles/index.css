@@ -85,6 +85,7 @@ a:visited {
   color: white;
   position: relative;
   display: inline-block;
+  
 }
 .card:hover > .tooltip {
   opacity: 1;
@@ -144,7 +145,7 @@ a:visited {
 .tooltipInner {
   margin-top: 5px;
   border-radius: 0.25rem;
-  max-width: 200px;
+  max-width: fit-content;
   white-space: normal;
   color: white;
   font-size: 11px;

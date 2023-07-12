@@ -8,7 +8,7 @@ import { Snippets } from "types"
 import s from "./Integration.module.scss"
 
 interface IntegrationProps {
-  scripts: {
+  snippets: {
     [Snippets.cli]: string
     [Snippets.python]: string
     [Snippets.restApi]: string
@@ -16,20 +16,20 @@ interface IntegrationProps {
 }
 
 export const Integration: FC<IntegrationProps> = (props) => {
-  const { scripts } = props
+  const { snippets } = props
   const cn = classnames.bind(s)
 
   const [isCopied, setIsCopied] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<Snippets>(Snippets.cli)
 
-  const script = scripts[activeTab]
+  const script = snippets[activeTab]
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(script)
+    script && navigator.clipboard.writeText(script)
     setIsCopied((prev) => true)
     setTimeout(() => {
       setIsCopied((prev) => false)
-    }, 2000)
+    }, 1000)
   }
 
   return (

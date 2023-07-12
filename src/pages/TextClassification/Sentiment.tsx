@@ -26,7 +26,7 @@ const config: BaseSkillProps<Req, Res> = {
   inputs: [
     {
       title: "Question",
-      type: "text",
+      type: "textarea",
       name: "question",
     },
   ],

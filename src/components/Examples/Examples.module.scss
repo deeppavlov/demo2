@@ -1,0 +1,207 @@
+.inputArea {
+  margin-top: 20px;
+  display: flex;
+
+  .title {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+  }
+  .inputs,
+  .examples {
+    flex: 50%;
+    p {
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .inputs {
+    flex-grow: 2;
+    flex-shrink: 0;
+    margin-right: 20px;
+    width: 100%;
+    input,
+    textarea {
+      width: 100%;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.9);
+      border: 0;
+      padding: 16px 24px;
+      gap: 10px;
+      background: #f9fafc;
+      border: 1px solid rgba(25, 0, 128, 0.08);
+      border-radius: 12px;
+    }
+    textarea {
+      resize: vertical;
+      height: 233px;
+      width: 100%;
+    }
+  }
+  .examplesQuestion {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 30px;
+    align-items: flex-start;
+    .question {
+      margin: 0;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .title {
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 160%;
+          color: #3300ff !important;
+        }
+        p {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 160%;
+          color: rgba(0, 0, 0, 0.9);
+        }
+      }
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      button {
+        align-self: flex-end;
+      }
+    }
+    .answers {
+      p {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 160%;
+        color: #3300ff;
+      }
+      div {
+        display: block;
+      }
+    }
+  }
+  .examples {
+    display: inline-block;
+    max-width: 100%;
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-position: inside;
+      max-width: 100%;
+    }
+
+    .active {
+      color: rgba(0, 0, 0, 0.9);
+      &::marker {
+        color: #ffcc70;
+      }
+      &:hover {
+        color: rgba(0, 0, 0, 0.9);
+      }
+    }
+    li {
+      max-width: 400px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 150%;
+      color: rgba(0, 0, 0, 0.5);
+      padding: 12px 15px;
+      padding-left: 0;
+      &::marker {
+        font-size: 100%;
+        color: #e6e8f0;
+      }
+      &:hover,
+      &:focus {
+        color: rgba(0, 0, 0, 0.9);
+      }
+      &:hover {
+        color: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    margin-top: 20px;
+    padding: 7px 13px;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    width: 118px;
+    height: 38px;
+    background: #3300ff;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .answers {
+    color: #333;
+    border-radius: 0.25rem;
+    font-size: 18px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    // title
+    > p {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: #fff;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: -0.02em;
+      color: #3300ff;
+    }
+    // answer
+
+    > div {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: rgba(0, 0, 0, 0.9);
+      border: 0;
+      padding: 16px 24px;
+      gap: 10px;
+      background: #f9fafc;
+      border: 1px solid rgba(25, 0, 128, 0.08);
+      border-radius: 12px;
+    }
+
+    > .basic {
+      p:first-of-type {
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.9);
+        color: darkblue !important;
+      }
+      p:last-of-type {
+        border-top: 1px solid lightgray;
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+    }
+  }
+}

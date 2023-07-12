@@ -1,7 +1,6 @@
 import React, { FC } from "react"
 import { useLocation } from "react-router-dom"
 import { Links } from "router/Routes"
-import { Tabs } from "types"
 import {
   renderNerClasses,
   newIntent,
@@ -30,8 +29,6 @@ export const Classes: FC<ClassesProps> = (props) => {
 
   const type = pathName.split("/")[2] as Links
 
-  const isNer = pathName === `/${Tabs.EXAMPLES}/${Links.tokenNer}`
-
   const classes: tclasses = {
     [Links.tokenNer]: newNer,
     [Links.textIntent]: newIntent,
@@ -41,12 +38,14 @@ export const Classes: FC<ClassesProps> = (props) => {
     [Links.textEmotion]: emotionClasses,
   }
 
+  const hideAnnotation = Object.values(classes[type]!).some((cls) => cls.text)
+
   return (
     <div className={s.classesList}>
       {classes[type] && (
         <>
           <div className={s.title}>Classes</div>
-          {isNer && (
+          {hideAnnotation && (
             <span className={s.annotation}>
               <span className={s.click}>Click</span>
               on an <b>entity</b>

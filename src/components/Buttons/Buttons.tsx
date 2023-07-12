@@ -21,14 +21,14 @@ export const Buttons: FC<ButtonsProps> = (props) => {
         </button>
       </CustomLink>
 
-      <CustomLink href="https://ngc.nvidia.com/catalog/containers/partners:deeppavlov">
+      {/* <CustomLink href="https://ngc.nvidia.com/catalog/containers/partners:deeppavlov">
         <button>
           <img src={nvidia} alt="NGC" />
           <p>NGC</p>
         </button>
-      </CustomLink>
+      </CustomLink> */}
 
-      <CustomLink href="https://hub.docker.com/r/deeppavlov">
+      <CustomLink href="https://hub.docker.com/r/deeppavlov/deeppavlov">
         <button>
           <img src={docker} alt="Docker Hub" />
           <p>Docker Hub</p>

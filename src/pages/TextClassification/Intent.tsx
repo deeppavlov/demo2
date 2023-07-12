@@ -6,27 +6,21 @@ import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 
 const config: BaseSkillProps<StoreReq, Res> = {
-  title: "Intent classification",
+  title: "Intent Classification",
   desc: (
     <p>
-      Intent classification recognizes intents based on users utterance. This
-      demo was trained on the
-      <CustomLink href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">
-        {" "}
-        SNIPS{" "}
+      Intent classification is a task aimed to identify the purpose or intention
+      behind some text or query, for example it can <b>be setting the alarm</b>,
+      <b> increasing the volume </b>
+      or <b> email sending</b>. DeepPavlov was trained on a sampled set from a
+      <CustomLink href="https://huggingface.co/datasets/AmazonScience/massive/blob/main/README.md">
+        {" MASSIVE "}
       </CustomLink>
-      dataset that focuses on seven intents <b>SearchCreativeWork</b>,{" "}
-      <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves
-      various business problems such as ticketing and booking services, renting
-      and scheduling, accepting orders, consulting and customer support. To
-      learn more on implementation read our
+      dataset. Our sample dataset consists of 11 popular languages. Our model is
+      able to determine intent out of 60 possible from 18 domains. To learn more
+      on implementation read our
       <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        {" "}
-        documentation{" "}
-      </CustomLink>
-      and check out our{" "}
-      <CustomLink href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">
-        tutorial.
+        {" documentation."}
       </CustomLink>
       <br />
       <br />
@@ -36,7 +30,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
   inputs: [
     {
       title: "Enter text",
-      type: "text",
+      type: "textarea",
       name: "question",
     },
   ],

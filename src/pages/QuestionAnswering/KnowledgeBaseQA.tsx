@@ -8,7 +8,7 @@ interface Req {
   question: string
 }
 
-  // Config link: https://github.com/deeppavlov/DeepPavlov/blob/feat/kbqa_research/deeppavlov/configs/kbqa/kbqa_rubq.json 
+// Config link: https://github.com/deeppavlov/DeepPavlov/blob/feat/kbqa_research/deeppavlov/configs/kbqa/kbqa_rubq.json
 
 const config: BaseSkillProps<Req, Res> = {
   title: "Knowledge-base QA",
@@ -23,14 +23,13 @@ const config: BaseSkillProps<Req, Res> = {
       <a href="http://docs.deeppavlov.ai/en/master/features/models/kbqa.html">
         documentation{" "}
       </a>
-      
     </p>
   ),
   docker: "deeppavlov/odqa_en",
   inputs: [
     {
       title: "Question",
-      type: "text",
+      type: "textarea",
       name: "question",
     },
   ],
