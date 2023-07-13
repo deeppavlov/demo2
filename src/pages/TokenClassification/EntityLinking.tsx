@@ -3,6 +3,7 @@ import React from "react"
 import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
 import { Res } from "lib/api"
 import { scripts } from "assets/scripts"
+import { ontonotesClasses } from "utils/utils"
 
 interface Req {
   question: string
@@ -45,7 +46,7 @@ const config: BaseSkillProps<Req, Res> = {
     }
     return await axios.post("https://7037.deeppavlov.ai/model", req)
   },
-  renderAnswer: { type: "entitylinking" },
+  renderAnswer: { type: "entitylinking", colors: ontonotesClasses },
   snippets: scripts.tokenClassification.entityLinking,
 }
 

@@ -110,9 +110,14 @@
       }
       .answers {
         margin-top: 32px;
+        .resultTitle {
+          font-size: 24px;
+          color: #3300ff;
+          font-weight: 600;
+        }
         p {
           font-weight: 600;
-          font-size: 24px !important;
+          font-size: 20px;
           line-height: 160%;
           color: #3300ff;
         }

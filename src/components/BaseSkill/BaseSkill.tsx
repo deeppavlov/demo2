@@ -175,7 +175,26 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderEmotion)
     } else if (renderAnswer.type === "topic") {
       return answers.map(this.renderTopic)
+    } else if (renderAnswer.type === "entitylinking") {
+      return answers.map(this.renderEntityLinking)
     }
+  }
+  renderEntityLinking = (mes: Answer, i: number) => {
+    const rest = { ...mes }
+    delete rest.answer
+    delete rest.question
+
+    let answer: any = mes.answer[0]
+    if (typeof answer === "string" && !answer) {
+      answer = this.lang !== "ru" ? "I don't know" : "Я не знаю"
+    }
+    return (
+      <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
+        <p>{answer}</p>
+
+        <p>{mes.question}</p>
+      </div>
+    )
   }
   renderEmotion = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
@@ -328,6 +347,8 @@ class BaseSkill extends Component<Props, State> {
         spans[spansIndex] = item
       }
     })
+    // console.log("spans = ", spans)
+    // console.log("reducedColors = ", reducedColors)
     return (
       <div dir={this.isRTL(answer[0].join(""))} className={s.ner} key={i}>
         {spans.map((item, i) => {
@@ -435,7 +456,6 @@ class BaseSkill extends Component<Props, State> {
       this.setState({ error: true })
     })
 
-    console.log("response = ", response.data[0])
     if (messages) {
       messages.splice(0, 0, { ...this.state, answer: response.data[0] })
     } else {
@@ -522,9 +542,7 @@ class BaseSkill extends Component<Props, State> {
                         id="answers"
                         ref={this.answersRef}
                       >
-                        <p style={{ color: "#3300ff", fontWeight: 600 }}>
-                          Result
-                        </p>
+                        <p className={s.resultTitle}>Result</p>
                         {this.renderAnswers(answers)}
                       </div>
                     )}

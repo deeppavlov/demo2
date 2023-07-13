@@ -3,11 +3,11 @@ import Topic from "pages/TextClassification/Topic"
 import Toxic from "pages/TextClassification/Toxic"
 import Sentiment from "pages/TextClassification/Sentiment"
 import Emotion from "pages/TextClassification/Emotion"
-import EntityLinking from "pages/TokenClassification/EntityLinking"
 import Intent from "pages/TextClassification/Intent"
 import NER from "pages/TokenClassification/NER"
 import ODQA from "pages/QuestionAnswering/ODQA"
 import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
+// import EntityLinking from "pages/TokenClassification/EntityLinking"
 // import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 // import { TextFewShot } from "pages/TextClassification/TextFewShot"
 // import { PartOfSpeech } from "pages/TokenClassification/PartOfSpeech"
@@ -84,7 +84,8 @@ export const routesForDemo: Routes = {
     {
       title: "Entity Linking",
       link: Links.tokenEntityLinking,
-      component: EntityLinking,
+      component: null,
+      // EntityLinking
     },
     {
       title: "Few-Shot",
