@@ -118,45 +118,133 @@ const emotionClasses = {
   FEAR: { color: colors.cyan },
 }
 const newNer = {
-  ARTIST_NAME: { color: colors.blue, text: "Artist_name" },
+  ARTIST_NAME: {
+    color: colors.blue,
+    // text: "Artist_name"
+  },
   AUDIOBOOK_NAME: {
     color: colors.bottlegreen,
-    text: "Audiobook_name",
+    // text: "Audiobook_name",
   },
   BUSINESS_NAME: {
     color: colors.cobaltblue,
-    text: "Business_name, Business_type",
+    // text: "Business_name, Business_type",
   },
-  BUSINESS_TYPE: { color: colors.deeppink, text: "", hidden: true },
-  COLOR_TYPE: { color: colors.coolblack, text: "Color_type" },
-  CURRENCY_NAME: { color: colors.cyan, text: "Currency_name" },
-  DATE: { color: colors.dark, text: "Date" },
-  DEFINITION_WORD: { color: colors.darktangerine, text: "Definition_word" },
-  DEVICE_TYPE: { color: colors.deepkoamaru, text: "Device_type" },
-  EMAIL_ADDRESS: { color: colors.green, text: "Email_address, Email_folder" },
-  EMAIL_FOLDER: { color: colors.slateblue, text: "", hidden: true },
-  EVENT_NAME: { color: colors.grey, text: "Email_address, Email_folder" },
-  FOOD_TYPE: { color: colors.neoncarrot, text: "Food_type, Meal_type" },
-  MEAL_TYPE: { color: colors.dodgerblue, text: "", hidden: true },
-  GAME_NAME: { color: colors.olivedrab, text: " Game_name" },
-  HOUSE_PLACE: { color: colors.prune, text: "House_place" },
-  JOKE_TYPE: { color: colors.quenblue, text: "Joke_type" },
-  LIST_NAME: { color: colors.red, text: "List_name" },
-  MEDIA_TYPE: { color: colors.smokyblack, text: "Media_type" },
-  MUSIC_GENRE: { color: colors.vividred, text: "Music_genre" },
-  ORDER_TYPE: { color: colors.yellow, text: "Order_type" },
-  PERSON: { color: colors.lightseagreen, text: "Person" },
-  PLACE_NAME: { color: colors.slateblue, text: "Place_name" },
-  RELATION: { color: colors.deeppink, text: "Relation" },
-  TIME: { color: colors.blueviolet, text: "Time, Timeofday, Time_zone" },
-  TIMEOFDAY: { color: colors.dodgerblue, text: "", hidden: true },
-  TIME_ZONE: { color: colors.darkorange, text: "", hidden: true },
+  BUSINESS_TYPE: {
+    color: colors.deeppink,
+    text: "",
+    // hidden: true
+  },
+  COLOR_TYPE: {
+    color: colors.coolblack,
+    // text: "Color_type"
+  },
+  CURRENCY_NAME: {
+    color: colors.cyan,
+    // text: "Currency_name"
+  },
+  DATE: {
+    color: colors.dark,
+    // text: "Date"
+  },
+  DEFINITION_WORD: {
+    color: colors.darktangerine,
+    // text: "Definition_word"
+  },
+  DEVICE_TYPE: {
+    color: colors.deepkoamaru,
+    // text: "Device_type"
+  },
+  EMAIL_ADDRESS: {
+    color: colors.green,
+    // text: "Email_address, Email_folder"
+  },
+  EMAIL_FOLDER: {
+    color: colors.slateblue,
+    text: "",
+    // hidden: true
+  },
+  EVENT_NAME: {
+    color: colors.grey,
+    // text: "Event_name"
+  },
+  FOOD_TYPE: {
+    color: colors.neoncarrot,
+    // text: "Food_type, Meal_type"
+  },
+  MEAL_TYPE: {
+    color: colors.dodgerblue,
+    text: "",
+    // hidden: true
+  },
+  GAME_NAME: {
+    color: colors.olivedrab,
+    // text: " Game_name"
+  },
+  HOUSE_PLACE: {
+    color: colors.prune,
+    // text: "House_place"
+  },
+  JOKE_TYPE: {
+    color: colors.quenblue,
+    // text: "Joke_type"
+  },
+  LIST_NAME: {
+    color: colors.red,
+    // text: "List_name"
+  },
+  MEDIA_TYPE: {
+    color: colors.smokyblack,
+    // text: "Media_type"
+  },
+  MUSIC_GENRE: {
+    color: colors.vividred,
+    // text: "Music_genre"
+  },
+  ORDER_TYPE: {
+    color: colors.yellow,
+    // text: "Order_type"
+  },
+  PERSON: {
+    color: colors.lightseagreen,
+    // text: "Person"
+  },
+  PLACE_NAME: {
+    color: colors.slateblue,
+    // text: "Place_name"
+  },
+  RELATION: {
+    color: colors.deeppink,
+    // text: "Relation"
+  },
+  TIME: {
+    color: colors.blueviolet,
+    // text: "Time, Timeofday, Time_zone"
+  },
+  TIMEOFDAY: {
+    color: colors.dodgerblue,
+    text: "",
+    // hidden: true
+  },
+  TIME_ZONE: {
+    color: colors.darkorange,
+    text: "",
+    // hidden: true
+  },
   TRANSPORT_AGENCY: {
     color: colors.dimgray,
-    text: "Transport_agency, Transport_type",
+
+    // text: "Transport_agency, Transport_type",
   },
-  TRANSPORT_TYPE: { color: colors.darkslategray, text: "", hidden: true },
-  WEATHER_DESCRIPTOR: { color: colors.burlywood, text: "Weather_descriptor" },
+  TRANSPORT_TYPE: {
+    color: colors.darkslategray,
+    text: "",
+    // hidden: true
+  },
+  WEATHER_DESCRIPTOR: {
+    color: colors.burlywood,
+    // text: "Weather_descriptor"
+  },
 }
 const newIntent = {
   ALARM: { color: colors.blue, text: "Alarm_query, Alarm_remove, Alarm_set" },
@@ -308,7 +396,7 @@ export class NerClass extends Component<NerClassProps, NerClassState> {
         onClick={() => this.setState({ clicked: !clicked })}
         ref={this.ref}
       >
-        {`${label.split("_")[0]}`}
+        {`${label}`}
         {tip && !disableTip && <span className="innerTip">{tip}</span>}
         {text && (
           <div

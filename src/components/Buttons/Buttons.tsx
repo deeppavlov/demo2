@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import Github from "assets/icons/github.svg"
-import nvidia from "assets/icons/nvidia.svg"
+// import nvidia from "assets/icons/nvidia.svg"
 import docker from "assets/icons/docker.svg"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import classNames from "classnames/bind"

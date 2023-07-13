@@ -429,13 +429,13 @@ class BaseSkill extends Component<Props, State> {
     const { api, updateStore, title, dispatchLoading, answers } = this.props
     dispatchLoading()
     let messages = answers
-
     const response = await api(this.state).catch((error) => {
       dispatchLoading()
       console.error(error)
       this.setState({ error: true })
     })
 
+    console.log("response = ", response.data[0])
     if (messages) {
       messages.splice(0, 0, { ...this.state, answer: response.data[0] })
     } else {

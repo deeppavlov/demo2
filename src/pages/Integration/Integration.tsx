@@ -24,8 +24,12 @@ export const Integration: FC<IntegrationProps> = (props) => {
 
   const script = snippets[activeTab]
 
-  const handleCopy = () => {
-    script && navigator.clipboard.writeText(script)
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(script)
+    } catch (e) {
+      console.log("e = ", e)
+    }
     setIsCopied((prev) => true)
     setTimeout(() => {
       setIsCopied((prev) => false)

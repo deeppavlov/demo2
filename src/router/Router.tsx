@@ -1,19 +1,18 @@
 import React from "react"
+import { Switch, Route } from "react-router-dom"
+import { Links } from "./Routes"
 
-import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 import Emotion from "pages/TextClassification/Emotion"
 import Sentiment from "pages/TextClassification/Sentiment"
 import Toxic from "pages/TextClassification/Toxic"
-import EntityLinking from "pages/TokenClassification/EntityLinking"
-
-import Intent from "pages/TextClassification/Intent"
-import NER from "pages/TokenClassification/NER"
-import ODQA from "pages/OpenDomainQA/ODQA"
-
 import Topic from "pages/TextClassification/Topic"
+import Intent from "pages/TextClassification/Intent"
 
-import { Switch, Route } from "react-router-dom"
-import { Links } from "./Routes"
+import EntityLinking from "pages/TokenClassification/EntityLinking"
+import NER from "pages/TokenClassification/NER"
+
+import ODQA from "pages/QuestionAnswering/ODQA"
+import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
 
 // prettier-ignore
 export const Router = () => (
@@ -30,9 +29,9 @@ export const Router = () => (
     {/* <Route path={`/:tab/${Links.tokenPartOfSpeech}`} exact component={PartOfSpeech} /> */}
     {/* <Route path={`/:tab/${Links.tokenFewShot}`} exact component={TokenFewShot} /> */}
     
-    <Route path={`/:tab/${Links.knowledgeQA}`} exact component={KnowledgeBaseQA}/>
-    {/* <Route path={`/:tab/${Links.readingComprehesion}`} exact component={ReadingComprehension} /> */}
-    
+    <Route path={`/:tab/${Links.readingComprehesion}`} exact component={ReadingComprehension} />
     <Route path={`/:tab/${Links.odqa}`} exact component={ODQA} /> {/**/}
+    {/* <Route path={`/:tab/${Links.knowledgeQA}`} exact component={KnowledgeBaseQA}/> */}
+    
   </Switch>
 )

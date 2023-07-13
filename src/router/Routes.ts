@@ -1,17 +1,18 @@
+import { FC } from "react"
 import Topic from "pages/TextClassification/Topic"
 import Toxic from "pages/TextClassification/Toxic"
 import Sentiment from "pages/TextClassification/Sentiment"
 import Emotion from "pages/TextClassification/Emotion"
 import EntityLinking from "pages/TokenClassification/EntityLinking"
-import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 import Intent from "pages/TextClassification/Intent"
 import NER from "pages/TokenClassification/NER"
+import ODQA from "pages/QuestionAnswering/ODQA"
+import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
+// import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 // import { TextFewShot } from "pages/TextClassification/TextFewShot"
 // import { PartOfSpeech } from "pages/TokenClassification/PartOfSpeech"
 // import { TokenFewShot } from "pages/TokenClassification/TokenFewShot"
 // import { ReadingComprehension } from "pages/QuestionAnswering/ReadingComprehension"
-import { FC } from "react"
-import ODQA from "pages/OpenDomainQA/ODQA"
 
 export type RouteConfig = { title: string; link: Links; component: null | FC }
 export type Routes = Record<Titles, RouteConfig[]>
@@ -36,15 +37,15 @@ export enum Titles {
   textClass = "TextClassification",
   tokenClass = "TokenClassification",
   qa = "QuestionAnswering",
-  odqa = "OpenDomainQA",
+  // odqa = "OpenDomainQA",
   glue = "GLUE",
   superGlue = "SuperGLUE",
 }
-export const DisplayTitles:Record<Titles, string> = {
+export const DisplayTitles: Record<Titles, string> = {
   [Titles.textClass]: "Text Classification",
   [Titles.tokenClass]: "Token Classification",
   [Titles.qa]: "Question Answering",
-  [Titles.odqa]: "Open-Domain QA",
+  // [Titles.odqa]: "Open-Domain QA",
   [Titles.glue]: "GLUE",
   [Titles.superGlue]: "SuperGLUE",
 }
@@ -95,21 +96,23 @@ export const routesForDemo: Routes = {
     {
       title: "Reading Comprehension",
       link: Links.readingComprehesion,
-      component: null,
+      component: ReadingComprehension,
     },
     {
       title: "Knowledge-base QA",
       link: Links.knowledgeQA,
-      component: KnowledgeBaseQA,
+      component: null,
+      // KnowledgeBaseQA
     },
-  ],
-  [Titles.odqa]: [
     {
       title: "Open-Domain QA",
       link: Links.odqa,
       component: ODQA,
     },
   ],
+  // [Titles.odqa]: [
+
+  // ],
   [Titles.glue]: [],
   [Titles.superGlue]: [],
 }
