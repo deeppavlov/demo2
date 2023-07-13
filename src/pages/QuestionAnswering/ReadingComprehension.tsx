@@ -3,6 +3,7 @@ import React from "react"
 import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
 import { Res } from "lib/api"
 import { CustomLink } from "components/CustomLink/CustomLink"
+import { scripts } from "assets/scripts"
 interface Req {
   text: string
   question: string
@@ -85,7 +86,7 @@ const config: BaseSkillProps<Req, Res> = {
     return await axios.post("https://7008.deeppavlov.ai/model", req)
   },
   renderAnswer: { type: "textqa" },
-  snippets: null,
+  snippets: scripts.questionAnswering.readingComprehension,
 }
 
 const ReadingComrehension = skillWrapper<Req, Res>("readingComprehension")

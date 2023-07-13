@@ -100,9 +100,9 @@ model(['When did Jean-Paul Sartre move to Le Havre?'])`,
       [Snippets.restApi]: "python -m deeppavlov riseapi kbqa_lcquad2 -d -i",
     },
     readingComprehension: {
-      [Snippets.cli]: "",
-      [Snippets.python]: "",
-      [Snippets.restApi]: "",
+      [Snippets.cli]: "We will add the information here later.",
+      [Snippets.python]: "We will add the information here later.",
+      [Snippets.restApi]: "We will add the information here later. ",
     },
   },
   openDomainQA: {
