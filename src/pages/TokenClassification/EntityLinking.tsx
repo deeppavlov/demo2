@@ -20,8 +20,9 @@ const config: BaseSkillProps<Req, Res> = {
       relevant record in the database (in our case it’s Wikidata) is searched
       for each extracted entity. To learn more on implementation read our{" "}
       <a href="http://docs.deeppavlov.ai/en/master/features/models/entity_extraction.html">
-        documentation{" "}
+        documentation
       </a>
+      .
       {/* Config link:
       https://github.com/deeppavlov/DeepPavlov/blob/master/deeppavlov/configs/entity_extraction/entity_extraction_en.json */}
     </p>
@@ -29,15 +30,26 @@ const config: BaseSkillProps<Req, Res> = {
   docker: "deeppavlov/odqa_en",
   inputs: [
     {
-      title: "Question",
+      title: "Text",
       type: "textarea",
       name: "question",
     },
   ],
   examples: [
     {
-      question:
-        "Forrest Gump is a comedy-drama film directed by Robert Zemeckis and written by Eric Roth.",
+      question: "Forrest Gump is a comedy-drama film directed by Robert Zemeckis and written by Eric Roth.",
+    },
+    {
+      question: "The party is divided over Britain's participation in the Iraq conflict and the continued deployment of 8500 British troops in that country.",
+    },
+    {
+      question: "Italian Tour de France rider Alberto Bettiol took to social media on Friday to ask French President Emmanuel Macron to return the Mona Lisa to his home country.",
+    },
+    {
+      question: "Olympic champions Lionel Messi and Alex Morgan are in the finalist lists for The Best FIFA Football Awards.",
+    },
+    {
+      question: "Axiom Space announced SpaceX will fly additional private crew missions to and from the Station through 2023.",
     },
   ],
   api: async (stateReq: Req) => {
