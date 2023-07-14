@@ -76,7 +76,7 @@ model(['Axiom Space announced SpaceX will fly additional private crew missions t
         "python -m deeppavlov interact ner_xlm_roberta_base -di",
       [Snippets.python]: `from deeppavlov import build_model     
 model = build_model(ner_distilbert-base-multi, download=True, install=True)
-model(['Imo Industries Inc . -- $ 150 million of senior subordinated debentures due 2001 , priced at par to yield 12 % .'])`,
+model(['Let’s order pizza delivery at Marty and Ricky’s for 3 pm.'])`,
       [Snippets.restApi]:
         "python -m deeppavlov riseapi ner_xlm_roberta_base -di",
     },
