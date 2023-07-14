@@ -21,8 +21,9 @@ const config: BaseSkillProps<Req, Res> = {
       demo uses Wikidata as a knowledge base. To learn more on implementation
       read our{" "}
       <a href="http://docs.deeppavlov.ai/en/master/features/models/kbqa.html">
-        documentation{" "}
+        documentation
       </a>
+      .
     </p>
   ),
   docker: "deeppavlov/odqa_en",

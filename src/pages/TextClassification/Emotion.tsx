@@ -20,14 +20,15 @@ const config: BaseSkillProps<Req, Res> = {
       out of 5 emotions. Our model was trained on English and Russian corpuses.
       To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        documentation{" "}
+        documentation
       </a>
+      .
     </p>
   ),
   docker: "deeppavlov/odqa_en",
   inputs: [
     {
-      title: "Question",
+      title: "Text",
       type: "textarea",
       name: "question",
     },

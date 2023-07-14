@@ -12,19 +12,17 @@ const config: BaseSkillProps<StoreReq, Res> = {
       specific topics or subject areas, such as <b>music</b>, <b>sports</b>,{" "}
       <b>clothes</b> and others. Our model automatically assigns one of 22
       possible topics to English and Russian texts. To learn more on
-      implementation read our
+      implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        {" "}
-        documentation.{" "}
+        documentation
       </a>
-      <br />
-      <br />
+      .
     </p>
   ),
   docker: "deeppavlov/intents_en",
   inputs: [
     {
-      title: "Enter text",
+      title: "Text",
       type: "textarea",
       name: "question",
     },

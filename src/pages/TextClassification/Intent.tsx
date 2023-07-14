@@ -12,24 +12,23 @@ const config: BaseSkillProps<StoreReq, Res> = {
       Intent classification is a task aimed to identify the purpose or intention
       behind some text or query, for example it can <b>be setting the alarm</b>,
       <b> increasing the volume </b>
-      or <b> email sending</b>. DeepPavlov was trained on a sampled set from a
+      or <b> email sending</b>. DeepPavlov was trained on a sampled set from a{" "}
       <CustomLink href="https://huggingface.co/datasets/AmazonScience/massive/blob/main/README.md">
-        {" MASSIVE "}
+        MASSIVE
       </CustomLink>
-      dataset. Our sample dataset consists of 11 popular languages. Our model is
+      {" "}dataset. Our sample dataset consists of 11 popular languages. Our model is
       able to determine intent out of 60 possible from 18 domains. To learn more
-      on implementation read our
+      on implementation read our{" "}
       <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        {" documentation."}
+        documentation
       </CustomLink>
-      <br />
-      <br />
+      .
     </p>
   ),
   docker: "deeppavlov/intents_en",
   inputs: [
     {
-      title: "Enter text",
+      title: "Text",
       type: "textarea",
       name: "question",
     },
