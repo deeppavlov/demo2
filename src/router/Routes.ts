@@ -62,7 +62,7 @@ export const routesForDemo: Routes = {
       link: Links.textSentiment,
       component: Sentiment,
     },
-    { title: "Toxic", link: Links.textToxic, component: Toxic },
+    { title: "Toxicity", link: Links.textToxic, component: Toxic },
     { title: "Emotion", link: Links.textEmotion, component: Emotion },
     {
       title: "Few-Shot",

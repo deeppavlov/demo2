@@ -37,7 +37,7 @@ const insultClasses = {
   NOT_INSULT: { color: colors.green },
 }
 const sentimentClasses = {
-  NEGATIVE: { color: colors.cobaltblue },
+  NEGATIVE: { color: colors.red },
   POSITIVE: { color: colors.bottlegreen },
   NEUTRAL: { color: colors.cyan },
 }
@@ -111,9 +111,9 @@ const topicClasses = {
   Videogames: { color: colors.blueviolet },
 }
 const emotionClasses = {
-  JOY: { color: colors.blue },
+  JOY: { color: colors.yellow },
   SADNESS: { color: colors.bottlegreen },
-  ANGER: { color: colors.cobaltblue },
+  ANGER: { color: colors.red },
   SURPRISE: { color: colors.coolblack },
   FEAR: { color: colors.cyan },
 }
@@ -122,18 +122,17 @@ const newNer = {
     color: colors.blue,
     // text: "Artist_name"
   },
-  AUDIOBOOK_NAME: {
-    color: colors.bottlegreen,
-    // text: "Audiobook_name",
-  },
   BUSINESS_NAME: {
     color: colors.cobaltblue,
-    // text: "Business_name, Business_type",
+    // text: "Business_name, Business_type"
   },
   BUSINESS_TYPE: {
     color: colors.deeppink,
-    text: "",
-    // hidden: true
+    // text: "Business_type"
+  },
+  CHANGE_AMOUNT: {
+    color: colors.bottlegreen,
+    // text: "Change_amount"
   },
   COLOR_TYPE: {
     color: colors.coolblack,
@@ -157,12 +156,11 @@ const newNer = {
   },
   EMAIL_ADDRESS: {
     color: colors.green,
-    // text: "Email_address, Email_folder"
+    // text: "Email_address"
   },
   EMAIL_FOLDER: {
     color: colors.slateblue,
-    text: "",
-    // hidden: true
+    // text: "Email_folder"
   },
   EVENT_NAME: {
     color: colors.grey,
@@ -170,16 +168,15 @@ const newNer = {
   },
   FOOD_TYPE: {
     color: colors.neoncarrot,
-    // text: "Food_type, Meal_type"
-  },
-  MEAL_TYPE: {
-    color: colors.dodgerblue,
-    text: "",
-    // hidden: true
+    // text: "Food_type"
   },
   GAME_NAME: {
     color: colors.olivedrab,
     // text: " Game_name"
+  },
+  GENERAL_FREQUENCY: {
+    color: colors.darkorange,
+    // text: "General_frequency"
   },
   HOUSE_PLACE: {
     color: colors.prune,
@@ -192,6 +189,10 @@ const newNer = {
   LIST_NAME: {
     color: colors.red,
     // text: "List_name"
+  },
+  MEAL_TYPE: {
+    color: colors.dodgerblue,
+    // text: "Meal_type"
   },
   MEDIA_TYPE: {
     color: colors.smokyblack,
@@ -213,33 +214,37 @@ const newNer = {
     color: colors.slateblue,
     // text: "Place_name"
   },
+  RADIO_NAME: {
+    color: colors.grey,
+    // text: " Radio_name"
+  },
   RELATION: {
     color: colors.deeppink,
     // text: "Relation"
   },
+  SONG_NAME: {
+    color: colors.bottlegreen,
+    // text: "Song_name"
+  },
+  SPORT_TYPE: {
+    color: colors.cyan,
+    // text: "Sport_type"
+  },
   TIME: {
     color: colors.blueviolet,
-    // text: "Time, Timeofday, Time_zone"
+    // text: "Time"
   },
   TIMEOFDAY: {
     color: colors.dodgerblue,
-    text: "",
-    // hidden: true
-  },
-  TIME_ZONE: {
-    color: colors.darkorange,
-    text: "",
-    // hidden: true
+    // text: "Timeofday"
   },
   TRANSPORT_AGENCY: {
     color: colors.dimgray,
-
-    // text: "Transport_agency, Transport_type",
+    // text: "Transport_agency"
   },
   TRANSPORT_TYPE: {
     color: colors.darkslategray,
-    text: "",
-    // hidden: true
+    // text: "Transport_type"
   },
   WEATHER_DESCRIPTOR: {
     color: colors.burlywood,
@@ -247,63 +252,63 @@ const newNer = {
   },
 }
 const newIntent = {
-  ALARM: { color: colors.blue, text: "Alarm_query, Alarm_remove, Alarm_set" },
+  ALARM: { color: colors.blue, text: "ALARM_QUERY, ALARM_REMOVE, ALARM_SET" },
   AUDIO: {
     color: colors.bottlegreen,
-    text: "Audio_volume_down, Audio_volume_mute, Audio_volume_other",
+    text: "AUDIO_VOLUME_DOWN, AUDIO_VOLUME_MUTE, AUDIO_VOLUME_OTHER, AUDIO_VOLUME_UP",
   },
   CALENDAR: {
     color: colors.cobaltblue,
-    text: "Calendar_query, Calendar_remove, Calendar_set",
+    text: "CALENDAR_QUERY, CALENDAR_REMOVE, CALENDAR_SET",
   },
-  COOKING: { color: colors.coolblack, text: "Cooking_query, Cooking_recipe" },
-  DATETIME: { color: colors.cyan, text: "Datetime_convert, Datetime_query" },
+  COOKING: { color: colors.coolblack, text: "COOKING_QUERY, COOKING_RECIPE" },
+  DATETIME: { color: colors.cyan, text: "DATETIME_CONVERT, DATETIME_QUERY" },
   EMAIL: {
     color: colors.dark,
-    text: "Email_addcontact, Email_query, Email_querycontact, Email_sendemail",
+    text: "EMAIL_ADDCONTACT, EMAIL_QUERY, EMAIL_QUERYCONTACT, EMAIL_SENDEMAIL",
   },
   GENERAL: {
     color: colors.darktangerine,
-    text: "General_greet, General_joke, General_quirky",
+    text: "GENERAL_GREET, GENERAL_JOKE, GENERAL_QUIRKY",
   },
   IOT: {
     color: colors.deepkoamaru,
-    text: "Iot_cleaning, Iot_coffee, Iot_hue_lightchange, Iot_hue_lightdim, Iot_hue_lightoff, Iot_hue_lighton, Iot_hue_lightup, Iot_wemo_off, Iot_wemo_on",
+    text: "IOT_CLEANING, IOT_COFFEE, IOT_HUE_LIGHTCHANGE, IOT_HUE_LIGHTDIM, IOT_HUE_LIGHTOFF, IOT_HUE_LIGHTON, IOT_HUE_LIGHTUP, IOT_WEMO_OFF, IOT_WEMO_ON",
   },
   LISTS: {
     color: colors.green,
-    text: "Lists_createoradd, Lists_query, Lists_remove",
+    text: "LISTS_CREATEORADD, LISTS_QUERY, LISTS_REMOVE",
   },
   MUSIC: {
     color: colors.grey,
-    text: "Music_dislikeness, Music_likeness, Music_query, Music_settings",
+    text: "MUSIC_DISLIKENESS, MUSIC_LIKENESS, MUSIC_QUERY, MUSIC_SETTINGS",
   },
   NEWS: {
     color: colors.neoncarrot,
-    text: " Music_dislikeness, Music_likeness, Music_query, Music_settings",
+    text: "NEWS_QUERY",
   },
   PLAY: {
     color: colors.olivedrab,
-    text: "Play_audiobook, Play_game, Play_music, Play_podcasts, Play_radio",
+    text: "PLAY_AUDIOBOOK, PLAY_GAME, PLAY_MUSIC, PLAY_PODCASTS, PLAY_RADIO",
   },
   QA: {
     color: colors.prune,
-    text: "Qa_currency, Qa_definition, Qa_factoid, Qa_maths, Qa_stock",
+    text: "QA_CURRENCY, QA_DEFINITION, QA_FACTOID, QA_MATHS, QA_STOCK",
   },
   RECOMMENDATION: {
     color: colors.quenblue,
-    text: "Qa_currency, Qa_definition, Qa_factoid, Qa_maths, Qa_stock",
+    text: "RECOMMENDATION_EVENTS, RECOMMENDATION_LOCATIONS, RECOMMENDATION_MOVIES",
   },
   SOCIAL: {
     color: colors.red,
-    text: "Qa_currency, Qa_definition, Qa_factoid, Qa_maths, Qa_stock",
+    text: "SOCIAL_POST, SOCIAL_QUERY",
   },
   TAKEAWAY: {
     color: colors.smokyblack,
-    text: "Takeaway_order, Takeaway_query",
+    text: "TAKEAWAY_ORDER, TAKEAWAY_QUERY",
   },
-  TRANSPORT: { color: colors.vividred, text: "Takeaway_order, Takeaway_query" },
-  WEATHER: { color: colors.yellow, text: "Weather_query" },
+  TRANSPORT: { color: colors.vividred, text: "TRANSPORT_QUERY, TRANSPORT_TAXI, TRANSPORT_TICKET, TRANSPORT_TRAFFIC" },
+  WEATHER: { color: colors.yellow, text: "WEATHER_QUERY" },
 }
 export type Classes = {
   [key: string]: { color: string; text?: string; hidden?: boolean }

@@ -20,13 +20,13 @@ const config: BaseSkillProps<Req, Res> = {
       questions based on the company knowledge base. This demo uses entire
       Wikipedia as a knowledge-base. To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/odqa.html">
-        documentation{" "}
+        documentation
       </a>
-      and check out our{" "}
+      {" "}and check out our{" "}
       <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">
         tutorial
-      </a>{" "}
-      on this component.
+      </a>
+      {" "}on this component.
       {/* Config link: https://github.com/deeppavlov/DeepPavlov/blob/dev/deeppavlov/configs/odqa/en_odqa_infer_wiki.json */}
     </p>
   ),

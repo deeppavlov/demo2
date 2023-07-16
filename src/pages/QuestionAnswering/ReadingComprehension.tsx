@@ -16,9 +16,8 @@ const config: BaseSkillProps<Req, Res> = {
       The Question Answering component answers a question based on a given
       context (e.g, a paragraph of text), where the answer to the question is a
       segment of the context. This component allows you to answer questions
-      based on your documentation. To learn more on implementation check out our
+      based on your documentation. To learn more on implementation check out our{" "}
       <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/SQuAD.html">
-        {" "}
         documentation
       </CustomLink>
       .
@@ -27,7 +26,7 @@ const config: BaseSkillProps<Req, Res> = {
   docker: "deeppavlov/squad_en",
   inputs: [
     {
-      title: "Enter text",
+      title: "Text",
       type: "textarea",
       name: "text",
     },

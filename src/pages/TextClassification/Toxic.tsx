@@ -10,7 +10,7 @@ interface Req {
 }
 
 const config: BaseSkillProps<Req, Res> = {
-  title: "Toxic Classification",
+  title: "Toxicity Classification",
   desc: (
     <p>
       Toxicity classification, also known as toxic comment classification or
@@ -20,14 +20,15 @@ const config: BaseSkillProps<Req, Res> = {
       DeepPavlov model is multilingual and has been trained on English and
       Russian datasets. To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        documentation{" "}
+        documentation
       </a>
+      .
     </p>
   ),
   docker: "deeppavlov/odqa_en",
   inputs: [
     {
-      title: "Question",
+      title: "Text",
       type: "textarea",
       name: "question",
     },

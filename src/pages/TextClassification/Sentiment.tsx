@@ -18,14 +18,15 @@ const config: BaseSkillProps<Req, Res> = {
       of expressed emotional tone. We can recognize all these sentiments with a
       multilingual model. To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
-        documentation{" "}
+        documentation
       </a>
+      .
     </p>
   ),
   docker: "deeppavlov/odqa_en",
   inputs: [
     {
-      title: "Question",
+      title: "Text",
       type: "textarea",
       name: "question",
     },
