@@ -38,16 +38,16 @@ export enum Titles {
   tokenClass = "TokenClassification",
   qa = "QuestionAnswering",
   // odqa = "OpenDomainQA",
-  glue = "GLUE",
-  superGlue = "SuperGLUE",
+  // glue = "GLUE",
+  // superGlue = "SuperGLUE",
 }
 export const DisplayTitles: Record<Titles, string> = {
   [Titles.textClass]: "Text Classification",
   [Titles.tokenClass]: "Token Classification",
   [Titles.qa]: "Question Answering",
   // [Titles.odqa]: "Open-Domain QA",
-  [Titles.glue]: "GLUE",
-  [Titles.superGlue]: "SuperGLUE",
+  // [Titles.glue]: "GLUE",
+  // [Titles.superGlue]: "SuperGLUE",
 }
 export const routesForDemo: Routes = {
   [Titles.textClass]: [
@@ -56,19 +56,25 @@ export const routesForDemo: Routes = {
       link: Links.textIntent,
       component: Intent,
     },
-    { title: "Topic", link: Links.textTopic, component: Topic },
+    { title: "Topic",
+      link: Links.textTopic,
+      component: Topic },
     {
       title: "Sentiment",
       link: Links.textSentiment,
       component: Sentiment,
     },
-    { title: "Toxicity", link: Links.textToxic, component: Toxic },
-    { title: "Emotion", link: Links.textEmotion, component: Emotion },
-    {
+    { title: "Toxicity",
+      link: Links.textToxic,
+      component: Toxic },
+    { title: "Emotion",
+      link: Links.textEmotion,
+      component: Emotion },
+    /*{
       title: "Few-Shot",
       link: Links.textFewShot,
       component: null,
-    },
+    },*/
   ],
   [Titles.tokenClass]: [
     {
@@ -76,7 +82,7 @@ export const routesForDemo: Routes = {
       link: Links.tokenNer,
       component: NER,
     },
-    {
+    /*{
       title: "Part of Speech",
       link: Links.tokenPartOfSpeech,
       component: null,
@@ -91,7 +97,7 @@ export const routesForDemo: Routes = {
       title: "Few-Shot",
       link: Links.tokenFewShot,
       component: null,
-    },
+    },*/
   ],
   [Titles.qa]: [
     {
@@ -99,12 +105,12 @@ export const routesForDemo: Routes = {
       link: Links.readingComprehesion,
       component: ReadingComprehension,
     },
-    {
+    /*{
       title: "Knowledge-base QA",
       link: Links.knowledgeQA,
       component: null,
       // KnowledgeBaseQA
-    },
+    },*/
     {
       title: "Open-Domain QA",
       link: Links.odqa,
@@ -114,6 +120,6 @@ export const routesForDemo: Routes = {
   // [Titles.odqa]: [
 
   // ],
-  [Titles.glue]: [],
-  [Titles.superGlue]: [],
+  /*[Titles.glue]: [],
+  [Titles.superGlue]: [],*/
 }

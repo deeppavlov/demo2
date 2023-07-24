@@ -25,7 +25,7 @@ export const Router = () => (
     {/* <Route path={`/:tab/${Links.textFewShot}`} exact component={TextFewShot} /> */}
     
     <Route path={`/:tab/${Links.tokenNer}`} exact component={NER} />  {/**/}
-    <Route path={`/:tab/${Links.tokenEntityLinking}`} exact component={EntityLinking} />
+    {/* <Route path={`/:tab/${Links.tokenEntityLinking}`} exact component={EntityLinking} /> */}
     {/* <Route path={`/:tab/${Links.tokenPartOfSpeech}`} exact component={PartOfSpeech} /> */}
     {/* <Route path={`/:tab/${Links.tokenFewShot}`} exact component={TokenFewShot} /> */}
     
