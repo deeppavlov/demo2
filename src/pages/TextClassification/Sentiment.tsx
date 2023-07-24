@@ -16,8 +16,7 @@ const config: BaseSkillProps<Req, Res> = {
       Sentiment classification is a NLP task consisting in classifying text into
       categories such as positive, neutral or negative, that is, the definition
       of expressed emotional tone. We can recognize all these sentiments with a
-      multilingual model that has been trained on English and Russian data.
-      To learn more on implementation read our{" "}
+      multilingual model. To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </a>

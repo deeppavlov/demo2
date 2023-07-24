@@ -16,9 +16,8 @@ const config: BaseSkillProps<StoreReq, Res> = {
       <CustomLink href="https://huggingface.co/datasets/AmazonScience/massive/blob/main/README.md">
         MASSIVE
       </CustomLink>
-      {" "}dataset. Our sample dataset consists of 11 popular languages. Our model is
-      able to determine intent out of 60 possible from 18 domains. To learn more
-      on implementation read our{" "}
+      {" "}dataset. Our model is multilingual and able to determine intent out of 60 possible
+      from 18 domains. To learn more on implementation read our{" "}
       <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </CustomLink>

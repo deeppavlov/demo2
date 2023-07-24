@@ -11,8 +11,8 @@ const config: BaseSkillProps<StoreReq, Res> = {
       Topic classification involves categorizing text documents or content into
       specific topics or subject areas, such as <b>music</b>, <b>sports</b>,{" "}
       <b>clothes</b> and others. Our multilingual model was trained to automatically
-      assign one of 22 possible topics to texts in English and Russian. To learn more on
-      implementation read our{" "}
+      assign one of 22 possible topics to texts. To learn more on implementation
+      read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </a>

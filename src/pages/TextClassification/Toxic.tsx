@@ -15,10 +15,9 @@ const config: BaseSkillProps<Req, Res> = {
     <p>
       Toxicity classification, also known as toxic comment classification or
       offensive expression detection - the technique used to identify and
-      categorize text or comments containing toxic or harmful content. Our model
-      has been trained to predict whether the text is insulting or not.
-      DeepPavlov model is multilingual and has been trained on English and
-      Russian datasets. To learn more on implementation read our{" "}
+      categorize text or comments containing toxic or harmful content. Our multilingual
+      model has been trained to predict whether the text is insulting or not.
+      To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </a>

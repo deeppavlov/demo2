@@ -17,8 +17,8 @@ const config: BaseSkillProps<Req, Res> = {
       is to identify and classify the emotions expressed in the text. This can
       help to understand the emotional reactions or attitudes of individuals
       towards a particular topic, product, or experience. We can recognize one
-      out of 5 emotions. Our model was trained on English and Russian corpuses.
-      To learn more on implementation read our{" "}
+      out of 5 emotions using a multilingual model. To learn more on implementation
+      read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </a>
