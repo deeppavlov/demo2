@@ -16,7 +16,8 @@ const config: BaseSkillProps<Req, Res> = {
       Sentiment classification is a NLP task consisting in classifying text into
       categories such as positive, neutral or negative, that is, the definition
       of expressed emotional tone. We can recognize all these sentiments with a
-      multilingual model. To learn more on implementation read our{" "}
+      multilingual model that has been trained on English and Russian data.
+      To learn more on implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
       </a>
@@ -33,18 +34,11 @@ const config: BaseSkillProps<Req, Res> = {
   ],
   examples: [
     {
-      question: "This month was a bad month for Kobold Quarterly",
-    },
-    {
       question:
-        "I want to wish all the moms a Happy Mother’s Day.  Hope you’re all treated like Queens!",
+        "I want to wish all the moms a Happy Mother’s Day. Hope you’re all treated like Queens!",
     },
     {
       question: "You are a slow answerer",
-    },
-    {
-      question:
-        "We’ve never heard anyone say they like doing anything on Monday mornings! You must have had an early cup of coffee or two",
     },
     {
       question:
@@ -56,6 +50,15 @@ const config: BaseSkillProps<Req, Res> = {
     },
     {
       question: "Классное заведение! Не хочется уходить отсюда",
+    },
+    {
+      question: "Je n'ai jamais été à Paris. On peut y aller?",
+    },
+    {
+      question: "Das war großartig!",
+    },
+    {
+      question: "No vayas a este Restaurante, es horrible cocinar en él",
     },
   ],
   api: async (stateReq: Req) => {

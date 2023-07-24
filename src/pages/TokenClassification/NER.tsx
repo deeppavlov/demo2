@@ -38,11 +38,15 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "Let's order pizza delivery at Marty and Ricky's for 3 pm.",
+        "Let's order pizza delivery at Pizza Home for 3 pm.",
     },
     {
       question:
         "Spiel den song major Tom von David Bowie.",
+    },
+    {
+      question:
+        "Pouvez-vous lister les options de livraison les plus cotées pour la nourriture chinoise?",
     },
     {
       question:
@@ -55,6 +59,22 @@ const config: BaseSkillProps<StoreReq, Res> = {
     {
       question:
         "Ali ile gelecek hafta salı toplantı.",
+    },
+    {
+      question:
+        "Жандос Жұмабек, Ерболат Әбіш, Самат Нағашыбекұлы, «Қорытынды жаңалықтар» Түркістаннан.",
+    },
+    {
+      question:
+        "Абмываецца Персідскім залівам на паўночным усходзе і Чырвоным морам на захадзе.",
+    },
+    {
+      question:
+        "Новосибирск өлкәсе, Томск өлкәсе биләмәләрендә ага.",
+    },
+    {
+      question:
+        "Neunkirchen (okrug) okrugi tarkibiga kiradi.",
     },
   ],
   api: api("https://7036.deeppavlov.ai/model"),

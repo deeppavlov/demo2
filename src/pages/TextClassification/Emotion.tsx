@@ -44,14 +44,21 @@ const config: BaseSkillProps<Req, Res> = {
       question: "I am very afraid of heights, go there without me",
     },
     {
-      question: "What, again? This stupid country!",
-    },
-    {
       question: "Меня снова накрыла депрессия!",
     },
     {
       question:
         "Как можно быть таким упрямым, и не замечать очевидного, бесишь!",
+    },
+    {
+      question:
+        "J'ai été très surpris quand il est arrivé à l'heure. Habituellement, il a 30 minutes de retard",
+    },
+    {
+      question: "Ich habe es satt, ich verlasse dich!",
+    },
+    {
+      question: "No voy a nadar allí, tengo miedo de las profundidades",
     },
   ],
   api: async (stateReq: Req) => {

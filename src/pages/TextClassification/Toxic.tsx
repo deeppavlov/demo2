@@ -38,22 +38,25 @@ const config: BaseSkillProps<Req, Res> = {
       question: "Was in the city yesterday - didn’t notice anything strange",
     },
     {
-      question: "You are stupid asshole",
-    },
-    {
       question: "They never show adds, it's so cool",
     },
     {
       question: "Who posted this shit?",
     },
     {
-      question: "Man, he’s a big mofo",
-    },
-    {
       question: "Идиот, ты чем вообще думал?!",
     },
     {
       question: "Она - дура конченная, как можно было выложить такую хрень!",
+    },
+    {
+      question: "Je te déteste, connard",
+    },
+    {
+      question: "Ich weiß nicht, wie es dir geht, aber mir hat die Aufführung gefallen",
+    },
+    {
+      question: "¡Que alguien le diga a ese imbécil que se calle!",
     },
   ],
   api: async (stateReq: Req) => {

@@ -10,8 +10,8 @@ const config: BaseSkillProps<StoreReq, Res> = {
     <p>
       Topic classification involves categorizing text documents or content into
       specific topics or subject areas, such as <b>music</b>, <b>sports</b>,{" "}
-      <b>clothes</b> and others. Our model automatically assigns one of 22
-      possible topics to English and Russian texts. To learn more on
+      <b>clothes</b> and others. Our multilingual model was trained to automatically
+      assign one of 22 possible topics to texts in English and Russian. To learn more on
       implementation read our{" "}
       <a href="https://docs.deeppavlov.ai/en/master/features/models/classification.html">
         documentation
@@ -33,14 +33,6 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "I love these - they are so easy to eat and not sticky like the whole dates. I love to mix them with raisins and I eat them daily.",
-    },
-    {
-      question:
-        "Tough in places but an excellent read. Gives an insight about what the rest of the world wasn't allowed to hear during this period in history.",
-    },
-    {
-      question:
         "Acrobat Medical Clinic has been providing qualified medical care to you and your family",
     },
     {
@@ -49,6 +41,15 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question: "Какой запах не любят кошки?",
+    },
+    {
+      question: "Quelle est la sécurité de Munich? Je veux y aller avec mon mari.",
+    },
+    {
+      question: "Wann warst du das letzte Mal in der Kirche?",
+    },
+    {
+      question: "En nuestra escuela, los estudiantes deben asistir a clases de Inglés",
     },
   ],
   api: api("https://7035.deeppavlov.ai/model"),
