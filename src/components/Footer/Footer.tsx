@@ -14,7 +14,7 @@ export const Footer: FC<FooterProps> = () => {
           <div className={s.container}>
             <Buttons />
             <div className={s.social}>
-              <p className={s.socialMediaText}>We are in social media</p>
+            {/* <p className={s.socialMediaText}>We are in social media</p>
               <div className={s.links}>
                 <CustomLink href={`/`}>
                   <img src={TW} alt="Twitter" />
@@ -22,7 +22,7 @@ export const Footer: FC<FooterProps> = () => {
                 <CustomLink href={`/`}>
                   <img src={IN} alt="LinkedIn" />
                 </CustomLink>
-              </div>
+              </div>*/}
             </div>
           </div>
         </Limiter>
