@@ -291,7 +291,8 @@ class BaseSkill extends Component<Props, State> {
   }
   renderTopic = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
-    const answer = mes.answer[0].toString()
+    const answer = mes.answer[0].toString().toUpperCase()
+    
     return (
       <div className={s.basic} key={i}>
         <p>
