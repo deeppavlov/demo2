@@ -38,7 +38,7 @@ export enum Titles {
   tokenClass = "TokenClassification",
   qa = "QuestionAnswering",
   // odqa = "OpenDomainQA",
-  // glue = "GLUE",
+  glue = "GLUE",
   // superGlue = "SuperGLUE",
 }
 export const DisplayTitles: Record<Titles, string> = {
@@ -46,7 +46,7 @@ export const DisplayTitles: Record<Titles, string> = {
   [Titles.tokenClass]: "Token Classification",
   [Titles.qa]: "Question Answering",
   // [Titles.odqa]: "Open-Domain QA",
-  // [Titles.glue]: "GLUE",
+  [Titles.glue]: "GLUE",
   // [Titles.superGlue]: "SuperGLUE",
 }
 export const routesForDemo: Routes = {
@@ -120,6 +120,6 @@ export const routesForDemo: Routes = {
   // [Titles.odqa]: [
 
   // ],
-  /*[Titles.glue]: [],
-  [Titles.superGlue]: [],*/
+  [Titles.glue]: [],
+  /*[Titles.superGlue]: [],*/
 }
