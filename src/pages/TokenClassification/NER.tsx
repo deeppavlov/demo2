@@ -33,23 +33,19 @@ const config: BaseSkillProps<StoreReq, Res> = {
   examples: [
     {
       question:
-        "John, did you set a weekly appointment reminder? Can't find it in my inbox.",
+        'Computer Sciences Corp . , El Segundo , Calif . , said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi',
     },
     {
       question:
-        "Let's order pizza delivery at Pizza Home for 3 pm.",
+        'Imo Industries Inc . -- $ 150 million of senior subordinated debentures due 2001 , priced at par to yield 12 % .',
     },
     {
       question:
-        "Spiel den song major Tom von David Bowie.",
+        'Amtech , which also provides technical temporary employment services to aerospace , defense , computer and high - tech companies in the Southwest and Baltimore - Washington areas , said its final audited results are due in late November .',
     },
     {
       question:
-        "Pouvez-vous lister les options de livraison les plus cotées pour la nourriture chinoise?",
-    },
-    {
-      question:
-        "Как думаешь, надо ли мне закрыть окно перед сегодняшней прогулкой? Хочу после неё взять такси и уехать в Рязань.",
+        'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).',
     }
   ],
   api: api("https://7036.deeppavlov.ai/model"),
