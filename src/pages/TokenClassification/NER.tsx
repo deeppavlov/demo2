@@ -13,8 +13,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
       <b>person names</b>, <b>quantity expressions</b>,{" "}
       <b>percentage expressions</b>, <b>names of locations</b>,{" "}
       <b>organizations</b>, as well as expression of <b>time</b>,{" "}
-      <b>currency</b> and others. Our model was trained on a multilingual
-      dataset and can recognize 33 entities. NER can be used as a knowledge
+      <b>currency</b> and others. NER can be used as a knowledge
       extractor when you are interested in a piece of certain information in
       your text. To learn more on implementation read our{" "}
       <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/NER.html">
@@ -51,31 +50,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     {
       question:
         "Как думаешь, надо ли мне закрыть окно перед сегодняшней прогулкой? Хочу после неё взять такси и уехать в Рязань.",
-    },
-    {
-      question:
-        'Установи освещение в гостиной комнате белого цвета.',
-    },
-    {
-      question:
-        "Ali ile gelecek hafta salı toplantı.",
-    },
-    {
-      question:
-        "Жандос Жұмабек, Ерболат Әбіш, Самат Нағашыбекұлы, «Қорытынды жаңалықтар» Түркістаннан.",
-    },
-    {
-      question:
-        "Абмываецца Персідскім залівам на паўночным усходзе і Чырвоным морам на захадзе.",
-    },
-    {
-      question:
-        "Новосибирск өлкәсе, Томск өлкәсе биләмәләрендә ага.",
-    },
-    {
-      question:
-        "Neunkirchen (okrug) okrugi tarkibiga kiradi.",
-    },
+    }
   ],
   api: api("https://7036.deeppavlov.ai/model"),
   renderAnswer: { type: "ner", colors: ontonotesClasses },
