@@ -1,7 +1,7 @@
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
 import api, { Res, StoreReq } from "lib/api"
-import { newNer } from "utils/utils"
+import { ontonotesClasses } from "utils/utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 const config: BaseSkillProps<StoreReq, Res> = {
@@ -78,7 +78,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
   ],
   api: api("https://7036.deeppavlov.ai/model"),
-  renderAnswer: { type: "ner", colors: newNer },
+  renderAnswer: { type: "ner", colors: ontonotesClasses },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
 

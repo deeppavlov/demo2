@@ -4,7 +4,7 @@ import { Links } from "router/Routes"
 import {
   renderNerClasses,
   newIntent,
-  newNer,
+  ontonotesClasses,
   topicClasses,
   sentimentClasses,
   insultClasses,
@@ -30,7 +30,7 @@ export const Classes: FC<ClassesProps> = (props) => {
   const type = pathName.split("/")[2] as Links
 
   const classes: tclasses = {
-    [Links.tokenNer]: newNer,
+    [Links.tokenNer]: ontonotesClasses,
     [Links.textIntent]: newIntent,
     [Links.textTopic]: topicClasses,
     [Links.textSentiment]: sentimentClasses,
