@@ -1,7 +1,7 @@
 import React from "react"
 import skillWrapper, { BaseSkillProps } from "components/BaseSkill"
 import api, { Res, StoreReq } from "lib/api"
-import { ontonotesClasses } from "utils/utils"
+import { newNer } from "utils/utils"
 import { CustomLink } from "components/CustomLink/CustomLink"
 import { scripts } from "assets/scripts"
 const config: BaseSkillProps<StoreReq, Res> = {
@@ -33,15 +33,19 @@ const config: BaseSkillProps<StoreReq, Res> = {
   examples: [
     {
       question:
-        'Computer Sciences Corp . , El Segundo , Calif . , said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi',
+        'Computer Sciences Corp., El Segundo, Calif., said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi',
     },
     {
       question:
-        'Imo Industries Inc . -- $ 150 million of senior subordinated debentures due 2001 , priced at par to yield 12 % .',
+        'Imo Industries Inc. -- $150 million of senior subordinated debentures due 2001, priced at par to yield 12%.',
     },
     {
       question:
-        'Amtech , which also provides technical temporary employment services to aerospace , defense , computer and high - tech companies in the Southwest and Baltimore - Washington areas , said its final audited results are due in late November .',
+        "À la fin 2019, le Louvre conserve plus de 500000 œuvres, dont plus de 36000 étaient exposées. Elles présentent l'art occidental du Moyen Âge à 1848, celui des civilisations antiques qui l'ont précédé et influencé (orientales, égyptienne, grecque, étrusque et romaine), les arts des premiers chrétiens et de l'islam.",
+    },
+    {
+      question:
+        "Cuenta con un PIB nominal de 142 223 millones € y un PIB per cápita nominal de 30 619 €, lo que representa un PIB PPA per cápita de 36 240 €,11​ siendo la segunda área metropolitana española en actividad económica y la decimoséptima europea después de Londres, París, Rin-Ruhr, Ámsterdam.",
     },
     {
       question:
@@ -49,7 +53,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     }
   ],
   api: api("https://7013.deeppavlov.ai/model"),
-  renderAnswer: { type: "ner", colors: ontonotesClasses },
+  renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
 

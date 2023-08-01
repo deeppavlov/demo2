@@ -5,6 +5,7 @@ import {
   renderNerClasses,
   newIntent,
   ontonotesClasses,
+  newNer,
   topicClasses,
   sentimentClasses,
   insultClasses,
@@ -30,7 +31,7 @@ export const Classes: FC<ClassesProps> = (props) => {
   const type = pathName.split("/")[2] as Links
 
   const classes: tclasses = {
-    [Links.tokenNer]: ontonotesClasses,
+    [Links.tokenNer]: newNer,
     [Links.textIntent]: newIntent,
     [Links.textTopic]: topicClasses,
     [Links.textSentiment]: sentimentClasses,

@@ -30,6 +30,10 @@ const colors = {
   darkslategray: "#385F71",
   burlywood: "#D7B377",
   dimgray: "#8F754F",
+  deepsaffron: "#ff9933",
+  amethyst: "#9966cc",
+  boysenberry: "#873260",
+  brightmaroon: "#c32148"
 }
 
 const insultClasses = {
@@ -118,10 +122,6 @@ const emotionClasses = {
   FEAR: { color: colors.cyan },
 }
 const newNer = {
-  ARTIST_NAME: {
-    color: colors.blue,
-    // text: "Artist_name"
-  },
   BUSINESS_NAME: {
     color: colors.cobaltblue,
     // text: "Business_name, Business_type"
@@ -130,21 +130,17 @@ const newNer = {
     color: colors.deeppink,
     // text: "Business_type"
   },
-  CHANGE_AMOUNT: {
-    color: colors.bottlegreen,
-    // text: "Change_amount"
+  CARDINAL: {
+    color: colors.blueviolet,
+    // text: "Cardinal"
   },
   COLOR_TYPE: {
     color: colors.coolblack,
     // text: "Color_type"
   },
-  CURRENCY_NAME: {
-    color: colors.cyan,
-    // text: "Currency_name"
-  },
-  DATE: {
+  DATETIME: {
     color: colors.dark,
-    // text: "Date"
+    // text: "Datetime"
   },
   DEFINITION_WORD: {
     color: colors.darktangerine,
@@ -186,6 +182,14 @@ const newNer = {
     color: colors.quenblue,
     // text: "Joke_type"
   },
+  LANGUAGE: {
+    color: colors.amethyst,
+    // text: "LANGUAGE"
+  },
+  LAW: {
+    color: colors.deepsaffron,
+    // text: "LAW"
+  },
   LIST_NAME: {
     color: colors.red,
     // text: "List_name"
@@ -198,21 +202,45 @@ const newNer = {
     color: colors.smokyblack,
     // text: "Media_type"
   },
+  MONEY: {
+    color: colors.cyan,
+    // text: "Money"
+  },
   MUSIC_GENRE: {
     color: colors.vividred,
     // text: "Music_genre"
+  },
+  NORP: {
+    color: colors.bottlegreen,
+    // text: "Norp"
   },
   ORDER_TYPE: {
     color: colors.yellow,
     // text: "Order_type"
   },
+  ORDINAL: {
+    color: colors.blue,
+    // text: "Ordinal"
+  },
+  PERCENT: {
+    color: colors.bottlegreen,
+    // text: "Percent"
+  },
   PERSON: {
     color: colors.lightseagreen,
     // text: "Person"
   },
+  PERSONAL_INFO: {
+    color: colors.boysenberry,
+    // text: "PERSONAL_INFO"
+  },
   PLACE_NAME: {
     color: colors.slateblue,
     // text: "Place_name"
+  },
+  QUANTITY: {
+    color: colors.darkslategray,
+    // text: "Quantity"
   },
   RADIO_NAME: {
     color: colors.grey,
@@ -222,34 +250,26 @@ const newNer = {
     color: colors.deeppink,
     // text: "Relation"
   },
-  SONG_NAME: {
-    color: colors.bottlegreen,
-    // text: "Song_name"
-  },
-  SPORT_TYPE: {
-    color: colors.cyan,
-    // text: "Sport_type"
-  },
-  TIME: {
-    color: colors.blueviolet,
-    // text: "Time"
-  },
   TIMEOFDAY: {
     color: colors.dodgerblue,
     // text: "Timeofday"
   },
   TRANSPORT_AGENCY: {
-    color: colors.dimgray,
-    // text: "Transport_agency"
+    color: colors.brightmaroon,
+    // text: "TRANSPORT_AGENCY"
   },
   TRANSPORT_TYPE: {
-    color: colors.darkslategray,
+    color: colors.dimgray,
     // text: "Transport_type"
   },
   WEATHER_DESCRIPTOR: {
     color: colors.burlywood,
     // text: "Weather_descriptor"
   },
+  WORK_OF_ART: {
+    color: colors.cyan,
+    // text: "Work_of_art"
+  }
 }
 const newIntent = {
   ALARM: { color: colors.blue, text: "ALARM_QUERY, ALARM_REMOVE, ALARM_SET" },
