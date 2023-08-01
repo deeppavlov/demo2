@@ -124,151 +124,151 @@ const emotionClasses = {
 const newNer = {
   BUSINESS_NAME: {
     color: colors.cobaltblue,
-    // text: "Business_name, Business_type"
+    text: "Companies, agencies, institutions, etc."
   },
   BUSINESS_TYPE: {
     color: colors.deeppink,
-    // text: "Business_type"
+    text: "Restaurants, theaters, food courts, bars, etc."
   },
   CARDINAL: {
     color: colors.blueviolet,
-    // text: "Cardinal"
+    text: "Numerals that do not fall under another type."
   },
   COLOR_TYPE: {
     color: colors.coolblack,
-    // text: "Color_type"
+    text: "Red, green, blue, etc."
   },
   DATETIME: {
     color: colors.dark,
-    // text: "Datetime"
+    text: "Dates and times."
   },
   DEFINITION_WORD: {
     color: colors.darktangerine,
-    // text: "Definition_word"
+    text: "The word to which the definition is given in proposed sentence."
   },
   DEVICE_TYPE: {
     color: colors.deepkoamaru,
-    // text: "Device_type"
+    text: "Vacuum cleaners, coffee makers, PS4, etc."
   },
   EMAIL_ADDRESS: {
     color: colors.green,
-    // text: "Email_address"
+    text: "Email addresses."
   },
   EMAIL_FOLDER: {
     color: colors.slateblue,
-    // text: "Email_folder"
+    text: "Inbox, spam, drafts, etc."
   },
   EVENT_NAME: {
     color: colors.grey,
-    // text: "Event_name"
+    text: "Named hurricanes, battles, wars, sports events, conferences, unnamed events (such as meetings, doctor visits), etc."
   },
   FOOD_TYPE: {
     color: colors.neoncarrot,
-    // text: "Food_type"
+    text: "Pizza, wings, eggs, sandwich, etc."
   },
   GAME_NAME: {
     color: colors.olivedrab,
-    // text: " Game_name"
+    text: "Video games, card games, etc."
   },
   GENERAL_FREQUENCY: {
     color: colors.darkorange,
-    // text: "General_frequency"
+    text: "Annual, every day, weekly, etc."
   },
   HOUSE_PLACE: {
     color: colors.prune,
-    // text: "House_place"
+    text: "Places in the house: bathroom, kitchen, etc."
   },
   JOKE_TYPE: {
     color: colors.quenblue,
-    // text: "Joke_type"
+    text: 'Words related with joke: "funny joke", "joke about cats", etc.'
   },
   LANGUAGE: {
     color: colors.amethyst,
-    // text: "LANGUAGE"
+    text: "Any named language."
   },
   LAW: {
     color: colors.deepsaffron,
-    // text: "LAW"
+    text: "Named documents made into laws."
   },
   LIST_NAME: {
     color: colors.red,
-    // text: "List_name"
+    text: "Shopping list, to-do list, etc."
   },
   MEAL_TYPE: {
     color: colors.dodgerblue,
-    // text: "Meal_type"
+    text: "Dinner, lunch, breakfast, etc."
   },
   MEDIA_TYPE: {
     color: colors.smokyblack,
-    // text: "Media_type"
+    text: "Names of news and media agencies: Guardian, Facebook, YouTube, etc."
   },
   MONEY: {
     color: colors.cyan,
-    // text: "Money"
+    text: "Monetary values, including unit."
   },
   MUSIC_GENRE: {
     color: colors.vividred,
-    // text: "Music_genre"
+    text: "Names of music genres."
   },
   NORP: {
     color: colors.bottlegreen,
-    // text: "Norp"
+    text: "Nationalities or religious or political groups."
   },
   ORDER_TYPE: {
     color: colors.yellow,
-    // text: "Order_type"
+    text: "Delivery, take-out, takeaway, etc."
   },
   ORDINAL: {
     color: colors.blue,
-    // text: "Ordinal"
+    text: "First, second, etc."
   },
   PERCENT: {
     color: colors.bottlegreen,
-    // text: "Percent"
+    text: 'Percentage, including "%".'
   },
   PERSON: {
     color: colors.lightseagreen,
-    // text: "Person"
+    text: "People, including fictional."
   },
   PERSONAL_INFO: {
     color: colors.boysenberry,
-    // text: "PERSONAL_INFO"
+    text: 'Words representing personal information: "email", "phone number", etc.'
   },
   PLACE_NAME: {
     color: colors.slateblue,
-    // text: "Place_name"
+    text: "Countries, cities, mountain ranges, bodies of water, airports, bridges, hughways, etc."
   },
   QUANTITY: {
     color: colors.darkslategray,
-    // text: "Quantity"
+    text: "Measurements, as of weight or distance."
   },
   RADIO_NAME: {
     color: colors.grey,
-    // text: " Radio_name"
+    text: "Names of radio stations."
   },
   RELATION: {
     color: colors.deeppink,
-    // text: "Relation"
+    text: "Everything that represents relations: mother, colleague, 11-year old son, etc."
   },
   TIMEOFDAY: {
     color: colors.dodgerblue,
-    // text: "Timeofday"
+    text: "Morning, night, etc."
   },
   TRANSPORT_AGENCY: {
     color: colors.brightmaroon,
-    // text: "TRANSPORT_AGENCY"
+    text: "Names of taxi agencies."
   },
   TRANSPORT_TYPE: {
     color: colors.dimgray,
-    // text: "Transport_type"
+    text: "Train, taxi, metro, etc."
   },
   WEATHER_DESCRIPTOR: {
     color: colors.burlywood,
-    // text: "Weather_descriptor"
+    text: "Weather types (cold, sunny, windy, etc.) and clothes (umbrella, raincoat, etc.)."
   },
   WORK_OF_ART: {
     color: colors.cyan,
-    // text: "Work_of_art"
+    text: "Titles of books, songs, paintings, etc."
   }
 }
 const newIntent = {
