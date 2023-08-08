@@ -55,7 +55,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
         'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).',
     }
   ],
-  api: api("https://7013.deeppavlov.ai/model"),
+  api: api("https://7039.deeppavlov.ai/model"),
   renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
