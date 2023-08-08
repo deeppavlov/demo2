@@ -41,14 +41,14 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "À la fin 2019, le Louvre conserve plus de 500000 œuvres, dont plus de 36000 étaient exposées. Elles présentent l'art occidental du Moyen Âge à 1848, celui des civilisations antiques qui l'ont précédé et influencé (orientales, égyptienne, grecque, étrusque et romaine), les arts des premiers chrétiens et de l'islam.",
+        "À la fin 2019, le Louvre conserve plus de 500000 œuvres, dont plus de 36000 étaient exposées. Elles présentent l'art occidental du Moyen Âge au XIXe siècle, celui des civilisations antiques qui l'ont précédé et influencé (égyptienne, grecque, étrusque et romaine), les arts des premiers chrétiens et de l'islam.",
     },
     {
       question:
-        "Cuenta con un PIB nominal de 142 223 millones € y un PIB per cápita nominal de 30 619 €, lo que representa un PIB PPA per cápita de 36 240 €,11​ siendo la segunda área metropolitana española en actividad económica y la decimoséptima europea después de Londres, París, Rin-Ruhr, Ámsterdam.",
+        "Cuenta con un PIB nominal de 142,223 millones € y un PIB per cápita nominal de 30,619 €, lo que representa un PIB PPA per cápita de 36,240 €, 11​ siendo la segunda área metropolitana española en actividad económica y la decimoséptima europea después de Londres, París, Rin-Ruhr, Ámsterdam.",
     },
     {
-      question: "Tesla is one of the world's most valuable companies and, as of 2023, is the world's most valuable automaker. In 2022, the company led the battery electric vehicle market, with 18% share. Its subsidiary Tesla Energy develops and is a major installer of photovoltaic systems in the United States. Tesla Energy is one of the largest global suppliers of battery energy storage systems with 6 gigawatt-hours installed in 2022."
+      question: "Tesla is the world's most valuable automaker company. In 2022, the company led the battery electric vehicle market, with 18% share. Its subsidiary Tesla Energy develops and is a major installer of photovoltaic systems in the United States. Tesla Energy is one of the largest global suppliers of battery energy storage systems."
     },
     {
       question:
