@@ -57,7 +57,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "Grandpa gave Monica the shopping list. Ne peut pas trouver la lettre de mark@gmail.com. Me gustaría comerme una hamburguesa de res doble con papas fritas. Geben sie mir ihre adresse und telefonnummer. Включи поп музыку, так будет веселее играть в Tetris.",
+        "Grandpa gave Monica the shopping list. Ne peut pas trouver la lettre de myfriend@somemail.country. Me gustaría comerme una hamburguesa de res doble con papas fritas. Geben sie mir ihre adresse und telefonnummer. Включи поп музыку, так будет веселее играть в Tetris",
     }
   ],
   api: api("https://7039.deeppavlov.ai/model"),
