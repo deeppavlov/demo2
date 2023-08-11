@@ -146,10 +146,6 @@ const newNer = {
     color: colors.darktangerine,
     text: "The word to which the definition is given in proposed sentence."
   },
-  DEVICE_TYPE: {
-    color: colors.deepkoamaru,
-    text: "Vacuum cleaners, coffee makers, PS4, etc."
-  },
   EMAIL_ADDRESS: {
     color: colors.green,
     text: "Email addresses."
@@ -200,7 +196,7 @@ const newNer = {
   },
   MEDIA_TYPE: {
     color: colors.smokyblack,
-    text: "Names of news and media agencies: Guardian, Facebook, YouTube, etc."
+    text: "Names of news and media agencies, and media related words (tweet, audiobook, website, etc.)."
   },
   MONEY: {
     color: colors.cyan,
@@ -223,7 +219,7 @@ const newNer = {
     text: "First, second, etc."
   },
   PERCENT: {
-    color: colors.bottlegreen,
+    color: colors.coolblack,
     text: 'Percentage, including "%".'
   },
   PERSON: {
@@ -237,6 +233,10 @@ const newNer = {
   PLACE_NAME: {
     color: colors.slateblue,
     text: "Countries, cities, mountain ranges, bodies of water, airports, bridges, hughways, etc."
+  },
+  PRODUCT: {
+    color: colors.neoncarrot,
+    text: "Objects, vehicles, etc. (not services).",
   },
   QUANTITY: {
     color: colors.darkslategray,
