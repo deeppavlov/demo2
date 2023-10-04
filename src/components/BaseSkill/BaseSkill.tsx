@@ -292,7 +292,7 @@ class BaseSkill extends Component<Props, State> {
   renderTopic = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString().toUpperCase()
-    
+
     return (
       <div className={s.basic} key={i}>
         <p>
@@ -515,7 +515,7 @@ class BaseSkill extends Component<Props, State> {
       <div className={s.container}>
         <Loader loading={loading} />
         <ErrorHandler error={error} onErrorClose={this.onErrorClose} />
-        <p className={s.title}>{title}</p>
+        <h4 className={s.title}>{title}</h4>
         {desc && <div>{desc}</div>}
         {isIntegration && <Integration snippets={snippets} />}
         {isExamples && (

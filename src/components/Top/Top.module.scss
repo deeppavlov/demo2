@@ -51,10 +51,15 @@
   margin: 0;
   font-family: "Montserrat";
   font-size: 72px;
-  line-height: 110%;
+  letter-spacing: -0.02em;
+}
+
+.header .title h1 {
+  color: black;
+  margin: 0;
+  font-size: 72px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: black;
 }
 
 .header .title a {
@@ -80,7 +85,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .header .title {
+  .header .title h1 {
     font-size: 64px;
   }
 }
@@ -97,7 +102,7 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .header .title {
+  .header .title h1 {
     font-size: 38px;
   }
   .header .middle .left .check {
@@ -109,7 +114,7 @@
 }
 
 @media only screen and (max-width: 320px) {
-  .header .title {
+  .header .title h1 {
     font-size: 30px;
   }
 }

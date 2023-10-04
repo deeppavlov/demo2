@@ -11,7 +11,7 @@ export const Header: FC<HeaderProps> = () => {
     <div ref={ref} className="accentColor sticky">
       <Limiter>
         <div className={s.top}>
-          <p className={s.subtitle}>demo.deeppavlov.ai</p>
+          <h2 className={s.subtitle}>demo.deeppavlov.ai</h2>
           <Buttons reverse />
         </div>
       </Limiter>
