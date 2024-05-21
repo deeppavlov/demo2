@@ -269,7 +269,28 @@ const newNer = {
   WORK_OF_ART: {
     color: colors.cyan,
     text: "Titles of books, songs, paintings, etc."
-  }
+  },
+  PHONE_NUMBER: {
+    color: colors.lightseagreen,
+    text: "Sequence of numbers and digits standing for a phone number" }, 
+  STREET_NAME: { 
+    color: colors.slateblue, 
+    text: "Names of streets and roads: Pratt Freeway, etc." }, 
+  BUILDING_NUMBER: { 
+    color: colors.deeppink, 
+    text: "Numbers that identify buildings at a street address" }, 
+  APPARTMENT: { 
+    color: colors.blueviolet, 
+    text: "Numbers identifying appartments" }, 
+  CITY: { 
+    color: colors.burlywood, 
+    text: "Names of cities, towns and villages: Los Angeles, Josephtown, etc." }, 
+  REGION: { 
+    color: colors.darkslategray, 
+    text: "Names of administrative areas, districts and regions in a country" }, 
+  STATE: { 
+    color: colors.deepsaffron, 
+    text: "Political division in a country, like CA, California, etc." },
 }
 const newIntent = {
   ALARM: { color: colors.blue, text: "ALARM_QUERY, ALARM_REMOVE, ALARM_SET" },
