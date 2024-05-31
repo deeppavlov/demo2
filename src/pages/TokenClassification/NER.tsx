@@ -58,17 +58,9 @@ const config: BaseSkillProps<StoreReq, Res> = {
     {
       question:
         "Grandpa gave Monica the shopping list. Ne peut pas trouver la lettre de myfriend@somemail.country. Me gustaría comerme una hamburguesa de res doble con papas fritas. Geben sie mir ihre adresse und telefonnummer. Включи поп музыку, так будет веселее играть в Tetris",
-    },
-    { 
-      question:
-        "The National Museum of African American Music (NMAAM) located at 510 Broadway, Nashville is the only museum of its kind dedicated to preserving and celebrating the history of Black music in America."
-    },
-    { 
-      question:
-        "Музей-квартира Владимира Ивановича Немировича-Данченко был создан как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. В доме 5 в Глинищевском переулке Немирович-Данченко прожил последние пять лет своей жизни."
     }
   ],
-  api: api("https://7002.deeppavlov.ai/model"),
+  api: api("https://7039.deeppavlov.ai/model"),
   renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
