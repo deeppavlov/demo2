@@ -282,7 +282,7 @@ const newNer = {
     color: colors.deeppink, 
     text: "Numbers that identify buildings at a street address" 
   }, 
-  APPARTMENT: { 
+  APARTMENT: { 
     color: colors.blueviolet, 
     text: "Numbers identifying appartments" 
   }, 
