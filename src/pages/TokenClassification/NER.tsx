@@ -76,7 +76,7 @@ const config: BaseSkillProps<StoreReq, Res> = {
         "Chen points out that every year more than 900,000 residents of Taipei - or more than 30 % of its population - travel overseas"
     }
   ],
-  api: api("https://7039.deeppavlov.ai/model"),
+  api: api("https://7002.deeppavlov.ai/model"),
   renderAnswer: { type: "ner", colors: newNer },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
