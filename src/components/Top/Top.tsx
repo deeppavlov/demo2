@@ -15,9 +15,9 @@ export const Top: FC<TopProps> = (props) => {
             <div className={s.left}>
               <p className={s.title}>
                 <a href="https://deeppavlov.ai">
-                  <span className={s.blue}>DeepPavlov</span>
+                  <span className={s.blue}>DeepPavlov 1.6.0</span>
                 </a>
-                <h1>DeepPavlov</h1>
+                <h1>DeepPavlov 1.0</h1>
               </p>
               <span className={s.check}>
                 Check and try our product's demo with us.
