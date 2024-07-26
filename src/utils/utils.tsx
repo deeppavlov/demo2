@@ -142,29 +142,17 @@ const newNer = {
     color: colors.dark,
     text: "Dates and times."
   },
-  DEFINITION_WORD: {
-    color: colors.darktangerine,
-    text: "The word to which the definition is given in proposed sentence."
-  },
   EMAIL_ADDRESS: {
     color: colors.green,
     text: "Email addresses."
-  },
-  EMAIL_FOLDER: {
-    color: colors.slateblue,
-    text: "Inbox, spam, drafts, etc."
   },
   EVENT_NAME: {
     color: colors.grey,
     text: "Named hurricanes, battles, wars, sports events, conferences, unnamed events (such as meetings, doctor visits), etc."
   },
   FOOD_TYPE: {
-    color: colors.neoncarrot,
+    color: colors.red,
     text: "Pizza, wings, eggs, sandwich, etc."
-  },
-  GAME_NAME: {
-    color: colors.olivedrab,
-    text: "Video games, card games, etc."
   },
   GENERAL_FREQUENCY: {
     color: colors.darkorange,
@@ -174,10 +162,6 @@ const newNer = {
     color: colors.prune,
     text: "Places in the house: bathroom, kitchen, etc."
   },
-  JOKE_TYPE: {
-    color: colors.quenblue,
-    text: 'Words related with joke: "funny joke", "joke about cats", etc.'
-  },
   LANGUAGE: {
     color: colors.amethyst,
     text: "Any named language."
@@ -185,10 +169,6 @@ const newNer = {
   LAW: {
     color: colors.deepsaffron,
     text: "Named documents made into laws."
-  },
-  LIST_NAME: {
-    color: colors.red,
-    text: "Shopping list, to-do list, etc."
   },
   MEAL_TYPE: {
     color: colors.dodgerblue,
@@ -210,10 +190,6 @@ const newNer = {
     color: colors.bottlegreen,
     text: "Nationalities or religious or political groups."
   },
-  ORDER_TYPE: {
-    color: colors.yellow,
-    text: "Delivery, take-out, takeaway, etc."
-  },
   ORDINAL: {
     color: colors.blue,
     text: "First, second, etc."
@@ -226,25 +202,13 @@ const newNer = {
     color: colors.lightseagreen,
     text: "People, including fictional."
   },
-  PERSONAL_INFO: {
-    color: colors.boysenberry,
-    text: 'Words representing personal information: "email", "phone number", etc.'
-  },
   PLACE_NAME: {
     color: colors.slateblue,
     text: "Countries, cities, mountain ranges, bodies of water, airports, bridges, hughways, etc."
   },
-  PRODUCT: {
-    color: colors.neoncarrot,
-    text: "Objects, vehicles, etc. (not services).",
-  },
   QUANTITY: {
     color: colors.darkslategray,
     text: "Measurements, as of weight or distance."
-  },
-  RADIO_NAME: {
-    color: colors.grey,
-    text: "Names of radio stations."
   },
   RELATION: {
     color: colors.deeppink,
@@ -275,11 +239,11 @@ const newNer = {
     text: "Sequence of numbers and digits standing for a phone number" 
   }, 
   STREET_NAME: { 
-    color: colors.slateblue, 
+    color: colors.quenblue, 
     text: "Names of streets and roads: Pratt Freeway, etc." 
   }, 
   BUILDING_NUMBER: { 
-    color: colors.deeppink, 
+    color: colors.darktangerine, 
     text: "Numbers that identify buildings at a street address" 
   }, 
   APARTMENT: { 
@@ -291,7 +255,7 @@ const newNer = {
     text: "Names of cities, towns and villages: Los Angeles, Josephtown, etc." 
   }, 
   REGION: { 
-    color: colors.darkslategray, 
+    color: colors.boysenberry, 
     text: "Names of administrative areas, districts and regions in a country" 
   }, 
   STATE: { 

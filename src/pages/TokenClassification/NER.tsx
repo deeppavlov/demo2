@@ -33,47 +33,23 @@ const config: BaseSkillProps<StoreReq, Res> = {
   examples: [
     {
       question:
+        "I am excited to invite you to my 30th birthday party on Saturday, May 16th at 6 pm. The celebration will take place at the delightful Tasty Food restaurant, located at 50431 Sherry Lodge, Mitchellberg. This event, which occurs once a year, will be a joyous gathering of friends and family. We will be indulging in a delicious dinner featuring Italian cuisine. As we celebrate, we expect a warm and sunny weather, perfect for enjoying the evening. Dress code: smart casual, with a touch of green and color to add a festive flair."
+    },
+    {
+      question:
+        "On this warm, sunny, and lovely day for a walk in Central Park, David was in a hurry for an interview at the tech giant Groggle Company. He woke up at 6 AM but didn't have time to have a proper breakfast. David, a young man, lives in his brother's house, which includes a bathroom, a bedroom and a living room, located outside the bustling city of New York. His brother, Alex, who is five years older than him, often advises him to move closer to the city."
+    },
+    {
+      question:
+        "Cuenta con un PIB nominal de 142223 millones € y un PIB per cápita nominal de 30619 €, lo que representa un PIB PPA per cápita de 36240 €, 11​ siendo la segunda área metropolitana francesa en actividad económica y la decimoséptima mundial después de Londres, París, Rin-Ruhr, Ámsterdam. Наш отель располагается по адресу Москва, улица Новая, дом 14. Ресторан при нашем отеле открыт каждый день, кроме воскресенья, с 10 утра и до 8 вечера. Last year, US corporations occupied 80% of Tianjin City's foreign merchant investment, with operating volume occupying 32%, but profits occupying 45%. "
+    },
+    {
+      question:
         "Музей-квартира Владимира Ивановича Немировича-Данченко была создана как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. В доме 5 в Глинищевском переулке Немирович-Данченко прожил последние пять лет своей жизни."
     },
     {
       question:
-        "Tesla, as of 2023, is the world's most valuable automaker. In 2022, the company led the battery electric vehicle market, with 18% share. Its subsidiary Tesla Energy develops and is a major installer of photovoltaic systems in the United States. Tesla Energy is one of the largest global suppliers of battery energy storage systems with 6 gigawatt-hours installed in 2022."
-    },
-    {
-      question:
-        "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США)."
-    },
-    {
-      question:
-        "The National Museum of African American Music (NMAAM) located at 510 Broadway, Nashville is the only museum of its kind dedicated to preserving and celebrating the history of Black music in America."
-    },
-    {
-      question:
-        "I am excited to invite you to my birthday party on May 16th, taking place at delightful Tasty Food restaurant located at 50431 Sherry Lodge, Mitchellberg"
-    },
-    {
-      question:
-        "Last year, US corporations occupied 80% of Tianjin City's foreign merchant investment, with operating volume occupying 32%, but profits occupying 45%"
-    },
-    {
-      question:
-        "Cuenta con un PIB nominal de 142223 millones € y un PIB per cápita nominal de 30619 €, lo que representa un PIB PPA per cápita de 36240 €, 11​ siendo la segunda área metropolitana francesa en actividad económica y la decimoséptima mundial después de Londres, París, Rin-Ruhr, Ámsterdam"
-    },
-    {
-      question:
-        "Soichiro Honda's picture now hangs with Henry Ford's in the US Automotive Hall of Fame, and the game-show “Jeopardy'' is soon to be Sony-owned"
-    },
-    {
-      question:
-        "Свидетельство о регистрации по месту пребывания выдано Иванову Петру Сергеевичу 20 апреля 1985 года о том, что он зарегистрирован по месту пребывания по адресу: Московская обл., г. Красногорск, Красногорский пер., д. 35, кв. 9."
-    },
-    {
-      question:
-        "Two other firms, Ovonic Imaging Systems Inc. of Southfield, Mich., and Magnascreen Corp. of Pittsburgh are developing a variation of the flat-panel screens called active-matrix liquid crystal displays"
-    },
-    {
-      question:
-        "Chen points out that every year more than 900,000 residents of Taipei - or more than 30 % of its population - travel overseas"
+        "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе, Калифорния."
     }
   ],
   api: api("https://7002.deeppavlov.ai/model"),
