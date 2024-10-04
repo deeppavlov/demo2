@@ -33,7 +33,12 @@ const colors = {
   deepsaffron: "#ff9933",
   amethyst: "#9966cc",
   boysenberry: "#873260",
-  brightmaroon: "#c32148"
+  brightmaroon: "#c32148",
+  battleshipgrey: "#898980",
+  peach: "#F05A7E",
+  teal: "#96CEB4",
+  wood: "#825B32",
+  purple: "#ED3EF7"
 }
 
 const insultClasses = {
@@ -123,19 +128,19 @@ const emotionClasses = {
 }
 const newNer = {
   BUSINESS_NAME: {
-    color: colors.cobaltblue,
+    color: colors.cyan,
     text: "Companies, agencies, institutions, etc."
   },
   BUSINESS_TYPE: {
-    color: colors.deeppink,
+    color: colors.prune,
     text: "Restaurants, theaters, food courts, bars, etc."
   },
   CARDINAL: {
-    color: colors.blueviolet,
+    color: colors.smokyblack,
     text: "Numerals that do not fall under another type."
   },
   COLOR_TYPE: {
-    color: colors.coolblack,
+    color: colors.lightseagreen,
     text: "Red, green, blue, etc."
   },
   DATETIME: {
@@ -143,123 +148,123 @@ const newNer = {
     text: "Dates and times."
   },
   EMAIL_ADDRESS: {
-    color: colors.green,
+    color: colors.slateblue,
     text: "Email addresses."
   },
   EVENT_NAME: {
-    color: colors.grey,
+    color: colors.deepkoamaru,
     text: "Named hurricanes, battles, wars, sports events, conferences, unnamed events (such as meetings, doctor visits), etc."
   },
   FOOD_TYPE: {
-    color: colors.red,
+    color: colors.deeppink,
     text: "Pizza, wings, eggs, sandwich, etc."
   },
   GENERAL_FREQUENCY: {
-    color: colors.darkorange,
+    color: colors.blueviolet,
     text: "Annual, every day, weekly, etc."
   },
   HOUSE_PLACE: {
-    color: colors.prune,
+    color: colors.dodgerblue,
     text: "Places in the house: bathroom, kitchen, etc."
   },
   LANGUAGE: {
-    color: colors.amethyst,
+    color: colors.quenblue,
     text: "Any named language."
   },
   LAW: {
-    color: colors.deepsaffron,
+    color: colors.coolblack,
     text: "Named documents made into laws."
   },
   MEAL_TYPE: {
-    color: colors.dodgerblue,
+    color: colors.darkorange,
     text: "Dinner, lunch, breakfast, etc."
   },
   MEDIA_TYPE: {
-    color: colors.smokyblack,
+    color: colors.darkslategray,
     text: "Names of news and media agencies, and media related words (tweet, audiobook, website, etc.)."
   },
   MONEY: {
-    color: colors.cyan,
+    color: colors.grey,
     text: "Monetary values, including unit."
   },
   MUSIC_GENRE: {
-    color: colors.vividred,
+    color: colors.burlywood,
     text: "Names of music genres."
   },
   NORP: {
-    color: colors.bottlegreen,
+    color: colors.red,
     text: "Nationalities or religious or political groups."
   },
   ORDINAL: {
-    color: colors.blue,
+    color: colors.cobaltblue,
     text: "First, second, etc."
   },
   PERCENT: {
-    color: colors.coolblack,
+    color: colors.darktangerine,
     text: 'Percentage, including "%".'
   },
   PERSON: {
-    color: colors.lightseagreen,
+    color: colors.blue,
     text: "People, including fictional."
   },
   PLACE_NAME: {
-    color: colors.slateblue,
+    color: colors.green,
     text: "Countries, cities, mountain ranges, bodies of water, airports, bridges, hughways, etc."
   },
   QUANTITY: {
-    color: colors.darkslategray,
+    color: colors.vividred,
     text: "Measurements, as of weight or distance."
   },
   RELATION: {
-    color: colors.deeppink,
+    color: colors.dimgray,
     text: "Everything that represents relations: mother, colleague, 11-year old son, etc."
   },
   TIMEOFDAY: {
-    color: colors.dodgerblue,
+    color: colors.olivedrab,
     text: "Morning, night, etc."
   },
   TRANSPORT_AGENCY: {
-    color: colors.brightmaroon,
+    color: colors.deepsaffron,
     text: "Names of taxi agencies."
   },
   TRANSPORT_TYPE: {
-    color: colors.dimgray,
+    color: colors.amethyst,
     text: "Train, taxi, metro, etc."
   },
   WEATHER_DESCRIPTOR: {
-    color: colors.burlywood,
+    color: colors.boysenberry,
     text: "Weather types (cold, sunny, windy, etc.) and clothes (umbrella, raincoat, etc.)."
   },
   WORK_OF_ART: {
-    color: colors.cyan,
+    color: colors.bottlegreen,
     text: "Titles of books, songs, paintings, etc."
   },
   PHONE_NUMBER: {
-    color: colors.lightseagreen,
+    color: colors.brightmaroon,
     text: "Sequence of numbers and digits standing for a phone number" 
   }, 
   STREET_NAME: { 
-    color: colors.quenblue, 
+    color: colors.battleshipgrey, 
     text: "Names of streets and roads: Pratt Freeway, etc." 
   }, 
   BUILDING_NUMBER: { 
-    color: colors.darktangerine, 
+    color: colors.peach, 
     text: "Numbers that identify buildings at a street address" 
   }, 
   APARTMENT: { 
-    color: colors.blueviolet, 
+    color: colors.teal, 
     text: "Numbers identifying appartments" 
   }, 
   CITY: { 
-    color: colors.burlywood, 
+    color: colors.wood, 
     text: "Names of cities, towns and villages: Los Angeles, Josephtown, etc." 
   }, 
   REGION: { 
-    color: colors.boysenberry, 
+    color: colors.purple, 
     text: "Names of administrative areas, districts and regions in a country" 
   }, 
   STATE: { 
-    color: colors.deepsaffron, 
+    color: colors.yellow, 
     text: "Political division in a country, like CA, California, etc." 
   },
 }
