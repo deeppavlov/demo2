@@ -33,11 +33,11 @@ const config: BaseSkillProps<StoreReq, Res> = {
   examples: [
     {
       question:
-        "I am excited to invite you to my 30th birthday party on Saturday, May 16th at 6 pm. The celebration will take place at the delightful Tasty Food restaurant, located at 50431 Sherry Lodge, Mitchellberg. This event, which occurs once a year, will be a joyous gathering of friends and family. We will be indulging in a delicious dinner featuring Italian cuisine. As we celebrate, we expect a warm and sunny weather, perfect for enjoying the evening. Dress code: smart casual, with a touch of green and color to add a festive flair."
+        "I am excited to invite you to my 30th birthday party on Saturday, May 16th at 6 pm. The celebration will take place at the delightful Tasty Food restaurant, located at 50431 Sherry Lodge, Mitchellberg. This event, which occurs once a year, will be a joyous gathering of friends and family. We will be indulging in a delicious dinner featuring Italian cuisine. As we celebrate, we expect a warm and sunny weather, perfect for enjoying the evening. Dress code: smart casual, with a touch of blue and green colors to add a festive flair."
     },
     {
       question:
-        "On this warm, sunny, and lovely day for a walk in Central Park, David was in a hurry for an interview at the tech giant Groggle Company. He woke up at 6 AM but didn't have time to have a proper breakfast. David, a young man, lives in his brother's house, which includes a bathroom, a bedroom and a living room, located outside the bustling city of New York. His brother, Alex, who is five years older than him, often advises him to move closer to the city."
+        "On this sunny, warm and lovely day for a walk in Central Park, David was in a hurry for an interview at the tech giant Groggle Company. He woke up at 6 AM but didn't have time to have a proper breakfast. David, a young man, lives in his brother's house, which includes a bathroom, a bedroom and a living room, located outside the bustling city of New York. His brother, Alex, who is five years older than him, often advises him to move closer to the city."
     },
     {
       question:
@@ -45,11 +45,11 @@ const config: BaseSkillProps<StoreReq, Res> = {
     },
     {
       question:
-        "Музей-квартира Владимира Ивановича Немировича-Данченко была создана как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. В доме 5 в Глинищевском переулке Немирович-Данченко прожил последние пять лет своей жизни."
+        "Музей-квартира Владимира Ивановича Немировича-Данченко была создана как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. Немирович-Данченко прожил последние пять лет своей жизни в доме номер 5 в Глинищевском переулке ."
     },
     {
       question:
-        "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе, Калифорния."
+        "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе \"Hollywood and Highland Center\" в Лос-Анджелесе, Калифорния."
     }
   ],
   api: api("https://7002.deeppavlov.ai/model"),
