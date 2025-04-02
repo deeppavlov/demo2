@@ -33,24 +33,24 @@ const config: BaseSkillProps<StoreReq, Res> = {
   examples: [
     {
       question:
-        "I am excited to invite you to my 30th birthday party on Saturday, May 16th at 6 pm. The celebration will take place at the delightful Tasty Food restaurant, located at 50431 Sherry Lodge, Mitchellberg. This event, which occurs once a year, will be a joyous gathering of friends and family. We will be indulging in a delicious dinner featuring Italian cuisine. As we celebrate, we expect a warm and sunny weather, perfect for enjoying the evening. Dress code: smart casual, with a touch of blue and green colors to add a festive flair."
+      "I am excited to invite you to my 30th birthday party on May 16th at 8 pm in the evening. The celebration will take place at the delightful Tasty Food restaurant, located at 426 Jordy Lodge, Cartwrightshire. This event, which occurs once a year, will be a joyous gathering of friends and family. We will be indulging in a delicious dinner featuring Italian cuisine. Dress code: smart casual, with a touch of blue and green colors to add a festive flair."
     },
     {
       question:
-        "On this sunny, warm and lovely day for a walk in Central Park, David was in a hurry for an interview at the tech giant Groggle Company. He woke up at 6 AM but didn't have time to have a proper breakfast. David, a young man, lives in his brother's house, which includes a bathroom, a bedroom and a living room, located outside the bustling city of New York. His brother, Alex, who is five years older than him, often advises him to move closer to the city."
+      "Due to new regulations under the Fair Trade Act, customers are entitled to a refund for up to 30 items. For inquiries or to request a refund, please contact us at (123) 456-7890 or email support@example.com. All requests must be made in accordance with the outlined law and within the given timeframe."
     },
     {
       question:
-        "Cuenta con un PIB nominal de 142223 millones € y un PIB per cápita nominal de 30619 €, lo que representa un PIB PPA per cápita de 36240 €, 11​ siendo la segunda área metropolitana francesa en actividad económica y la decimoséptima mundial después de Londres, París, Rin-Ruhr, Ámsterdam. Наш отель располагается по адресу Москва, улица Новая, дом 14. Ресторан при нашем отеле открыт каждый день, кроме воскресенья, с 10 утра и до 8 вечера. Last year, US corporations occupied 80% of Tianjin City's foreign merchant investment, with operating volume occupying 32%, but profits occupying 45%. "
+      "Музей-квартира Владимира Ивановича Немировича-Данченко была создана как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. Немирович-Данченко прожил последние пять лет своей жизни в доме под номером 5 в Глинищевском переулке."
     },
     {
       question:
-        "Музей-квартира Владимира Ивановича Немировича-Данченко была создана как филиал Музея МХАТ постановлением Совнаркома СССР от 25 апреля 1943 года в целях увековечения памяти одного из основателей и руководителей Московского Художественного театра. Немирович-Данченко прожил последние пять лет своей жизни в доме номер 5 в Глинищевском переулке ."
+      "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе \"Cinematography Center\" в Лос-Анджелесе, Калифорния."
     },
     {
       question:
-        "Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию Оскар за выдающийся вклад в кинематограф, сообщается на сайте академии. Церемония награждения пройдет 27 октября в развлекательном комплексе \"Hollywood and Highland Center\" в Лос-Анджелесе, Калифорния."
-    }
+      "Cuenta con un PIB nominal de 142223 millones € y un PIB per cápita nominal de 30619 €, lo que representa un PIB PPA per cápita de 36240 €, 11​ siendo la segunda área metropolitana francesa en actividad económica y la decimoséptima después de Londres, París, Rin-Ruhr, Ámsterdam. Наш отель располагается по адресу Москва, улица Новая, дом 14. Ресторан при нашем отеле открыт каждый день, кроме воскресенья, с 10 утра и до 8 вечера. Last year, US corporations occupied 80% of Tianjin City's foreign merchant investment, with operating volume occupying 32%, but profits occupying 45%."
+    },
   ],
   api: api("https://7002.deeppavlov.ai/model"),
   renderAnswer: { type: "ner", colors: newNer },

@@ -209,7 +209,7 @@ const newNer = {
   },
   PLACE_NAME: {
     color: colors.green,
-    text: "Countries, cities, mountain ranges, bodies of water, airports, bridges, hughways, etc."
+    text: "Mountain ranges, bodies of water, airports, bridges, hughways, etc."
   },
   QUANTITY: {
     color: colors.vividred,
