@@ -169,6 +169,8 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderQA)
     } else if (renderAnswer.type === "insult") {
       return answers.map(this.renderInsult)
+    } else if (renderAnswer.type === "evergreen") {
+      return answers.map(this.renderEvergreen)
     } else if (renderAnswer.type === "sentiment") {
       return answers.map(this.renderSentiment)
     } else if (renderAnswer.type === "emotion") {
@@ -177,7 +179,7 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderTopic)
     } else if (renderAnswer.type === "entitylinking") {
       return answers.map(this.renderEntityLinking)
-    }
+    } 
   }
   renderEntityLinking = (mes: Answer, i: number) => {
     const rest = { ...mes }
@@ -270,6 +272,26 @@ class BaseSkill extends Component<Props, State> {
     )
   }
   renderInsult = (mes: Answer, i: number) => {
+    const { colors } = this.props.renderAnswer!
+    const answer = mes.answer[0].toString().toUpperCase()
+
+    return (
+      <div className={s.basic} key={i}>
+        <p>
+          <span
+            className="card"
+            style={{
+              backgroundColor: colors![answer].color!,
+            }}
+          >
+            {answer}
+          </span>
+        </p>
+        <p>{mes.question}</p>
+      </div>
+    )
+  }
+  renderEvergreen = (mes: Answer, i: number) => {
     const { colors } = this.props.renderAnswer!
     const answer = mes.answer[0].toString().toUpperCase()
 

@@ -5,6 +5,7 @@ import { Links } from "./Routes"
 import Emotion from "pages/TextClassification/Emotion"
 import Sentiment from "pages/TextClassification/Sentiment"
 import Toxic from "pages/TextClassification/Toxic"
+import Evergreen from "pages/TextClassification/EvergreenQA"
 import Topic from "pages/TextClassification/Topic"
 import Intent from "pages/TextClassification/Intent"
 
@@ -13,6 +14,7 @@ import NER from "pages/TokenClassification/NER"
 
 import ODQA from "pages/QuestionAnswering/ODQA"
 import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
+import EvergreenQA from "pages/TextClassification/EvergreenQA"
 
 // prettier-ignore
 export const Router = () => (
@@ -21,6 +23,7 @@ export const Router = () => (
     <Route path={`/:tab/${Links.textEmotion}`} exact component={Emotion} />
     <Route path={`/:tab/${Links.textTopic}`} exact component={Topic} /> 
     <Route path={`/:tab/${Links.textToxic}`} exact component={Toxic} /> 
+    <Route path={`/:tab/${Links.textEvergreen}`} exact component={EvergreenQA} /> 
     <Route path={`/:tab/${Links.textSentiment}`} exact component={Sentiment} />
     {/* <Route path={`/:tab/${Links.textFewShot}`} exact component={TextFewShot} /> */}
     

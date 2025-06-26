@@ -38,6 +38,7 @@ interface RenderAnswer {
     | "ranking"
     | "intent"
     | "insult"
+    | "evergreen"
     | "sentiment"
     | "topic" // new -  here and below
     | "textsentiment"

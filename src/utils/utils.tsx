@@ -45,6 +45,10 @@ const insultClasses = {
   INSULT: { color: colors.red },
   NOT_INSULT: { color: colors.green },
 }
+const evergreenClasses = {
+  NON_EVERGREEN: { color: colors.red },
+  EVERGREEN: { color: colors.green },
+}
 const sentimentClasses = {
   NEGATIVE: { color: colors.red },
   POSITIVE: { color: colors.bottlegreen },
@@ -356,6 +360,7 @@ export {
   renderNerClasses,
   ontonotesClasses,
   insultClasses,
+  evergreenClasses,
   sentimentClasses,
   topicClasses,
   emotionClasses,
