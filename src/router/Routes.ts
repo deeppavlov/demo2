@@ -5,6 +5,7 @@ import Sentiment from "pages/TextClassification/Sentiment"
 import Emotion from "pages/TextClassification/Emotion"
 import Intent from "pages/TextClassification/Intent"
 import NER from "pages/TokenClassification/NER"
+import NERNEW from "pages/TokenClassification/NERNEW"
 import ODQA from "pages/QuestionAnswering/ODQA"
 import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
 // import EntityLinking from "pages/TokenClassification/EntityLinking"
@@ -25,6 +26,7 @@ export enum Links {
   textEmotion = "text_emotion",
   textFewShot = "text_few_shot",
   tokenNer = "token_ner",
+  tokenNerNew = "token_ner_new",
   tokenPartOfSpeech = "token_part_of_speech",
   tokenEntityLinking = "token_entity_linking",
   tokenFewShot = "token_few_shot",
@@ -56,20 +58,14 @@ export const routesForDemo: Routes = {
       link: Links.textIntent,
       component: Intent,
     },
-    { title: "Topic",
-      link: Links.textTopic,
-      component: Topic },
+    { title: "Topic", link: Links.textTopic, component: Topic },
     {
       title: "Sentiment",
       link: Links.textSentiment,
       component: Sentiment,
     },
-    { title: "Toxicity",
-      link: Links.textToxic,
-      component: Toxic },
-    { title: "Emotion",
-      link: Links.textEmotion,
-      component: Emotion },
+    { title: "Toxicity", link: Links.textToxic, component: Toxic },
+    { title: "Emotion", link: Links.textEmotion, component: Emotion },
     /*{
       title: "Few-Shot",
       link: Links.textFewShot,
@@ -81,6 +77,11 @@ export const routesForDemo: Routes = {
       title: "Named Entity",
       link: Links.tokenNer,
       component: NER,
+    },
+    {
+      title: "Name",
+      link: Links.tokenNerNew,
+      component: NERNEW,
     },
     /*{
       title: "Part of Speech",

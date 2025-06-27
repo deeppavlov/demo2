@@ -34,9 +34,9 @@ type Props<Req = any, Res = any> = BaseSkillProps<Req, Res> &
   StateProps &
   RouteComponentProps
 interface State {
-  error: any
-  question: string
-  [key: string]: string
+  error?: any
+  question?: string
+  [key: string]: string | any
 }
 
 class BaseSkill extends Component<Props, State> {
@@ -132,7 +132,7 @@ class BaseSkill extends Component<Props, State> {
   renderExamples = (ex: Example, i: number) => {
     const { question } = this.state
     let checker = question === ex.question
-    const rest = { ...this.state }
+    const rest: any = { ...this.state }
     delete rest.question
     delete rest.error
     if (Object.keys(rest).length > 0) {
