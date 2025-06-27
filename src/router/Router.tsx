@@ -5,7 +5,6 @@ import { Links } from "./Routes"
 import Emotion from "pages/TextClassification/Emotion"
 import Sentiment from "pages/TextClassification/Sentiment"
 import Toxic from "pages/TextClassification/Toxic"
-import Evergreen from "pages/TextClassification/EvergreenQA"
 import Topic from "pages/TextClassification/Topic"
 import Intent from "pages/TextClassification/Intent"
 
