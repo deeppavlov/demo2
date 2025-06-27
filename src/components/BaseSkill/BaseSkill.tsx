@@ -301,10 +301,10 @@ class BaseSkill extends Component<Props, State> {
           <span
             className="card"
             style={{
-              backgroundColor: colors![answer].color!,
+              backgroundColor: colors![answer === "1" ? "EVERGREEN" : "NON_EVERGREEN"].color!,
             }}
-          >
-            {answer}
+          > 
+            {answer === "1" ? "EVERGREEN" : "NON_EVERGREEN"}
           </span>
         </p>
         <p>{mes.question}</p>
