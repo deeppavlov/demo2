@@ -34,9 +34,9 @@ type Props<Req = any, Res = any> = BaseSkillProps<Req, Res> &
   StateProps &
   RouteComponentProps
 interface State {
-  error: any
-  question: string
-  [key: string]: string
+  error?: any
+  question?: string
+  [key: string]: string | any
 }
 
 class BaseSkill extends Component<Props, State> {
@@ -132,7 +132,7 @@ class BaseSkill extends Component<Props, State> {
   renderExamples = (ex: Example, i: number) => {
     const { question } = this.state
     let checker = question === ex.question
-    const rest = { ...this.state }
+    const rest: any = { ...this.state }
     delete rest.question
     delete rest.error
     if (Object.keys(rest).length > 0) {
@@ -167,6 +167,8 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderIntent)
     } else if (renderAnswer.type === "textqa") {
       return answers.map(this.renderQA)
+    } else if (renderAnswer.type === "text_span") {
+      return answers.map(this.renderOnlyAnswer)
     } else if (renderAnswer.type === "insult") {
       return answers.map(this.renderInsult)
     } else if (renderAnswer.type === "evergreen") {
@@ -448,6 +450,27 @@ class BaseSkill extends Component<Props, State> {
         <p>
           {"Question: "}
           {mes.question}
+        </p>
+      </div>
+    )
+  }
+
+  renderOnlyAnswer = (mes: Answer, i: number) => {
+    const rest = { ...mes }
+    delete rest.answer
+    delete rest.question
+
+    let answer: any = mes.answer[0]
+
+    // Fallback in case answer is empty
+    if (typeof answer === "string" && !answer) {
+      answer = this.lang !== "ru" ? "I don't know" : "Я не знаю"
+    }
+
+    return (
+      <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
+        <p className={s.bAnswer}>
+          <NerClass key={i} color={"#0069b4"} label={answer} tip={"Hallucination Span"} />
         </p>
       </div>
     )

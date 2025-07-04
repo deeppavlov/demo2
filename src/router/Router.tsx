@@ -10,6 +10,7 @@ import Intent from "pages/TextClassification/Intent"
 
 import EntityLinking from "pages/TokenClassification/EntityLinking"
 import NER from "pages/TokenClassification/NER"
+import NERNEW from "pages/TokenClassification/NERNEW"
 
 import ODQA from "pages/QuestionAnswering/ODQA"
 import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
@@ -25,15 +26,16 @@ export const Router = () => (
     <Route path={`/:tab/${Links.textEvergreen}`} exact component={EvergreenQA} /> 
     <Route path={`/:tab/${Links.textSentiment}`} exact component={Sentiment} />
     {/* <Route path={`/:tab/${Links.textFewShot}`} exact component={TextFewShot} /> */}
-    
+
     <Route path={`/:tab/${Links.tokenNer}`} exact component={NER} />  {/**/}
+    <Route path={`/:tab/${Links.tokenNerNew}`} exact component={NERNEW} />  {/**/}
     {/* <Route path={`/:tab/${Links.tokenEntityLinking}`} exact component={EntityLinking} /> */}
     {/* <Route path={`/:tab/${Links.tokenPartOfSpeech}`} exact component={PartOfSpeech} /> */}
     {/* <Route path={`/:tab/${Links.tokenFewShot}`} exact component={TokenFewShot} /> */}
-    
+
     <Route path={`/:tab/${Links.readingComprehesion}`} exact component={ReadingComprehension} />
     <Route path={`/:tab/${Links.odqa}`} exact component={ODQA} /> {/**/}
     {/* <Route path={`/:tab/${Links.knowledgeQA}`} exact component={KnowledgeBaseQA}/> */}
-    
+
   </Switch>
 )

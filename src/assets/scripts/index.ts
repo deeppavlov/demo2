@@ -36,8 +36,8 @@ model(['This month was a bad month for Kobold Quarterly'])`,
     topicClassification: {
       [Snippets.cli]:
         "python -m deeppavlov interact topics_xlm_roberta_base -di",
-      [Snippets.python]: `from deeppavlov import build_model 
-model = build_model('topics_xlm_roberta_base', download=True, install=True) 
+      [Snippets.python]: `from deeppavlov import build_model
+model = build_model('topics_xlm_roberta_base', download=True, install=True)
 model(['Great shirt, the talls are perfect length'])`,
       [Snippets.restApi]:
         "python -m deeppavlov riseapi topics_xlm_roberta_base -di",
@@ -63,8 +63,8 @@ model(['In what year was Pushkin born?'])`,
     intentClassification: {
       [Snippets.cli]:
         "python -m deeppavlov interact intents_distilbert_base_multi -di",
-      [Snippets.python]: `from deeppavlov import build_model 
-model = build_model('intents_distilbert_base_multi', download=True, install=True) 
+      [Snippets.python]: `from deeppavlov import build_model
+model = build_model('intents_distilbert_base_multi', download=True, install=True)
 model(['Turn on some dance music to lift our mood'])`,
       [Snippets.restApi]:
         "python -m deeppavlov riseapi intents_distilbert_base_multi -di",
@@ -72,22 +72,27 @@ model(['Turn on some dance music to lift our mood'])`,
   },
   tokenClassification: {
     entityLinking: {
-      [Snippets.cli]:
-        "python -m deeppavlov interact entity_extraction_en -di",
+      [Snippets.cli]: "python -m deeppavlov interact entity_extraction_en -di",
       [Snippets.python]: `from deeppavlov import build_model
 model = build_model('entity_extraction_en', download=True, install=True)
 model(['Axiom Space announced SpaceX will fly additional private crew missions to and from the Station through 2023.'])`,
       [Snippets.restApi]:
         "python -m deeppavlov riseapi entity_extraction_en -di",
     },
-    namedEntityRecognition: {
-      [Snippets.cli]:
-        "python -m deeppavlov interact ner_bert_base_mult -di",
-      [Snippets.python]: `from deeppavlov import build_model     
+    entityLinkingNew: {
+      [Snippets.cli]: "python -m deeppavlov interact ner_bert_base_mult -di",
+      [Snippets.python]: `from deeppavlov import build_model
 model = build_model('ner_bert_base_mult', download=True, install=True)
 model(['John, did you set a weekly appointment reminder? Can’t find it in my inbox.'])`,
       [Snippets.restApi]:
-        "python -m deeppavlov riseapi ner_bert_base_mult -di",
+        "python -m deeppavlov riseapi entity_extraction_en -di",
+    },
+    namedEntityRecognition: {
+      [Snippets.cli]: "python -m deeppavlov interact ner_bert_base_mult -di",
+      [Snippets.python]: `from deeppavlov import build_model
+model = build_model('ner_bert_base_mult', download=True, install=True)
+model(['John, did you set a weekly appointment reminder? Can’t find it in my inbox.'])`,
+      [Snippets.restApi]: "python -m deeppavlov riseapi ner_bert_base_mult -di",
     },
     partOfSpeech: {
       [Snippets.cli]: "",
@@ -102,33 +107,27 @@ model(['John, did you set a weekly appointment reminder? Can’t find it in my i
   },
   questionAnswering: {
     knowledgeBaseQA: {
-      [Snippets.cli]:
-        "python -m deeppavlov interact kbqa_lcquad2 -di",
+      [Snippets.cli]: "python -m deeppavlov interact kbqa_lcquad2 -di",
       [Snippets.python]: `from deeppavlov import build_model
 model = build_model('kbqa_lcquad2', download=True, install=True)
 model(['When did Jean-Paul Sartre move to Le Havre?'])`,
-      [Snippets.restApi]:
-        "python -m deeppavlov riseapi kbqa_lcquad2 -di",
+      [Snippets.restApi]: "python -m deeppavlov riseapi kbqa_lcquad2 -di",
     },
     readingComprehension: {
-      [Snippets.cli]:
-        "python -m deeppavlov interact qa_squad2_bert -di",
+      [Snippets.cli]: "python -m deeppavlov interact qa_squad2_bert -di",
       [Snippets.python]: `from deeppavlov import build_model
 model = build_model('qa_squad2_bert', download=True, install=True)
 model(['DeepPavlov is a library for NLP and dialog systems.'], ['What is DeepPavlov?'])`,
-      [Snippets.restApi]:
-        "python -m deeppavlov riseapi qa_squad2_bert -di",
+      [Snippets.restApi]: "python -m deeppavlov riseapi qa_squad2_bert -di",
     },
   },
   openDomainQA: {
     openDomianQA: {
-      [Snippets.cli]:
-        "python -m deeppavlov interact en_odqa_infer_wiki -di",
+      [Snippets.cli]: "python -m deeppavlov interact en_odqa_infer_wiki -di",
       [Snippets.python]: `from deeppavlov import build_model
 model = build_model('en_odqa_infer_wiki', download=True, install=True)
 model(['When did the first moon landing happen?'])`,
-      [Snippets.restApi]:
-        "python -m deeppavlov riseapi en_odqa_infer_wiki -di",
+      [Snippets.restApi]: "python -m deeppavlov riseapi en_odqa_infer_wiki -di",
     },
   },
   GLUE: {},
