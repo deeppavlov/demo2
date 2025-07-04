@@ -1,6 +1,6 @@
 {
   "extends": "airbnb",
-  "parser": "typescript-eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "plugins": ["typescript"],
   "rules": {
     "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }]
