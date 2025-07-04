@@ -51,6 +51,15 @@ model(['Was in the city yesterday - didn’t notice anything strange'])`,
       [Snippets.restApi]:
         "python -m deeppavlov riseapi insults_xlm_roberta_base -di",
     },
+    evergreenClassification: {
+      [Snippets.cli]:
+        "python -m deeppavlov interact evergreenqa_bert -di",
+      [Snippets.python]: `from deeppavlov import build_model 
+model = build_model('evergreenqa_bert', download=True, install=True) 
+model(['In what year was Pushkin born?'])`,
+      [Snippets.restApi]:
+        "python -m deeppavlov riseapi evergreenqa_bert -di",
+    },
     intentClassification: {
       [Snippets.cli]:
         "python -m deeppavlov interact intents_distilbert_base_multi -di",
