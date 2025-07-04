@@ -105,7 +105,7 @@ const config: BaseSkillProps<Req, Res> = {
     }
     return await axios.post("https://7008.deeppavlov.ai/model", req)
   },
-  renderAnswer: { type: "ner" },
+  renderAnswer: { type: "textqa" },
   snippets: scripts.tokenClassification.namedEntityRecognition,
 }
 
