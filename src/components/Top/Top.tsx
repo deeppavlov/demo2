@@ -17,7 +17,7 @@ export const Top: FC<TopProps> = (props) => {
                 <a href="https://deeppavlov.ai">
                   <span className={s.blue}>DeepPavlov 1.6.0</span>
                 </a>
-                <h1>DeepPavlov 1.0</h1>
+                <h1>DeepPavlov 1.1</h1>
               </p>
               <span className={s.check}>
                 Check and try our product's demo with us.

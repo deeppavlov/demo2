@@ -464,7 +464,14 @@ class BaseSkill extends Component<Props, State> {
 
     // Fallback in case answer is empty
     if (typeof answer === "string" && !answer) {
-      answer = this.lang !== "ru" ? "I don't know" : "Я не знаю"
+      answer = ""
+      return (
+        <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
+        <p className={s.bAnswer}>
+          <NerClass key={i} color={"green"} label={answer} tip={"No Hallucinations Detected"} />
+        </p>
+      </div>
+      )
     }
 
     return (

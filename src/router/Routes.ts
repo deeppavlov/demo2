@@ -89,7 +89,7 @@ export const routesForDemo: Routes = {
       component: NER,
     },
     {
-      title: "Name",
+      title: "Hallucination Detection",
       link: Links.tokenNerNew,
       component: NERNEW,
     },

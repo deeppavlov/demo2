@@ -13,7 +13,7 @@ interface Req {
 }
 
 const config: BaseSkillProps<Req, Res> = {
-  title: "Contextual Hallucination Detection",
+  title: "Factual Hallucination Detection",
   desc: (
     <div style={{ marginTop: "1em" }}>
       Contextual Hallucination Detector classifies spans of text in model-generated responses based on their factual consistency with the context. It identifies which spans are <b>supported</b> by the context and which are <b>hallucinated</b>. This tool is useful in tasks like <b>question answering</b> and <b>summarization</b>, where verifying alignment between the output and source content is essential.

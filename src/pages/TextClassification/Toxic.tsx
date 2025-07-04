@@ -63,6 +63,7 @@ const config: BaseSkillProps<Req, Res> = {
       x: [stateReq.question],
     }
     return await axios.post("https://7032.deeppavlov.ai/model", req)
+    // return await axios.post("https://localhost:5001/model", req)
   },
   renderAnswer: { type: "insult", colors: insultClasses },
   snippets: scripts.textClassification.toxicClassification,
