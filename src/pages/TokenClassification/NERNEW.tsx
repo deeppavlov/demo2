@@ -13,26 +13,16 @@ interface Req {
 }
 
 const config: BaseSkillProps<Req, Res> = {
-  title: "Named Entity Recognition NEW",
+  title: "Contextual Hallucination Detection",
   desc: (
     <div style={{ marginTop: "1em" }}>
-      Named Entity Recognition (NER) classifies tokens in text into predefined
-      categories (tags), such as <b>person names</b>,{" "}
-      <b>quantity expressions</b>, <b>percentage expressions</b>,{" "}
-      <b>names of locations</b>, <b>organizations</b>, as well as expression of{" "}
-      <b>time</b>, <b>currency</b> and others. NER can be used as a knowledge
-      extractor when you are interested in a piece of certain information in
-      your text. To learn more on implementation read our{" "}
-      <CustomLink href="https://docs.deeppavlov.ai/en/master/features/models/NER.html">
-        documentation
-      </CustomLink>
-      .
+      Contextual Hallucination Detector classifies spans of text in model-generated responses based on their factual consistency with the context. It identifies which spans are <b>supported</b> by the context and which are <b>hallucinated</b>. This tool is useful in tasks like <b>question answering</b> and <b>summarization</b>, where verifying alignment between the output and source content is essential.
     </div>
   ),
   docker: "deeppavlov/ner_en",
   inputs: [
     {
-      title: "Text",
+      title: "Context",
       type: "textarea",
       name: "text",
     },
@@ -59,24 +49,14 @@ const config: BaseSkillProps<Req, Res> = {
       answer: "The capital of Canada is Ottawa. The main language is Spanish.",
     },
     {
-      text: "Ибупрофен — это нестероидное противовоспалительное средство. Рекомендуемая максимальная суточная доза для взрослого — 1200 мг.",
-      question: "Что такое ибупрофен? Какова максимальная суточная доза для взрослого?",
-      answer: "Ибупрофен — это нестероидное противовоспалительное средство. Максимальная суточная доза для взрослого — 2400 мг.",
-    },
-    {
       text: "Rafael Nadal es un famoso tenista español. Ha ganado múltiples títulos de Grand Slam.",
       question: "¿Qué deporte practica Rafael Nadal? ¿Cuántos mundiales de fútbol ha ganado?",
       answer: "Rafael Nadal practica tenis. Ha ganado tres mundiales de fútbol..",
     },
     {
-      text: "Компания 'Ромашка' была основана в 1995 году в Москве. В настоящее время в компании работает более 500 сотрудников. Основные направления деятельности — розничная торговля и логистика.",
-      question: "",
-      answer: "Компания 'Ромашка' была основана в 1995 году в Москве и Санкт-Петербурге, и сейчас у неё более 500 сотрудников.",
-    },
-    {
-      text: "The Mars Rover Curiosity landed on Mars in August 2012. It was designed by NASA to explore the surface of the planet and search for signs of past life. The rover is equipped with a range of scientific instruments and cameras. Curiosity has provided valuable data about the geology and climate of Mars.",
-      question: "",
-      answer: "NASA's Curiosity rover landed on Mars in 2012 and discovered evidence of current microbial life on the planet.",
+      text: "Ибупрофен — это нестероидное противовоспалительное средство. Рекомендуемая максимальная суточная доза для взрослого — 1200 мг.",
+      question: "Что такое ибупрофен? Какова максимальная суточная доза для взрослого?",
+      answer: "Ибупрофен — это нестероидное противовоспалительное средство. Максимальная суточная доза для взрослого — 2400 мг.",
     },
   ],
   api: async (stateReq: Req) => {
