@@ -9,6 +9,7 @@ import {
   topicClasses,
   sentimentClasses,
   insultClasses,
+  evergreenClasses,
   emotionClasses,
   Classes as ClassesList,
 } from "utils/utils"
@@ -36,6 +37,7 @@ export const Classes: FC<ClassesProps> = (props) => {
     [Links.textTopic]: topicClasses,
     [Links.textSentiment]: sentimentClasses,
     [Links.textToxic]: insultClasses,
+    [Links.textEvergreen]: evergreenClasses,
     [Links.textEmotion]: emotionClasses,
   }
 

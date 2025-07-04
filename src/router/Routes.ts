@@ -8,6 +8,7 @@ import NER from "pages/TokenClassification/NER"
 import NERNEW from "pages/TokenClassification/NERNEW"
 import ODQA from "pages/QuestionAnswering/ODQA"
 import ReadingComprehension from "pages/QuestionAnswering/ReadingComprehension"
+import EvergreenQA from "pages/TextClassification/EvergreenQA"
 // import EntityLinking from "pages/TokenClassification/EntityLinking"
 // import KnowledgeBaseQA from "pages/QuestionAnswering/KnowledgeBaseQA"
 // import { TextFewShot } from "pages/TextClassification/TextFewShot"
@@ -23,6 +24,7 @@ export enum Links {
   textTopic = "text_topic",
   textSentiment = "text_sentiment",
   textToxic = "text_toxic",
+  textEvergreen = "text_evergreen",
   textEmotion = "text_emotion",
   textFewShot = "text_few_shot",
   tokenNer = "token_ner",
@@ -64,8 +66,16 @@ export const routesForDemo: Routes = {
       link: Links.textSentiment,
       component: Sentiment,
     },
-    { title: "Toxicity", link: Links.textToxic, component: Toxic },
-    { title: "Emotion", link: Links.textEmotion, component: Emotion },
+    { title: "Toxicity",
+      link: Links.textToxic,
+      component: Toxic },
+    { title: "EvergreenQA",
+      link: Links.textEvergreen,
+      component: EvergreenQA 
+    },
+    { title: "Emotion",
+      link: Links.textEmotion,
+      component: Emotion },
     /*{
       title: "Few-Shot",
       link: Links.textFewShot,
