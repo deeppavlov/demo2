@@ -49,6 +49,7 @@ export const Integration: FC<IntegrationProps> = (props) => {
           {!isCopied ? "Copy Code" : " Copied! "}
         </button>
       </div>
+      {/* @ts-ignore */}
       <SyntaxHighlighter
         customStyle={{ margin: "0px", borderRadius: "12px" }}
         language={"python"}

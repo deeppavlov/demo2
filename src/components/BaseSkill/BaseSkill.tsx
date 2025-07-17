@@ -181,12 +181,10 @@ class BaseSkill extends Component<Props, State> {
       return answers.map(this.renderTopic)
     } else if (renderAnswer.type === "entitylinking") {
       return answers.map(this.renderEntityLinking)
-    } 
+    }
   }
   renderEntityLinking = (mes: Answer, i: number) => {
-    const rest = { ...mes }
-    delete rest.answer
-    delete rest.question
+    const { answer: _, question, ...rest } = { ...mes }
 
     let answer: any = mes.answer[0]
     if (typeof answer === "string" && !answer) {
@@ -303,9 +301,10 @@ class BaseSkill extends Component<Props, State> {
           <span
             className="card"
             style={{
-              backgroundColor: colors![answer === "1" ? "EVERGREEN" : "NON_EVERGREEN"].color!,
+              backgroundColor:
+                colors![answer === "1" ? "EVERGREEN" : "NON_EVERGREEN"].color!,
             }}
-          > 
+          >
             {answer === "1" ? "EVERGREEN" : "NON_EVERGREEN"}
           </span>
         </p>
@@ -394,9 +393,7 @@ class BaseSkill extends Component<Props, State> {
     )
   }
   renderBasic = (mes: Answer, i: number) => {
-    const rest = { ...mes }
-    delete rest.answer
-    delete rest.question
+    const { answer: _, question, ...rest } = { ...mes }
 
     let answer: any = mes.answer[0]
     if (typeof answer === "string" && !answer) {
@@ -414,9 +411,7 @@ class BaseSkill extends Component<Props, State> {
   }
 
   renderQA = (mes: Answer, i: number) => {
-    const rest = { ...mes }
-    delete rest.answer
-    delete rest.question
+    const { answer: _, question, ...rest } = { ...mes }
     let answer: any = mes.answer[0]
     if (typeof answer === "string" && !answer) {
       answer = this.lang !== "ru" ? "I don't know" : "Я не знаю"
@@ -456,9 +451,7 @@ class BaseSkill extends Component<Props, State> {
   }
 
   renderOnlyAnswer = (mes: Answer, i: number) => {
-    const rest = { ...mes }
-    delete rest.answer
-    delete rest.question
+    const { answer: _, question, ...rest } = { ...mes }
 
     let answer: any = mes.answer[0]
 
@@ -467,17 +460,27 @@ class BaseSkill extends Component<Props, State> {
       answer = ""
       return (
         <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
-        <p className={s.bAnswer}>
-          <NerClass key={i} color={"green"} label={answer} tip={"No Hallucinations Detected"} />
-        </p>
-      </div>
+          <p className={s.bAnswer}>
+            <NerClass
+              key={i}
+              color={"green"}
+              label={answer}
+              tip={"No Hallucinations Detected"}
+            />
+          </p>
+        </div>
       )
     }
 
     return (
       <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
         <p className={s.bAnswer}>
-          <NerClass key={i} color={"#0069b4"} label={answer} tip={"Hallucination Span"} />
+          <NerClass
+            key={i}
+            color={"#0069b4"}
+            label={answer}
+            tip={"Hallucination Span"}
+          />
         </p>
       </div>
     )
@@ -510,9 +513,19 @@ class BaseSkill extends Component<Props, State> {
     })
 
     if (messages) {
-      messages.splice(0, 0, { ...this.state, answer: response.data[0] })
+      messages.splice(0, 0, {
+        ...this.state,
+        question: this.state.question ?? "",
+        answer: response.data[0],
+      })
     } else {
-      messages = [{ ...this.state, answer: response.data[0] }]
+      messages = [
+        {
+          ...this.state,
+          question: this.state.question ?? "",
+          answer: response.data[0],
+        },
+      ]
     }
 
     window.gtag("event", "view_item", {
@@ -624,6 +637,7 @@ function withConnect<Req, Res>(stateKey: string) {
       safeComponentState: (state: State) =>
         dispatch(SCI(`${stateKey}Component`, state)),
     })
+    // @ts-ignore
   )(withRouter(BaseSkill))
 }
 

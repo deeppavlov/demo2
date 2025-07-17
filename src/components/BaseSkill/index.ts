@@ -45,6 +45,7 @@ interface RenderAnswer {
     | "emotion"
     | "entitylinking"
     | "kbqa"
+    | "text_span"
   colors?: { [key: string]: { color: string; text?: string } }
 }
 

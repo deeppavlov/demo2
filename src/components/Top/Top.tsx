@@ -3,7 +3,9 @@ import Pavlov from "assets/images/pavlov.svg"
 import { Limiter } from "components"
 import s from "./Top.module.scss"
 
-interface TopProps {}
+interface TopProps {
+  children: React.ReactNode
+}
 
 export const Top: FC<TopProps> = (props) => {
   const { children } = props

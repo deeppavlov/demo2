@@ -2,13 +2,14 @@ import React, { FC, useRef, useState } from "react"
 import { useLocation } from "react-router"
 import classnames from "classnames/bind"
 import { useHandleClickOutside } from "hooks/useHandleClickOutside"
-import { NavLink } from "react-router-dom"
 import { RouteConfig } from "router/Routes"
 import s from "./Dropdown.module.scss"
+import { NavLink } from "react-router-dom"
 
 interface DropdownProps {
   options: RouteConfig[]
   onSelect: () => void
+  children: React.ReactNode
 }
 
 export const Dropdown: FC<DropdownProps> = (props) => {
@@ -39,6 +40,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
           {options.map((option, i) => {
             const isEmpty = option.component === null
             return (
+              // @ts-ignore
               <NavLink
                 key={i}
                 exact

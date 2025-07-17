@@ -10,9 +10,10 @@ interface ExamplesProps {
   onFormSubmit: (e: SyntheticEvent) => void
   renderExamples: (ex: Example, i: number) => JSX.Element
   renderInput: (input: Input, i: number) => JSX.Element
-  renderAnswers: (answers: any) => void
+  renderAnswers: (answers: any) => React.ReactNode
   onAsk: () => void
   answersRef: RefObject<HTMLDivElement>
+  children: React.ReactNode
 }
 
 export const Examples: FC<ExamplesProps> = (props) => {
