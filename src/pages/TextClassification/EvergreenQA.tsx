@@ -59,7 +59,7 @@ const config: BaseSkillProps<Req, Res> = {
     const req = {
       x: [stateReq.question],
     }
-    return await axios.post("http://127.0.0.1:5025/model", req)
+    return await axios.post("http://10.11.1.102:5025/model", req)
   },
   renderAnswer: { type: "evergreen", colors: evergreenClasses },
   snippets: scripts.textClassification.evergreenClassification,

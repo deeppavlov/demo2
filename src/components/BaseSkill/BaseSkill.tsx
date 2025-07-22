@@ -453,18 +453,20 @@ class BaseSkill extends Component<Props, State> {
   renderOnlyAnswer = (mes: Answer, i: number) => {
     const { answer: _, question, ...rest } = { ...mes }
 
-    let answer: any = mes.answer[0]
-
+    let text: any = mes.answer[3]
+    let span: any = mes.answer[0]
+    const array = (text as string).split(span)
+    
     // Fallback in case answer is empty
-    if (typeof answer === "string" && !answer) {
-      answer = ""
+    if (typeof text === "string" && !text) {
+      text = ""
       return (
         <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
           <p className={s.bAnswer}>
             <NerClass
               key={i}
               color={"green"}
-              label={answer}
+              label={text}
               tip={"No Hallucinations Detected"}
             />
           </p>
@@ -474,14 +476,12 @@ class BaseSkill extends Component<Props, State> {
 
     return (
       <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
-        <p className={s.bAnswer}>
-          <NerClass
-            key={i}
-            color={"#0069b4"}
-            label={answer}
-            tip={"Hallucination Span"}
-          />
-        </p>
+          <p>
+            {array[0]}{" "}
+            <NerClass key={i} color={"#0069b4"} label={span} tip={"Hallucination Span"} />{" "}
+            {array[1]}
+          </p>
+        {/* <p>{mes.answer[0]}</p> */}
       </div>
     )
   }
