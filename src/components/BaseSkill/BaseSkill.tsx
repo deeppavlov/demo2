@@ -281,10 +281,11 @@ class BaseSkill extends Component<Props, State> {
           <span
             className="card"
             style={{
-              backgroundColor: colors![answer].color!,
+              backgroundColor: 
+              colors![answer === "1" ? "INSULT" : "NOT_INSULT"].color!,
             }}
           >
-            {answer}
+            {answer === "1" ? "INSULT" : "NOT_INSULT"}
           </span>
         </p>
         <p>{mes.question}</p>
