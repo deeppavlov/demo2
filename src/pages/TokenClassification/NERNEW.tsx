@@ -66,7 +66,7 @@ const config: BaseSkillProps<Req, Res> = {
       answer_raw: [stateReq.answer],
     }
     // return await axios.post("https://7008.deeppavlov.ai/model", req)
-    return await axios.post("http://10.11.1.2:5000/model", req)
+    return await axios.post("http://10.11.1.102:5026/model", req)
   },
   renderAnswer: { type: "text_span" },
   snippets: scripts.tokenClassification.namedEntityRecognition,

@@ -459,17 +459,12 @@ class BaseSkill extends Component<Props, State> {
     const array = (text as string).split(span)
     
     // Fallback in case answer is empty
-    if (typeof text === "string" && !text) {
-      text = ""
+    if (typeof span === "string" && !span) {
       return (
         <div className={s.basic} dir={this.isRTL(mes.question)} key={i}>
-          <p className={s.bAnswer}>
-            <NerClass
-              key={i}
-              color={"green"}
-              label={text}
-              tip={"No Hallucinations Detected"}
-            />
+          <p>
+            {array}{" "}
+            <NerClass key={i} color={"green"} label={span} tip={"No Hallucinations Detected"} />{" "}
           </p>
         </div>
       )
