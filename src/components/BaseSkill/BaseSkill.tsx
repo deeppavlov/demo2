@@ -454,9 +454,10 @@ class BaseSkill extends Component<Props, State> {
   renderOnlyAnswer = (mes: Answer, i: number) => {
     const { answer: _, question, ...rest } = { ...mes }
 
-    let text: any = mes.answer[3]
-    let span: any = mes.answer[0]
+    let text: any = mes.answer[0][3]
+    let span: any = mes.answer[0][0]
     const array = (text as string).split(span)
+    // const array = (typeof text === 'string') ? text.split(span) : span; # for debug
     
     // Fallback in case answer is empty
     if (typeof span === "string" && !span) {
